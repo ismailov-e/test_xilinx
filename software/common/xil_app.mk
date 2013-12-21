@@ -1,0 +1,152 @@
+# Get directory where this file resides
+MAKEFILE_DIR := $(dir $(lastword $(MAKEFILE_LIST)))
+
+include $(realpath $(MAKEFILE_DIR)/xil_vars.mk)
+
+# Included lib public.mk files append to these vars, e.g.
+# ALT_INCLUDE_DIRS = ../../lib/vbxtest
+# ALT_LIBRARY_DIRS = ../../lib/vbxint ../../lib/vbxtest
+# ALT_LIBRARY_NAMES = vbxint vbxtest
+# ALT_LDDEPS = ../../lib/vbxint/libvbxint.a ../../lib/vbxtest/libvbxtest.a
+# MAKEABLE_LIBRARY_ROOT_DIRS = ../../lib/vbxint ../../lib/vbxtest
+
+INC_DIRS := $(ALT_INCLUDE_DIRS) $(BSP_INC_DIR) $(APP_INCLUDE_DIRS)
+LIB_DIRS := $(ALT_LIBRARY_DIRS) $(BSP_LIB_DIR)
+
+INC_DIR_FLAGS := $(addprefix -I,$(INC_DIRS))
+LIB_DIR_FLAGS := $(addprefix -L,$(LIB_DIRS))
+
+LIBS := $(addprefix -l, $(ALT_LIBRARY_NAMES)) $(LIBS)
+
+ifndef ELF
+ELF := test.elf
+endif
+ELFSIZE := $(ELF).size
+ELFCHECK := $(ELF).elfcheck
+
+###########################################################################
+
+# All Target
+all: libs $(ELF) secondary-outputs
+
+ifneq ($(MAKECMDGOALS),clean)
+ifneq ($(strip $(C_DEPS)),)
+-include $(C_DEPS)
+endif
+endif
+
+.PHONY: print_vars
+print_vars:
+	@echo "ALT_LIBRARY_ROOT_DIR=$(ALT_LIBRARY_ROOT_DIR)"
+	@echo "ALT_LIBRARY_DIRS=$(ALT_LIBRARY_DIRS)"
+	@echo "ALT_LIBRARY_NAMES=$(ALT_LIBRARY_NAMES)"
+	@echo "ALT_LDDEPS=$(ALT_LDDEPS)"
+	@echo "MAKEABLE_LIBRARY_ROOT_DIRS=$(MAKEABLE_LIBRARY_ROOT_DIRS)"
+	@echo "LIBS=$(LIBS)"
+	@echo "INC_DIRS=$(INC_DIRS)"
+	@echo "INC_DIR_FLAGS=$(INC_DIR_FLAGS)"
+	@echo "LIB_DIRS=$(LIB_DIRS)"
+	@echo "LIB_DIR_FLAGS=$(LIB_DIR_FLAGS)"
+	@echo "LIB_TARGETS=$(LIB_TARGETS)"
+	@echo "OBJS=$(OBJS)"
+	@echo "C_DEPS=$(C_DEPS)"
+	@echo "MAKEFILE_DIR=$(MAKEFILE_DIR)"
+	@echo "HW_PLATFORM_XML=$(HW_PLATFORM_XML)"
+
+# ALT_LIBRARY_DIRS = ../../lib/vbxint ../../lib/vbxtest
+# ALT_LIBRARY_NAMES = vbxint vbxtest
+# ALT_LDDEPS = ../../lib/vbxint/libvbxint.a ../../lib/vbxtest/libvbxtest.a
+# MAKEABLE_LIBRARY_ROOT_DIRS = ../../lib/vbxint ../../lib/vbxtest
+
+$(OBJ_DIR)/%.o: %.c
+	@echo Building file: $<
+	@echo Invoking: gcc compiler
+	@mkdir -p $(@D)
+	$(CC) $(CC_FLAGS) $(OPT_FLAGS) $(INC_DIR_FLAGS) $(CPU_FLAGS) \
+	    -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o"$@" "$<"
+	@echo Finished building: $<
+	@echo ' '
+
+$(ELF): $(OBJS) $(LD_SCRIPT) $(APP_LDDEPS)
+	@echo Building target: $@
+	@echo Invoking: gcc linker
+	$(CC) $(LD_FLAGS) $(LIB_DIR_FLAGS) $(CPU_FLAGS) -o"$@" $(OBJS) $(LIBS)
+	@echo Finished building target: $@
+	@echo ' '
+
+$(ELFSIZE): $(ELF)
+	@echo Invoking: Print Size
+	$(SZ) "$<" | tee "$@"
+	@echo Finished building: $@
+	@echo ' '
+
+$(ELFCHECK): $(ELF)
+	@echo Invoking: Xilinx ELF Check
+	elfcheck "$<" -hw $(HW_PLATFORM_XML) -pe $(PROCESSOR_INSTANCE) | tee "$@"
+	@echo Finished building: $@
+	@echo ' '
+
+# Load FPGA bitstream
+.PHONY: pgm
+ifeq ($(CPU_TARGET),XIL_ARM)
+pgm:
+	cd $(PROJ_ROOT) ; xmd -tcl xmd_init.tcl
+else
+# cd $(PROJ_ROOT) ; $(MAKE) -f system.make download
+pgm:
+	cd $(PROJ_ROOT) ; impact -batch etc/download.cmd
+endif
+
+# Don't know of a good way to pass PROJ_ROOT to xmd tcl script,
+# so using make target to cd to PROJ_ROOT.
+.PHONY: run
+ifeq ($(CPU_TARGET),XIL_ARM)
+run:
+	cd $(PROJ_ROOT) ; xmd -tcl xmd_reinit.tcl
+	xmd -tcl $(MAKEFILE_DIR)/xmd_arm.tcl
+else
+run:
+	xmd -tcl $(MAKEFILE_DIR)/xmd_mb.tcl
+endif
+
+# Other Targets
+clean:
+	-$(RM) $(OBJS) $(C_DEPS) $(ELFSIZE) $(ELFCHECK) $(ELF)
+	-$(RM) $(OBJ_ROOT_DIR)
+	-@echo ' '
+
+secondary-outputs: $(ELFSIZE) $(ELFCHECK)
+
+.PHONY: all clean
+.SECONDARY:
+
+###########################################################################
+LIB_TARGETS := $(patsubst %,%-recurs-make-lib,$(MAKEABLE_LIBRARY_ROOT_DIRS))
+
+.PHONY : libs
+libs : $(LIB_TARGETS)
+
+ifneq ($(strip $(LIB_TARGETS)),)
+$(LIB_TARGETS): %-recurs-make-lib:
+	@echo Info: Building $*
+	$(MAKE) --no-print-directory -C $* CPU_TARGET=$(CPU_TARGET)
+endif
+
+ifneq ($(strip $(APP_LDDEPS)),)
+$(APP_LDDEPS): libs
+	@true
+endif
+
+###########################################################################
+LIB_CLEAN_TARGETS := $(patsubst %,%-recurs-make-clean-lib,$(MAKEABLE_LIBRARY_ROOT_DIRS))
+
+.PHONY : clean_libs
+clean_libs : $(LIB_CLEAN_TARGETS)
+
+ifneq ($(strip $(LIB_CLEAN_TARGETS)),)
+$(LIB_CLEAN_TARGETS): %-recurs-make-clean-lib:
+	@echo Info: Cleaning $*
+	$(MAKE) --no-print-directory -C $* CPU_TARGET=$(CPU_TARGET) clean
+endif
+
+###########################################################################

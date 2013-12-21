@@ -59,10 +59,10 @@
 /* Twitter Bootstrap Override Style */
 .nav-list > li > a {
     padding: 5px;
-    color: black;
+    /* color: black; */
 }
 
 .nav-list > .active > a, .nav-list > .active > a:hover, .nav-list > .active > a:focus {
-    color: white;
-    background-color: black;
+    /* color: white; */
+    /* background-color: black; */
 }

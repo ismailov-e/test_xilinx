@@ -10,25 +10,15 @@ Our preview release consists of:
 - Example programs
 - Documentation
 
-<!--
-- Prebuilt bitstream for several popular [Altera](altera_boards.md) and [Xilinx](xilinx_boards.md) development boards 
--->  
-
 To get started immediately:
 
 - Ensure you have an available development board
-- Follow either the [Altera Quickstart](http://vectorblox.github.io/test/mxp_nios_preview.html) or [Xilinx Quickstart](http://vectorblox.github.io/test/mxp_microblaze_preview.html)
+- Follow the [Xilinx Quickstart](http://vectorblox.github.io/test_xilinx/mxp_xilinx_preview.html) 
 
-To read VectorBlox hardware/software documentation, refer to:
+For further VectorBlox hardware/software documentation, refer to:
 
-- [VectorBlox MXP Programming Guide](http://vectorblox.github.io/test/mxp_programming_guide_gh.html) 
-- [VectorBlox MXP Programming Reference](http://vectorblox.github.io/test/mxp_programming_reference_gh.html)
-
-<!--
-Doxygen generated for this release can be found [here](http://vectorblox.github.io/test/doxygen/index.html)
-
-For support please email us at [support@vectorblox.com](support@vectorblox.com)
--->
+- [VectorBlox MXP Programming Guide](http://vectorblox.github.io/test_xilinx/mxp_xilinx_programming_guide.html) 
+- [VectorBlox MXP Programming Reference](http://vectorblox.github.io/test_xilinx/mxp_programming_reference.html)
 
 For further information please email us at [info@vectorblox.com](mailto:info@vectorblox.com) or visit [http://vectorblox.com](http://vectorblox.com)  
 

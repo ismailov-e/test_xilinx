@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+<link type="text/css" rel="stylesheet" href="css/bootstrap.css"/>
+<link type="text/css" rel="stylesheet" href="css/jquery.ui.all.css"/>
+<link type="text/css" rel="stylesheet" href="css/jquery.tocify.css"/>
+<style>
+body {
+    padding-top: 20px;
+}
+p {
+    font-size: 16px;
+}
+.headerDoc {
+    color: #005580;
+}
+
+@media (max-width: 767px) {
+    #toc {
+        position: relative;
+        width: 100%;
+        margin: 0px 0px 20px 0px;
+    }
+}
+</style>
+</head>
+<body>
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span3">
+<div id="toc"></div>
+</div>
+<div class="span9">
+<h1 id="vectorblox-mxp-xilinx-quickstart">VectorBlox MXP Xilinx Quickstart</h1>
+<p>This section describes how to compile and run the VectorBlox test programs on ZedBoard.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Before you begin, make sure you have:</p>
+<ul>
+<li><p>Installed Xilinx ISE and the VectorBlox MXP distribution.</p></li>
+<li><p>Installed and tested the Digilent USB-JTAG drivers.</p></li>
+<li><p>Connected your computer to a ZedBoard and turned the board on.</p></li>
+</ul>
+<h2 id="compiling-and-running-a-test-program">Compiling and Running a Test Program</h2>
+<p>The VectorBlox MXP distribution contains a pre-built XPS system for the ZedBoard, containing an MXP processor connected to the Zynq PS.</p>
+<p>We will use the string <strong>DIST</strong> to refer to the directory where you extracted the VectorBlox MXP distribution.</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Start a Command Shell.</strong> In Windows, select <strong>Start Menu</strong> <span class="math"> → </span> <strong>All Programs</strong> <span class="math"> → </span> <strong>Xilinx Design Tools</strong> <span class="math"> → </span> <strong>ISE Design Suite</strong> <span class="math"> → </span> <strong>Accessories</strong> <span class="math"> → </span> <strong>ISE Design Suite 32/64 Bit Command Prompt</strong>. In Unix, open a terminal and run the appropriate <code>settings{32,64}.{sh,csh}</code> script in the root of your Xilinx ISE_DS installation. This sets up the proper environment variables for using the Xilinx development tools.</p></li>
+<li><p>Change directory to boards/zedboard_arm_mxp/prebuilt_zedboard_v16.</p></li>
+<li><p><strong>Configure the FPGA.</strong> Download the FPGA bitstream to the ZedBoard and initialize the system by running xmd and entering the following commands:</p>
+<pre><code>connect arm hw
+rst -srst
+fpga -f SDK/SDK_Export/hw/system.bit
+source SDK/SDK_Export/hw/ps7_init.tcl
+ps7_init
+ps7_post_config
+exit</code></pre></li>
+<li><p>Open a serial port terminal emulator to prepare to view the output from the ZedBoard’s USB-UART. On Linux, you can, for example, open a new terminal and run <code>picocom -b 115200 /dev/ttyACM0</code>. On Windows, use a program such as PuTTY to connect to the USB serial port.</p></li>
+<li><p><strong>Make the executable.</strong> Change directory to software/bmark/vbw_vec_add_t and run <code>make CPU_TARGET=XIL_ARM</code> (<code>CPU_TARGET=XIL_ARM</code> is for an ARM Cortex-A9 target on a Zynq FPGA.) After a long list of messages and a few seconds, the file <strong>test.elf</strong> should have been created.</p></li>
+<li><p><strong>Download the executable.</strong> Download and run the executable from the command line using the following xmd commands:</p>
+<pre><code> connect arm hw
+ dow test.elf
+ con</code></pre></li>
+<li><p><strong>View execution output.</strong> You should see output in the serial terminal emulator you opened in an earlier step. The executable may use stdin or stdout for printf, scanf, and similar functions.</p></li>
+</ol>
+<h2 id="creating-your-own-standalone-bsp">Creating your own Standalone BSP</h2>
+<h3 id="from-the-gui">From the GUI</h3>
+<ul>
+<li><p>In XPS, select <strong>Project</strong> <span class="math"> → </span> <strong>Export Hardware Design to SDK…</strong>, then click <strong>Export &amp; Launch SDK</strong>. This will run Xilinx’s psf2Edward utility to generate an XML platform description file (usually in SDK/SDK_Export/hw), then launch the SDK.</p></li>
+<li><p>In the Xilinx SDK, select the <strong>Xilinx Tools</strong> menu, then <strong>Repositories</strong>.</p></li>
+<li><p>The <strong>Preferences</strong> dialog box will open, with the <strong>Repositories</strong> page already selected.</p>
+<p>If you copied the VectorBlox MXP <code>drivers</code> and <code>sw_services</code> directories to the Xilinx EDK installation directory as described in the installation section, you should see the directory corresponding to <code>$(XILINX_EDK)/sw/VectorBlox</code> under <strong>SDK Installation Repositories</strong>.</p>
+<p>If you did not do this, you must now add the location of these directories (i.e. their common parent directory) to the software repository list. Click <strong>New…</strong> next to either <strong>Local Repositories</strong> or <strong>Global Repositories</strong>, and add the repository location. Click <strong>OK</strong> to close the Preferences dialog box.</p></li>
+<li><p>From the <strong>File</strong> menu, select <strong>New</strong> <span class="math"> → </span> <strong>Board Support Package</strong>.</p></li>
+<li><p>Give your BSP a project name, and under <strong>Board Support Package OS</strong>, select <strong>standalone</strong>. Click <strong>Finish</strong>.</p></li>
+<li><p>In the <strong>Board Support Package Settings</strong> dialog box, click on <strong>Overview</strong> in the left panel, and look at the <strong>Supported Libraries</strong> section. You should see an entry for <strong>vbxware</strong>, the VBXWare Library, as in the figure below.</p>
+<div class="figure">
+<img src="images/xsdk_bsp_libraries.png" />
+</div>
+<p>If you do not see the VBXWare library listed, the likely reason is that the VectorBlox <strong>sw_services</strong> directory is not in the SDK repository search path.</p>
+<p>You can check the box next to <strong>vbxware</strong> if you wish to include the VBXWare library in your BSP. However, <strong>do not</strong> check this box if you wish to compile and run the VectorBlox-supplied test programs because the Makefiles for these programs compile the VBXWare library separately from the BSP.</p></li>
+<li><p>In the same dialog box, click on <strong>drivers</strong> in the left panel. Check that the vectorblox_mxp driver is assigned to the the vectorblox_mxp component. See below.</p>
+<div class="figure">
+<img src="images/xsdk_driver_assignment.png" />
+</div>
+<p>If the vectorblox_mxp driver is not available as an option, the likely reason is that the VectorBlox <strong>drivers</strong> directory is not in the SDK repository search path.</p></li>
+<li><p>Click <strong>OK</strong> to close the BSP Settings dialog box and compile the standalone BSP library <code>libxil.a</code>.</p></li>
+</ul>
+<h3 id="from-the-command-line">From the Command-line</h3>
+<p>This section describes how to generate a standalone BSP from the command-line.</p>
+<ul>
+<li><p>Change directory to your XPS project directory.</p></li>
+<li><p>Generate the XML hardware description with</p>
+<pre><code>make -f system.make exporttosdk</code></pre></li>
+<li><p>Run Xilinx’s appguru utility to create an MSS file from the XML file and the repository search path:</p>
+<pre><code>appguru -hw SDK/SDK_Export/hw/system.xml \\
+  -pe ps7_cortexa9_0 -lp . -app empty_application -od bsp</code></pre>
+<p>This command creates the files for the XSDK &quot;Empty Application&quot; template in the output directory <code>bsp</code>. It uses the XML hardware specification in <code>$SDK/SDK_Export/hw/system.xml</code> and targets the processor instance <code>ps7_cortexa9_0</code>. The <code>-lp .</code> option adds the current directory to the software repository search path.</p></li>
+<li><p>The generated MSS file in <code>bsp/system.mss</code> should contain an entry assigning the vectorblox_mxp driver to the vectorblox_mxp hardware instance, e.g.</p>
+<pre><code>BEGIN DRIVER
+ PARAMETER DRIVER_NAME = vectorblox_mxp
+ PARAMETER DRIVER_VER = 1.00.a
+ PARAMETER HW_INSTANCE = vectorblox_mxp_0
+END</code></pre></li>
+<li><p>If you want to include the VBXWare library in the BSP, you must manually add the following lines to <code>bsp/system.mss</code>.</p>
+<pre><code>BEGIN LIBRARY
+ PARAMETER LIBRARY_NAME = vbxware
+ PARAMETER LIBRARY_VER = 1.00.a
+END</code></pre>
+<p>However, <strong>do not</strong> add these linesif you wish to compile and run the VectorBlox-supplied test programs because the Makefiles for these programs compile the VBXWare library separately from the BSP.</p></li>
+<li><p>Extract any Cortex-A9-specific compilation flags from the generated Makefile:</p>
+<pre><code>grep ^CC_FLAGS bsp/Makefile &gt; bsp/cpu_flags.mk
+sed -i &#39;s/^CC_FLAGS/CPU_FLAGS/&#39; bsp/cpu_flags.mk</code></pre>
+<p>The <code>CPU_FLAGS</code> variable is used by the Makefiles for the VectorBlox-supplied programs in <strong>DIST</strong>/software/bmark.</p></li>
+<li><p>Remove unneeded files:</p>
+<pre><code>rm -f bsp/README.txt bsp/Makefile</code></pre></li>
+<li><p>Generate the BSP from the MSS file:</p>
+<pre><code>libgen -hw SDK/SDK_Export/hw/system.xml -pe ps7_cortexa9_0 \\
+       -lp . -od bsp   bsp/system.mss</code></pre></li>
+</ul>
+<h2 id="compiling-the-test-programs-with-a-different-standalone-bsp">Compiling the Test Programs with a different Standalone BSP</h2>
+<p>To compile the programs in <strong>DIST</strong>/software/bmark with a different standalone BSP, there are some additional steps you must take:</p>
+<ul>
+<li><p>Open the file <strong>DIST</strong>/software/common/Makefile_vars.mk for editing.</p>
+<ul>
+<li><p>Change the <code>PROJ_ROOT</code> variable to point to the root of your XPS project directory.</p></li>
+<li><p>Change the <code>HW_PLATFORM_XML</code> variable to point to the XML file generated by the psf2Edward program during the &quot;Export to SDK&quot; procedure. Normally the file can be found in the directory <code>$(PROJ_ROOT)/SDK/SDK_Export/hw</code>.</p></li>
+<li><p>Change the <code>BSP_ROOT_DIR</code> variable to point to the root of BSP directory. Ensure that <code>BSP_INC_DIR</code> and <code>BSP_LIB_DIR</code> point to the correct <code>include</code> and <code>lib</code> subdirectories.</p></li>
+<li><p>Change the <code>LD_SCRIPT</code> variable to point to the linker script you wish to use. In your linker script, use a stack size of 8 MB and a heap size of 64 MB if you want to be able to run all of the test programs.</p></li>
+</ul></li>
+<li><p>Create a file called <strong>cpu_flags.mk</strong> in <code>$(BSP_ROOT_DIR)</code> that defines a variable called <code>CPU_FLAGS</code> containing any compiler flags specific to the Cortex-A9 CPU. Normally this would be empty, i.e.</p>
+<pre><code>CPU_FLAGS :=</code></pre></li>
+</ul>
+<h2 id="mxp-driver-initialization-with-a-standalone-bsp">MXP Driver Initialization with a Standalone BSP</h2>
+<p>[To be expanded]</p>
+<h3 id="map-instruction-port-to-device-memory">Map Instruction Port to Device Memory</h3>
+<p>The MXP's AXI Instruction Slave port should be mapped to device memory (uncached, posted writes) using the Cortex-A9's MMU:</p>
+<pre class="sourceCode c"><code class="sourceCode c"><span class="ot">#include &quot;xil_mmu.h&quot;</span>
+
+<span class="kw">extern</span> u32 MMUTable;
+
+<span class="dt">int</span> vbx_zynq_set_instr_port_device_memory()
+{
+    <span class="co">// Change memory attributes of 1MB region starting at base address of</span>
+    <span class="co">// AXI instruction port.</span>
+    <span class="co">// shareable device:</span>
+    <span class="co">//   S=b0 TEX=b000 AP=b11, C=b0, B=b1 =&gt; 0xC06</span>
+    Xil_SetTlbAttributes(XPAR_VECTORBLOX_MXP_ARM_0_S_AXI_INSTR_BASEADDR,
+                         <span class="bn">0xc06</span>);
+    <span class="kw">return</span> XST_SUCCESS;
+}</code></pre>
+<h3 id="support-for-uncached-access-to-cached-memory-region">Support for Uncached Access to Cached Memory Region</h3>
+<p>The VBX API library provides some functions to simplify sharing of data between the Zynq PS and the MXP without requiring the application programmer to explicitly flush data cache lines. These functions include <code>vbx_shared_malloc()</code>, <code>vbx_shared_free()</code>, <code>vbx_remap_uncached()</code>, and <code>vbx_remap_cached()</code>.</p>
+<p>The library assumes that the Zynq PS can access a cached memory region in an uncached manner (i.e. bypassing the data cache) simply by setting the most significant bit of the physical address to 1.</p>
+<p>This can be accomplished with the ARM MMU's translation table. For example, on the ZedBoard, the DDR physical address range is 0x0-0x1fff_ffff (512MB), and the virtual address range 0x8000_0000 to 0x9fff_ffff (512 MB) can be mapped to the DDR physical address range but with the memory attributes set to strongly-ordered.</p>
+<p>See vbx_zynq_remap_ddr_uncached() in software/lib/vbxtest/vbx_test.c.</p>
+<h3 id="vectorblox_mxp_initialize">VectorBlox_MXP_Initialize()</h3>
+<p>Before using any VBX API calls in your applications, you must call the <code>VectorBlox_MXP_Initialize()</code> function to initialize the MXP instance and register it with the MXP driver. An example invocation is as follows:</p>
+<pre class="sourceCode c"><code class="sourceCode c"><span class="ot">#include &quot;xparameters.h&quot;</span>
+<span class="ot">#include &quot;xil_types.h&quot;</span>
+<span class="ot">#include &quot;vbx.h&quot;</span>
+<span class="ot">#include &quot;vectorblox_mxp.h&quot;</span>
+
+vbx_mxp_t vbx_mxp_inst;
+
+<span class="dt">void</span> my_mxp_init()
+{
+    <span class="dt">int</span> status;
+    u16 mxp_dev_id = XPAR_VECTORBLOX_MXP_0_DEVICE_ID;
+
+    status = VectorBlox_MXP_Initialize(&amp;vbx_mxp_inst, mxp_dev_id);
+    <span class="kw">if</span> (status != XST_SUCCESS) {
+        VBX_PRINTF(<span class="st">&quot;ERROR: VectorBlox_MXP_Initialize failed.</span><span class="ch">\n</span><span class="st">&quot;</span>);
+        VBX_FATAL(__LINE__, __FILE__, -<span class="dv">1</span>);
+    }
+}</code></pre>
+<h3 id="vbx_timestamp-initialization">vbx_timestamp Initialization</h3>
+<p>On a Zynq system, the <code>vbx_timestamp*()</code> functions make use of the Cortex-A9's PMU timer. The PMU timer's frequency must be registered with the <code>vbx_timestamp</code> functions as in this example:</p>
+<pre class="sourceCode c"><code class="sourceCode c"><span class="ot">#include &quot;xparameters.h&quot;</span>
+<span class="ot">#include &quot;xil_types.h&quot;</span>
+<span class="ot">#include &quot;vbx.h&quot;</span>
+
+<span class="dt">void</span> my_vbx_tmr_init()
+{
+    u32 tmrctr_freq_hz = XPAR_CPU_CORTEXA9_0_CPU_CLK_FREQ_HZ/<span class="dv">2</span>;
+    vbx_timestamp_init(tmrctr_freq_hz);
+}</code></pre>
+</div>
+</div>
+</div>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/jquery-ui-1.9.1.custom.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/jquery.tocify.min.js"></script>
+<script>
+$(function() {
+    var toc = $("#toc").tocify({
+        selectors: "h1, h2",
+        history: false,
+        smoothScrollSpeed: "fast",
+        }).data("toc-tocify");
+      $(".optionName").popover({ trigger: "hover" });
+});
+</script>
+</body>
+</html>

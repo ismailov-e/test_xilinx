@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+<link type="text/css" rel="stylesheet" href="css/bootstrap.css"/>
+<link type="text/css" rel="stylesheet" href="css/jquery.ui.all.css"/>
+<link type="text/css" rel="stylesheet" href="css/jquery.tocify.css"/>
+<style>
+body {
+    padding-top: 20px;
+}
+p {
+    font-size: 16px;
+}
+.headerDoc {
+    color: #005580;
+}
+
+@media (max-width: 767px) {
+    #toc {
+        position: relative;
+        width: 100%;
+        margin: 0px 0px 20px 0px;
+    }
+}
+</style>
+</head>
+<body>
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span3">
+<div id="toc"></div>
+</div>
+<div class="span9">
+
+</div>
+</div>
+</div>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/jquery-ui-1.9.1.custom.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/jquery.tocify.min.js"></script>
+<script>
+$(function() {
+    var toc = $("#toc").tocify({
+        selectors: "h1, h2",
+        history: false,
+        smoothScrollSpeed: "fast",
+        }).data("toc-tocify");
+      $(".optionName").popover({ trigger: "hover" });
+});
+</script>
+</body>
+</html>

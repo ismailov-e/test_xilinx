@@ -174,9 +174,9 @@ void scalar_invert_image(pixel *image, const int image_width, const int image_he
   for(y = 0; y < image_height; y++){
 	for(x = 0; x < image_width; x++){
 	  index = y*image_pitch+x;
-	  image[index].r = 0-image[index].r;
-	  image[index].g = 0-image[index].g;
-	  image[index].b = 0-image[index].b;
+	  image[index].r = 255-image[index].r;
+	  image[index].g = 255-image[index].g;
+	  image[index].b = 255-image[index].b;
 	}
   }
 

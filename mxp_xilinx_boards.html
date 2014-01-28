@@ -76,6 +76,7 @@ p {
 <li><p>An input video pipeline to store incoming 1920x1080p @ 60Hz HDMI video frames into frame buffers in external DRAM (as RGB pixels).</p></li>
 <li><p>An output video pipeline to read RGB pixels from frame buffers in DRAM and output 1920x1080p @ 60Hz HDMI video.</p></li>
 </ul>
+<p><strong>NOTE:</strong> The bitstreams use a time-limited evaluation version of Xilinx's Chroma Resampler IP core (v_cresample) for conversion between YCbCr 4:2:2 and YCbCr 4:4:4 formats, so the video pipelines will stop working (the output will go blank) after about an hour. You will need to power cycle the board before reloading the bitstream.</p>
 <p>A standalone BSP is included for each system.</p>
 <p>The bitstreams and BSPs were created with ISE 14.7.</p>
 <p>The demonstration program in <code>software/demo/zedboard</code> shows how the MXP processor can be used to process video frames in these systems.</p>

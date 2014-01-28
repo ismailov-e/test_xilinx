@@ -151,6 +151,7 @@ or
 <li>111 - Multi Mode (Particle Repulsion overlaid on the input video with Edge Detection, Motion Estimation, Inversion running in different quadrants)</li>
 </ul>
 <p><strong>SW3</strong> toggles between the ARM-only implementation of the algorithm (scalar mode) and the vectorized MXP implementation of the algorithm (vector mode).</p>
+<p><strong>NOTE:</strong> The pre-built bitstreams use a time-limited evaluation version of Xilinx's Chroma Resampler IP core (v_cresample) for conversion between YCbCr 4:2:2 and YCbCr 4:4:4 formats, so the video pipelines will stop working (the output will go blank) after about an hour. You will need to power cycle the board before reloading the bitstream.</p>
 <h3 id="compile_zedboard_demo"><span class="header-section-number">2.1.1</span> Recompiling the ZedBoard Demo</h3>
 <p>We have provided pre-compiled ELFs for the demo because it uses some Avnet reference code which cannot be redistributed by others.</p>
 <p>Read this section if you wish to compile the demo yourself.</p>

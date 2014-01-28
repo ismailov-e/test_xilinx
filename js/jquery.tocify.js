@@ -337,6 +337,7 @@
 
                     // Highlights the first TOC item if no other items are highlighted
                     self.element.find(itemClass).first().addClass(self.focusClass);
+                    self.element.find(itemClass).first().click();
 
                 }
 

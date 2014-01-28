@@ -6,25 +6,6 @@
   <meta name="generator" content="pandoc" />
   <title></title>
   <style type="text/css">code{white-space: pre;}</style>
-  <style type="text/css">
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; }
-code > span.dt { color: #902000; }
-code > span.dv { color: #40a070; }
-code > span.bn { color: #40a070; }
-code > span.fl { color: #40a070; }
-code > span.ch { color: #4070a0; }
-code > span.st { color: #4070a0; }
-code > span.co { color: #60a0b0; font-style: italic; }
-code > span.ot { color: #007020; }
-code > span.al { color: #ff0000; font-weight: bold; }
-code > span.fu { color: #06287e; }
-code > span.er { color: #ff0000; font-weight: bold; }
-  </style>
 <link type="text/css" rel="stylesheet" href="css/bootstrap.css"/>
 <link type="text/css" rel="stylesheet" href="css/jquery.ui.all.css"/>
 <link type="text/css" rel="stylesheet" href="css/jquery.tocify.css"/>
@@ -55,159 +36,149 @@ p {
 <div id="toc"></div>
 </div>
 <div class="span9">
-<h1 id="vectorblox-mxp-xilinx-quickstart">VectorBlox MXP Xilinx Quickstart</h1>
-<p>This section describes how to compile and run the VectorBlox test programs on ZedBoard.</p>
-<h2 id="prerequisites">Prerequisites</h2>
+<h1 id="vectorblox-mxp-xilinx-quickstart"><span class="header-section-number">1</span> VectorBlox MXP Xilinx Quickstart</h1>
+<p>This section describes how to download one of the provided pre-built FPGA bitstreams to a supported development board and how to compile and run a test program on it.</p>
+<p>If you have cloned the VectorBlox github repository, the string <strong>TOPDIR</strong> below refers to the location of your local repository.</p>
+<p>If you have a VectorBlox MXP hardware IP release, the string <strong>TOPDIR</strong> refers to the <code>examples</code> subdirectory of the extracted release.</p>
+<h2 id="prerequisites"><span class="header-section-number">1.1</span> Prerequisites</h2>
 <p>Before you begin, make sure you have:</p>
 <ul>
-<li><p>Installed Xilinx ISE and the VectorBlox MXP distribution.</p></li>
+<li><p>Installed Xilinx ISE 14.7 or later.</p></li>
 <li><p>Installed and tested the Digilent USB-JTAG drivers.</p></li>
-<li><p>Connected your computer to a ZedBoard and turned the board on.</p></li>
+<li><p>A supported development board/kit. See the contents of <code>TOPDIR/boards/</code></p></li>
+<li><p>Connected your development board to your computer via USB cable and turned the board on.</p></li>
 </ul>
-<h2 id="compiling-and-running-a-test-program">Compiling and Running a Test Program</h2>
-<p>The VectorBlox MXP distribution contains a pre-built XPS system for the ZedBoard, containing an MXP processor connected to the Zynq PS.</p>
-<p>We will use the string <strong>DIST</strong> to refer to the directory where you extracted the VectorBlox MXP distribution.</p>
+<h2 id="compiling-and-running-a-test-program"><span class="header-section-number">1.2</span> Compiling and Running a Test Program</h2>
 <ol style="list-style-type: decimal">
-<li><p><strong>Start a Command Shell.</strong> In Windows, select <strong>Start Menu</strong> <span class="math"> → </span> <strong>All Programs</strong> <span class="math"> → </span> <strong>Xilinx Design Tools</strong> <span class="math"> → </span> <strong>ISE Design Suite</strong> <span class="math"> → </span> <strong>Accessories</strong> <span class="math"> → </span> <strong>ISE Design Suite 32/64 Bit Command Prompt</strong>. In Unix, open a terminal and run the appropriate <code>settings{32,64}.{sh,csh}</code> script in the root of your Xilinx ISE_DS installation. This sets up the proper environment variables for using the Xilinx development tools.</p></li>
-<li><p>Change directory to boards/zedboard_arm_mxp/prebuilt_zedboard_v16.</p></li>
-<li><p><strong>Configure the FPGA.</strong> Download the FPGA bitstream to the ZedBoard and initialize the system by running xmd and entering the following commands:</p>
-<pre><code>connect arm hw
-rst -srst
-fpga -f SDK/SDK_Export/hw/system.bit
-source SDK/SDK_Export/hw/ps7_init.tcl
-ps7_init
-ps7_post_config
-exit</code></pre></li>
-<li><p>Open a serial port terminal emulator to prepare to view the output from the ZedBoard’s USB-UART. On Linux, you can, for example, open a new terminal and run <code>picocom -b 115200 /dev/ttyACM0</code>. On Windows, use a program such as PuTTY to connect to the USB serial port.</p></li>
-<li><p><strong>Make the executable.</strong> Change directory to software/bmark/vbw_vec_add_t and run <code>make CPU_TARGET=XIL_ARM</code> (<code>CPU_TARGET=XIL_ARM</code> is for an ARM Cortex-A9 target on a Zynq FPGA.) After a long list of messages and a few seconds, the file <strong>test.elf</strong> should have been created.</p></li>
-<li><p><strong>Download the executable.</strong> Download and run the executable from the command line using the following xmd commands:</p>
-<pre><code> connect arm hw
- dow test.elf
- con</code></pre></li>
-<li><p><strong>View execution output.</strong> You should see output in the serial terminal emulator you opened in an earlier step. The executable may use stdin or stdout for printf, scanf, and similar functions.</p></li>
+<li><p><strong>Start a Command Shell.</strong></p>
+<p>In Windows, select <strong>Start Menu</strong> <span class="math"> → </span> <strong>All Programs</strong> <span class="math"> → </span> <strong>Xilinx Design Tools</strong> <span class="math"> → </span> <strong>ISE Design Suite</strong> <span class="math"> → </span> <strong>Accessories</strong> <span class="math"> → </span> <strong>ISE Design Suite 32/64 Bit Command Prompt</strong>.</p>
+<p>In Linux, open a terminal and run the appropriate <code>settings{32,64}.{sh,csh}</code> script in the root of your Xilinx ISE_DS installation. (Select 32 or 64 depending on whether you want to use the 32-bit or 64-bit versions of the tools, and select sh or csh depending on whether you are using a Bourne-style shell, such as sh or bash, or a C Shell, such as csh or tcsh.) This sets up the proper environment variables for using the Xilinx development tools.</p></li>
+<li><p>Navigate to one of the prebuilt VectorBlox MXP systems for your development board, located in <code>TOPDIR/boards/&lt;board_name&gt;/prebuilt_*</code>.</p>
+<p>For example, for the ZedBoard, change directory to <code>TOPDIR/boards/zedboard_arm_mxp/prebuilt_zedboard_arm_mxp_v16</code> for a 16-lane MXP system.</p></li>
+<li><p>Store the path to the directory in a shell variable. In Linux, assuming you are using a Bourne-style shell such as <code>sh</code> or <code>bash</code>, use</p>
+<pre><code>PROJ_ROOT=`pwd`</code></pre>
+<p>If using <code>csh</code> or <code>tcsh</code>, use</p>
+<pre><code>set PROJ_ROOT=`pwd`</code></pre>
+<p>In Windows, use</p>
+<pre><code>set PROJ_ROOT=%cd%</code></pre></li>
+<li><p>Store the CPU type being targeted in a shell variable. Use <code>MB</code> for MicroBlaze or <code>XIL_ARM</code> for ARM Cortex-A9. In Linux, assuming <code>sh</code> or <code>bash</code>, use the syntax</p>
+<pre><code>CPU_TARGET=XIL_ARM</code></pre>
+<p>For <code>csh</code> or <code>tcsh</code>, use the syntax</p>
+<pre><code>set CPU_TARGET=XIL_ARM</code></pre>
+<p>In Windows, use the syntax</p>
+<pre><code>set CPU_TARGET=XIL_ARM</code></pre></li>
+<li><p>Navigate to a test application such as <code>vbw_vec_add_t</code>, located in <code>TOPDIR/software/bmark/vbw_vec_add_t</code>.</p></li>
+<li><p><strong>Make the executable.</strong></p>
+<p>To compile the program for the FPGA bitstream you previously selected, you need to pass the location of the BSP to <code>make</code>. Assuming the <code>PROJ_ROOT</code> and <code>CPU_TARGET</code> shell variables have been set appropriately, on Linux, run</p>
+<pre><code>make clean_all all CPU_TARGET=$CPU_TARGET PROJ_ROOT=$PROJ_ROOT</code></pre>
+<p>On Windows, run</p>
+<pre><code>make clean_all all CPU_TARGET=%CPU_TARGET% PROJ_ROOT=%PROJ_ROOT%</code></pre>
+<p>After a long list of messages and a few seconds, the file <strong>test.elf</strong> should have been created.</p>
+<p>Note that we used the <code>clean_all</code> target first to ensure that any libraries that might have been compiled against a different BSP in the past were cleaned and re-compiled. If you know that the libraries were already compiled for the selected BSP, you can omit the <code>clean_all</code> target.</p></li>
+<li><p><strong>Program the FPGA.</strong></p>
+<p>We provide a make target to program the FPGA with XMD or iMPACT. In Linux, use</p>
+<pre><code>make pgm CPU_TARGET=$CPU_TARGET PROJ_ROOT=$PROJ_ROOT</code></pre>
+<p>In Windows, use</p>
+<pre><code>make pgm CPU_TARGET=%CPU_TARGET% PROJ_ROOT=%PROJ_ROOT%</code></pre></li>
 </ol>
-<h2 id="creating-your-own-standalone-bsp">Creating your own Standalone BSP</h2>
-<h3 id="from-the-gui">From the GUI</h3>
+<!---
+    `impact -batch etc/download.cmd`
+or
+    xmd:
+        connect arm hw
+        rst -srst
+        fpga -f SDK/SDK_Export/hw/system.bit
+        source SDK/SDK_Export/hw/ps7_init.tcl
+        ps7_init
+        ps7_post_config
+        exit
+-->
+
+
+<ol start="8" style="list-style-type: decimal">
+<li><p>Open a serial port terminal emulator to prepare to view the output from the board’s USB-UART. On Linux, you can, for example, open a new terminal and run <code>picocom -b 38400 /dev/ttyUSB0</code> for the Atlys or <code>picocom -b 115200 /dev/ttyACM0</code> for the ZedBoard. On Windows, use a program such as PuTTY to connect to the USB serial port.</p></li>
+<li><p><strong>Download the executable.</strong></p>
+<p>We provide a make target to download the ELF with XMD. In Linux, use</p>
+<pre><code>make run CPU_TARGET=$CPU_TARGET PROJ_ROOT=$PROJ_ROOT</code></pre>
+<p>In Windows, use</p>
+<pre><code>make run CPU_TARGET=%CPU_TARGET% PROJ_ROOT=%PROJ_ROOT%</code></pre></li>
+</ol>
+<!---
+    `xmd -tcl xmd_mb.tcl`
+
+         connect arm hw
+         dow test.elf
+         con
+-->
+
+<ol start="9" style="list-style-type: decimal">
+<li><strong>View execution output.</strong> You should see output in the serial terminal emulator you opened in an earlier step. The executable may use stdin or stdout for printf, scanf, and similar functions.</li>
+</ol>
+<h1 id="video-demo-application"><span class="header-section-number">2</span> Video Demo Application</h1>
+<p>We have written a demonstration program that runs on supported boards with video output capability. It provides a visual demonstration of the acceleration capabilities of the MXP processor by allowing the user to see the performance difference between algorithms running on the scalar host CPU alone and vectorized MXP implementations of the same algorithms.</p>
+<p>On systems with video output, the algorithms demonstrated are</p>
 <ul>
-<li><p>In XPS, select <strong>Project</strong> <span class="math"> → </span> <strong>Export Hardware Design to SDK…</strong>, then click <strong>Export &amp; Launch SDK</strong>. This will run Xilinx’s psf2Edward utility to generate an XML platform description file (usually in SDK/SDK_Export/hw), then launch the SDK.</p></li>
-<li><p>In the Xilinx SDK, select the <strong>Xilinx Tools</strong> menu, then <strong>Repositories</strong>.</p></li>
-<li><p>The <strong>Preferences</strong> dialog box will open, with the <strong>Repositories</strong> page already selected.</p>
-<p>If you copied the VectorBlox MXP <code>drivers</code> and <code>sw_services</code> directories to the Xilinx EDK installation directory as described in the installation section, you should see the directory corresponding to <code>$(XILINX_EDK)/sw/VectorBlox</code> under <strong>SDK Installation Repositories</strong>.</p>
-<p>If you did not do this, you must now add the location of these directories (i.e. their common parent directory) to the software repository list. Click <strong>New…</strong> next to either <strong>Local Repositories</strong> or <strong>Global Repositories</strong>, and add the repository location. Click <strong>OK</strong> to close the Preferences dialog box.</p></li>
-<li><p>From the <strong>File</strong> menu, select <strong>New</strong> <span class="math"> → </span> <strong>Board Support Package</strong>.</p></li>
-<li><p>Give your BSP a project name, and under <strong>Board Support Package OS</strong>, select <strong>standalone</strong>. Click <strong>Finish</strong>.</p></li>
-<li><p>In the <strong>Board Support Package Settings</strong> dialog box, click on <strong>Overview</strong> in the left panel, and look at the <strong>Supported Libraries</strong> section. You should see an entry for <strong>vbxware</strong>, the VBXWare Library, as in the figure below.</p>
-<div class="figure">
-<img src="images/xsdk_bsp_libraries.png" />
-</div>
-<p>If you do not see the VBXWare library listed, the likely reason is that the VectorBlox <strong>sw_services</strong> directory is not in the SDK repository search path.</p>
-<p>You can check the box next to <strong>vbxware</strong> if you wish to include the VBXWare library in your BSP. However, <strong>do not</strong> check this box if you wish to compile and run the VectorBlox-supplied test programs because the Makefiles for these programs compile the VBXWare library separately from the BSP.</p></li>
-<li><p>In the same dialog box, click on <strong>drivers</strong> in the left panel. Check that the vectorblox_mxp driver is assigned to the the vectorblox_mxp component. See below.</p>
-<div class="figure">
-<img src="images/xsdk_driver_assignment.png" />
-</div>
-<p>If the vectorblox_mxp driver is not available as an option, the likely reason is that the VectorBlox <strong>drivers</strong> directory is not in the SDK repository search path.</p></li>
-<li><p>Click <strong>OK</strong> to close the BSP Settings dialog box and compile the standalone BSP library <code>libxil.a</code>.</p></li>
+<li><p>A two-dimensional n-body particle repulsion simulation with 512 particles and an external force that varies according to a Lissajous pattern. Q16.16 fixed-point arithmetic is used. The MXP implementation of the algorithm uses a custom instruction pipeline that computes the sum of the forces from all other particles on a given particle. The pipeline is described in the following conference paper: A. Severance, J. Edwards, H. Omidian, G. Lemieux, &quot;Soft Vector Processors with Streaming Pipelines,&quot; to appear at <em>International Symposium on Field-Programmable Gate Arrays (FPGA)</em>, February, 2014 (<a href="http://www.ece.ubc.ca/~lemieux/publications/bytopic.html">http://www.ece.ubc.ca/~lemieux/publications/bytopic.html</a>). The MXP implementation also makes use of a custom instruction for fixed-point division, if available.</p></li>
+<li><p>Mandelbrot set calculation at different zoom levels.</p></li>
+<li><p>Sobel edge detection run on half of the screen after each frame of the n-body particle simulation.</p></li>
 </ul>
-<h3 id="from-the-command-line">From the Command-line</h3>
-<p>This section describes how to generate a standalone BSP from the command-line.</p>
+<p>On systems that also have video input, some additional algorithms are demonstrated:</p>
 <ul>
-<li><p>Change directory to your XPS project directory.</p></li>
-<li><p>Generate the XML hardware description with</p>
-<pre><code>make -f system.make exporttosdk</code></pre></li>
-<li><p>Run Xilinx’s appguru utility to create an MSS file from the XML file and the repository search path:</p>
-<pre><code>appguru -hw SDK/SDK_Export/hw/system.xml \\
-  -pe ps7_cortexa9_0 -lp . -app empty_application -od bsp</code></pre>
-<p>This command creates the files for the XSDK &quot;Empty Application&quot; template in the output directory <code>bsp</code>. It uses the XML hardware specification in <code>$SDK/SDK_Export/hw/system.xml</code> and targets the processor instance <code>ps7_cortexa9_0</code>. The <code>-lp .</code> option adds the current directory to the software repository search path.</p></li>
-<li><p>The generated MSS file in <code>bsp/system.mss</code> should contain an entry assigning the vectorblox_mxp driver to the vectorblox_mxp hardware instance, e.g.</p>
-<pre><code>BEGIN DRIVER
- PARAMETER DRIVER_NAME = vectorblox_mxp
- PARAMETER DRIVER_VER = 1.00.a
- PARAMETER HW_INSTANCE = vectorblox_mxp_0
-END</code></pre></li>
-<li><p>If you want to include the VBXWare library in the BSP, you must manually add the following lines to <code>bsp/system.mss</code>.</p>
-<pre><code>BEGIN LIBRARY
- PARAMETER LIBRARY_NAME = vbxware
- PARAMETER LIBRARY_VER = 1.00.a
-END</code></pre>
-<p>However, <strong>do not</strong> add these linesif you wish to compile and run the VectorBlox-supplied test programs because the Makefiles for these programs compile the VBXWare library separately from the BSP.</p></li>
-<li><p>Extract any Cortex-A9-specific compilation flags from the generated Makefile:</p>
-<pre><code>grep ^CC_FLAGS bsp/Makefile &gt; bsp/cpu_flags.mk
-sed -i &#39;s/^CC_FLAGS/CPU_FLAGS/&#39; bsp/cpu_flags.mk</code></pre>
-<p>The <code>CPU_FLAGS</code> variable is used by the Makefiles for the VectorBlox-supplied programs in <strong>DIST</strong>/software/bmark.</p></li>
-<li><p>Remove unneeded files:</p>
-<pre><code>rm -f bsp/README.txt bsp/Makefile</code></pre></li>
-<li><p>Generate the BSP from the MSS file:</p>
-<pre><code>libgen -hw SDK/SDK_Export/hw/system.xml -pe ps7_cortexa9_0 \\
-       -lp . -od bsp   bsp/system.mss</code></pre></li>
+<li><p>Sobel edge detection on the video input.</p></li>
+<li><p>Motion estimation (motion tracking) on the video input. Two boxes track motion in the input video using a sum-of-absolute-differences calculation. The boxes are re-centred every 400 input frames.</p></li>
+<li><p>Face Detection on the video input using Haar-like features. A green box is drawn around each detected face.</p></li>
+<li><p>Multi-algorithm mode with the particle simulation overlaid on top of the video input, with edge detection also running in the top left quadrant, motion estimation in the top right quadrant, and video inversion in the bottom right quadrant.</p></li>
 </ul>
-<h2 id="compiling-the-test-programs-with-a-different-standalone-bsp">Compiling the Test Programs with a different Standalone BSP</h2>
-<p>To compile the programs in <strong>DIST</strong>/software/bmark with a different standalone BSP, there are some additional steps you must take:</p>
+<h2 id="zedboard-with-fmc-imageon-hdmi-daughter-card-demo"><span class="header-section-number">2.1</span> ZedBoard with FMC-IMAGEON HDMI Daughter Card Demo</h2>
+<p>The zedboard demo uses Avnet's FMC-IMAGEON daughter card for video input and output. A 1920x1080p 60Hz video source should be connected to the HDMI IN port, and a 1080p monitor should be connected to the HDMI OUT port.</p>
+<p>We have provided pre-compiled ELF files for the demo because it uses some Avnet reference code which we do not have permission to redistribute. Please see the <a href="#compile_zedboard_demo">section below</a> if you wish to compile the demo yourself.</p>
+<p>To run the demo, first open up an ISE Command Prompt, then go to the directory containing the pre-built bitstream you wish to use. e.g. for the V16 system:</p>
+<pre><code>cd boards/zedboard_imageon_arm_mxp/prebuilt_zedboard_imageon_arm_mxp_v16</code></pre>
+<p>Connect to the ZedBoard's USB-UART with a terminal emulator program to prepare to view the serial console output. Use 115200 bps, 8 bits per character, no parity.</p>
+<p>Program the FPGA and download the ELF with the provided XMD Tcl script:</p>
+<pre><code>xmd -tcl xmd_demo.tcl</code></pre>
+<p>The DIP switches near the OLED are used to select the mode of operation.</p>
+<p><strong>SW7-4</strong> should all be 0 (off).</p>
+<p><strong>SW2-0</strong> are used to select from the modes below:</p>
 <ul>
-<li><p>Open the file <strong>DIST</strong>/software/common/Makefile_vars.mk for editing.</p>
-<ul>
-<li><p>Change the <code>PROJ_ROOT</code> variable to point to the root of your XPS project directory.</p></li>
-<li><p>Change the <code>HW_PLATFORM_XML</code> variable to point to the XML file generated by the psf2Edward program during the &quot;Export to SDK&quot; procedure. Normally the file can be found in the directory <code>$(PROJ_ROOT)/SDK/SDK_Export/hw</code>.</p></li>
-<li><p>Change the <code>BSP_ROOT_DIR</code> variable to point to the root of BSP directory. Ensure that <code>BSP_INC_DIR</code> and <code>BSP_LIB_DIR</code> point to the correct <code>include</code> and <code>lib</code> subdirectories.</p></li>
-<li><p>Change the <code>LD_SCRIPT</code> variable to point to the linker script you wish to use. In your linker script, use a stack size of 8 MB and a heap size of 64 MB if you want to be able to run all of the test programs.</p></li>
-</ul></li>
-<li><p>Create a file called <strong>cpu_flags.mk</strong> in <code>$(BSP_ROOT_DIR)</code> that defines a variable called <code>CPU_FLAGS</code> containing any compiler flags specific to the Cortex-A9 CPU. Normally this would be empty, i.e.</p>
-<pre><code>CPU_FLAGS :=</code></pre></li>
+<li>000 - Video Pass-through</li>
+<li>001 - Particle Repulsion</li>
+<li>010 - Edge Detection on the input video</li>
+<li>011 - Motion Estimation on the input video</li>
+<li>100 - Mandelbrot</li>
+<li>101 - Haar Face Detection on the input video</li>
+<li>110 - Split Mode (Particle Repulsion with Edge Detection running on the right half of the screen)</li>
+<li>111 - Multi Mode (Particle Repulsion overlaid on the input video with Edge Detection, Motion Estimation, Inversion running in different quadrants)</li>
 </ul>
-<h2 id="mxp-driver-initialization-with-a-standalone-bsp">MXP Driver Initialization with a Standalone BSP</h2>
-<p>[To be expanded]</p>
-<h3 id="map-instruction-port-to-device-memory">Map Instruction Port to Device Memory</h3>
-<p>The MXP's AXI Instruction Slave port should be mapped to device memory (uncached, posted writes) using the Cortex-A9's MMU:</p>
-<pre class="sourceCode c"><code class="sourceCode c"><span class="ot">#include &quot;xil_mmu.h&quot;</span>
-
-<span class="kw">extern</span> u32 MMUTable;
-
-<span class="dt">int</span> vbx_zynq_set_instr_port_device_memory()
-{
-    <span class="co">// Change memory attributes of 1MB region starting at base address of</span>
-    <span class="co">// AXI instruction port.</span>
-    <span class="co">// shareable device:</span>
-    <span class="co">//   S=b0 TEX=b000 AP=b11, C=b0, B=b1 =&gt; 0xC06</span>
-    Xil_SetTlbAttributes(XPAR_VECTORBLOX_MXP_ARM_0_S_AXI_INSTR_BASEADDR,
-                         <span class="bn">0xc06</span>);
-    <span class="kw">return</span> XST_SUCCESS;
-}</code></pre>
-<h3 id="support-for-uncached-access-to-cached-memory-region">Support for Uncached Access to Cached Memory Region</h3>
-<p>The VBX API library provides some functions to simplify sharing of data between the Zynq PS and the MXP without requiring the application programmer to explicitly flush data cache lines. These functions include <code>vbx_shared_malloc()</code>, <code>vbx_shared_free()</code>, <code>vbx_remap_uncached()</code>, and <code>vbx_remap_cached()</code>.</p>
-<p>The library assumes that the Zynq PS can access a cached memory region in an uncached manner (i.e. bypassing the data cache) simply by setting the most significant bit of the physical address to 1.</p>
-<p>This can be accomplished with the ARM MMU's translation table. For example, on the ZedBoard, the DDR physical address range is 0x0-0x1fff_ffff (512MB), and the virtual address range 0x8000_0000 to 0x9fff_ffff (512 MB) can be mapped to the DDR physical address range but with the memory attributes set to strongly-ordered.</p>
-<p>See vbx_zynq_remap_ddr_uncached() in software/lib/vbxtest/vbx_test.c.</p>
-<h3 id="vectorblox_mxp_initialize">VectorBlox_MXP_Initialize()</h3>
-<p>Before using any VBX API calls in your applications, you must call the <code>VectorBlox_MXP_Initialize()</code> function to initialize the MXP instance and register it with the MXP driver. An example invocation is as follows:</p>
-<pre class="sourceCode c"><code class="sourceCode c"><span class="ot">#include &quot;xparameters.h&quot;</span>
-<span class="ot">#include &quot;xil_types.h&quot;</span>
-<span class="ot">#include &quot;vbx.h&quot;</span>
-<span class="ot">#include &quot;vectorblox_mxp.h&quot;</span>
-
-vbx_mxp_t vbx_mxp_inst;
-
-<span class="dt">void</span> my_mxp_init()
-{
-    <span class="dt">int</span> status;
-    u16 mxp_dev_id = XPAR_VECTORBLOX_MXP_0_DEVICE_ID;
-
-    status = VectorBlox_MXP_Initialize(&amp;vbx_mxp_inst, mxp_dev_id);
-    <span class="kw">if</span> (status != XST_SUCCESS) {
-        VBX_PRINTF(<span class="st">&quot;ERROR: VectorBlox_MXP_Initialize failed.</span><span class="ch">\n</span><span class="st">&quot;</span>);
-        VBX_FATAL(__LINE__, __FILE__, -<span class="dv">1</span>);
-    }
-}</code></pre>
-<h3 id="vbx_timestamp-initialization">vbx_timestamp Initialization</h3>
-<p>On a Zynq system, the <code>vbx_timestamp*()</code> functions make use of the Cortex-A9's PMU timer. The PMU timer's frequency must be registered with the <code>vbx_timestamp</code> functions as in this example:</p>
-<pre class="sourceCode c"><code class="sourceCode c"><span class="ot">#include &quot;xparameters.h&quot;</span>
-<span class="ot">#include &quot;xil_types.h&quot;</span>
-<span class="ot">#include &quot;vbx.h&quot;</span>
-
-<span class="dt">void</span> my_vbx_tmr_init()
-{
-    u32 tmrctr_freq_hz = XPAR_CPU_CORTEXA9_0_CPU_CLK_FREQ_HZ/<span class="dv">2</span>;
-    vbx_timestamp_init(tmrctr_freq_hz);
-}</code></pre>
+<p><strong>SW3</strong> toggles between the ARM-only implementation of the algorithm (scalar mode) and the vectorized MXP implementation of the algorithm (vector mode).</p>
+<h3 id="compile_zedboard_demo"><span class="header-section-number">2.1.1</span> Recompiling the ZedBoard Demo</h3>
+<p>We have provided pre-compiled ELFs for the demo because it uses some Avnet reference code which cannot be redistributed by others.</p>
+<p>Read this section if you wish to compile the demo yourself.</p>
+<p>See the file <code>00-README.txt</code> in <code>software/demo/zedboard</code> and follow the instructions for downloading the Avnet reference code that we do not have permission to redistribute. Make sure the necessary files are copied to <code>software/demo/zedboard</code>.</p>
+<p>From an ISE Command Prompt, go to the directory containing the pre-built bitstream you wish to use. e.g. for the V16 system:</p>
+<pre><code>cd boards/zedboard_imageon_arm_mxp/prebuilt_zedboard_imageon_arm_mxp_v16</code></pre>
+<p>Store the path to the directory in a shell variable. In Linux use</p>
+<pre><code>PROJ_ROOT=`pwd`</code></pre>
+<p>in <code>sh</code> or <code>bash</code>, or</p>
+<pre><code>set PROJ_ROOT=`pwd`</code></pre>
+<p>in <code>csh</code> or <code>tcsh</code>.</p>
+<p>In Windows, use</p>
+<pre><code>set PROJ_ROOT=%cd%</code></pre>
+<p>Go to the demo directory:</p>
+<pre><code>cd ../../../software/demo/zedboard</code></pre>
+<p>Compile the demo. In Linux, use</p>
+<pre><code>make clean_all all PROJ_ROOT=$PROJ_ROOT</code></pre>
+<p>In Windows, use</p>
+<pre><code>make clean_all all PROJ_ROOT=%PROJ_ROOT%</code></pre>
+<p>Program the FPGA. We provide a make target to do this with XMD. In Linux, use</p>
+<pre><code>make pgm PROJ_ROOT=$PROJ_ROOT</code></pre>
+<p>In Windows, use</p>
+<pre><code>make pgm PROJ_ROOT=%PROJ_ROOT%</code></pre>
+<p>Connect to the ZedBoard's USB-UART with a terminal emulator program to prepare to view the serial console output. Use 115200 bps, 8 bits per character, no parity.</p>
+<p>Download the ELF to the board. Again, we provide a make target to do this with XMD. In Linux, use</p>
+<pre><code>make run PROJ_ROOT=$PROJ_ROOT</code></pre>
+<p>In Windows, use</p>
+<pre><code>make run PROJ_ROOT=%PROJ_ROOT%</code></pre>
 </div>
 </div>
 </div>

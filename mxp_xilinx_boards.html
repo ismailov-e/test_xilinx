@@ -36,7 +36,65 @@ p {
 <div id="toc"></div>
 </div>
 <div class="span9">
-
+<h1 id="zedboard_arm_mxp"><span class="header-section-number">1</span> Avnet ZedBoard</h1>
+<p>The ZedBoard contains a Xilinx Zynq-7000 XC7020 FPGA with two integrated ARM Cortex-A9 processors running at 667 MHz, and 512 MB of on-board DDR3 DRAM.</p>
+<p>For more information on the board, see the following links:</p>
+<ul>
+<li>ZedBoard website: <a href="http://zedboard.org">http://zedboard.org</a></li>
+<li>Digilent website (academic pricing): <a href="http://www.digilentinc.com/Products/Detail.cfm?NavPath=2,400,1028&amp;Prod=ZEDBOARD">http://www.digilentinc.com/Products/Detail.cfm?NavPath=2,400,1028&amp;Prod=ZEDBOARD</a></li>
+</ul>
+<p>We provide pre-built bitstreams for the ZedBoard for various sizes of the MXP processor (1 to 16 vector lanes) connected to the Zynq's ARM Cortex-A9 processing subsystem.</p>
+<p>Note that these bitstreams do not currently include support for the ZedBoard's on-board HDMI output. If HDMI input and/or output is required, we have bitstreams that support the Avnet FMC-IMAGEON daughter-card (see below).</p>
+<p>A standalone BSP is included for each system.</p>
+<p>The bitstreams and BSPs were created with ISE 14.7.</p>
+<p>NOTE: We have only tested with ZedBoard Rev C boards, although we expect Rev D boards will work as well. We have a report of an incompatibility with a pre-production Rev B board.</p>
+<p>MXP configuration:</p>
+<ul>
+<li>110 MHz.</li>
+<li>64 KB of scratchpad memory.</li>
+<li>64-bit wide DMA interface (32 bits for V1 configuration).</li>
+<li>Fractional bits for fixed-point multiplication: 16 fractional bits for words, 15 for halfwords, 4 for bytes.</li>
+</ul>
+<p>The Xilinx Platform Studio <em>Bus Interfaces</em> and <em>Addresses</em> views are shown below:</p>
+<div class="figure">
+<img src="images/xps_zedboard_arm_mxp.png" alt="XPS Bus Interfaces View" /><p class="caption">XPS Bus Interfaces View</p>
+</div>
+<div class="figure">
+<img src="images/xps_zedboard_arm_mxp_addr_map.png" alt="Address Map" /><p class="caption">Address Map</p>
+</div>
+<p>(Note: our example programs use the Cortex-A9 MMU's translation table to alias the 512 MB of DDR3 DRAM to uncached strongly-ordered memory in the range 0x8000_0000 to 0x9fff_ffff.)</p>
+<h1 id="zedboard_imageon_arm_mxp"><span class="header-section-number">2</span> Avnet ZedBoard with FMC-IMAGEON HDMI I/O FMC Module</h1>
+<p>This setup consists of a ZedBoard (see <a href="#zedboard_arm_mxp">above</a>) and an Avnet FMC-IMAGEON daughtercard used for HDMI video input and output.</p>
+<p>For more information on the FMC-IMAGEON card, see the following links:</p>
+<ul>
+<li>Avnet FMC-IMAGEON HDMI I/O FMC Module: <a href="http://www.em.avnet.com/fmc-imageon">http://www.em.avnet.com/fmc-imageon</a></li>
+<li>The FMC-IMAGEON module can also be bought as a bundle with an ON Semiconductor VITA image sensor (<a href="http://www.em.avnet.com/fmc-imageon-v2000c">http://www.em.avnet.com/fmc-imageon-v2000c</a>) or as part of the the Xilinx Zynq-7000 SoC Video and Imaging Kit (<a href="http://www.xilinx.com/products/boards-and-kits/DK-Z7-VIDEO-G.htm">http://www.xilinx.com/products/boards-and-kits/DK-Z7-VIDEO-G.htm</a>).</li>
+</ul>
+<p>We provide pre-built bitstreams for ZedBoard + FMC-IMAGEON systems that consist of:</p>
+<ul>
+<li><p>An MXP processor (8, 16 vector lanes) connected to the Zynq's ARM Cortex-A9 processing subsystem.</p></li>
+<li><p>An input video pipeline to store incoming 1920x1080p @ 60Hz HDMI video frames into frame buffers in external DRAM (as RGB pixels).</p></li>
+<li><p>An output video pipeline to read RGB pixels from frame buffers in DRAM and output 1920x1080p @ 60Hz HDMI video.</p></li>
+</ul>
+<p>A standalone BSP is included for each system.</p>
+<p>The bitstreams and BSPs were created with ISE 14.7.</p>
+<p>The demonstration program in <code>software/demo/zedboard</code> shows how the MXP processor can be used to process video frames in these systems.</p>
+<p>The MXP processor in each system is configured as follows:</p>
+<ul>
+<li>100 MHz.</li>
+<li>64 KB of scratchpad memory.</li>
+<li>64-bit wide DMA interface (32 bits for V1 configuration).</li>
+<li>Fractional bits for fixed-point multiplication: 16 fractional bits for words, 15 for halfwords, 4 for bytes.</li>
+</ul>
+<p>The systems also include a custom instruction pipeline for accelerating the particle repulsion demo program. The pipeline is described in the following conference paper: A. Severance, J. Edwards, H. Omidian, G. Lemieux, &quot;Soft Vector Processors with Streaming Pipelines,&quot; to appear at <em>International Symposium on Field-Programmable Gate Arrays (FPGA)</em>, February, 2014 (<a href="http://www.ece.ubc.ca/~lemieux/publications/bytopic.html">http://www.ece.ubc.ca/~lemieux/publications/bytopic.html</a>).</p>
+<p>In the V8 system, the custom instruction pipeline is two logical lanes wide, and in the V16 system it is four logical lanes wide.</p>
+<p>The Xilinx Platform Studio <em>Bus Interfaces</em> and <em>Addresses</em> views are shown below:</p>
+<div class="figure">
+<img src="images/xps_zedboard_imageon_arm_mxp.png" alt="XPS Bus Interfaces View" /><p class="caption">XPS Bus Interfaces View</p>
+</div>
+<div class="figure">
+<img src="images/xps_zedboard_imageon_arm_mxp_addr_map.png" alt="Address Map" /><p class="caption">Address Map</p>
+</div>
 </div>
 </div>
 </div>

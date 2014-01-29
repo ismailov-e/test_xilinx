@@ -1,6 +1,6 @@
 /* VECTORBLOX MXP SOFTWARE DEVELOPMENT KIT
  *
- * Copyright (C) 2012-2013 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
+ * Copyright (C) 2012-2014 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -35,14 +35,15 @@
  *
  */
 
+
 /**
  * @file
- * @defgroup VBX_types
- * @brief VBX Types 
+ * @defgroup VBX_types VBX Types
+ * @brief VBX Types
  *
- * @ingroup VBXapi 
+ * @ingroup VBXapi
  */
-/**@{*/
+
 
 
 #ifndef __VBX_TYPES_H
@@ -55,14 +56,14 @@ extern "C" {
 #include <stdlib.h>
 #include <stdint.h>
 
-/** 
- * @name Scratchpad Data Typedef  
+/**
+ * @name Scratchpad Data Typedef
  *
  * Pointers to these datatypes should always be used for scratchpad accesses
  */
 /**@{*/
 
-#if __GNUC__
+#if defined( __GNUC__)
 typedef uint32_t vbx_uword_t; ///< 4-byte word, unsigned
 typedef uint16_t vbx_uhalf_t; ///< 2-byte half, unsigned
 typedef uint8_t vbx_ubyte_t;  ///< byte, unsigned
@@ -88,7 +89,7 @@ typedef void vbx_void_t;      ///< void, used for generic pointers
  *
  */
 
-typedef void vbx_enum_t;               ///< Enumerated type, used for type checking c/cpp
+typedef void vbx_enum_t; ///< Enumerated type, used for type checking c/cpp
 /**@}*/
 
 
@@ -117,7 +118,7 @@ typedef struct {
 	uint32_t vl; ///< 1D vector length measured by the data type being used
 	uint32_t nrows; ///< Number of times the 1D operation will be repeated
 	int32_t id2, ia2, ib2; ///< Offset applied to destination and source vectors before repeating 1D operation
-	uint32_t nmats;  ///< Number of times the 2D operation will be repeated 
+	uint32_t nmats;  ///< Number of times the 2D operation will be repeated
 	int32_t id3, ia3, ib3;///< Offset applied to destination and source vectors before repeating 2D operation
 } vbx_3d_t;
 
@@ -139,9 +140,9 @@ typedef struct {
 	short       dma_alignment_bytes;
 	short       vector_lanes; ///< Num of 32-bit vector lanes
 	short       vci_lanes; ///<Num of custom instruction lanes
-	char        fxp_word_frac_bits; ///< Num of fractional bit used with @ref v_word_t or @ref v_uword_t data types
-	char        fxp_half_frac_bits; ///< Num of fractional bit used with @ref v_half_t or @ref v_uhalf_t data types
-	char        fxp_byte_frac_bits; ///< Num of fractional bit used with @ref v_byte_t or @ref v_ubyte_t data types
+	char        fxp_word_frac_bits; ///< Num of fractional bit used with @ref vbx_word_t or @ref vbx_uword_t data types
+	char        fxp_half_frac_bits; ///< Num of fractional bit used with @ref vbx_half_t or @ref vbx_uhalf_t data types
+	char        fxp_byte_frac_bits; ///< Num of fractional bit used with vbx_byte_t or f vbx_ubyte_t data types
 
 	/* MXP flags */
 	char        init;
@@ -154,42 +155,42 @@ typedef struct {
 
 } vbx_mxp_t;
 
-/** 
+/**
 	* @name VBX Instruction Set
-	* @brief Valid Instructions 
+	* @brief Valid Instructions
  */
-typedef 
+typedef
 enum {
 	VMOV,  ///< Moves src operand to dst
-	VAND,  ///< Bitwise AND of two src operands 
-	VOR,   ///< Bitwise OR of two src operands 
+	VAND,  ///< Bitwise AND of two src operands
+	VOR,   ///< Bitwise OR of two src operands
 	VXOR,  ///< Bitwise XOR of two src operands
-	VADD,  ///< Adds the two src operands, carry flag generated 
-	VSUB,  ///< Subtracts the two src operands, borrow flag generated 
-	VADDC, ///< Adds the two src operands, performs 
-	VSUBB, ///< Subtracts the two src operands, performs 
-	VMUL,  ///< Multiplies the two src operands, saves lower result to dst 
-	VMULLO=VMUL, ///< Multiplies the two src operands, saves lower result to dst 
-	VMULHI, ///< Multiplies the two src operands, saves upper result to dst 
-	VMULFXP,///< Fix-point multiply, where the number of fractional bits is set at compile time 
-	VSHL,  ///< Shifts src operand to left by given amount 
-	VSHR,  ///< Shifts src operand to right by given amount 
-	VROTL, ///< Rotates src operand to left by given amount 
-	VROTR, ///< Rotates src operand to right by given amount 
+	VADD,  ///< Adds the two src operands, carry flag generated
+	VSUB,  ///< Subtracts the two src operands, borrow flag generated
+	VADDC, ///< Adds the two src operands, performs
+	VSUBB, ///< Subtracts the two src operands, performs
+	VMUL,  ///< Multiplies the two src operands, saves lower result to dst
+	VMULLO=VMUL, ///< Multiplies the two src operands, saves lower result to dst
+	VMULHI, ///< Multiplies the two src operands, saves upper result to dst
+	VMULFXP,///< Fix-point multiply, where the number of fractional bits is set at compile time
+	VSHL,  ///< Shifts src operand to left by given amount
+	VSHR,  ///< Shifts src operand to right by given amount
+	VROTL, ///< Rotates src operand to left by given amount
+	VROTR, ///< Rotates src operand to right by given amount
 	VCMV_LEZ, ///< Moves src operand to dst if <= 0
 	VCMV_GTZ, ///< Moves src operand to dst if >  0
 	VCMV_LTZ, ///< Moves src operand to dst if < 0
 	VCMV_FS=VCMV_LTZ,
 	VCMV_GEZ, ///< Moves src operand to dst if >= 0
 	VCMV_FC=VCMV_GEZ,
-	VCMV_Z, ///< Moves src operand to dst if == 0 
+	VCMV_Z, ///< Moves src operand to dst if == 0
 	VCMV_NZ, ///< Moves src operand to dst if != 0
 	VABSDIFF, ///< Calculates the absolute difference between the two src operands
-	VCUSTOM0, ///< 
-	VCUSTOM=VCUSTOM0, ///< 
-	VCUSTOM1, ///< 
-	VCUSTOM2, ///< 
-	VCUSTOM3 ///< 
+	VCUSTOM0, ///<
+	VCUSTOM=VCUSTOM0, ///<
+	VCUSTOM1, ///<
+	VCUSTOM2, ///<
+	VCUSTOM3 ///<
 } vinstr_t;
 
 
@@ -199,4 +200,3 @@ enum {
 
 
 #endif //__VBX_TYPES_H
-/**@}*/

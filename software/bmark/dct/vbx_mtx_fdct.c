@@ -1,6 +1,6 @@
 /* VECTORBLOX MXP SOFTWARE DEVELOPMENT KIT
  *
- * Copyright (C) 2012-2013 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
+ * Copyright (C) 2012-2014 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -137,7 +137,7 @@ int test_tile()
 
 	int time_start, time_stop;
 	unsigned int cycles;
-	double vbx_time, nios_time;
+	double vbx_time, scalar_time;
 	int wrong;
 
 	int total_errors = 0;
@@ -196,13 +196,13 @@ int test_tile()
 	time_stop = vbx_timestamp();
 
 	cycles = time_stop - time_start;
-	nios_time = (double) cycles;
-	nios_time /= (double) vbx_timestamp_freq();
-	nios_time *= 1000.0;		//ms
+	scalar_time = (double) cycles;
+	scalar_time /= (double) vbx_timestamp_freq();
+	scalar_time *= 1000.0;		//ms
 	vbx_timestamp_t mxp_cycles = vbx_mxp_cycles(cycles);
 
 	printf("%dx%d Block Size\n", BLOCK_SIZE, BLOCK_SIZE);
-	printf("Finished, NIOS took %0.3f ms \n", nios_time);
+	printf("Finished, scalar CPU took %0.3f ms \n", scalar_time);
 	printf(" CPU Cycles: %d\n", (int) mxp_cycles);
 	printf(" CPU Cycles per block: %f\n", mxp_cycles / ((double) (NUM_BLOCKS)));
 
@@ -258,7 +258,7 @@ int test_tile()
 	printf("Finished, MXP took %0.3f ms \n", vbx_time);
 	printf(" CPU Cycles: %d\n", (int) mxp_cycles);
 	printf(" CPU Cycles per block: %f\n", mxp_cycles / ((double) (NUM_BLOCKS)));
-	printf(" Speedup: %f\n", nios_time / vbx_time);
+	printf(" Speedup: %f\n", scalar_time / vbx_time);
 
 	vbx_mxp_t *this_mxp = VBX_GET_THIS_MXP();
 	double vbx_mbps = (double) (NUM_BLOCKS) * 1000 / vbx_time;	// blocks per second
@@ -311,7 +311,7 @@ int main_tile()
 
 	int time_start, time_stop;
 	unsigned int cycles;
-	double vbx_time, nios_time;
+	double vbx_time, scalar_time;
 	int wrong;
 
 	int total_errors = 0;
@@ -365,13 +365,13 @@ int main_tile()
 	time_stop = vbx_timestamp();
 
 	cycles = time_stop - time_start;
-	nios_time = (double) cycles;
-	nios_time /= (double) vbx_timestamp_freq();
-	nios_time *= 1000.0;		//ms
+	scalar_time = (double) cycles;
+	scalar_time /= (double) vbx_timestamp_freq();
+	scalar_time *= 1000.0;		//ms
 	vbx_timestamp_t mxp_cycles = vbx_mxp_cycles(cycles);
 
 	printf("%dx%d Block Size\n", BLOCK_SIZE, BLOCK_SIZE);
-	printf("Finished, NIOS took %0.3f ms \n", nios_time);
+	printf("Finished, scalar CPU took %0.3f ms \n", scalar_time);
 	printf(" CPU Cycles: %d\n", (int) mxp_cycles);
 	printf(" CPU Cycles per block: %f\n", mxp_cycles / ((double) (NUM_BLOCKS)));
 
@@ -394,7 +394,7 @@ int main_tile()
 	printf("Finished, MXP took %0.3f ms \n", vbx_time);
 	printf(" CPU Cycles: %d\n", (int) mxp_cycles);
 	printf(" CPU Cycles per block: %f\n", mxp_cycles / ((double) (NUM_BLOCKS)));
-	printf(" Speedup: %f\n", nios_time / vbx_time);
+	printf(" Speedup: %f\n", scalar_time / vbx_time);
 
 	vbx_mxp_t *this_mxp = VBX_GET_THIS_MXP();
 	double vbx_mbps = (double) (NUM_BLOCKS) * 1000 / vbx_time;	// blocks per second

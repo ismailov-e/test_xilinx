@@ -21,7 +21,7 @@ endif
 $(OBJ_DIR)/%.o: %.c
 	@echo Building file: $<
 	@echo Invoking: gcc compiler
-	@mkdir -p $(@D)
+	@$(MKDIR) -p $(@D)
 	$(CC) $(CC_FLAGS) $(OPT_FLAGS) $(INC_DIR_FLAGS) $(CPU_FLAGS) \
 	    -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o"$@" "$<"
 	@echo Finished building: $<

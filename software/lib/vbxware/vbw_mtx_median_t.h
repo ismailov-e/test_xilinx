@@ -1,6 +1,6 @@
 /* VECTORBLOX MXP SOFTWARE DEVELOPMENT KIT
  *
- * Copyright (C) 2012-2013 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
+ * Copyright (C) 2012-2014 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -42,5 +42,4 @@
 
 #include "vbw_template_t.h"
 
-void VBX_T(vbw_mtx_median)(vbx_mm_t *output, vbx_mm_t *input, const int filter_size, const int filter_height, const int filter_width, const int image_height, const int image_width);
-
+void VBX_T(vbw_mtx_median)(vbx_mm_t *output, vbx_mm_t *input, const short filter_height, const short filter_width, const short image_height, const short image_width, const short image_pitch);

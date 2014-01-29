@@ -1,5 +1,6 @@
 C_SRCS += scalar_mtx_fir.c
 C_SRCS += scalar_mtx_median.c
+C_SRCS += scalar_mtx_median_argb32.c
 C_SRCS += scalar_mtx_mm.c
 C_SRCS += scalar_mtx_motest.c
 C_SRCS += scalar_sobel_argb32_3x3.c

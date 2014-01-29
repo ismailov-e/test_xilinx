@@ -1,7 +1,7 @@
 
-<EDKSYSTEM EDKVERSION="14.7" EDWVERSION="1.2" TIMESTAMP="Wed Dec 18 21:41:42 2013">
+<EDKSYSTEM EDKVERSION="14.7" EDWVERSION="1.2" TIMESTAMP="Tue Jan 28 18:31:20 2014">
 
-  <SYSTEMINFO ARCH="zynq" DEVICE="xc7z020" PACKAGE="clg484" PART="xc7z020clg484-1" SOURCE="/nfs/home/bach/working/vblox_xil_ci/systems/zz_v16_c4_100/system.xmp" SPEEDGRADE="-1"/>
+  <SYSTEMINFO ARCH="zynq" DEVICE="xc7z020" PACKAGE="clg484" PART="xc7z020clg484-1" SOURCE="/nfs/home/bach/working/vblox_xil_ci/github_builds/20140128_182929_077ed60411160549aa737edc3accbf2e3ed93701/zedboard_imageon_arm_mxp_particle_v16_w2_k64_b16_s1_mbyte_c4/system.xmp" SPEEDGRADE="-1"/>
 
   <EXTERNALPORTS>
     <PORT DIR="IO" ENDIAN="LITTLE" LEFT="7" LSB="0" MHS_INDEX="0" MSB="7" NAME="SWs_8Bits_TRI_IO" RIGHT="0" SIGNAME="SWs_8Bits_TRI_IO">

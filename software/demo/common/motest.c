@@ -1,6 +1,6 @@
 /* VECTORBLOX MXP SOFTWARE DEVELOPMENT KIT
  *
- * Copyright (C) 2012-2013 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
+ * Copyright (C) 2012-2014 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -58,7 +58,7 @@ static inline void setPixel( int x, int y, pixel *output_buffer, pixel color, co
 
 void scalar_draw_line( int x0, int y0, int x1, int y1, pixel color, pixel *output_buffer, const int image_pitch )
 {
-	// Taken from pseudocode in Wikipedia's writeup on 
+	// Taken from pseudocode in Wikipedia's writeup on
 	// Bresenham's line drawing algorithm
 	int dy, dx, sx, sy;
 	int err, e2;
@@ -66,11 +66,17 @@ void scalar_draw_line( int x0, int y0, int x1, int y1, pixel color, pixel *outpu
 	dx = abs(x1-x0);
 	dy = abs(y1-y0);
 
-	if( x0 < x1 ) sx = 1;
-	else          sx = -1;
+	if( x0 < x1 ){
+		sx = 1;
+	} else {
+		sx = -1;
+	}
 
-	if( y0 < y1 ) sy = 1;
-	else          sy = -1;
+	if( y0 < y1 ){
+		sy = 1;
+	} else {
+		sy = -1;
+	}
 
 	err = dx - dy;
 	do {
@@ -100,13 +106,13 @@ void scalar_draw_line( int x0, int y0, int x1, int y1, pixel color, pixel *outpu
 #define MOTEST_BUFFER_HEIGHT ((MOTEST_BLOCK_HEIGHT)+(MOTEST_SEARCH_HEIGHT))
 #define MOTEST_BUFFER_SIZE   ((MOTEST_BUFFER_WIDTH)*(MOTEST_BUFFER_HEIGHT))
 
-typedef unsigned short luma_type;
+//typedef unsigned short luma_type;
 
 static luma_type *last_luma = NULL;
 static int motest_x = 0;
 static int motest_y = 0;
 
-void draw_motest(pixel *input_buffer, const int image_pitch)
+void draw_motest(pixel *input_buffer, int motest_x, int motest_y, const int image_pitch)
 {
 	int y, x;
 	pixel color;
@@ -178,43 +184,42 @@ void vector_rectangle_to_luma(
 	}
 }
 
-void init_scalar_motest(pixel *input_buffer, int x, int y, const int image_pitch)
+void init_scalar_motest(pixel *input_buffer, luma_type **last_luma, int *motest_x, int *motest_y, int x, int y, const int image_pitch)
 {
-	if(last_luma == NULL){
-		last_luma = malloc(MOTEST_BLOCK_SIZE*sizeof(luma_type));
+	if(*last_luma == NULL){
+		*last_luma = malloc(MOTEST_BLOCK_SIZE*sizeof(luma_type));
 	}
-	motest_x = x;
-	motest_y = y;
+	*motest_x = x-(MOTEST_BLOCK_WIDTH/2);
+	*motest_y = y-(MOTEST_BLOCK_HEIGHT/2);
 
-	scalar_rectangle_to_luma(input_buffer, last_luma, motest_x, motest_y, MOTEST_BLOCK_WIDTH, MOTEST_BLOCK_HEIGHT, image_pitch);
+	scalar_rectangle_to_luma(input_buffer, *last_luma, *motest_x, *motest_y, MOTEST_BLOCK_WIDTH, MOTEST_BLOCK_HEIGHT, image_pitch);
 }
 
-void init_vector_motest(pixel *input_buffer, int x, int y, const int image_pitch)
+void init_vector_motest(pixel *input_buffer, luma_type **last_luma, int *motest_x, int *motest_y, int x, int y, const int image_pitch)
 {
 	vbx_uhalf_t *v_last_luma;
 	vbx_uhalf_t *v_row_temp;
 	vbx_uword_t *v_row;
 
-	if(last_luma == NULL){
-		last_luma = malloc(MOTEST_BLOCK_SIZE*sizeof(luma_type));
+	if(*last_luma == NULL){
+		*last_luma = malloc(MOTEST_BLOCK_SIZE*sizeof(luma_type));
 	}
-	motest_x = x-(MOTEST_BLOCK_WIDTH/2);
-	motest_y = y-(MOTEST_BLOCK_HEIGHT/2);
+	*motest_x = x-(MOTEST_BLOCK_WIDTH/2);
+	*motest_y = y-(MOTEST_BLOCK_HEIGHT/2);
 
 
 	v_last_luma   = vbx_sp_malloc(MOTEST_BLOCK_SIZE*sizeof(vbx_uhalf_t));
 	v_row_temp    = vbx_sp_malloc(MOTEST_BLOCK_WIDTH*sizeof(vbx_uhalf_t));
 	v_row         = vbx_sp_malloc(MOTEST_BLOCK_WIDTH*sizeof(vbx_uword_t));
 
-	vector_rectangle_to_luma(input_buffer, v_last_luma, v_row_temp, v_row, motest_x, motest_y, MOTEST_BLOCK_WIDTH, MOTEST_BLOCK_HEIGHT, image_pitch);
+	vector_rectangle_to_luma(input_buffer, v_last_luma, v_row_temp, v_row, *motest_x, *motest_y, MOTEST_BLOCK_WIDTH, MOTEST_BLOCK_HEIGHT, image_pitch);
 
-	vbx_dma_to_host(last_luma, v_last_luma, MOTEST_BLOCK_SIZE*sizeof(luma_type));
+	vbx_dma_to_host(*last_luma, v_last_luma, MOTEST_BLOCK_SIZE*sizeof(luma_type));
 
 	vbx_sp_free();
 }
 
-
-int scalar_motest(pixel *input_buffer, const int image_width, const int image_height, const int image_pitch)
+int scalar_motest(pixel *input_buffer, luma_type **last_luma, int *motest_x, int *motest_y, int start_x, int start_y, int reset, const int image_width, const int image_height, const int image_pitch)
 {
 	int y, x, starty, startx;
 	int j, i;
@@ -222,16 +227,16 @@ int scalar_motest(pixel *input_buffer, const int image_width, const int image_he
 	static luma_type *search_luma = NULL;
 	pixel color;
 
-	if(last_luma == NULL){
-		init_scalar_motest(input_buffer, image_width/2, image_height/2, image_pitch);
+	if(*last_luma == NULL || reset){
+		init_scalar_motest(input_buffer, last_luma, motest_x, motest_y, start_x, start_y, image_pitch);
 	}
-    
+
 	if(search_luma == NULL){
 		search_luma = malloc(MOTEST_BUFFER_SIZE*sizeof(luma_type));
 	}
 
-	startx = motest_x-(MOTEST_SEARCH_WIDTH/2);
-	starty = motest_y-(MOTEST_SEARCH_HEIGHT/2);
+	startx = *motest_x-(MOTEST_SEARCH_WIDTH/2);
+	starty = *motest_y-(MOTEST_SEARCH_HEIGHT/2);
 	if(startx < 0){
 		startx = 0;
 	}
@@ -248,15 +253,15 @@ int scalar_motest(pixel *input_buffer, const int image_width, const int image_he
 	scalar_rectangle_to_luma(input_buffer, search_luma, startx, starty, MOTEST_BUFFER_WIDTH, MOTEST_BUFFER_HEIGHT, image_pitch);
 
 	sad_min = INT_MAX;
-	y_min = motest_y;
-	x_min = motest_x;
+	y_min = *motest_y;
+	x_min = *motest_x;
 
 	for(y = 0; y < MOTEST_SEARCH_HEIGHT; y++){
 		for(x = 0; x < MOTEST_SEARCH_WIDTH; x++){
 			sad = 0;
 			for(j = 0; j < MOTEST_BLOCK_HEIGHT; j++){
 				for(i = 0; i < MOTEST_BLOCK_WIDTH; i++){
-					sad += abs(last_luma[j*MOTEST_BLOCK_WIDTH+i] - search_luma[((y+j)*(MOTEST_BLOCK_WIDTH+MOTEST_SEARCH_WIDTH))+(x+i)]);
+					sad += abs((*last_luma)[j*MOTEST_BLOCK_WIDTH+i] - search_luma[((y+j)*(MOTEST_BLOCK_WIDTH+MOTEST_SEARCH_WIDTH))+(x+i)]);
 				}
 			}
 			if(sad < sad_min){
@@ -278,28 +283,30 @@ int scalar_motest(pixel *input_buffer, const int image_width, const int image_he
 		}
 #endif
 	}
-	
+
 	color.r = 0;
 	color.g = 255;
 	color.b = 0;
 	color.a = 0;
-	scalar_draw_line(motest_x+(MOTEST_BLOCK_WIDTH/2), motest_y+(MOTEST_BLOCK_HEIGHT/2), x_min+(MOTEST_BLOCK_WIDTH/2), y_min+(MOTEST_BLOCK_HEIGHT/2), color, input_buffer, image_pitch);
+	scalar_draw_line(*motest_x+(MOTEST_BLOCK_WIDTH/2), *motest_y+(MOTEST_BLOCK_HEIGHT/2), x_min+(MOTEST_BLOCK_WIDTH/2), y_min+(MOTEST_BLOCK_HEIGHT/2), color, input_buffer, image_pitch);
 
-	motest_y = y_min;
-	motest_x = x_min;
+	*motest_y = y_min;
+	*motest_x = x_min;
 
 	for(y = 0; y < MOTEST_BLOCK_HEIGHT; y++){
 		for(x = 0; x < MOTEST_BLOCK_WIDTH; x++){
-			last_luma[y*MOTEST_BLOCK_WIDTH+x] = search_luma[((y+y_min-starty)*MOTEST_BUFFER_WIDTH)+(x+x_min-startx)];
+			(*last_luma)[y*MOTEST_BLOCK_WIDTH+x] = search_luma[((y+y_min-starty)*MOTEST_BUFFER_WIDTH)+(x+x_min-startx)];
 		}
 	}
 
-	draw_motest(input_buffer, image_pitch);
+	draw_motest(input_buffer, *motest_x, *motest_y, image_pitch);
+	//simple hack to draw thicker
+	draw_motest(input_buffer, *motest_x+1, *motest_y+1, image_pitch);
 
 	return 0;
 }
 
-int vector_motest(pixel *input_buffer, const int image_width, const int image_height, const int image_pitch)
+int vector_motest(pixel *input_buffer, luma_type **last_luma, int *motest_x, int *motest_y, int start_x, int start_y, int reset, const int image_width, const int image_height, const int image_pitch)
 {
 	int y, x, starty, startx;
 	unsigned int sad, sad_min, y_min, x_min;
@@ -309,8 +316,8 @@ int vector_motest(pixel *input_buffer, const int image_width, const int image_he
 	vbx_uword_t *v_sad;
 	pixel color;
 
-	if(last_luma == NULL){
-		init_vector_motest(input_buffer, image_width/2, image_height/2, image_pitch);
+	if(*last_luma == NULL || reset){
+		init_vector_motest(input_buffer, last_luma, motest_x, motest_y, start_x, start_y, image_pitch);
 	}
 
 	v_search_luma = vbx_sp_malloc( MOTEST_BUFFER_SIZE  * sizeof(vbx_uhalf_t) );
@@ -324,8 +331,8 @@ int vector_motest(pixel *input_buffer, const int image_width, const int image_he
 		while(1);
 	}
 
-	startx = motest_x-(MOTEST_SEARCH_WIDTH/2);
-	starty = motest_y-(MOTEST_SEARCH_HEIGHT/2);
+	startx = *motest_x-(MOTEST_SEARCH_WIDTH/2);
+	starty = *motest_y-(MOTEST_SEARCH_HEIGHT/2);
 	if(startx < 0){
 		startx = 0;
 	}
@@ -340,7 +347,7 @@ int vector_motest(pixel *input_buffer, const int image_width, const int image_he
 	}
 
 	vector_rectangle_to_luma(input_buffer, v_search_luma, v_row_temp, v_row, startx, starty, MOTEST_BUFFER_WIDTH, MOTEST_BUFFER_HEIGHT, image_pitch);
-	vbx_dma_to_vector(v_last_luma, last_luma, MOTEST_BLOCK_SIZE*sizeof(vbx_uhalf_t));
+	vbx_dma_to_vector(v_last_luma, *last_luma, MOTEST_BLOCK_SIZE*sizeof(vbx_uhalf_t));
 
 	//Vector compute sad here
 
@@ -367,8 +374,8 @@ int vector_motest(pixel *input_buffer, const int image_width, const int image_he
 	vbx_sync();
 
 	sad_min = INT_MAX;
-	y_min = motest_y;
-	x_min = motest_x;
+	y_min = *motest_y;
+	x_min = *motest_x;
 
 	for(y = 0; y < MOTEST_SEARCH_HEIGHT; y++){
 		for(x = 0; x < MOTEST_SEARCH_WIDTH; x++){
@@ -391,18 +398,20 @@ int vector_motest(pixel *input_buffer, const int image_width, const int image_he
 	color.g = 255;
 	color.b = 0;
 	color.a = 0;
-	scalar_draw_line(motest_x+(MOTEST_BLOCK_WIDTH/2), motest_y+(MOTEST_BLOCK_HEIGHT/2), x_min+(MOTEST_BLOCK_WIDTH/2), y_min+(MOTEST_BLOCK_HEIGHT/2), color, input_buffer, image_pitch);
-	
-	motest_y = y_min;
-	motest_x = x_min;
+	scalar_draw_line(*motest_x+(MOTEST_BLOCK_WIDTH/2), *motest_y+(MOTEST_BLOCK_HEIGHT/2), x_min+(MOTEST_BLOCK_WIDTH/2), y_min+(MOTEST_BLOCK_HEIGHT/2), color, input_buffer, image_pitch);
+
+	*motest_y = y_min;
+	*motest_x = x_min;
 
 	vbx_set_vl(MOTEST_BLOCK_WIDTH);
 	for(y = 0; y < MOTEST_BLOCK_HEIGHT; y++){
 		vbx(VVHU, VMOV, v_last_luma+(y*MOTEST_BLOCK_WIDTH), v_search_luma+((y+y_min-starty)*MOTEST_BUFFER_WIDTH)+(x_min-startx), 0);
 	}
-	vbx_dma_to_host(last_luma, v_last_luma, MOTEST_BLOCK_SIZE*sizeof(luma_type));
+	vbx_dma_to_host(*last_luma, v_last_luma, MOTEST_BLOCK_SIZE*sizeof(luma_type));
 
-	draw_motest(input_buffer, image_pitch);
+	draw_motest(input_buffer, *motest_x, *motest_y, image_pitch);
+	//simple hack to draw thicker
+	draw_motest(input_buffer, *motest_x+1, *motest_y+1, image_pitch);
 
 	vbx_sp_free();
 	return 0;

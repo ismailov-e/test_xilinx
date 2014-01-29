@@ -1,6 +1,6 @@
 /* VECTORBLOX MXP SOFTWARE DEVELOPMENT KIT
  *
- * Copyright (C) 2012-2013 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
+ * Copyright (C) 2012-2014 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -80,14 +80,14 @@ inline static void vbw_sobel_3x3_row(vbx_uhalf_t *lpf, vbx_uhalf_t *raw, const s
 
 /** Luma Edge Detection
  *
- * @usage 3x3 Sobel edge detection with 32-bit aRGB image
+ * @brief 3x3 Sobel edge detection with 32-bit aRGB image
  *
  * @param[in] input        32-bit aRGB input
- * @param[out] output       32-bit aRGB edge-intensity output
+ * @param[out] output      32-bit aRGB edge-intensity output
  * @param[in] image_width  input/output image width
  * @param[in] image_height input/output image height
  * @param[in] image_pitch  input/output image pitch
- *
+ * @param[in] renorm       amount to shift final gradient by
  * @retval 0 if successful; -1 if out of scratchpad memory
  */
 int vbw_sobel_argb32_3x3(unsigned *output, unsigned *input, const short image_width, const short image_height, const short image_pitch, const short renorm)
@@ -123,23 +123,23 @@ int vbw_sobel_argb32_3x3(unsigned *output, unsigned *input, const short image_wi
 	v_tmp = v_sobel_row_bot;
 
 	// Transfer the first 3 input rows and interleave first 2 rgb2luma and first 2 sobel row calculations
-	vbx_dma_to_vector_aligned(v_row_in,     input,                 image_width*sizeof(vbx_uword_t)); // 1st input row
-	vbx_dma_to_vector_aligned(v_row_in_nxt, input +   image_pitch, image_width*sizeof(vbx_uword_t)); // 2nd input row
+	vbx_dma_to_vector(v_row_in,     input,                 image_width*sizeof(vbx_uword_t)); // 1st input row
+	vbx_dma_to_vector(v_row_in_nxt, input +   image_pitch, image_width*sizeof(vbx_uword_t)); // 2nd input row
 	vbw_rgb2luma(v_luma_top, v_row_in, v_tmp, image_width);                                          // 1st luma row
 	vbw_sobel_3x3_row(v_sobel_row_top, v_luma_top, image_width);                                     // 1st partial sobel row
-	vbx_dma_to_vector_aligned(v_row_in,     input + 2*image_pitch, image_width*sizeof(vbx_uword_t)); // 3rd input row
+	vbx_dma_to_vector(v_row_in,     input + 2*image_pitch, image_width*sizeof(vbx_uword_t)); // 3rd input row
 	vbw_rgb2luma(v_luma_mid, v_row_in_nxt, v_tmp, image_width);                                      // 2nd luma row
 	vbw_sobel_3x3_row(v_sobel_row_mid, v_luma_mid, image_width);                                     // 2nd partial sobel row
 
 	// Set top output row to 0
 	vbx_set_vl(image_width);
 	vbx(SVWU, VMOV, v_row_out, 0, 0);
-	vbx_dma_to_host_aligned(output, v_row_out, image_width*sizeof(vbx_uword_t));
+	vbx_dma_to_host(output, v_row_out, image_width*sizeof(vbx_uword_t));
 
 	// Calculate edges
 	for (y = 0; y < image_height-(FILTER_HEIGHT-1); y++) {
 		// Transfer the next input row while processing
-		vbx_dma_to_vector_aligned(v_row_in_nxt, input + (y+FILTER_HEIGHT)*image_pitch, image_width*sizeof(vbx_uword_t));
+		vbx_dma_to_vector(v_row_in_nxt, input + (y+FILTER_HEIGHT)*image_pitch, image_width*sizeof(vbx_uword_t));
 
 		// Re-use v_sobel_row_bot as v_tmp
 		v_tmp = v_sobel_row_bot;
@@ -185,7 +185,7 @@ int vbw_sobel_argb32_3x3(unsigned *output, unsigned *input, const short image_wi
 		vbx(SVHWU, VMULLO, v_row_out+1, 0x00010101, v_tmp);
 
 		// DMA the result to the output
-		vbx_dma_to_host_aligned(output+(y+1)*image_pitch, v_row_out, image_width*sizeof(vbx_uword_t));
+		vbx_dma_to_host(output+(y+1)*image_pitch, v_row_out, image_width*sizeof(vbx_uword_t));
 
 		// Swap input row buffers
 		tmp_ptr      = (void *)v_row_in;
@@ -208,7 +208,7 @@ int vbw_sobel_argb32_3x3(unsigned *output, unsigned *input, const short image_wi
 	// Set bottom row to 0
 	vbx_set_vl(image_width);
 	vbx(SVWU, VMOV, v_row_out, 0, 0);
-	vbx_dma_to_host_aligned(output+(image_height-1)*image_pitch, v_row_out, image_width*sizeof(vbx_uword_t));
+	vbx_dma_to_host(output+(image_height-1)*image_pitch, v_row_out, image_width*sizeof(vbx_uword_t));
 
 	vbx_sync();
 	vbx_sp_free();

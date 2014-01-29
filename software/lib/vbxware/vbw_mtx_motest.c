@@ -1,6 +1,6 @@
 /* VECTORBLOX MXP SOFTWARE DEVELOPMENT KIT
  *
- * Copyright (C) 2012-2013 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
+ * Copyright (C) 2012-2014 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -58,9 +58,9 @@ VBXCOPYRIGHT( mtx_motest )
  * at each location calculating the SAD of the block and the reference image
  * @FIXME Using bytes as input data.
  *
- * @param[in] x.
- * @param[in] y.
- * @param[out] result.
+ * @param[in] x
+ * @param[in] y
+ * @param[out] result
  *
  * @todo move to scalar
  */
@@ -143,9 +143,9 @@ int vbw_mtx_motest_byte_setup()
  * vertically as it makes it easier to align vectors.
  * Assumes that image width is a multiple of vbx_dma_alignment_bytes
  *
- * @param[in] x.
- * @param[in] y.
- * @param[out] result.
+ * @param[in] x
+ * @param[in] y
+ * @param[out] result
  */
 int vbw_mtx_motest_byte(output_type *result, input_type *x, input_type *y)
 {
@@ -179,7 +179,7 @@ int vbw_mtx_motest_byte(output_type *result, input_type *x, input_type *y)
 	//Do column by column
 
 #if !USE_3D
-	for( j=0; j < SEARCH_WIDTH; j++ ) 
+	for( j=0; j < SEARCH_WIDTH; j++ )
 	{
 		// column-ize the search image
 		vbx_set_vl( BLOCK_WIDTH );
@@ -243,11 +243,11 @@ int vbw_mtx_motest_3d_byte_setup()
 /** VBX Motion Estimation, using vbx_3d ops.
  * Using bytes as input data.
  *
- * @param[in] x.
- * @param[in] y.
- * @param[out] result.
+ * @param[out] result
+ * @param[in] x
+ * @param[in] y
  */
-int vbw_mtx_motest_3d_byte(output_type *result, input_type *x, input_type *y)
+int vbw_mtx_motest_3d_byte(output_type *result, input_type* x, input_type *y)
 {
 	int  l,j;
 	vbx_mxp_t *this_mxp = VBX_GET_THIS_MXP();

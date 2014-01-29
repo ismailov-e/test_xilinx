@@ -1,6 +1,6 @@
 /* VECTORBLOX MXP SOFTWARE DEVELOPMENT KIT
  *
- * Copyright (C) 2012-2013 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
+ * Copyright (C) 2012-2014 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -960,12 +960,7 @@ int main(void)
 {
 
 #ifdef DEMO
-#if defined(SYSTEM_ZEDBOARD) && !defined(__MICROBLAZE__)
-	// pFrameTPad = buffer; // remap_uncached not implemented yet for ARM.
 	pFrameTPad = (pixel*)vbx_remap_uncached(buffer);  // force uncached
-#else
-	pFrameTPad = (pixel*)vbx_remap_uncached(buffer);  // force uncached
-#endif
 #endif
 
 	//unsigned int time_start, time_stop;

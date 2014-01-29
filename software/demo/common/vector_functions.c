@@ -1,6 +1,6 @@
 /* VECTORBLOX MXP SOFTWARE DEVELOPMENT KIT
  *
- * Copyright (C) 2012-2013 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
+ * Copyright (C) 2012-2014 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -61,12 +61,6 @@ VBXCOPYRIGHT( vector_functions )
 	typedef vbx_half_t* vptr_half;
 	typedef vbx_byte_t* vptr_byte;
 
-#ifdef SYSTEM_DE4
-#define FORCE_ALIGNED_DMA 0
-#else
-#define FORCE_ALIGNED_DMA 1
-#endif
-
 	//Not double buffered, could be faster
 void vector_draw_alpha(int startx, int starty, pixel *bg, pixel *fg, int size_x, int size_y)
 {
@@ -96,17 +90,9 @@ void vector_draw_alpha(int startx, int starty, pixel *bg, pixel *fg, int size_x,
 		}
 		bg_buffer = bg+(((starty+y)*IMAGE_WIDTH)+startx);
 		fg_buffer = fg+(y*size_x);
-#if FORCE_ALIGNED_DMA
-		vbx_dma_to_vector_aligned(v_fg, fg_buffer, pass_size_bytes);
-#else
 		vbx_dma_to_vector(v_fg, fg_buffer, pass_size_bytes);
-#endif
 		for(j = 0; j < lines_per_pass; j++){
-#if FORCE_ALIGNED_DMA
-			vbx_dma_to_vector_aligned(v_bg+(j*size_x), bg_buffer+(j*IMAGE_WIDTH), size_x*sizeof(pixel));
-#else
 			vbx_dma_to_vector(v_bg+(j*size_x), bg_buffer+(j*IMAGE_WIDTH), size_x*sizeof(pixel));
-#endif
 		}
 
 		vbx_set_vl(lines_per_pass*size_x);
@@ -139,11 +125,7 @@ void vector_draw_alpha(int startx, int starty, pixel *bg, pixel *fg, int size_x,
 		vbx(VVWU, VOR,   v_fg,    v_fg,     v_color);
 
 		for(j = 0; j < lines_per_pass; j++){
-#if FORCE_ALIGNED_DMA
-			vbx_dma_to_host_aligned(bg_buffer+(j*IMAGE_WIDTH), v_fg+(j*size_x), size_x*sizeof(pixel));
-#else
 			vbx_dma_to_host(bg_buffer+(j*IMAGE_WIDTH), v_fg+(j*size_x), size_x*sizeof(pixel));
-#endif
 		}
 		vbx_sync();
 	}
@@ -193,11 +175,7 @@ void vector_invert_image(pixel *image, const int image_width, const int image_he
 	v_processing = (vptr_uword)vbx_sp_malloc(image_width*sizeof(pixel));
 	v_to_host    = (vptr_uword)vbx_sp_malloc(image_width*sizeof(pixel));
 
-#if FORCE_ALIGNED_DMA
-	vbx_dma_to_vector_aligned(v_to_vector, image, image_width*sizeof(pixel));
-#else
 	vbx_dma_to_vector(v_to_vector, image, image_width*sizeof(pixel));
-#endif
 
 	vbx_set_vl(image_width*sizeof(pixel));
 
@@ -208,20 +186,12 @@ void vector_invert_image(pixel *image, const int image_width, const int image_he
 		v_to_vector  = temp;
 
 		if(y < IMAGE_HEIGHT-1){
-#if FORCE_ALIGNED_DMA
-			vbx_dma_to_vector_aligned(v_to_vector, image+(y+1)*image_pitch, image_width*sizeof(pixel));
-#else
 			vbx_dma_to_vector(v_to_vector, image+(y+1)*image_pitch, image_width*sizeof(pixel));
-#endif
 		}
 
 		vbx(SVBU, VSUB, (vbx_ubyte_t*)v_processing, 255, (vbx_ubyte_t*)v_processing);
 
-#if FORCE_ALIGNED_DMA
-		vbx_dma_to_host_aligned(image+y*image_pitch, v_processing, image_width*sizeof(pixel));
-#else
 		vbx_dma_to_host(image+y*image_pitch, v_processing, image_width*sizeof(pixel));
-#endif
 	}
 
 	vbx_sync();
@@ -237,11 +207,7 @@ void vector_brighten_image(pixel *image, unsigned char brighten_amount)
 	v_processing = (vptr_uword)vbx_sp_malloc(IMAGE_WIDTH*sizeof(pixel));
 	v_to_host    = (vptr_uword)vbx_sp_malloc(IMAGE_WIDTH*sizeof(pixel));
 
-#if FORCE_ALIGNED_DMA
-	vbx_dma_to_vector_aligned(v_to_vector, image, IMAGE_WIDTH*sizeof(pixel));
-#else
 	vbx_dma_to_vector(v_to_vector, image, IMAGE_WIDTH*sizeof(pixel));
-#endif
 
 	vbx_set_vl(IMAGE_WIDTH*4);
 
@@ -252,21 +218,13 @@ void vector_brighten_image(pixel *image, unsigned char brighten_amount)
 		v_to_vector  = temp;
 
 		if(y < IMAGE_HEIGHT-1){
-#if FORCE_ALIGNED_DMA
-			vbx_dma_to_vector_aligned(v_to_vector, image+(y+1)*IMAGE_WIDTH, IMAGE_WIDTH*sizeof(pixel));
-#else
 			vbx_dma_to_vector(v_to_vector, image+(y+1)*IMAGE_WIDTH, IMAGE_WIDTH*sizeof(pixel));
-#endif
 		}
 
 		vbx(SVBU, VADD,     (vbx_ubyte_t*)v_processing, brighten_amount, (vbx_ubyte_t*)v_processing);
 		vbx(SVBU, VCMV_LTZ, (vbx_ubyte_t*)v_processing, 255,             (vbx_ubyte_t*)v_processing);
 
-#if FORCE_ALIGNED_DMA
-		vbx_dma_to_host_aligned(image+y*IMAGE_WIDTH, v_processing, IMAGE_WIDTH*sizeof(pixel));
-#else
 		vbx_dma_to_host(image+y*IMAGE_WIDTH, v_processing, IMAGE_WIDTH*sizeof(pixel));
-#endif
 	}
 
 	vbx_sync();
@@ -279,55 +237,31 @@ void vector_flip_image(pixel *input, pixel *output)
 	int w = IMAGE_WIDTH*sizeof(pixel);
 #if 0 //full horizontal flip 
 	for(y = 0; y < IMAGE_HEIGHT/2; y++){
-#if FORCE_ALIGNED_DMA
-		vbx_dma_to_vector_aligned(0, input+    y*IMAGE_WIDTH, w);
-		vbx_dma_to_vector_aligned(w, input+(h-y)*IMAGE_WIDTH, w);
-		vbx_dma_to_host_aligned(output+(h-y)*IMAGE_WIDTH, 0, w);
-		vbx_dma_to_host_aligned(output+    y*IMAGE_WIDTH, (vptr_ubyte)w, w);
-#else
 		vbx_dma_to_vector(0, input+    y*IMAGE_WIDTH, w);
 		vbx_dma_to_vector(w, input+(h-y)*IMAGE_WIDTH, w);
 		vbx_dma_to_host(output+(h-y)*IMAGE_WIDTH, 0, w);
 		vbx_dma_to_host(output+    y*IMAGE_WIDTH, (vptr_ubyte)w, w);
-#endif
 	}
 #elif 0 //horizontal mirror
 	for(y = 0; y < IMAGE_HEIGHT/2; y++){
-#if FORCE_ALIGNED_DMA
-		vbx_dma_to_vector_aligned(0, input+    y*IMAGE_WIDTH, w);
-		vbx_dma_to_host_aligned(output+(h-y)*IMAGE_WIDTH, 0, w);
-#else
 		vbx_dma_to_vector(0, input+    y*IMAGE_WIDTH, w);
 		vbx_dma_to_host(output+(h-y)*IMAGE_WIDTH, 0, w);
-#endif
 	}
 #elif 0 //full vertical flip
 	vbx_set_vl( 1 );
 	vbx_set_2D( IMAGE_WIDTH, 4, -4, 0);
 	for(y = 0; y < IMAGE_HEIGHT; y++){
-#if FORCE_ALIGNED_DMA
-		vbx_dma_to_vector_aligned(0, input+y*IMAGE_WIDTH, w);
-		vbx_2D(VVW, VMOV, w, w-4, 0 );
-		vbx_dma_to_host_aligned(output+y*IMAGE_WIDTH, (vptr_ubyte)w, w);
-#else
 		vbx_dma_to_vector(0, input+y*IMAGE_WIDTH, w);
 		vbx_2D(VVW, VMOV, w, w-4, 0 );
 		vbx_dma_to_host(output+y*IMAGE_WIDTH, (vptr_ubyte)w, w);
-#endif
 	}
 #else //vertical mirror
 	vbx_set_vl( 1 );
 	vbx_set_2D( IMAGE_WIDTH/2, 4, -4, 0);
 	for(y = 0; y < IMAGE_HEIGHT; y++){
-#if FORCE_ALIGNED_DMA
-		vbx_dma_to_vector_aligned(0, input+y*IMAGE_WIDTH, w/2);
-		vbx_2D(VVW, VMOV, (vbx_word_t*)w, (vbx_word_t*)(w/2-4), 0 );
-		vbx_dma_to_host_aligned(output+y*IMAGE_WIDTH+IMAGE_WIDTH/2, (vptr_ubyte)w, w/2);
-#else
 		vbx_dma_to_vector(0, input+y*IMAGE_WIDTH, w/2);
 		vbx_2D(VVW, VMOV, (vbx_word_t*)w, (vbx_word_t*)(w/2-4), 0 );
 		vbx_dma_to_host(output+y*IMAGE_WIDTH+IMAGE_WIDTH/2, (vptr_ubyte)w, w/2);
-#endif
 	}
 #endif
 	vbx_sync();
@@ -343,15 +277,9 @@ void vector_flip_vertical_simple(pixel *input, pixel *output)
 	vbx_set_vl( 1 );
 	vbx_set_2D( IMAGE_WIDTH, 4, -4, 0);
 	for(y = 0; y < IMAGE_HEIGHT; y++){
-#if FORCE_ALIGNED_DMA
-		vbx_dma_to_vector_aligned(0, input+y*IMAGE_WIDTH, w);
-		vbx_2D(VVW, VMOV, (vbx_word_t*)w, (vbx_word_t*)(w-4), 0 );
-		vbx_dma_to_host_aligned(output+y*IMAGE_WIDTH, (vptr_ubyte)w, w);
-#else
 		vbx_dma_to_vector(0, input+y*IMAGE_WIDTH, w);
 		vbx_2D(VVW, VMOV, (vbx_word_t*)w, (vbx_word_t*)(w-4), 0 );
 		vbx_dma_to_host(output+y*IMAGE_WIDTH, (vptr_ubyte)w, w);
-#endif
 	}
 }
 

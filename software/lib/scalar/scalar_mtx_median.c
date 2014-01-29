@@ -1,6 +1,6 @@
 /* VECTORBLOX MXP SOFTWARE DEVELOPMENT KIT
  *
- * Copyright (C) 2012-2013 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
+ * Copyright (C) 2012-2014 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -232,19 +232,19 @@ uint32_t scalar_bubble_uword(uint32_t *array, const int32_t filter_size)
  * @param[in] input.
  * @param[out] output.
  */
-void scalar_mtx_median_byte(int8_t *output, int8_t *input, const int32_t filter_size, const int32_t filter_height, const int32_t filter_width, const int32_t image_height, const int32_t image_width)
+void scalar_mtx_median_byte(int8_t *output, int8_t *input, const int32_t filter_height, const int32_t filter_width, const int32_t image_height, const int32_t image_width, const int32_t image_pitch)
 {
 	int32_t y,x,j,i;
-	int8_t array[filter_size];
+	int8_t array[filter_height*filter_width];
 
 	for(y=0; y<image_height-filter_height; y++){
 		for(x=0; x<image_width-filter_width; x++){
 			for(j=0; j<filter_height; j++){
 				for(i=0; i<filter_width; i++){
-					array[j*filter_width+i] = input[(y+j)*image_width+(x+i)];
+					array[j*filter_width+i] = input[(y+j)*image_pitch+(x+i)];
 				}
 			}
-			output[y*image_width+x] = scalar_bubble_byte(array, filter_size);
+			output[y*image_pitch+x] = scalar_bubble_byte(array, filter_height*filter_width);
 		}
 	}
 }
@@ -254,19 +254,19 @@ void scalar_mtx_median_byte(int8_t *output, int8_t *input, const int32_t filter_
  * @param[in] input.
  * @param[out] output.
  */
-void scalar_mtx_median_half(int16_t *output, int16_t *input, const int32_t filter_size, const int32_t filter_height, const int32_t filter_width, const int32_t image_height, const int32_t image_width)
+void scalar_mtx_median_half(int16_t *output, int16_t *input, const int32_t filter_height, const int32_t filter_width, const int32_t image_height, const int32_t image_width, const int32_t image_pitch)
 {
 	int32_t y,x,j,i;
-	int16_t array[filter_size];
+	int16_t array[filter_height*filter_width];
 
 	for(y=0; y<image_height-filter_height; y++){
 		for(x=0; x<image_width-filter_width; x++){
 			for(j=0; j<filter_height; j++){
 				for(i=0; i<filter_width; i++){
-					array[j*filter_width+i] = input[(y+j)*image_width+(x+i)];
+					array[j*filter_width+i] = input[(y+j)*image_pitch+(x+i)];
 				}
 			}
-			output[y*image_width+x] = scalar_bubble_half(array, filter_size);
+			output[y*image_pitch+x] = scalar_bubble_half(array, filter_height*filter_width);
 		}
 	}
 }
@@ -276,19 +276,19 @@ void scalar_mtx_median_half(int16_t *output, int16_t *input, const int32_t filte
  * @param[in] input.
  * @param[out] output.
  */
-void scalar_mtx_median_word(int32_t *output, int32_t *input, const int32_t filter_size, const int32_t filter_height, const int32_t filter_width, const int32_t image_height, const int32_t image_width)
+void scalar_mtx_median_word(int32_t *output, int32_t *input, const int32_t filter_height, const int32_t filter_width, const int32_t image_height, const int32_t image_width, const int32_t image_pitch)
 {
 	int32_t y,x,j,i;
-	int32_t array[filter_size];
+	int32_t array[filter_height*filter_width];
 
 	for(y=0; y<image_height-filter_height; y++){
 		for(x=0; x<image_width-filter_width; x++){
 			for(j=0; j<filter_height; j++){
 				for(i=0; i<filter_width; i++){
-					array[j*filter_width+i] = input[(y+j)*image_width+(x+i)];
+					array[j*filter_width+i] = input[(y+j)*image_pitch+(x+i)];
 				}
 			}
-			output[y*image_width+x] = scalar_bubble_word(array, filter_size);
+			output[y*image_pitch+x] = scalar_bubble_word(array, filter_height*filter_width);
 		}
 	}
 }
@@ -298,19 +298,19 @@ void scalar_mtx_median_word(int32_t *output, int32_t *input, const int32_t filte
  * @param[in] input.
  * @param[out] output.
  */
-void scalar_mtx_median_ubyte(uint8_t *output, uint8_t *input, const int32_t filter_size, const int32_t filter_height, const int32_t filter_width, const int32_t image_height, const int32_t image_width)
+void scalar_mtx_median_ubyte(uint8_t *output, uint8_t *input, const int32_t filter_height, const int32_t filter_width, const int32_t image_height, const int32_t image_width, const int32_t image_pitch)
 {
 	int32_t y,x,j,i;
-	uint8_t array[filter_size];
+	uint8_t array[filter_height*filter_width];
 
 	for(y=0; y<image_height-filter_height; y++){
 		for(x=0; x<image_width-filter_width; x++){
 			for(j=0; j<filter_height; j++){
 				for(i=0; i<filter_width; i++){
-					array[j*filter_width+i] = input[(y+j)*image_width+(x+i)];
+					array[j*filter_width+i] = input[(y+j)*image_pitch+(x+i)];
 				}
 			}
-			output[y*image_width+x] = scalar_bubble_ubyte(array, filter_size);
+			output[y*image_pitch+x] = scalar_bubble_ubyte(array, filter_height*filter_width);
 		}
 	}
 }
@@ -320,19 +320,19 @@ void scalar_mtx_median_ubyte(uint8_t *output, uint8_t *input, const int32_t filt
  * @param[in] input.
  * @param[out] output.
  */
-void scalar_mtx_median_uhalf(uint16_t *output, uint16_t *input, const int32_t filter_size, const int32_t filter_height, const int32_t filter_width, const int32_t image_height, const int32_t image_width)
+void scalar_mtx_median_uhalf(uint16_t *output, uint16_t *input, const int32_t filter_height, const int32_t filter_width, const int32_t image_height, const int32_t image_width, const int32_t image_pitch)
 {
 	int32_t y,x,j,i;
-	uint16_t array[filter_size];
+	uint16_t array[filter_height*filter_width];
 
 	for(y=0; y<image_height-filter_height; y++){
 		for(x=0; x<image_width-filter_width; x++){
 			for(j=0; j<filter_height; j++){
 				for(i=0; i<filter_width; i++){
-					array[j*filter_width+i] = input[(y+j)*image_width+(x+i)];
+					array[j*filter_width+i] = input[(y+j)*image_pitch+(x+i)];
 				}
 			}
-			output[y*image_width+x] = scalar_bubble_uhalf(array, filter_size);
+			output[y*image_pitch+x] = scalar_bubble_uhalf(array, filter_height*filter_width);
 		}
 	}
 }
@@ -342,19 +342,19 @@ void scalar_mtx_median_uhalf(uint16_t *output, uint16_t *input, const int32_t fi
  * @param[in] input.
  * @param[out] output.
  */
-void scalar_mtx_median_uword(uint32_t *output, uint32_t *input, const int32_t filter_size, const int32_t filter_height, const int32_t filter_width, const int32_t image_height, const int32_t image_width)
+void scalar_mtx_median_uword(uint32_t *output, uint32_t *input, const int32_t filter_height, const int32_t filter_width, const int32_t image_height, const int32_t image_width, const int32_t image_pitch)
 {
 	int32_t y,x,j,i;
-	uint32_t array[filter_size];
+	uint32_t array[filter_height*filter_width];
 
 	for(y=0; y<image_height-filter_height; y++){
 		for(x=0; x<image_width-filter_width; x++){
 			for(j=0; j<filter_height; j++){
 				for(i=0; i<filter_width; i++){
-					array[j*filter_width+i] = input[(y+j)*image_width+(x+i)];
+					array[j*filter_width+i] = input[(y+j)*image_pitch+(x+i)];
 				}
 			}
-			output[y*image_width+x] = scalar_bubble_uword(array, filter_size);
+			output[y*image_pitch+x] = scalar_bubble_uword(array, filter_height*filter_width);
 		}
 	}
 }

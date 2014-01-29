@@ -1,6 +1,6 @@
 /* VECTORBLOX MXP SOFTWARE DEVELOPMENT KIT
  *
- * Copyright (C) 2012-2013 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
+ * Copyright (C) 2012-2014 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -36,8 +36,8 @@
  */
 
 /**
- * @file
- * @defgroup Matrix_Motion_Estimation
+ * @file vbw_mtx_motest.h
+ * @defgroup Matrix_Motion_Estimation Matrix Motion Estimation
  * @brief Matrix Motion Estimation
  * @ingroup VBXware 
  */
@@ -87,8 +87,6 @@ typedef unsigned char  input_type;
 typedef unsigned short intermediate_type;
 typedef unsigned int   output_type;
 
-//Don't need to pad up the dma length any more
-//#define RESULT_SIZE (VBX_PAD_UP(SEARCH_WIDTH*SEARCH_HEIGHT*sizeof(output_type),this_mxp->dma_alignment_bytes))
 #define RESULT_SIZE (SEARCH_WIDTH*SEARCH_HEIGHT*sizeof(output_type))
 
 void vbw_mtx_motest_scalar_byte  (output_type *result, input_type *x, input_type *y);

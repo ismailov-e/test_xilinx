@@ -1,6 +1,6 @@
 /* VECTORBLOX MXP SOFTWARE DEVELOPMENT KIT
  *
- * Copyright (C) 2012-2013 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
+ * Copyright (C) 2012-2014 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -206,6 +206,180 @@ static inline void vbx_VVBB( vinstr_t v_op, vbx_byte_t *v_out, vbx_byte_t *v_in1
 		break;
 	case VCUSTOM3:
 		vbxasm( VVB, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_VVBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_byte_t *v_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm( VVBS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm( VVBS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm( VVBS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm( VVBS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm( VVBS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm( VVBS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm( VVBS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm( VVBS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm( VVBS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm( VVBS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm( VVBS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm( VVBS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm( VVBS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm( VVBS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm( VVBS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm( VVBS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm( VVBS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm( VVBS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm( VVBS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm( VVBS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm( VVBS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm( VVBS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm( VVBS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm( VVBS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm( VVBS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm( VVBS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_VVBBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_byte_t *v_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm( VVBS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm( VVBS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm( VVBS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm( VVBS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm( VVBS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm( VVBS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm( VVBS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm( VVBS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm( VVBS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm( VVBS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm( VVBS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm( VVBS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm( VVBS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm( VVBS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm( VVBS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm( VVBS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm( VVBS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm( VVBS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm( VVBS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm( VVBS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm( VVBS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm( VVBS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm( VVBS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm( VVBS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm( VVBS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm( VVBS, VCUSTOM3, v_out, v_in1, v_in2 );
 		break;
 	default:
 		break;
@@ -473,6 +647,93 @@ static inline void vbx_VVBH( vinstr_t v_op, vbx_half_t *v_out, vbx_byte_t *v_in1
 	}
 }
 
+static inline void vbx_VVBHS( vinstr_t v_op, vbx_half_t *v_out, vbx_byte_t *v_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm( VVBHS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm( VVBHS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm( VVBHS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm( VVBHS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm( VVBHS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm( VVBHS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm( VVBHS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm( VVBHS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm( VVBHS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm( VVBHS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm( VVBHS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm( VVBHS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm( VVBHS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm( VVBHS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm( VVBHS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm( VVBHS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm( VVBHS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm( VVBHS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm( VVBHS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm( VVBHS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm( VVBHS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm( VVBHS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm( VVBHS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm( VVBHS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm( VVBHS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm( VVBHS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_VVBHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_ubyte_t *v_in1, vbx_ubyte_t *v_in2 )
 {
 	switch(v_op)
@@ -647,6 +908,93 @@ static inline void vbx_VVBW( vinstr_t v_op, vbx_word_t *v_out, vbx_byte_t *v_in1
 	}
 }
 
+static inline void vbx_VVBWS( vinstr_t v_op, vbx_word_t *v_out, vbx_byte_t *v_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm( VVBWS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm( VVBWS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm( VVBWS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm( VVBWS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm( VVBWS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm( VVBWS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm( VVBWS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm( VVBWS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm( VVBWS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm( VVBWS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm( VVBWS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm( VVBWS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm( VVBWS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm( VVBWS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm( VVBWS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm( VVBWS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm( VVBWS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm( VVBWS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm( VVBWS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm( VVBWS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm( VVBWS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm( VVBWS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm( VVBWS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm( VVBWS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm( VVBWS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm( VVBWS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_VVBWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_ubyte_t *v_in1, vbx_ubyte_t *v_in2 )
 {
 	switch(v_op)
@@ -815,6 +1163,93 @@ static inline void vbx_VVHB( vinstr_t v_op, vbx_byte_t *v_out, vbx_half_t *v_in1
 		break;
 	case VCUSTOM3:
 		vbxasm( VVHB, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_VVHBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_half_t *v_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm( VVHBS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm( VVHBS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm( VVHBS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm( VVHBS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm( VVHBS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm( VVHBS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm( VVHBS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm( VVHBS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm( VVHBS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm( VVHBS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm( VVHBS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm( VVHBS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm( VVHBS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm( VVHBS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm( VVHBS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm( VVHBS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm( VVHBS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm( VVHBS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm( VVHBS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm( VVHBS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm( VVHBS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm( VVHBS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm( VVHBS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm( VVHBS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm( VVHBS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm( VVHBS, VCUSTOM3, v_out, v_in1, v_in2 );
 		break;
 	default:
 		break;
@@ -1082,6 +1517,180 @@ static inline void vbx_VVHH( vinstr_t v_op, vbx_half_t *v_out, vbx_half_t *v_in1
 	}
 }
 
+static inline void vbx_VVHS( vinstr_t v_op, vbx_half_t *v_out, vbx_half_t *v_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm( VVHS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm( VVHS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm( VVHS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm( VVHS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm( VVHS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm( VVHS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm( VVHS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm( VVHS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm( VVHS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm( VVHS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm( VVHS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm( VVHS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm( VVHS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm( VVHS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm( VVHS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm( VVHS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm( VVHS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm( VVHS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm( VVHS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm( VVHS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm( VVHS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm( VVHS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm( VVHS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm( VVHS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm( VVHS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm( VVHS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_VVHHS( vinstr_t v_op, vbx_half_t *v_out, vbx_half_t *v_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm( VVHS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm( VVHS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm( VVHS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm( VVHS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm( VVHS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm( VVHS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm( VVHS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm( VVHS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm( VVHS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm( VVHS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm( VVHS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm( VVHS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm( VVHS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm( VVHS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm( VVHS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm( VVHS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm( VVHS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm( VVHS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm( VVHS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm( VVHS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm( VVHS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm( VVHS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm( VVHS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm( VVHS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm( VVHS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm( VVHS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_VVHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uhalf_t *v_in1, vbx_uhalf_t *v_in2 )
 {
 	switch(v_op)
@@ -1343,6 +1952,93 @@ static inline void vbx_VVHW( vinstr_t v_op, vbx_word_t *v_out, vbx_half_t *v_in1
 	}
 }
 
+static inline void vbx_VVHWS( vinstr_t v_op, vbx_word_t *v_out, vbx_half_t *v_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm( VVHWS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm( VVHWS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm( VVHWS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm( VVHWS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm( VVHWS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm( VVHWS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm( VVHWS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm( VVHWS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm( VVHWS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm( VVHWS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm( VVHWS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm( VVHWS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm( VVHWS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm( VVHWS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm( VVHWS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm( VVHWS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm( VVHWS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm( VVHWS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm( VVHWS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm( VVHWS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm( VVHWS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm( VVHWS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm( VVHWS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm( VVHWS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm( VVHWS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm( VVHWS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_VVHWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uhalf_t *v_in1, vbx_uhalf_t *v_in2 )
 {
 	switch(v_op)
@@ -1517,6 +2213,93 @@ static inline void vbx_VVWB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t *v_in1
 	}
 }
 
+static inline void vbx_VVWBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t *v_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm( VVWBS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm( VVWBS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm( VVWBS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm( VVWBS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm( VVWBS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm( VVWBS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm( VVWBS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm( VVWBS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm( VVWBS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm( VVWBS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm( VVWBS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm( VVWBS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm( VVWBS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm( VVWBS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm( VVWBS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm( VVWBS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm( VVWBS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm( VVWBS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm( VVWBS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm( VVWBS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm( VVWBS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm( VVWBS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm( VVWBS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm( VVWBS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm( VVWBS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm( VVWBS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_VVWBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t *v_in1, vbx_uword_t *v_in2 )
 {
 	switch(v_op)
@@ -1685,6 +2468,93 @@ static inline void vbx_VVWH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t *v_in1
 		break;
 	case VCUSTOM3:
 		vbxasm( VVWH, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_VVWHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t *v_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm( VVWHS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm( VVWHS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm( VVWHS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm( VVWHS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm( VVWHS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm( VVWHS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm( VVWHS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm( VVWHS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm( VVWHS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm( VVWHS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm( VVWHS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm( VVWHS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm( VVWHS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm( VVWHS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm( VVWHS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm( VVWHS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm( VVWHS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm( VVWHS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm( VVWHS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm( VVWHS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm( VVWHS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm( VVWHS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm( VVWHS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm( VVWHS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm( VVWHS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm( VVWHS, VCUSTOM3, v_out, v_in1, v_in2 );
 		break;
 	default:
 		break;
@@ -1952,6 +2822,180 @@ static inline void vbx_VVWW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t *v_in1
 	}
 }
 
+static inline void vbx_VVWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t *v_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm( VVWS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm( VVWS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm( VVWS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm( VVWS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm( VVWS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm( VVWS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm( VVWS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm( VVWS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm( VVWS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm( VVWS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm( VVWS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm( VVWS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm( VVWS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm( VVWS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm( VVWS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm( VVWS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm( VVWS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm( VVWS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm( VVWS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm( VVWS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm( VVWS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm( VVWS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm( VVWS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm( VVWS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm( VVWS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm( VVWS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_VVWWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t *v_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm( VVWS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm( VVWS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm( VVWS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm( VVWS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm( VVWS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm( VVWS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm( VVWS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm( VVWS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm( VVWS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm( VVWS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm( VVWS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm( VVWS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm( VVWS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm( VVWS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm( VVWS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm( VVWS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm( VVWS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm( VVWS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm( VVWS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm( VVWS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm( VVWS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm( VVWS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm( VVWS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm( VVWS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm( VVWS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm( VVWS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_VVWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t *v_in1, vbx_uword_t *v_in2 )
 {
 	switch(v_op)
@@ -2126,7 +3170,7 @@ static inline void vbx_VVWWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t *v_
 	}
 }
 
-static inline void vbx_SVB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_byte_t *v_in2 )
+static inline void vbx_SVB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -2213,7 +3257,7 @@ static inline void vbx_SVB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_byt
 	}
 }
 
-static inline void vbx_SVBB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_byte_t *v_in2 )
+static inline void vbx_SVBB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -2300,7 +3344,181 @@ static inline void vbx_SVBB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_by
 	}
 }
 
-static inline void vbx_SVBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_in1, vbx_ubyte_t *v_in2 )
+static inline void vbx_SVBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm( SVBS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm( SVBS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm( SVBS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm( SVBS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm( SVBS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm( SVBS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm( SVBS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm( SVBS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm( SVBS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm( SVBS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm( SVBS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm( SVBS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm( SVBS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm( SVBS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm( SVBS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm( SVBS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm( SVBS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm( SVBS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm( SVBS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm( SVBS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm( SVBS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm( SVBS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm( SVBS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm( SVBS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm( SVBS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm( SVBS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_SVBBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm( SVBS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm( SVBS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm( SVBS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm( SVBS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm( SVBS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm( SVBS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm( SVBS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm( SVBS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm( SVBS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm( SVBS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm( SVBS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm( SVBS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm( SVBS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm( SVBS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm( SVBS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm( SVBS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm( SVBS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm( SVBS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm( SVBS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm( SVBS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm( SVBS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm( SVBS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm( SVBS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm( SVBS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm( SVBS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm( SVBS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_SVBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t s_in1, vbx_ubyte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -2387,7 +3605,7 @@ static inline void vbx_SVBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_i
 	}
 }
 
-static inline void vbx_SVBBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_in1, vbx_ubyte_t *v_in2 )
+static inline void vbx_SVBBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t s_in1, vbx_ubyte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -2474,7 +3692,7 @@ static inline void vbx_SVBBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_
 	}
 }
 
-static inline void vbx_SVBH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_byte_t *v_in2 )
+static inline void vbx_SVBH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -2561,7 +3779,94 @@ static inline void vbx_SVBH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_by
 	}
 }
 
-static inline void vbx_SVBHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_in1, vbx_ubyte_t *v_in2 )
+static inline void vbx_SVBHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm( SVBHS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm( SVBHS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm( SVBHS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm( SVBHS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm( SVBHS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm( SVBHS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm( SVBHS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm( SVBHS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm( SVBHS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm( SVBHS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm( SVBHS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm( SVBHS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm( SVBHS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm( SVBHS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm( SVBHS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm( SVBHS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm( SVBHS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm( SVBHS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm( SVBHS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm( SVBHS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm( SVBHS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm( SVBHS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm( SVBHS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm( SVBHS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm( SVBHS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm( SVBHS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_SVBHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uword_t s_in1, vbx_ubyte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -2648,7 +3953,7 @@ static inline void vbx_SVBHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_
 	}
 }
 
-static inline void vbx_SVBW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_byte_t *v_in2 )
+static inline void vbx_SVBW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -2735,7 +4040,94 @@ static inline void vbx_SVBW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_by
 	}
 }
 
-static inline void vbx_SVBWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int s_in1, vbx_ubyte_t *v_in2 )
+static inline void vbx_SVBWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm( SVBWS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm( SVBWS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm( SVBWS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm( SVBWS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm( SVBWS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm( SVBWS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm( SVBWS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm( SVBWS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm( SVBWS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm( SVBWS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm( SVBWS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm( SVBWS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm( SVBWS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm( SVBWS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm( SVBWS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm( SVBWS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm( SVBWS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm( SVBWS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm( SVBWS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm( SVBWS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm( SVBWS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm( SVBWS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm( SVBWS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm( SVBWS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm( SVBWS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm( SVBWS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_SVBWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t s_in1, vbx_ubyte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -2822,7 +4214,7 @@ static inline void vbx_SVBWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int s_
 	}
 }
 
-static inline void vbx_SVHB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_half_t *v_in2 )
+static inline void vbx_SVHB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -2909,7 +4301,94 @@ static inline void vbx_SVHB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_ha
 	}
 }
 
-static inline void vbx_SVHBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_in1, vbx_uhalf_t *v_in2 )
+static inline void vbx_SVHBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm( SVHBS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm( SVHBS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm( SVHBS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm( SVHBS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm( SVHBS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm( SVHBS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm( SVHBS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm( SVHBS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm( SVHBS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm( SVHBS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm( SVHBS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm( SVHBS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm( SVHBS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm( SVHBS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm( SVHBS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm( SVHBS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm( SVHBS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm( SVHBS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm( SVHBS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm( SVHBS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm( SVHBS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm( SVHBS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm( SVHBS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm( SVHBS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm( SVHBS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm( SVHBS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_SVHBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t s_in1, vbx_uhalf_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -2996,7 +4475,7 @@ static inline void vbx_SVHBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_
 	}
 }
 
-static inline void vbx_SVH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_half_t *v_in2 )
+static inline void vbx_SVH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -3083,7 +4562,7 @@ static inline void vbx_SVH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_hal
 	}
 }
 
-static inline void vbx_SVHH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_half_t *v_in2 )
+static inline void vbx_SVHH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -3170,7 +4649,181 @@ static inline void vbx_SVHH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_ha
 	}
 }
 
-static inline void vbx_SVHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_in1, vbx_uhalf_t *v_in2 )
+static inline void vbx_SVHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm( SVHS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm( SVHS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm( SVHS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm( SVHS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm( SVHS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm( SVHS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm( SVHS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm( SVHS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm( SVHS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm( SVHS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm( SVHS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm( SVHS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm( SVHS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm( SVHS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm( SVHS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm( SVHS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm( SVHS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm( SVHS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm( SVHS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm( SVHS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm( SVHS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm( SVHS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm( SVHS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm( SVHS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm( SVHS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm( SVHS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_SVHHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm( SVHS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm( SVHS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm( SVHS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm( SVHS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm( SVHS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm( SVHS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm( SVHS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm( SVHS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm( SVHS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm( SVHS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm( SVHS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm( SVHS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm( SVHS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm( SVHS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm( SVHS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm( SVHS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm( SVHS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm( SVHS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm( SVHS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm( SVHS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm( SVHS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm( SVHS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm( SVHS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm( SVHS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm( SVHS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm( SVHS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_SVHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uword_t s_in1, vbx_uhalf_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -3257,7 +4910,7 @@ static inline void vbx_SVHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_i
 	}
 }
 
-static inline void vbx_SVHHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_in1, vbx_uhalf_t *v_in2 )
+static inline void vbx_SVHHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uword_t s_in1, vbx_uhalf_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -3344,7 +4997,7 @@ static inline void vbx_SVHHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_
 	}
 }
 
-static inline void vbx_SVHW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_half_t *v_in2 )
+static inline void vbx_SVHW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -3431,7 +5084,94 @@ static inline void vbx_SVHW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_ha
 	}
 }
 
-static inline void vbx_SVHWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int s_in1, vbx_uhalf_t *v_in2 )
+static inline void vbx_SVHWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm( SVHWS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm( SVHWS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm( SVHWS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm( SVHWS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm( SVHWS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm( SVHWS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm( SVHWS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm( SVHWS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm( SVHWS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm( SVHWS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm( SVHWS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm( SVHWS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm( SVHWS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm( SVHWS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm( SVHWS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm( SVHWS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm( SVHWS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm( SVHWS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm( SVHWS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm( SVHWS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm( SVHWS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm( SVHWS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm( SVHWS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm( SVHWS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm( SVHWS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm( SVHWS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_SVHWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t s_in1, vbx_uhalf_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -3518,7 +5258,7 @@ static inline void vbx_SVHWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int s_
 	}
 }
 
-static inline void vbx_SVWB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_word_t *v_in2 )
+static inline void vbx_SVWB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -3605,7 +5345,94 @@ static inline void vbx_SVWB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_wo
 	}
 }
 
-static inline void vbx_SVWBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_in1, vbx_uword_t *v_in2 )
+static inline void vbx_SVWBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm( SVWBS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm( SVWBS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm( SVWBS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm( SVWBS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm( SVWBS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm( SVWBS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm( SVWBS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm( SVWBS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm( SVWBS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm( SVWBS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm( SVWBS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm( SVWBS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm( SVWBS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm( SVWBS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm( SVWBS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm( SVWBS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm( SVWBS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm( SVWBS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm( SVWBS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm( SVWBS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm( SVWBS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm( SVWBS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm( SVWBS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm( SVWBS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm( SVWBS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm( SVWBS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_SVWBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t s_in1, vbx_uword_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -3692,7 +5519,7 @@ static inline void vbx_SVWBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_
 	}
 }
 
-static inline void vbx_SVWH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_word_t *v_in2 )
+static inline void vbx_SVWH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -3779,7 +5606,94 @@ static inline void vbx_SVWH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_wo
 	}
 }
 
-static inline void vbx_SVWHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_in1, vbx_uword_t *v_in2 )
+static inline void vbx_SVWHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm( SVWHS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm( SVWHS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm( SVWHS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm( SVWHS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm( SVWHS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm( SVWHS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm( SVWHS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm( SVWHS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm( SVWHS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm( SVWHS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm( SVWHS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm( SVWHS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm( SVWHS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm( SVWHS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm( SVWHS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm( SVWHS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm( SVWHS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm( SVWHS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm( SVWHS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm( SVWHS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm( SVWHS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm( SVWHS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm( SVWHS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm( SVWHS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm( SVWHS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm( SVWHS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_SVWHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uword_t s_in1, vbx_uword_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -3866,7 +5780,7 @@ static inline void vbx_SVWHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_
 	}
 }
 
-static inline void vbx_SVW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_word_t *v_in2 )
+static inline void vbx_SVW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -3953,7 +5867,7 @@ static inline void vbx_SVW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_wor
 	}
 }
 
-static inline void vbx_SVWW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_word_t *v_in2 )
+static inline void vbx_SVWW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -4040,7 +5954,181 @@ static inline void vbx_SVWW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_wo
 	}
 }
 
-static inline void vbx_SVWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int s_in1, vbx_uword_t *v_in2 )
+static inline void vbx_SVWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm( SVWS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm( SVWS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm( SVWS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm( SVWS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm( SVWS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm( SVWS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm( SVWS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm( SVWS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm( SVWS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm( SVWS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm( SVWS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm( SVWS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm( SVWS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm( SVWS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm( SVWS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm( SVWS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm( SVWS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm( SVWS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm( SVWS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm( SVWS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm( SVWS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm( SVWS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm( SVWS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm( SVWS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm( SVWS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm( SVWS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_SVWWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm( SVWS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm( SVWS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm( SVWS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm( SVWS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm( SVWS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm( SVWS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm( SVWS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm( SVWS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm( SVWS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm( SVWS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm( SVWS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm( SVWS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm( SVWS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm( SVWS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm( SVWS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm( SVWS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm( SVWS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm( SVWS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm( SVWS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm( SVWS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm( SVWS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm( SVWS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm( SVWS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm( SVWS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm( SVWS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm( SVWS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_SVWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t s_in1, vbx_uword_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -4127,7 +6215,7 @@ static inline void vbx_SVWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int s_i
 	}
 }
 
-static inline void vbx_SVWWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int s_in1, vbx_uword_t *v_in2 )
+static inline void vbx_SVWWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t s_in1, vbx_uword_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -4382,6 +6470,180 @@ static inline void vbx_VEBB( vinstr_t v_op, vbx_byte_t *v_out, vbx_byte_t *v_in1
 		break;
 	case VCUSTOM3:
 		vbxasm( VEB, VCUSTOM3, v_out, v_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_VEBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_byte_t *v_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm( VEBS, VADD, v_out, v_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm( VEBS, VSUB, v_out, v_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm( VEBS, VADDC, v_out, v_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm( VEBS, VSUBB, v_out, v_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm( VEBS, VABSDIFF, v_out, v_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm( VEBS, VMUL, v_out, v_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm( VEBS, VMULHI, v_out, v_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm( VEBS, VMULFXP, v_out, v_in1, 0 );
+		break;
+	case VAND:
+		vbxasm( VEBS, VAND, v_out, v_in1, 0 );
+		break;
+	case VOR:
+		vbxasm( VEBS, VOR, v_out, v_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm( VEBS, VXOR, v_out, v_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm( VEBS, VSHL, v_out, v_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm( VEBS, VSHR, v_out, v_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm( VEBS, VROTL, v_out, v_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm( VEBS, VROTR, v_out, v_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm( VEBS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm( VEBS, VCMV_LEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm( VEBS, VCMV_GTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm( VEBS, VCMV_LTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm( VEBS, VCMV_GEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm( VEBS, VCMV_Z, v_out, v_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm( VEBS, VCMV_NZ, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm( VEBS, VCUSTOM0, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm( VEBS, VCUSTOM1, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm( VEBS, VCUSTOM2, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm( VEBS, VCUSTOM3, v_out, v_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_VEBBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_byte_t *v_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm( VEBS, VADD, v_out, v_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm( VEBS, VSUB, v_out, v_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm( VEBS, VADDC, v_out, v_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm( VEBS, VSUBB, v_out, v_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm( VEBS, VABSDIFF, v_out, v_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm( VEBS, VMUL, v_out, v_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm( VEBS, VMULHI, v_out, v_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm( VEBS, VMULFXP, v_out, v_in1, 0 );
+		break;
+	case VAND:
+		vbxasm( VEBS, VAND, v_out, v_in1, 0 );
+		break;
+	case VOR:
+		vbxasm( VEBS, VOR, v_out, v_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm( VEBS, VXOR, v_out, v_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm( VEBS, VSHL, v_out, v_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm( VEBS, VSHR, v_out, v_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm( VEBS, VROTL, v_out, v_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm( VEBS, VROTR, v_out, v_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm( VEBS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm( VEBS, VCMV_LEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm( VEBS, VCMV_GTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm( VEBS, VCMV_LTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm( VEBS, VCMV_GEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm( VEBS, VCMV_Z, v_out, v_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm( VEBS, VCMV_NZ, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm( VEBS, VCUSTOM0, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm( VEBS, VCUSTOM1, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm( VEBS, VCUSTOM2, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm( VEBS, VCUSTOM3, v_out, v_in1, 0 );
 		break;
 	default:
 		break;
@@ -4736,6 +6998,180 @@ static inline void vbx_VEHH( vinstr_t v_op, vbx_half_t *v_out, vbx_half_t *v_in1
 	}
 }
 
+static inline void vbx_VEHS( vinstr_t v_op, vbx_half_t *v_out, vbx_half_t *v_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm( VEHS, VADD, v_out, v_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm( VEHS, VSUB, v_out, v_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm( VEHS, VADDC, v_out, v_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm( VEHS, VSUBB, v_out, v_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm( VEHS, VABSDIFF, v_out, v_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm( VEHS, VMUL, v_out, v_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm( VEHS, VMULHI, v_out, v_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm( VEHS, VMULFXP, v_out, v_in1, 0 );
+		break;
+	case VAND:
+		vbxasm( VEHS, VAND, v_out, v_in1, 0 );
+		break;
+	case VOR:
+		vbxasm( VEHS, VOR, v_out, v_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm( VEHS, VXOR, v_out, v_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm( VEHS, VSHL, v_out, v_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm( VEHS, VSHR, v_out, v_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm( VEHS, VROTL, v_out, v_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm( VEHS, VROTR, v_out, v_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm( VEHS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm( VEHS, VCMV_LEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm( VEHS, VCMV_GTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm( VEHS, VCMV_LTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm( VEHS, VCMV_GEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm( VEHS, VCMV_Z, v_out, v_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm( VEHS, VCMV_NZ, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm( VEHS, VCUSTOM0, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm( VEHS, VCUSTOM1, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm( VEHS, VCUSTOM2, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm( VEHS, VCUSTOM3, v_out, v_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_VEHHS( vinstr_t v_op, vbx_half_t *v_out, vbx_half_t *v_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm( VEHS, VADD, v_out, v_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm( VEHS, VSUB, v_out, v_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm( VEHS, VADDC, v_out, v_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm( VEHS, VSUBB, v_out, v_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm( VEHS, VABSDIFF, v_out, v_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm( VEHS, VMUL, v_out, v_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm( VEHS, VMULHI, v_out, v_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm( VEHS, VMULFXP, v_out, v_in1, 0 );
+		break;
+	case VAND:
+		vbxasm( VEHS, VAND, v_out, v_in1, 0 );
+		break;
+	case VOR:
+		vbxasm( VEHS, VOR, v_out, v_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm( VEHS, VXOR, v_out, v_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm( VEHS, VSHL, v_out, v_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm( VEHS, VSHR, v_out, v_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm( VEHS, VROTL, v_out, v_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm( VEHS, VROTR, v_out, v_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm( VEHS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm( VEHS, VCMV_LEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm( VEHS, VCMV_GTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm( VEHS, VCMV_LTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm( VEHS, VCMV_GEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm( VEHS, VCMV_Z, v_out, v_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm( VEHS, VCMV_NZ, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm( VEHS, VCUSTOM0, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm( VEHS, VCUSTOM1, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm( VEHS, VCUSTOM2, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm( VEHS, VCUSTOM3, v_out, v_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_VEHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uhalf_t *v_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
@@ -5084,6 +7520,180 @@ static inline void vbx_VEWW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t *v_in1
 	}
 }
 
+static inline void vbx_VEWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t *v_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm( VEWS, VADD, v_out, v_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm( VEWS, VSUB, v_out, v_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm( VEWS, VADDC, v_out, v_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm( VEWS, VSUBB, v_out, v_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm( VEWS, VABSDIFF, v_out, v_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm( VEWS, VMUL, v_out, v_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm( VEWS, VMULHI, v_out, v_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm( VEWS, VMULFXP, v_out, v_in1, 0 );
+		break;
+	case VAND:
+		vbxasm( VEWS, VAND, v_out, v_in1, 0 );
+		break;
+	case VOR:
+		vbxasm( VEWS, VOR, v_out, v_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm( VEWS, VXOR, v_out, v_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm( VEWS, VSHL, v_out, v_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm( VEWS, VSHR, v_out, v_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm( VEWS, VROTL, v_out, v_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm( VEWS, VROTR, v_out, v_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm( VEWS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm( VEWS, VCMV_LEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm( VEWS, VCMV_GTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm( VEWS, VCMV_LTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm( VEWS, VCMV_GEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm( VEWS, VCMV_Z, v_out, v_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm( VEWS, VCMV_NZ, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm( VEWS, VCUSTOM0, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm( VEWS, VCUSTOM1, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm( VEWS, VCUSTOM2, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm( VEWS, VCUSTOM3, v_out, v_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_VEWWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t *v_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm( VEWS, VADD, v_out, v_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm( VEWS, VSUB, v_out, v_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm( VEWS, VADDC, v_out, v_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm( VEWS, VSUBB, v_out, v_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm( VEWS, VABSDIFF, v_out, v_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm( VEWS, VMUL, v_out, v_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm( VEWS, VMULHI, v_out, v_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm( VEWS, VMULFXP, v_out, v_in1, 0 );
+		break;
+	case VAND:
+		vbxasm( VEWS, VAND, v_out, v_in1, 0 );
+		break;
+	case VOR:
+		vbxasm( VEWS, VOR, v_out, v_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm( VEWS, VXOR, v_out, v_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm( VEWS, VSHL, v_out, v_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm( VEWS, VSHR, v_out, v_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm( VEWS, VROTL, v_out, v_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm( VEWS, VROTR, v_out, v_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm( VEWS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm( VEWS, VCMV_LEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm( VEWS, VCMV_GTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm( VEWS, VCMV_LTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm( VEWS, VCMV_GEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm( VEWS, VCMV_Z, v_out, v_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm( VEWS, VCMV_NZ, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm( VEWS, VCUSTOM0, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm( VEWS, VCUSTOM1, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm( VEWS, VCUSTOM2, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm( VEWS, VCUSTOM3, v_out, v_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_VEWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t *v_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
@@ -5258,7 +7868,7 @@ static inline void vbx_VEWWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t *v_
 	}
 }
 
-static inline void vbx_SEB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_SEB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -5345,7 +7955,7 @@ static inline void vbx_SEB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_enu
 	}
 }
 
-static inline void vbx_SEBB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_SEBB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -5432,7 +8042,181 @@ static inline void vbx_SEBB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_en
 	}
 }
 
-static inline void vbx_SEBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_SEBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm( SEBS, VADD, v_out, s_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm( SEBS, VSUB, v_out, s_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm( SEBS, VADDC, v_out, s_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm( SEBS, VSUBB, v_out, s_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm( SEBS, VABSDIFF, v_out, s_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm( SEBS, VMUL, v_out, s_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm( SEBS, VMULHI, v_out, s_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm( SEBS, VMULFXP, v_out, s_in1, 0 );
+		break;
+	case VAND:
+		vbxasm( SEBS, VAND, v_out, s_in1, 0 );
+		break;
+	case VOR:
+		vbxasm( SEBS, VOR, v_out, s_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm( SEBS, VXOR, v_out, s_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm( SEBS, VSHL, v_out, s_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm( SEBS, VSHR, v_out, s_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm( SEBS, VROTL, v_out, s_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm( SEBS, VROTR, v_out, s_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm( SEBS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm( SEBS, VCMV_LEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm( SEBS, VCMV_GTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm( SEBS, VCMV_LTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm( SEBS, VCMV_GEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm( SEBS, VCMV_Z, v_out, s_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm( SEBS, VCMV_NZ, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm( SEBS, VCUSTOM0, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm( SEBS, VCUSTOM1, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm( SEBS, VCUSTOM2, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm( SEBS, VCUSTOM3, v_out, s_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_SEBBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm( SEBS, VADD, v_out, s_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm( SEBS, VSUB, v_out, s_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm( SEBS, VADDC, v_out, s_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm( SEBS, VSUBB, v_out, s_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm( SEBS, VABSDIFF, v_out, s_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm( SEBS, VMUL, v_out, s_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm( SEBS, VMULHI, v_out, s_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm( SEBS, VMULFXP, v_out, s_in1, 0 );
+		break;
+	case VAND:
+		vbxasm( SEBS, VAND, v_out, s_in1, 0 );
+		break;
+	case VOR:
+		vbxasm( SEBS, VOR, v_out, s_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm( SEBS, VXOR, v_out, s_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm( SEBS, VSHL, v_out, s_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm( SEBS, VSHR, v_out, s_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm( SEBS, VROTL, v_out, s_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm( SEBS, VROTR, v_out, s_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm( SEBS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm( SEBS, VCMV_LEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm( SEBS, VCMV_GTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm( SEBS, VCMV_LTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm( SEBS, VCMV_GEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm( SEBS, VCMV_Z, v_out, s_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm( SEBS, VCMV_NZ, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm( SEBS, VCUSTOM0, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm( SEBS, VCUSTOM1, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm( SEBS, VCUSTOM2, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm( SEBS, VCUSTOM3, v_out, s_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_SEBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -5519,7 +8303,7 @@ static inline void vbx_SEBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_i
 	}
 }
 
-static inline void vbx_SEBBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_SEBBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -5606,7 +8390,7 @@ static inline void vbx_SEBBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_
 	}
 }
 
-static inline void vbx_SEH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_SEH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -5693,7 +8477,7 @@ static inline void vbx_SEH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_enu
 	}
 }
 
-static inline void vbx_SEHH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_SEHH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -5780,7 +8564,181 @@ static inline void vbx_SEHH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_en
 	}
 }
 
-static inline void vbx_SEHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_SEHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm( SEHS, VADD, v_out, s_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm( SEHS, VSUB, v_out, s_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm( SEHS, VADDC, v_out, s_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm( SEHS, VSUBB, v_out, s_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm( SEHS, VABSDIFF, v_out, s_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm( SEHS, VMUL, v_out, s_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm( SEHS, VMULHI, v_out, s_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm( SEHS, VMULFXP, v_out, s_in1, 0 );
+		break;
+	case VAND:
+		vbxasm( SEHS, VAND, v_out, s_in1, 0 );
+		break;
+	case VOR:
+		vbxasm( SEHS, VOR, v_out, s_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm( SEHS, VXOR, v_out, s_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm( SEHS, VSHL, v_out, s_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm( SEHS, VSHR, v_out, s_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm( SEHS, VROTL, v_out, s_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm( SEHS, VROTR, v_out, s_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm( SEHS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm( SEHS, VCMV_LEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm( SEHS, VCMV_GTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm( SEHS, VCMV_LTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm( SEHS, VCMV_GEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm( SEHS, VCMV_Z, v_out, s_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm( SEHS, VCMV_NZ, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm( SEHS, VCUSTOM0, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm( SEHS, VCUSTOM1, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm( SEHS, VCUSTOM2, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm( SEHS, VCUSTOM3, v_out, s_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_SEHHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm( SEHS, VADD, v_out, s_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm( SEHS, VSUB, v_out, s_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm( SEHS, VADDC, v_out, s_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm( SEHS, VSUBB, v_out, s_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm( SEHS, VABSDIFF, v_out, s_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm( SEHS, VMUL, v_out, s_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm( SEHS, VMULHI, v_out, s_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm( SEHS, VMULFXP, v_out, s_in1, 0 );
+		break;
+	case VAND:
+		vbxasm( SEHS, VAND, v_out, s_in1, 0 );
+		break;
+	case VOR:
+		vbxasm( SEHS, VOR, v_out, s_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm( SEHS, VXOR, v_out, s_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm( SEHS, VSHL, v_out, s_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm( SEHS, VSHR, v_out, s_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm( SEHS, VROTL, v_out, s_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm( SEHS, VROTR, v_out, s_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm( SEHS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm( SEHS, VCMV_LEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm( SEHS, VCMV_GTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm( SEHS, VCMV_LTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm( SEHS, VCMV_GEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm( SEHS, VCMV_Z, v_out, s_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm( SEHS, VCMV_NZ, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm( SEHS, VCUSTOM0, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm( SEHS, VCUSTOM1, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm( SEHS, VCUSTOM2, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm( SEHS, VCUSTOM3, v_out, s_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_SEHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uword_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -5867,7 +8825,7 @@ static inline void vbx_SEHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_i
 	}
 }
 
-static inline void vbx_SEHHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_SEHHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uword_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -5954,7 +8912,7 @@ static inline void vbx_SEHHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_
 	}
 }
 
-static inline void vbx_SEW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_SEW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -6041,7 +8999,7 @@ static inline void vbx_SEW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_enu
 	}
 }
 
-static inline void vbx_SEWW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_SEWW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -6128,7 +9086,181 @@ static inline void vbx_SEWW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_en
 	}
 }
 
-static inline void vbx_SEWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_SEWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm( SEWS, VADD, v_out, s_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm( SEWS, VSUB, v_out, s_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm( SEWS, VADDC, v_out, s_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm( SEWS, VSUBB, v_out, s_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm( SEWS, VABSDIFF, v_out, s_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm( SEWS, VMUL, v_out, s_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm( SEWS, VMULHI, v_out, s_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm( SEWS, VMULFXP, v_out, s_in1, 0 );
+		break;
+	case VAND:
+		vbxasm( SEWS, VAND, v_out, s_in1, 0 );
+		break;
+	case VOR:
+		vbxasm( SEWS, VOR, v_out, s_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm( SEWS, VXOR, v_out, s_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm( SEWS, VSHL, v_out, s_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm( SEWS, VSHR, v_out, s_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm( SEWS, VROTL, v_out, s_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm( SEWS, VROTR, v_out, s_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm( SEWS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm( SEWS, VCMV_LEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm( SEWS, VCMV_GTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm( SEWS, VCMV_LTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm( SEWS, VCMV_GEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm( SEWS, VCMV_Z, v_out, s_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm( SEWS, VCMV_NZ, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm( SEWS, VCUSTOM0, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm( SEWS, VCUSTOM1, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm( SEWS, VCUSTOM2, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm( SEWS, VCUSTOM3, v_out, s_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_SEWWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm( SEWS, VADD, v_out, s_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm( SEWS, VSUB, v_out, s_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm( SEWS, VADDC, v_out, s_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm( SEWS, VSUBB, v_out, s_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm( SEWS, VABSDIFF, v_out, s_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm( SEWS, VMUL, v_out, s_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm( SEWS, VMULHI, v_out, s_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm( SEWS, VMULFXP, v_out, s_in1, 0 );
+		break;
+	case VAND:
+		vbxasm( SEWS, VAND, v_out, s_in1, 0 );
+		break;
+	case VOR:
+		vbxasm( SEWS, VOR, v_out, s_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm( SEWS, VXOR, v_out, s_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm( SEWS, VSHL, v_out, s_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm( SEWS, VSHR, v_out, s_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm( SEWS, VROTL, v_out, s_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm( SEWS, VROTR, v_out, s_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm( SEWS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm( SEWS, VCMV_LEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm( SEWS, VCMV_GTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm( SEWS, VCMV_LTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm( SEWS, VCMV_GEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm( SEWS, VCMV_Z, v_out, s_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm( SEWS, VCMV_NZ, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm( SEWS, VCUSTOM0, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm( SEWS, VCUSTOM1, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm( SEWS, VCUSTOM2, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm( SEWS, VCUSTOM3, v_out, s_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_SEWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -6215,7 +9347,7 @@ static inline void vbx_SEWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int s_i
 	}
 }
 
-static inline void vbx_SEWWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_SEWWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -6470,6 +9602,180 @@ static inline void vbx_acc_VVBB( vinstr_t v_op, vbx_byte_t *v_out, vbx_byte_t *v
 		break;
 	case VCUSTOM3:
 		vbxasm_acc( VVB, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_VVBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_byte_t *v_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc( VVBS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc( VVBS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc( VVBS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc( VVBS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc( VVBS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc( VVBS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc( VVBS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc( VVBS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc( VVBS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc( VVBS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc( VVBS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc( VVBS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc( VVBS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc( VVBS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc( VVBS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc( VVBS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc( VVBS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc( VVBS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc( VVBS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc( VVBS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc( VVBS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc( VVBS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc( VVBS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc( VVBS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc( VVBS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc( VVBS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_VVBBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_byte_t *v_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc( VVBS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc( VVBS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc( VVBS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc( VVBS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc( VVBS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc( VVBS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc( VVBS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc( VVBS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc( VVBS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc( VVBS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc( VVBS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc( VVBS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc( VVBS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc( VVBS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc( VVBS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc( VVBS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc( VVBS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc( VVBS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc( VVBS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc( VVBS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc( VVBS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc( VVBS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc( VVBS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc( VVBS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc( VVBS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc( VVBS, VCUSTOM3, v_out, v_in1, v_in2 );
 		break;
 	default:
 		break;
@@ -6737,6 +10043,93 @@ static inline void vbx_acc_VVBH( vinstr_t v_op, vbx_half_t *v_out, vbx_byte_t *v
 	}
 }
 
+static inline void vbx_acc_VVBHS( vinstr_t v_op, vbx_half_t *v_out, vbx_byte_t *v_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc( VVBHS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc( VVBHS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc( VVBHS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc( VVBHS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc( VVBHS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc( VVBHS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc( VVBHS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc( VVBHS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc( VVBHS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc( VVBHS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc( VVBHS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc( VVBHS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc( VVBHS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc( VVBHS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc( VVBHS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc( VVBHS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc( VVBHS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc( VVBHS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc( VVBHS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc( VVBHS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc( VVBHS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc( VVBHS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc( VVBHS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc( VVBHS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc( VVBHS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc( VVBHS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_acc_VVBHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_ubyte_t *v_in1, vbx_ubyte_t *v_in2 )
 {
 	switch(v_op)
@@ -6911,6 +10304,93 @@ static inline void vbx_acc_VVBW( vinstr_t v_op, vbx_word_t *v_out, vbx_byte_t *v
 	}
 }
 
+static inline void vbx_acc_VVBWS( vinstr_t v_op, vbx_word_t *v_out, vbx_byte_t *v_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc( VVBWS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc( VVBWS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc( VVBWS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc( VVBWS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc( VVBWS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc( VVBWS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc( VVBWS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc( VVBWS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc( VVBWS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc( VVBWS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc( VVBWS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc( VVBWS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc( VVBWS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc( VVBWS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc( VVBWS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc( VVBWS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc( VVBWS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc( VVBWS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc( VVBWS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc( VVBWS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc( VVBWS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc( VVBWS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc( VVBWS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc( VVBWS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc( VVBWS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc( VVBWS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_acc_VVBWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_ubyte_t *v_in1, vbx_ubyte_t *v_in2 )
 {
 	switch(v_op)
@@ -7079,6 +10559,93 @@ static inline void vbx_acc_VVHB( vinstr_t v_op, vbx_byte_t *v_out, vbx_half_t *v
 		break;
 	case VCUSTOM3:
 		vbxasm_acc( VVHB, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_VVHBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_half_t *v_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc( VVHBS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc( VVHBS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc( VVHBS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc( VVHBS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc( VVHBS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc( VVHBS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc( VVHBS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc( VVHBS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc( VVHBS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc( VVHBS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc( VVHBS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc( VVHBS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc( VVHBS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc( VVHBS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc( VVHBS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc( VVHBS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc( VVHBS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc( VVHBS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc( VVHBS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc( VVHBS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc( VVHBS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc( VVHBS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc( VVHBS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc( VVHBS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc( VVHBS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc( VVHBS, VCUSTOM3, v_out, v_in1, v_in2 );
 		break;
 	default:
 		break;
@@ -7346,6 +10913,180 @@ static inline void vbx_acc_VVHH( vinstr_t v_op, vbx_half_t *v_out, vbx_half_t *v
 	}
 }
 
+static inline void vbx_acc_VVHS( vinstr_t v_op, vbx_half_t *v_out, vbx_half_t *v_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc( VVHS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc( VVHS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc( VVHS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc( VVHS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc( VVHS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc( VVHS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc( VVHS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc( VVHS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc( VVHS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc( VVHS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc( VVHS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc( VVHS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc( VVHS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc( VVHS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc( VVHS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc( VVHS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc( VVHS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc( VVHS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc( VVHS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc( VVHS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc( VVHS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc( VVHS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc( VVHS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc( VVHS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc( VVHS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc( VVHS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_VVHHS( vinstr_t v_op, vbx_half_t *v_out, vbx_half_t *v_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc( VVHS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc( VVHS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc( VVHS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc( VVHS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc( VVHS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc( VVHS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc( VVHS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc( VVHS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc( VVHS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc( VVHS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc( VVHS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc( VVHS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc( VVHS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc( VVHS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc( VVHS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc( VVHS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc( VVHS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc( VVHS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc( VVHS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc( VVHS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc( VVHS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc( VVHS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc( VVHS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc( VVHS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc( VVHS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc( VVHS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_acc_VVHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uhalf_t *v_in1, vbx_uhalf_t *v_in2 )
 {
 	switch(v_op)
@@ -7607,6 +11348,93 @@ static inline void vbx_acc_VVHW( vinstr_t v_op, vbx_word_t *v_out, vbx_half_t *v
 	}
 }
 
+static inline void vbx_acc_VVHWS( vinstr_t v_op, vbx_word_t *v_out, vbx_half_t *v_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc( VVHWS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc( VVHWS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc( VVHWS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc( VVHWS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc( VVHWS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc( VVHWS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc( VVHWS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc( VVHWS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc( VVHWS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc( VVHWS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc( VVHWS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc( VVHWS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc( VVHWS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc( VVHWS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc( VVHWS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc( VVHWS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc( VVHWS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc( VVHWS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc( VVHWS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc( VVHWS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc( VVHWS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc( VVHWS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc( VVHWS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc( VVHWS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc( VVHWS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc( VVHWS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_acc_VVHWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uhalf_t *v_in1, vbx_uhalf_t *v_in2 )
 {
 	switch(v_op)
@@ -7781,6 +11609,93 @@ static inline void vbx_acc_VVWB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t *v
 	}
 }
 
+static inline void vbx_acc_VVWBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t *v_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc( VVWBS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc( VVWBS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc( VVWBS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc( VVWBS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc( VVWBS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc( VVWBS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc( VVWBS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc( VVWBS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc( VVWBS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc( VVWBS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc( VVWBS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc( VVWBS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc( VVWBS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc( VVWBS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc( VVWBS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc( VVWBS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc( VVWBS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc( VVWBS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc( VVWBS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc( VVWBS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc( VVWBS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc( VVWBS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc( VVWBS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc( VVWBS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc( VVWBS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc( VVWBS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_acc_VVWBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t *v_in1, vbx_uword_t *v_in2 )
 {
 	switch(v_op)
@@ -7949,6 +11864,93 @@ static inline void vbx_acc_VVWH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t *v
 		break;
 	case VCUSTOM3:
 		vbxasm_acc( VVWH, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_VVWHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t *v_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc( VVWHS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc( VVWHS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc( VVWHS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc( VVWHS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc( VVWHS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc( VVWHS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc( VVWHS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc( VVWHS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc( VVWHS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc( VVWHS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc( VVWHS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc( VVWHS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc( VVWHS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc( VVWHS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc( VVWHS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc( VVWHS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc( VVWHS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc( VVWHS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc( VVWHS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc( VVWHS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc( VVWHS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc( VVWHS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc( VVWHS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc( VVWHS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc( VVWHS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc( VVWHS, VCUSTOM3, v_out, v_in1, v_in2 );
 		break;
 	default:
 		break;
@@ -8216,6 +12218,180 @@ static inline void vbx_acc_VVWW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t *v
 	}
 }
 
+static inline void vbx_acc_VVWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t *v_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc( VVWS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc( VVWS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc( VVWS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc( VVWS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc( VVWS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc( VVWS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc( VVWS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc( VVWS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc( VVWS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc( VVWS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc( VVWS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc( VVWS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc( VVWS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc( VVWS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc( VVWS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc( VVWS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc( VVWS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc( VVWS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc( VVWS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc( VVWS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc( VVWS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc( VVWS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc( VVWS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc( VVWS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc( VVWS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc( VVWS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_VVWWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t *v_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc( VVWS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc( VVWS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc( VVWS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc( VVWS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc( VVWS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc( VVWS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc( VVWS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc( VVWS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc( VVWS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc( VVWS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc( VVWS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc( VVWS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc( VVWS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc( VVWS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc( VVWS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc( VVWS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc( VVWS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc( VVWS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc( VVWS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc( VVWS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc( VVWS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc( VVWS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc( VVWS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc( VVWS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc( VVWS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc( VVWS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_acc_VVWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t *v_in1, vbx_uword_t *v_in2 )
 {
 	switch(v_op)
@@ -8390,7 +12566,7 @@ static inline void vbx_acc_VVWWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t
 	}
 }
 
-static inline void vbx_acc_SVB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_byte_t *v_in2 )
+static inline void vbx_acc_SVB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -8477,7 +12653,7 @@ static inline void vbx_acc_SVB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx
 	}
 }
 
-static inline void vbx_acc_SVBB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_byte_t *v_in2 )
+static inline void vbx_acc_SVBB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -8564,7 +12740,181 @@ static inline void vbx_acc_SVBB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vb
 	}
 }
 
-static inline void vbx_acc_SVBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_in1, vbx_ubyte_t *v_in2 )
+static inline void vbx_acc_SVBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc( SVBS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc( SVBS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc( SVBS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc( SVBS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc( SVBS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc( SVBS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc( SVBS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc( SVBS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc( SVBS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc( SVBS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc( SVBS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc( SVBS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc( SVBS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc( SVBS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc( SVBS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc( SVBS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc( SVBS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc( SVBS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc( SVBS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc( SVBS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc( SVBS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc( SVBS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc( SVBS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc( SVBS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc( SVBS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc( SVBS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_SVBBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc( SVBS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc( SVBS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc( SVBS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc( SVBS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc( SVBS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc( SVBS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc( SVBS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc( SVBS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc( SVBS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc( SVBS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc( SVBS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc( SVBS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc( SVBS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc( SVBS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc( SVBS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc( SVBS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc( SVBS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc( SVBS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc( SVBS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc( SVBS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc( SVBS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc( SVBS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc( SVBS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc( SVBS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc( SVBS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc( SVBS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_SVBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t s_in1, vbx_ubyte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -8651,7 +13001,7 @@ static inline void vbx_acc_SVBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int
 	}
 }
 
-static inline void vbx_acc_SVBBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_in1, vbx_ubyte_t *v_in2 )
+static inline void vbx_acc_SVBBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t s_in1, vbx_ubyte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -8738,7 +13088,7 @@ static inline void vbx_acc_SVBBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned in
 	}
 }
 
-static inline void vbx_acc_SVBH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_byte_t *v_in2 )
+static inline void vbx_acc_SVBH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -8825,7 +13175,94 @@ static inline void vbx_acc_SVBH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vb
 	}
 }
 
-static inline void vbx_acc_SVBHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_in1, vbx_ubyte_t *v_in2 )
+static inline void vbx_acc_SVBHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc( SVBHS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc( SVBHS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc( SVBHS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc( SVBHS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc( SVBHS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc( SVBHS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc( SVBHS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc( SVBHS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc( SVBHS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc( SVBHS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc( SVBHS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc( SVBHS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc( SVBHS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc( SVBHS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc( SVBHS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc( SVBHS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc( SVBHS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc( SVBHS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc( SVBHS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc( SVBHS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc( SVBHS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc( SVBHS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc( SVBHS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc( SVBHS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc( SVBHS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc( SVBHS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_SVBHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uword_t s_in1, vbx_ubyte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -8912,7 +13349,7 @@ static inline void vbx_acc_SVBHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned in
 	}
 }
 
-static inline void vbx_acc_SVBW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_byte_t *v_in2 )
+static inline void vbx_acc_SVBW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -8999,7 +13436,94 @@ static inline void vbx_acc_SVBW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vb
 	}
 }
 
-static inline void vbx_acc_SVBWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int s_in1, vbx_ubyte_t *v_in2 )
+static inline void vbx_acc_SVBWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc( SVBWS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc( SVBWS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc( SVBWS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc( SVBWS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc( SVBWS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc( SVBWS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc( SVBWS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc( SVBWS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc( SVBWS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc( SVBWS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc( SVBWS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc( SVBWS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc( SVBWS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc( SVBWS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc( SVBWS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc( SVBWS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc( SVBWS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc( SVBWS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc( SVBWS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc( SVBWS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc( SVBWS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc( SVBWS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc( SVBWS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc( SVBWS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc( SVBWS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc( SVBWS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_SVBWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t s_in1, vbx_ubyte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -9086,7 +13610,7 @@ static inline void vbx_acc_SVBWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned in
 	}
 }
 
-static inline void vbx_acc_SVHB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_half_t *v_in2 )
+static inline void vbx_acc_SVHB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -9173,7 +13697,94 @@ static inline void vbx_acc_SVHB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vb
 	}
 }
 
-static inline void vbx_acc_SVHBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_in1, vbx_uhalf_t *v_in2 )
+static inline void vbx_acc_SVHBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc( SVHBS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc( SVHBS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc( SVHBS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc( SVHBS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc( SVHBS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc( SVHBS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc( SVHBS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc( SVHBS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc( SVHBS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc( SVHBS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc( SVHBS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc( SVHBS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc( SVHBS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc( SVHBS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc( SVHBS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc( SVHBS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc( SVHBS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc( SVHBS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc( SVHBS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc( SVHBS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc( SVHBS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc( SVHBS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc( SVHBS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc( SVHBS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc( SVHBS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc( SVHBS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_SVHBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t s_in1, vbx_uhalf_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -9260,7 +13871,7 @@ static inline void vbx_acc_SVHBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned in
 	}
 }
 
-static inline void vbx_acc_SVH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_half_t *v_in2 )
+static inline void vbx_acc_SVH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -9347,7 +13958,7 @@ static inline void vbx_acc_SVH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx
 	}
 }
 
-static inline void vbx_acc_SVHH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_half_t *v_in2 )
+static inline void vbx_acc_SVHH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -9434,7 +14045,181 @@ static inline void vbx_acc_SVHH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vb
 	}
 }
 
-static inline void vbx_acc_SVHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_in1, vbx_uhalf_t *v_in2 )
+static inline void vbx_acc_SVHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc( SVHS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc( SVHS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc( SVHS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc( SVHS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc( SVHS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc( SVHS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc( SVHS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc( SVHS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc( SVHS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc( SVHS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc( SVHS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc( SVHS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc( SVHS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc( SVHS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc( SVHS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc( SVHS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc( SVHS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc( SVHS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc( SVHS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc( SVHS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc( SVHS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc( SVHS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc( SVHS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc( SVHS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc( SVHS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc( SVHS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_SVHHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc( SVHS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc( SVHS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc( SVHS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc( SVHS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc( SVHS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc( SVHS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc( SVHS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc( SVHS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc( SVHS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc( SVHS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc( SVHS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc( SVHS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc( SVHS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc( SVHS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc( SVHS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc( SVHS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc( SVHS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc( SVHS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc( SVHS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc( SVHS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc( SVHS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc( SVHS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc( SVHS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc( SVHS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc( SVHS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc( SVHS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_SVHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uword_t s_in1, vbx_uhalf_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -9521,7 +14306,7 @@ static inline void vbx_acc_SVHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int
 	}
 }
 
-static inline void vbx_acc_SVHHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_in1, vbx_uhalf_t *v_in2 )
+static inline void vbx_acc_SVHHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uword_t s_in1, vbx_uhalf_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -9608,7 +14393,7 @@ static inline void vbx_acc_SVHHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned in
 	}
 }
 
-static inline void vbx_acc_SVHW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_half_t *v_in2 )
+static inline void vbx_acc_SVHW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -9695,7 +14480,94 @@ static inline void vbx_acc_SVHW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vb
 	}
 }
 
-static inline void vbx_acc_SVHWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int s_in1, vbx_uhalf_t *v_in2 )
+static inline void vbx_acc_SVHWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc( SVHWS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc( SVHWS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc( SVHWS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc( SVHWS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc( SVHWS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc( SVHWS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc( SVHWS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc( SVHWS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc( SVHWS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc( SVHWS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc( SVHWS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc( SVHWS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc( SVHWS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc( SVHWS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc( SVHWS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc( SVHWS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc( SVHWS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc( SVHWS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc( SVHWS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc( SVHWS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc( SVHWS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc( SVHWS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc( SVHWS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc( SVHWS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc( SVHWS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc( SVHWS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_SVHWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t s_in1, vbx_uhalf_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -9782,7 +14654,7 @@ static inline void vbx_acc_SVHWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned in
 	}
 }
 
-static inline void vbx_acc_SVWB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_word_t *v_in2 )
+static inline void vbx_acc_SVWB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -9869,7 +14741,94 @@ static inline void vbx_acc_SVWB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vb
 	}
 }
 
-static inline void vbx_acc_SVWBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_in1, vbx_uword_t *v_in2 )
+static inline void vbx_acc_SVWBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc( SVWBS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc( SVWBS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc( SVWBS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc( SVWBS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc( SVWBS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc( SVWBS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc( SVWBS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc( SVWBS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc( SVWBS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc( SVWBS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc( SVWBS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc( SVWBS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc( SVWBS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc( SVWBS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc( SVWBS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc( SVWBS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc( SVWBS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc( SVWBS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc( SVWBS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc( SVWBS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc( SVWBS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc( SVWBS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc( SVWBS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc( SVWBS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc( SVWBS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc( SVWBS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_SVWBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t s_in1, vbx_uword_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -9956,7 +14915,7 @@ static inline void vbx_acc_SVWBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned in
 	}
 }
 
-static inline void vbx_acc_SVWH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_word_t *v_in2 )
+static inline void vbx_acc_SVWH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -10043,7 +15002,94 @@ static inline void vbx_acc_SVWH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vb
 	}
 }
 
-static inline void vbx_acc_SVWHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_in1, vbx_uword_t *v_in2 )
+static inline void vbx_acc_SVWHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc( SVWHS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc( SVWHS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc( SVWHS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc( SVWHS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc( SVWHS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc( SVWHS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc( SVWHS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc( SVWHS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc( SVWHS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc( SVWHS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc( SVWHS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc( SVWHS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc( SVWHS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc( SVWHS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc( SVWHS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc( SVWHS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc( SVWHS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc( SVWHS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc( SVWHS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc( SVWHS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc( SVWHS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc( SVWHS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc( SVWHS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc( SVWHS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc( SVWHS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc( SVWHS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_SVWHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uword_t s_in1, vbx_uword_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -10130,7 +15176,7 @@ static inline void vbx_acc_SVWHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned in
 	}
 }
 
-static inline void vbx_acc_SVW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_word_t *v_in2 )
+static inline void vbx_acc_SVW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -10217,7 +15263,7 @@ static inline void vbx_acc_SVW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx
 	}
 }
 
-static inline void vbx_acc_SVWW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_word_t *v_in2 )
+static inline void vbx_acc_SVWW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -10304,7 +15350,181 @@ static inline void vbx_acc_SVWW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vb
 	}
 }
 
-static inline void vbx_acc_SVWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int s_in1, vbx_uword_t *v_in2 )
+static inline void vbx_acc_SVWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc( SVWS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc( SVWS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc( SVWS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc( SVWS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc( SVWS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc( SVWS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc( SVWS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc( SVWS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc( SVWS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc( SVWS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc( SVWS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc( SVWS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc( SVWS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc( SVWS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc( SVWS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc( SVWS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc( SVWS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc( SVWS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc( SVWS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc( SVWS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc( SVWS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc( SVWS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc( SVWS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc( SVWS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc( SVWS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc( SVWS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_SVWWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc( SVWS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc( SVWS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc( SVWS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc( SVWS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc( SVWS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc( SVWS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc( SVWS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc( SVWS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc( SVWS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc( SVWS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc( SVWS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc( SVWS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc( SVWS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc( SVWS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc( SVWS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc( SVWS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc( SVWS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc( SVWS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc( SVWS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc( SVWS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc( SVWS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc( SVWS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc( SVWS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc( SVWS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc( SVWS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc( SVWS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_SVWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t s_in1, vbx_uword_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -10391,7 +15611,7 @@ static inline void vbx_acc_SVWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int
 	}
 }
 
-static inline void vbx_acc_SVWWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int s_in1, vbx_uword_t *v_in2 )
+static inline void vbx_acc_SVWWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t s_in1, vbx_uword_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -10646,6 +15866,180 @@ static inline void vbx_acc_VEBB( vinstr_t v_op, vbx_byte_t *v_out, vbx_byte_t *v
 		break;
 	case VCUSTOM3:
 		vbxasm_acc( VEB, VCUSTOM3, v_out, v_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_VEBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_byte_t *v_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc( VEBS, VADD, v_out, v_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_acc( VEBS, VSUB, v_out, v_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_acc( VEBS, VADDC, v_out, v_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_acc( VEBS, VSUBB, v_out, v_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc( VEBS, VABSDIFF, v_out, v_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_acc( VEBS, VMUL, v_out, v_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_acc( VEBS, VMULHI, v_out, v_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_acc( VEBS, VMULFXP, v_out, v_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_acc( VEBS, VAND, v_out, v_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_acc( VEBS, VOR, v_out, v_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_acc( VEBS, VXOR, v_out, v_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_acc( VEBS, VSHL, v_out, v_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_acc( VEBS, VSHR, v_out, v_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_acc( VEBS, VROTL, v_out, v_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_acc( VEBS, VROTR, v_out, v_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_acc( VEBS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc( VEBS, VCMV_LEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc( VEBS, VCMV_GTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc( VEBS, VCMV_LTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc( VEBS, VCMV_GEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc( VEBS, VCMV_Z, v_out, v_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc( VEBS, VCMV_NZ, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc( VEBS, VCUSTOM0, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc( VEBS, VCUSTOM1, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc( VEBS, VCUSTOM2, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc( VEBS, VCUSTOM3, v_out, v_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_VEBBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_byte_t *v_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc( VEBS, VADD, v_out, v_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_acc( VEBS, VSUB, v_out, v_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_acc( VEBS, VADDC, v_out, v_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_acc( VEBS, VSUBB, v_out, v_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc( VEBS, VABSDIFF, v_out, v_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_acc( VEBS, VMUL, v_out, v_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_acc( VEBS, VMULHI, v_out, v_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_acc( VEBS, VMULFXP, v_out, v_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_acc( VEBS, VAND, v_out, v_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_acc( VEBS, VOR, v_out, v_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_acc( VEBS, VXOR, v_out, v_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_acc( VEBS, VSHL, v_out, v_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_acc( VEBS, VSHR, v_out, v_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_acc( VEBS, VROTL, v_out, v_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_acc( VEBS, VROTR, v_out, v_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_acc( VEBS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc( VEBS, VCMV_LEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc( VEBS, VCMV_GTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc( VEBS, VCMV_LTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc( VEBS, VCMV_GEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc( VEBS, VCMV_Z, v_out, v_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc( VEBS, VCMV_NZ, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc( VEBS, VCUSTOM0, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc( VEBS, VCUSTOM1, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc( VEBS, VCUSTOM2, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc( VEBS, VCUSTOM3, v_out, v_in1, 0 );
 		break;
 	default:
 		break;
@@ -11000,6 +16394,180 @@ static inline void vbx_acc_VEHH( vinstr_t v_op, vbx_half_t *v_out, vbx_half_t *v
 	}
 }
 
+static inline void vbx_acc_VEHS( vinstr_t v_op, vbx_half_t *v_out, vbx_half_t *v_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc( VEHS, VADD, v_out, v_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_acc( VEHS, VSUB, v_out, v_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_acc( VEHS, VADDC, v_out, v_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_acc( VEHS, VSUBB, v_out, v_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc( VEHS, VABSDIFF, v_out, v_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_acc( VEHS, VMUL, v_out, v_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_acc( VEHS, VMULHI, v_out, v_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_acc( VEHS, VMULFXP, v_out, v_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_acc( VEHS, VAND, v_out, v_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_acc( VEHS, VOR, v_out, v_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_acc( VEHS, VXOR, v_out, v_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_acc( VEHS, VSHL, v_out, v_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_acc( VEHS, VSHR, v_out, v_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_acc( VEHS, VROTL, v_out, v_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_acc( VEHS, VROTR, v_out, v_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_acc( VEHS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc( VEHS, VCMV_LEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc( VEHS, VCMV_GTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc( VEHS, VCMV_LTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc( VEHS, VCMV_GEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc( VEHS, VCMV_Z, v_out, v_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc( VEHS, VCMV_NZ, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc( VEHS, VCUSTOM0, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc( VEHS, VCUSTOM1, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc( VEHS, VCUSTOM2, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc( VEHS, VCUSTOM3, v_out, v_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_VEHHS( vinstr_t v_op, vbx_half_t *v_out, vbx_half_t *v_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc( VEHS, VADD, v_out, v_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_acc( VEHS, VSUB, v_out, v_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_acc( VEHS, VADDC, v_out, v_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_acc( VEHS, VSUBB, v_out, v_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc( VEHS, VABSDIFF, v_out, v_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_acc( VEHS, VMUL, v_out, v_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_acc( VEHS, VMULHI, v_out, v_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_acc( VEHS, VMULFXP, v_out, v_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_acc( VEHS, VAND, v_out, v_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_acc( VEHS, VOR, v_out, v_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_acc( VEHS, VXOR, v_out, v_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_acc( VEHS, VSHL, v_out, v_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_acc( VEHS, VSHR, v_out, v_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_acc( VEHS, VROTL, v_out, v_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_acc( VEHS, VROTR, v_out, v_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_acc( VEHS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc( VEHS, VCMV_LEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc( VEHS, VCMV_GTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc( VEHS, VCMV_LTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc( VEHS, VCMV_GEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc( VEHS, VCMV_Z, v_out, v_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc( VEHS, VCMV_NZ, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc( VEHS, VCUSTOM0, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc( VEHS, VCUSTOM1, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc( VEHS, VCUSTOM2, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc( VEHS, VCUSTOM3, v_out, v_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_acc_VEHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uhalf_t *v_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
@@ -11348,6 +16916,180 @@ static inline void vbx_acc_VEWW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t *v
 	}
 }
 
+static inline void vbx_acc_VEWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t *v_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc( VEWS, VADD, v_out, v_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_acc( VEWS, VSUB, v_out, v_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_acc( VEWS, VADDC, v_out, v_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_acc( VEWS, VSUBB, v_out, v_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc( VEWS, VABSDIFF, v_out, v_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_acc( VEWS, VMUL, v_out, v_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_acc( VEWS, VMULHI, v_out, v_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_acc( VEWS, VMULFXP, v_out, v_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_acc( VEWS, VAND, v_out, v_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_acc( VEWS, VOR, v_out, v_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_acc( VEWS, VXOR, v_out, v_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_acc( VEWS, VSHL, v_out, v_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_acc( VEWS, VSHR, v_out, v_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_acc( VEWS, VROTL, v_out, v_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_acc( VEWS, VROTR, v_out, v_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_acc( VEWS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc( VEWS, VCMV_LEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc( VEWS, VCMV_GTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc( VEWS, VCMV_LTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc( VEWS, VCMV_GEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc( VEWS, VCMV_Z, v_out, v_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc( VEWS, VCMV_NZ, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc( VEWS, VCUSTOM0, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc( VEWS, VCUSTOM1, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc( VEWS, VCUSTOM2, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc( VEWS, VCUSTOM3, v_out, v_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_VEWWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t *v_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc( VEWS, VADD, v_out, v_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_acc( VEWS, VSUB, v_out, v_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_acc( VEWS, VADDC, v_out, v_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_acc( VEWS, VSUBB, v_out, v_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc( VEWS, VABSDIFF, v_out, v_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_acc( VEWS, VMUL, v_out, v_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_acc( VEWS, VMULHI, v_out, v_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_acc( VEWS, VMULFXP, v_out, v_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_acc( VEWS, VAND, v_out, v_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_acc( VEWS, VOR, v_out, v_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_acc( VEWS, VXOR, v_out, v_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_acc( VEWS, VSHL, v_out, v_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_acc( VEWS, VSHR, v_out, v_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_acc( VEWS, VROTL, v_out, v_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_acc( VEWS, VROTR, v_out, v_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_acc( VEWS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc( VEWS, VCMV_LEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc( VEWS, VCMV_GTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc( VEWS, VCMV_LTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc( VEWS, VCMV_GEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc( VEWS, VCMV_Z, v_out, v_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc( VEWS, VCMV_NZ, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc( VEWS, VCUSTOM0, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc( VEWS, VCUSTOM1, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc( VEWS, VCUSTOM2, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc( VEWS, VCUSTOM3, v_out, v_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_acc_VEWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t *v_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
@@ -11522,7 +17264,7 @@ static inline void vbx_acc_VEWWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t
 	}
 }
 
-static inline void vbx_acc_SEB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_acc_SEB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -11609,7 +17351,7 @@ static inline void vbx_acc_SEB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx
 	}
 }
 
-static inline void vbx_acc_SEBB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_acc_SEBB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -11696,7 +17438,181 @@ static inline void vbx_acc_SEBB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vb
 	}
 }
 
-static inline void vbx_acc_SEBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_acc_SEBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc( SEBS, VADD, v_out, s_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_acc( SEBS, VSUB, v_out, s_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_acc( SEBS, VADDC, v_out, s_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_acc( SEBS, VSUBB, v_out, s_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc( SEBS, VABSDIFF, v_out, s_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_acc( SEBS, VMUL, v_out, s_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_acc( SEBS, VMULHI, v_out, s_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_acc( SEBS, VMULFXP, v_out, s_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_acc( SEBS, VAND, v_out, s_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_acc( SEBS, VOR, v_out, s_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_acc( SEBS, VXOR, v_out, s_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_acc( SEBS, VSHL, v_out, s_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_acc( SEBS, VSHR, v_out, s_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_acc( SEBS, VROTL, v_out, s_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_acc( SEBS, VROTR, v_out, s_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_acc( SEBS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc( SEBS, VCMV_LEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc( SEBS, VCMV_GTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc( SEBS, VCMV_LTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc( SEBS, VCMV_GEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc( SEBS, VCMV_Z, v_out, s_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc( SEBS, VCMV_NZ, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc( SEBS, VCUSTOM0, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc( SEBS, VCUSTOM1, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc( SEBS, VCUSTOM2, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc( SEBS, VCUSTOM3, v_out, s_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_SEBBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc( SEBS, VADD, v_out, s_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_acc( SEBS, VSUB, v_out, s_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_acc( SEBS, VADDC, v_out, s_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_acc( SEBS, VSUBB, v_out, s_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc( SEBS, VABSDIFF, v_out, s_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_acc( SEBS, VMUL, v_out, s_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_acc( SEBS, VMULHI, v_out, s_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_acc( SEBS, VMULFXP, v_out, s_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_acc( SEBS, VAND, v_out, s_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_acc( SEBS, VOR, v_out, s_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_acc( SEBS, VXOR, v_out, s_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_acc( SEBS, VSHL, v_out, s_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_acc( SEBS, VSHR, v_out, s_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_acc( SEBS, VROTL, v_out, s_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_acc( SEBS, VROTR, v_out, s_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_acc( SEBS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc( SEBS, VCMV_LEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc( SEBS, VCMV_GTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc( SEBS, VCMV_LTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc( SEBS, VCMV_GEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc( SEBS, VCMV_Z, v_out, s_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc( SEBS, VCMV_NZ, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc( SEBS, VCUSTOM0, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc( SEBS, VCUSTOM1, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc( SEBS, VCUSTOM2, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc( SEBS, VCUSTOM3, v_out, s_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_SEBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -11783,7 +17699,7 @@ static inline void vbx_acc_SEBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int
 	}
 }
 
-static inline void vbx_acc_SEBBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_acc_SEBBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -11870,7 +17786,7 @@ static inline void vbx_acc_SEBBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned in
 	}
 }
 
-static inline void vbx_acc_SEH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_acc_SEH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -11957,7 +17873,7 @@ static inline void vbx_acc_SEH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx
 	}
 }
 
-static inline void vbx_acc_SEHH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_acc_SEHH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -12044,7 +17960,181 @@ static inline void vbx_acc_SEHH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vb
 	}
 }
 
-static inline void vbx_acc_SEHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_acc_SEHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc( SEHS, VADD, v_out, s_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_acc( SEHS, VSUB, v_out, s_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_acc( SEHS, VADDC, v_out, s_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_acc( SEHS, VSUBB, v_out, s_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc( SEHS, VABSDIFF, v_out, s_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_acc( SEHS, VMUL, v_out, s_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_acc( SEHS, VMULHI, v_out, s_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_acc( SEHS, VMULFXP, v_out, s_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_acc( SEHS, VAND, v_out, s_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_acc( SEHS, VOR, v_out, s_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_acc( SEHS, VXOR, v_out, s_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_acc( SEHS, VSHL, v_out, s_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_acc( SEHS, VSHR, v_out, s_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_acc( SEHS, VROTL, v_out, s_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_acc( SEHS, VROTR, v_out, s_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_acc( SEHS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc( SEHS, VCMV_LEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc( SEHS, VCMV_GTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc( SEHS, VCMV_LTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc( SEHS, VCMV_GEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc( SEHS, VCMV_Z, v_out, s_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc( SEHS, VCMV_NZ, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc( SEHS, VCUSTOM0, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc( SEHS, VCUSTOM1, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc( SEHS, VCUSTOM2, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc( SEHS, VCUSTOM3, v_out, s_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_SEHHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc( SEHS, VADD, v_out, s_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_acc( SEHS, VSUB, v_out, s_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_acc( SEHS, VADDC, v_out, s_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_acc( SEHS, VSUBB, v_out, s_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc( SEHS, VABSDIFF, v_out, s_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_acc( SEHS, VMUL, v_out, s_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_acc( SEHS, VMULHI, v_out, s_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_acc( SEHS, VMULFXP, v_out, s_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_acc( SEHS, VAND, v_out, s_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_acc( SEHS, VOR, v_out, s_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_acc( SEHS, VXOR, v_out, s_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_acc( SEHS, VSHL, v_out, s_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_acc( SEHS, VSHR, v_out, s_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_acc( SEHS, VROTL, v_out, s_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_acc( SEHS, VROTR, v_out, s_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_acc( SEHS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc( SEHS, VCMV_LEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc( SEHS, VCMV_GTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc( SEHS, VCMV_LTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc( SEHS, VCMV_GEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc( SEHS, VCMV_Z, v_out, s_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc( SEHS, VCMV_NZ, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc( SEHS, VCUSTOM0, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc( SEHS, VCUSTOM1, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc( SEHS, VCUSTOM2, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc( SEHS, VCUSTOM3, v_out, s_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_SEHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uword_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -12131,7 +18221,7 @@ static inline void vbx_acc_SEHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int
 	}
 }
 
-static inline void vbx_acc_SEHHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_acc_SEHHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uword_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -12218,7 +18308,7 @@ static inline void vbx_acc_SEHHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned in
 	}
 }
 
-static inline void vbx_acc_SEW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_acc_SEW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -12305,7 +18395,7 @@ static inline void vbx_acc_SEW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx
 	}
 }
 
-static inline void vbx_acc_SEWW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_acc_SEWW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -12392,7 +18482,181 @@ static inline void vbx_acc_SEWW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vb
 	}
 }
 
-static inline void vbx_acc_SEWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_acc_SEWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc( SEWS, VADD, v_out, s_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_acc( SEWS, VSUB, v_out, s_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_acc( SEWS, VADDC, v_out, s_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_acc( SEWS, VSUBB, v_out, s_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc( SEWS, VABSDIFF, v_out, s_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_acc( SEWS, VMUL, v_out, s_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_acc( SEWS, VMULHI, v_out, s_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_acc( SEWS, VMULFXP, v_out, s_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_acc( SEWS, VAND, v_out, s_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_acc( SEWS, VOR, v_out, s_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_acc( SEWS, VXOR, v_out, s_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_acc( SEWS, VSHL, v_out, s_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_acc( SEWS, VSHR, v_out, s_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_acc( SEWS, VROTL, v_out, s_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_acc( SEWS, VROTR, v_out, s_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_acc( SEWS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc( SEWS, VCMV_LEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc( SEWS, VCMV_GTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc( SEWS, VCMV_LTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc( SEWS, VCMV_GEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc( SEWS, VCMV_Z, v_out, s_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc( SEWS, VCMV_NZ, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc( SEWS, VCUSTOM0, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc( SEWS, VCUSTOM1, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc( SEWS, VCUSTOM2, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc( SEWS, VCUSTOM3, v_out, s_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_SEWWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc( SEWS, VADD, v_out, s_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_acc( SEWS, VSUB, v_out, s_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_acc( SEWS, VADDC, v_out, s_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_acc( SEWS, VSUBB, v_out, s_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc( SEWS, VABSDIFF, v_out, s_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_acc( SEWS, VMUL, v_out, s_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_acc( SEWS, VMULHI, v_out, s_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_acc( SEWS, VMULFXP, v_out, s_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_acc( SEWS, VAND, v_out, s_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_acc( SEWS, VOR, v_out, s_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_acc( SEWS, VXOR, v_out, s_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_acc( SEWS, VSHL, v_out, s_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_acc( SEWS, VSHR, v_out, s_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_acc( SEWS, VROTL, v_out, s_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_acc( SEWS, VROTR, v_out, s_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_acc( SEWS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc( SEWS, VCMV_LEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc( SEWS, VCMV_GTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc( SEWS, VCMV_LTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc( SEWS, VCMV_GEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc( SEWS, VCMV_Z, v_out, s_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc( SEWS, VCMV_NZ, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc( SEWS, VCUSTOM0, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc( SEWS, VCUSTOM1, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc( SEWS, VCUSTOM2, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc( SEWS, VCUSTOM3, v_out, s_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_SEWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -12479,7 +18743,7 @@ static inline void vbx_acc_SEWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int
 	}
 }
 
-static inline void vbx_acc_SEWWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_acc_SEWWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -12734,6 +18998,180 @@ static inline void vbx_2D_VVBB( vinstr_t v_op, vbx_byte_t *v_out, vbx_byte_t *v_
 		break;
 	case VCUSTOM3:
 		vbxasm_2D( VVB, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_2D_VVBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_byte_t *v_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_2D( VVBS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_2D( VVBS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_2D( VVBS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_2D( VVBS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_2D( VVBS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_2D( VVBS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_2D( VVBS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_2D( VVBS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_2D( VVBS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_2D( VVBS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_2D( VVBS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_2D( VVBS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_2D( VVBS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_2D( VVBS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_2D( VVBS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_2D( VVBS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_2D( VVBS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_2D( VVBS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_2D( VVBS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_2D( VVBS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_2D( VVBS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_2D( VVBS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_2D( VVBS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_2D( VVBS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_2D( VVBS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_2D( VVBS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_2D_VVBBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_byte_t *v_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_2D( VVBS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_2D( VVBS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_2D( VVBS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_2D( VVBS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_2D( VVBS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_2D( VVBS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_2D( VVBS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_2D( VVBS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_2D( VVBS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_2D( VVBS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_2D( VVBS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_2D( VVBS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_2D( VVBS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_2D( VVBS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_2D( VVBS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_2D( VVBS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_2D( VVBS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_2D( VVBS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_2D( VVBS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_2D( VVBS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_2D( VVBS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_2D( VVBS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_2D( VVBS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_2D( VVBS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_2D( VVBS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_2D( VVBS, VCUSTOM3, v_out, v_in1, v_in2 );
 		break;
 	default:
 		break;
@@ -13001,6 +19439,93 @@ static inline void vbx_2D_VVBH( vinstr_t v_op, vbx_half_t *v_out, vbx_byte_t *v_
 	}
 }
 
+static inline void vbx_2D_VVBHS( vinstr_t v_op, vbx_half_t *v_out, vbx_byte_t *v_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_2D( VVBHS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_2D( VVBHS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_2D( VVBHS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_2D( VVBHS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_2D( VVBHS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_2D( VVBHS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_2D( VVBHS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_2D( VVBHS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_2D( VVBHS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_2D( VVBHS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_2D( VVBHS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_2D( VVBHS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_2D( VVBHS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_2D( VVBHS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_2D( VVBHS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_2D( VVBHS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_2D( VVBHS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_2D( VVBHS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_2D( VVBHS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_2D( VVBHS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_2D( VVBHS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_2D( VVBHS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_2D( VVBHS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_2D( VVBHS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_2D( VVBHS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_2D( VVBHS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_2D_VVBHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_ubyte_t *v_in1, vbx_ubyte_t *v_in2 )
 {
 	switch(v_op)
@@ -13175,6 +19700,93 @@ static inline void vbx_2D_VVBW( vinstr_t v_op, vbx_word_t *v_out, vbx_byte_t *v_
 	}
 }
 
+static inline void vbx_2D_VVBWS( vinstr_t v_op, vbx_word_t *v_out, vbx_byte_t *v_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_2D( VVBWS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_2D( VVBWS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_2D( VVBWS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_2D( VVBWS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_2D( VVBWS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_2D( VVBWS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_2D( VVBWS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_2D( VVBWS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_2D( VVBWS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_2D( VVBWS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_2D( VVBWS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_2D( VVBWS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_2D( VVBWS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_2D( VVBWS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_2D( VVBWS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_2D( VVBWS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_2D( VVBWS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_2D( VVBWS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_2D( VVBWS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_2D( VVBWS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_2D( VVBWS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_2D( VVBWS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_2D( VVBWS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_2D( VVBWS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_2D( VVBWS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_2D( VVBWS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_2D_VVBWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_ubyte_t *v_in1, vbx_ubyte_t *v_in2 )
 {
 	switch(v_op)
@@ -13343,6 +19955,93 @@ static inline void vbx_2D_VVHB( vinstr_t v_op, vbx_byte_t *v_out, vbx_half_t *v_
 		break;
 	case VCUSTOM3:
 		vbxasm_2D( VVHB, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_2D_VVHBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_half_t *v_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_2D( VVHBS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_2D( VVHBS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_2D( VVHBS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_2D( VVHBS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_2D( VVHBS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_2D( VVHBS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_2D( VVHBS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_2D( VVHBS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_2D( VVHBS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_2D( VVHBS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_2D( VVHBS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_2D( VVHBS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_2D( VVHBS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_2D( VVHBS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_2D( VVHBS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_2D( VVHBS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_2D( VVHBS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_2D( VVHBS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_2D( VVHBS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_2D( VVHBS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_2D( VVHBS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_2D( VVHBS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_2D( VVHBS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_2D( VVHBS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_2D( VVHBS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_2D( VVHBS, VCUSTOM3, v_out, v_in1, v_in2 );
 		break;
 	default:
 		break;
@@ -13610,6 +20309,180 @@ static inline void vbx_2D_VVHH( vinstr_t v_op, vbx_half_t *v_out, vbx_half_t *v_
 	}
 }
 
+static inline void vbx_2D_VVHS( vinstr_t v_op, vbx_half_t *v_out, vbx_half_t *v_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_2D( VVHS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_2D( VVHS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_2D( VVHS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_2D( VVHS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_2D( VVHS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_2D( VVHS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_2D( VVHS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_2D( VVHS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_2D( VVHS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_2D( VVHS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_2D( VVHS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_2D( VVHS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_2D( VVHS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_2D( VVHS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_2D( VVHS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_2D( VVHS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_2D( VVHS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_2D( VVHS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_2D( VVHS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_2D( VVHS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_2D( VVHS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_2D( VVHS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_2D( VVHS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_2D( VVHS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_2D( VVHS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_2D( VVHS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_2D_VVHHS( vinstr_t v_op, vbx_half_t *v_out, vbx_half_t *v_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_2D( VVHS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_2D( VVHS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_2D( VVHS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_2D( VVHS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_2D( VVHS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_2D( VVHS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_2D( VVHS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_2D( VVHS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_2D( VVHS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_2D( VVHS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_2D( VVHS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_2D( VVHS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_2D( VVHS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_2D( VVHS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_2D( VVHS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_2D( VVHS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_2D( VVHS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_2D( VVHS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_2D( VVHS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_2D( VVHS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_2D( VVHS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_2D( VVHS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_2D( VVHS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_2D( VVHS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_2D( VVHS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_2D( VVHS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_2D_VVHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uhalf_t *v_in1, vbx_uhalf_t *v_in2 )
 {
 	switch(v_op)
@@ -13871,6 +20744,93 @@ static inline void vbx_2D_VVHW( vinstr_t v_op, vbx_word_t *v_out, vbx_half_t *v_
 	}
 }
 
+static inline void vbx_2D_VVHWS( vinstr_t v_op, vbx_word_t *v_out, vbx_half_t *v_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_2D( VVHWS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_2D( VVHWS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_2D( VVHWS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_2D( VVHWS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_2D( VVHWS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_2D( VVHWS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_2D( VVHWS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_2D( VVHWS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_2D( VVHWS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_2D( VVHWS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_2D( VVHWS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_2D( VVHWS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_2D( VVHWS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_2D( VVHWS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_2D( VVHWS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_2D( VVHWS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_2D( VVHWS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_2D( VVHWS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_2D( VVHWS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_2D( VVHWS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_2D( VVHWS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_2D( VVHWS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_2D( VVHWS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_2D( VVHWS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_2D( VVHWS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_2D( VVHWS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_2D_VVHWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uhalf_t *v_in1, vbx_uhalf_t *v_in2 )
 {
 	switch(v_op)
@@ -14045,6 +21005,93 @@ static inline void vbx_2D_VVWB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t *v_
 	}
 }
 
+static inline void vbx_2D_VVWBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t *v_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_2D( VVWBS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_2D( VVWBS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_2D( VVWBS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_2D( VVWBS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_2D( VVWBS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_2D( VVWBS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_2D( VVWBS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_2D( VVWBS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_2D( VVWBS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_2D( VVWBS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_2D( VVWBS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_2D( VVWBS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_2D( VVWBS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_2D( VVWBS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_2D( VVWBS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_2D( VVWBS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_2D( VVWBS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_2D( VVWBS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_2D( VVWBS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_2D( VVWBS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_2D( VVWBS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_2D( VVWBS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_2D( VVWBS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_2D( VVWBS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_2D( VVWBS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_2D( VVWBS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_2D_VVWBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t *v_in1, vbx_uword_t *v_in2 )
 {
 	switch(v_op)
@@ -14213,6 +21260,93 @@ static inline void vbx_2D_VVWH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t *v_
 		break;
 	case VCUSTOM3:
 		vbxasm_2D( VVWH, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_2D_VVWHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t *v_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_2D( VVWHS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_2D( VVWHS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_2D( VVWHS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_2D( VVWHS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_2D( VVWHS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_2D( VVWHS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_2D( VVWHS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_2D( VVWHS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_2D( VVWHS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_2D( VVWHS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_2D( VVWHS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_2D( VVWHS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_2D( VVWHS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_2D( VVWHS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_2D( VVWHS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_2D( VVWHS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_2D( VVWHS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_2D( VVWHS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_2D( VVWHS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_2D( VVWHS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_2D( VVWHS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_2D( VVWHS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_2D( VVWHS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_2D( VVWHS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_2D( VVWHS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_2D( VVWHS, VCUSTOM3, v_out, v_in1, v_in2 );
 		break;
 	default:
 		break;
@@ -14480,6 +21614,180 @@ static inline void vbx_2D_VVWW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t *v_
 	}
 }
 
+static inline void vbx_2D_VVWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t *v_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_2D( VVWS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_2D( VVWS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_2D( VVWS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_2D( VVWS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_2D( VVWS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_2D( VVWS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_2D( VVWS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_2D( VVWS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_2D( VVWS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_2D( VVWS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_2D( VVWS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_2D( VVWS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_2D( VVWS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_2D( VVWS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_2D( VVWS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_2D( VVWS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_2D( VVWS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_2D( VVWS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_2D( VVWS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_2D( VVWS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_2D( VVWS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_2D( VVWS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_2D( VVWS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_2D( VVWS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_2D( VVWS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_2D( VVWS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_2D_VVWWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t *v_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_2D( VVWS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_2D( VVWS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_2D( VVWS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_2D( VVWS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_2D( VVWS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_2D( VVWS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_2D( VVWS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_2D( VVWS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_2D( VVWS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_2D( VVWS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_2D( VVWS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_2D( VVWS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_2D( VVWS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_2D( VVWS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_2D( VVWS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_2D( VVWS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_2D( VVWS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_2D( VVWS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_2D( VVWS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_2D( VVWS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_2D( VVWS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_2D( VVWS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_2D( VVWS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_2D( VVWS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_2D( VVWS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_2D( VVWS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_2D_VVWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t *v_in1, vbx_uword_t *v_in2 )
 {
 	switch(v_op)
@@ -14654,7 +21962,7 @@ static inline void vbx_2D_VVWWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t 
 	}
 }
 
-static inline void vbx_2D_SVB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_byte_t *v_in2 )
+static inline void vbx_2D_SVB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -14741,7 +22049,7 @@ static inline void vbx_2D_SVB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_
 	}
 }
 
-static inline void vbx_2D_SVBB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_byte_t *v_in2 )
+static inline void vbx_2D_SVBB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -14828,7 +22136,181 @@ static inline void vbx_2D_SVBB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx
 	}
 }
 
-static inline void vbx_2D_SVBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_in1, vbx_ubyte_t *v_in2 )
+static inline void vbx_2D_SVBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_2D( SVBS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_2D( SVBS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_2D( SVBS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_2D( SVBS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_2D( SVBS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_2D( SVBS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_2D( SVBS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_2D( SVBS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_2D( SVBS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_2D( SVBS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_2D( SVBS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_2D( SVBS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_2D( SVBS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_2D( SVBS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_2D( SVBS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_2D( SVBS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_2D( SVBS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_2D( SVBS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_2D( SVBS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_2D( SVBS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_2D( SVBS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_2D( SVBS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_2D( SVBS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_2D( SVBS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_2D( SVBS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_2D( SVBS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_2D_SVBBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_2D( SVBS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_2D( SVBS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_2D( SVBS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_2D( SVBS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_2D( SVBS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_2D( SVBS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_2D( SVBS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_2D( SVBS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_2D( SVBS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_2D( SVBS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_2D( SVBS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_2D( SVBS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_2D( SVBS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_2D( SVBS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_2D( SVBS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_2D( SVBS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_2D( SVBS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_2D( SVBS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_2D( SVBS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_2D( SVBS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_2D( SVBS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_2D( SVBS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_2D( SVBS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_2D( SVBS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_2D( SVBS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_2D( SVBS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_2D_SVBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t s_in1, vbx_ubyte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -14915,7 +22397,7 @@ static inline void vbx_2D_SVBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int 
 	}
 }
 
-static inline void vbx_2D_SVBBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_in1, vbx_ubyte_t *v_in2 )
+static inline void vbx_2D_SVBBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t s_in1, vbx_ubyte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -15002,7 +22484,7 @@ static inline void vbx_2D_SVBBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int
 	}
 }
 
-static inline void vbx_2D_SVBH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_byte_t *v_in2 )
+static inline void vbx_2D_SVBH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -15089,7 +22571,94 @@ static inline void vbx_2D_SVBH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx
 	}
 }
 
-static inline void vbx_2D_SVBHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_in1, vbx_ubyte_t *v_in2 )
+static inline void vbx_2D_SVBHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_2D( SVBHS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_2D( SVBHS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_2D( SVBHS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_2D( SVBHS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_2D( SVBHS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_2D( SVBHS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_2D( SVBHS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_2D( SVBHS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_2D( SVBHS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_2D( SVBHS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_2D( SVBHS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_2D( SVBHS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_2D( SVBHS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_2D( SVBHS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_2D( SVBHS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_2D( SVBHS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_2D( SVBHS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_2D( SVBHS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_2D( SVBHS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_2D( SVBHS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_2D( SVBHS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_2D( SVBHS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_2D( SVBHS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_2D( SVBHS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_2D( SVBHS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_2D( SVBHS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_2D_SVBHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uword_t s_in1, vbx_ubyte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -15176,7 +22745,7 @@ static inline void vbx_2D_SVBHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int
 	}
 }
 
-static inline void vbx_2D_SVBW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_byte_t *v_in2 )
+static inline void vbx_2D_SVBW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -15263,7 +22832,94 @@ static inline void vbx_2D_SVBW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx
 	}
 }
 
-static inline void vbx_2D_SVBWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int s_in1, vbx_ubyte_t *v_in2 )
+static inline void vbx_2D_SVBWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_2D( SVBWS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_2D( SVBWS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_2D( SVBWS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_2D( SVBWS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_2D( SVBWS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_2D( SVBWS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_2D( SVBWS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_2D( SVBWS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_2D( SVBWS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_2D( SVBWS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_2D( SVBWS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_2D( SVBWS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_2D( SVBWS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_2D( SVBWS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_2D( SVBWS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_2D( SVBWS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_2D( SVBWS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_2D( SVBWS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_2D( SVBWS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_2D( SVBWS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_2D( SVBWS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_2D( SVBWS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_2D( SVBWS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_2D( SVBWS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_2D( SVBWS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_2D( SVBWS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_2D_SVBWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t s_in1, vbx_ubyte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -15350,7 +23006,7 @@ static inline void vbx_2D_SVBWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int
 	}
 }
 
-static inline void vbx_2D_SVHB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_half_t *v_in2 )
+static inline void vbx_2D_SVHB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -15437,7 +23093,94 @@ static inline void vbx_2D_SVHB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx
 	}
 }
 
-static inline void vbx_2D_SVHBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_in1, vbx_uhalf_t *v_in2 )
+static inline void vbx_2D_SVHBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_2D( SVHBS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_2D( SVHBS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_2D( SVHBS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_2D( SVHBS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_2D( SVHBS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_2D( SVHBS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_2D( SVHBS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_2D( SVHBS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_2D( SVHBS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_2D( SVHBS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_2D( SVHBS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_2D( SVHBS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_2D( SVHBS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_2D( SVHBS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_2D( SVHBS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_2D( SVHBS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_2D( SVHBS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_2D( SVHBS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_2D( SVHBS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_2D( SVHBS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_2D( SVHBS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_2D( SVHBS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_2D( SVHBS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_2D( SVHBS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_2D( SVHBS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_2D( SVHBS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_2D_SVHBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t s_in1, vbx_uhalf_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -15524,7 +23267,7 @@ static inline void vbx_2D_SVHBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int
 	}
 }
 
-static inline void vbx_2D_SVH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_half_t *v_in2 )
+static inline void vbx_2D_SVH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -15611,7 +23354,7 @@ static inline void vbx_2D_SVH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_
 	}
 }
 
-static inline void vbx_2D_SVHH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_half_t *v_in2 )
+static inline void vbx_2D_SVHH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -15698,7 +23441,181 @@ static inline void vbx_2D_SVHH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx
 	}
 }
 
-static inline void vbx_2D_SVHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_in1, vbx_uhalf_t *v_in2 )
+static inline void vbx_2D_SVHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_2D( SVHS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_2D( SVHS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_2D( SVHS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_2D( SVHS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_2D( SVHS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_2D( SVHS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_2D( SVHS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_2D( SVHS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_2D( SVHS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_2D( SVHS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_2D( SVHS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_2D( SVHS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_2D( SVHS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_2D( SVHS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_2D( SVHS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_2D( SVHS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_2D( SVHS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_2D( SVHS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_2D( SVHS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_2D( SVHS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_2D( SVHS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_2D( SVHS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_2D( SVHS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_2D( SVHS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_2D( SVHS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_2D( SVHS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_2D_SVHHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_2D( SVHS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_2D( SVHS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_2D( SVHS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_2D( SVHS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_2D( SVHS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_2D( SVHS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_2D( SVHS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_2D( SVHS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_2D( SVHS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_2D( SVHS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_2D( SVHS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_2D( SVHS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_2D( SVHS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_2D( SVHS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_2D( SVHS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_2D( SVHS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_2D( SVHS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_2D( SVHS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_2D( SVHS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_2D( SVHS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_2D( SVHS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_2D( SVHS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_2D( SVHS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_2D( SVHS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_2D( SVHS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_2D( SVHS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_2D_SVHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uword_t s_in1, vbx_uhalf_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -15785,7 +23702,7 @@ static inline void vbx_2D_SVHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int 
 	}
 }
 
-static inline void vbx_2D_SVHHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_in1, vbx_uhalf_t *v_in2 )
+static inline void vbx_2D_SVHHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uword_t s_in1, vbx_uhalf_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -15872,7 +23789,7 @@ static inline void vbx_2D_SVHHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int
 	}
 }
 
-static inline void vbx_2D_SVHW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_half_t *v_in2 )
+static inline void vbx_2D_SVHW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -15959,7 +23876,94 @@ static inline void vbx_2D_SVHW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx
 	}
 }
 
-static inline void vbx_2D_SVHWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int s_in1, vbx_uhalf_t *v_in2 )
+static inline void vbx_2D_SVHWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_2D( SVHWS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_2D( SVHWS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_2D( SVHWS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_2D( SVHWS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_2D( SVHWS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_2D( SVHWS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_2D( SVHWS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_2D( SVHWS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_2D( SVHWS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_2D( SVHWS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_2D( SVHWS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_2D( SVHWS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_2D( SVHWS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_2D( SVHWS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_2D( SVHWS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_2D( SVHWS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_2D( SVHWS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_2D( SVHWS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_2D( SVHWS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_2D( SVHWS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_2D( SVHWS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_2D( SVHWS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_2D( SVHWS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_2D( SVHWS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_2D( SVHWS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_2D( SVHWS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_2D_SVHWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t s_in1, vbx_uhalf_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -16046,7 +24050,7 @@ static inline void vbx_2D_SVHWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int
 	}
 }
 
-static inline void vbx_2D_SVWB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_word_t *v_in2 )
+static inline void vbx_2D_SVWB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -16133,7 +24137,94 @@ static inline void vbx_2D_SVWB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx
 	}
 }
 
-static inline void vbx_2D_SVWBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_in1, vbx_uword_t *v_in2 )
+static inline void vbx_2D_SVWBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_2D( SVWBS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_2D( SVWBS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_2D( SVWBS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_2D( SVWBS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_2D( SVWBS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_2D( SVWBS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_2D( SVWBS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_2D( SVWBS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_2D( SVWBS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_2D( SVWBS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_2D( SVWBS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_2D( SVWBS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_2D( SVWBS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_2D( SVWBS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_2D( SVWBS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_2D( SVWBS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_2D( SVWBS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_2D( SVWBS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_2D( SVWBS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_2D( SVWBS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_2D( SVWBS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_2D( SVWBS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_2D( SVWBS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_2D( SVWBS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_2D( SVWBS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_2D( SVWBS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_2D_SVWBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t s_in1, vbx_uword_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -16220,7 +24311,7 @@ static inline void vbx_2D_SVWBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int
 	}
 }
 
-static inline void vbx_2D_SVWH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_word_t *v_in2 )
+static inline void vbx_2D_SVWH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -16307,7 +24398,94 @@ static inline void vbx_2D_SVWH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx
 	}
 }
 
-static inline void vbx_2D_SVWHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_in1, vbx_uword_t *v_in2 )
+static inline void vbx_2D_SVWHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_2D( SVWHS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_2D( SVWHS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_2D( SVWHS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_2D( SVWHS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_2D( SVWHS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_2D( SVWHS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_2D( SVWHS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_2D( SVWHS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_2D( SVWHS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_2D( SVWHS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_2D( SVWHS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_2D( SVWHS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_2D( SVWHS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_2D( SVWHS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_2D( SVWHS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_2D( SVWHS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_2D( SVWHS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_2D( SVWHS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_2D( SVWHS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_2D( SVWHS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_2D( SVWHS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_2D( SVWHS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_2D( SVWHS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_2D( SVWHS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_2D( SVWHS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_2D( SVWHS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_2D_SVWHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uword_t s_in1, vbx_uword_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -16394,7 +24572,7 @@ static inline void vbx_2D_SVWHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int
 	}
 }
 
-static inline void vbx_2D_SVW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_word_t *v_in2 )
+static inline void vbx_2D_SVW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -16481,7 +24659,7 @@ static inline void vbx_2D_SVW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_
 	}
 }
 
-static inline void vbx_2D_SVWW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_word_t *v_in2 )
+static inline void vbx_2D_SVWW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -16568,7 +24746,181 @@ static inline void vbx_2D_SVWW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx
 	}
 }
 
-static inline void vbx_2D_SVWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int s_in1, vbx_uword_t *v_in2 )
+static inline void vbx_2D_SVWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_2D( SVWS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_2D( SVWS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_2D( SVWS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_2D( SVWS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_2D( SVWS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_2D( SVWS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_2D( SVWS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_2D( SVWS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_2D( SVWS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_2D( SVWS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_2D( SVWS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_2D( SVWS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_2D( SVWS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_2D( SVWS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_2D( SVWS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_2D( SVWS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_2D( SVWS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_2D( SVWS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_2D( SVWS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_2D( SVWS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_2D( SVWS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_2D( SVWS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_2D( SVWS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_2D( SVWS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_2D( SVWS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_2D( SVWS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_2D_SVWWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_2D( SVWS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_2D( SVWS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_2D( SVWS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_2D( SVWS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_2D( SVWS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_2D( SVWS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_2D( SVWS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_2D( SVWS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_2D( SVWS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_2D( SVWS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_2D( SVWS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_2D( SVWS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_2D( SVWS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_2D( SVWS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_2D( SVWS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_2D( SVWS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_2D( SVWS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_2D( SVWS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_2D( SVWS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_2D( SVWS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_2D( SVWS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_2D( SVWS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_2D( SVWS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_2D( SVWS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_2D( SVWS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_2D( SVWS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_2D_SVWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t s_in1, vbx_uword_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -16655,7 +25007,7 @@ static inline void vbx_2D_SVWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int 
 	}
 }
 
-static inline void vbx_2D_SVWWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int s_in1, vbx_uword_t *v_in2 )
+static inline void vbx_2D_SVWWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t s_in1, vbx_uword_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -16910,6 +25262,180 @@ static inline void vbx_2D_VEBB( vinstr_t v_op, vbx_byte_t *v_out, vbx_byte_t *v_
 		break;
 	case VCUSTOM3:
 		vbxasm_2D( VEB, VCUSTOM3, v_out, v_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_2D_VEBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_byte_t *v_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_2D( VEBS, VADD, v_out, v_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_2D( VEBS, VSUB, v_out, v_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_2D( VEBS, VADDC, v_out, v_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_2D( VEBS, VSUBB, v_out, v_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_2D( VEBS, VABSDIFF, v_out, v_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_2D( VEBS, VMUL, v_out, v_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_2D( VEBS, VMULHI, v_out, v_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_2D( VEBS, VMULFXP, v_out, v_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_2D( VEBS, VAND, v_out, v_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_2D( VEBS, VOR, v_out, v_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_2D( VEBS, VXOR, v_out, v_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_2D( VEBS, VSHL, v_out, v_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_2D( VEBS, VSHR, v_out, v_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_2D( VEBS, VROTL, v_out, v_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_2D( VEBS, VROTR, v_out, v_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_2D( VEBS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_2D( VEBS, VCMV_LEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_2D( VEBS, VCMV_GTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_2D( VEBS, VCMV_LTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_2D( VEBS, VCMV_GEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_2D( VEBS, VCMV_Z, v_out, v_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_2D( VEBS, VCMV_NZ, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_2D( VEBS, VCUSTOM0, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_2D( VEBS, VCUSTOM1, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_2D( VEBS, VCUSTOM2, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_2D( VEBS, VCUSTOM3, v_out, v_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_2D_VEBBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_byte_t *v_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_2D( VEBS, VADD, v_out, v_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_2D( VEBS, VSUB, v_out, v_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_2D( VEBS, VADDC, v_out, v_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_2D( VEBS, VSUBB, v_out, v_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_2D( VEBS, VABSDIFF, v_out, v_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_2D( VEBS, VMUL, v_out, v_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_2D( VEBS, VMULHI, v_out, v_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_2D( VEBS, VMULFXP, v_out, v_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_2D( VEBS, VAND, v_out, v_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_2D( VEBS, VOR, v_out, v_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_2D( VEBS, VXOR, v_out, v_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_2D( VEBS, VSHL, v_out, v_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_2D( VEBS, VSHR, v_out, v_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_2D( VEBS, VROTL, v_out, v_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_2D( VEBS, VROTR, v_out, v_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_2D( VEBS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_2D( VEBS, VCMV_LEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_2D( VEBS, VCMV_GTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_2D( VEBS, VCMV_LTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_2D( VEBS, VCMV_GEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_2D( VEBS, VCMV_Z, v_out, v_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_2D( VEBS, VCMV_NZ, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_2D( VEBS, VCUSTOM0, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_2D( VEBS, VCUSTOM1, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_2D( VEBS, VCUSTOM2, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_2D( VEBS, VCUSTOM3, v_out, v_in1, 0 );
 		break;
 	default:
 		break;
@@ -17264,6 +25790,180 @@ static inline void vbx_2D_VEHH( vinstr_t v_op, vbx_half_t *v_out, vbx_half_t *v_
 	}
 }
 
+static inline void vbx_2D_VEHS( vinstr_t v_op, vbx_half_t *v_out, vbx_half_t *v_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_2D( VEHS, VADD, v_out, v_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_2D( VEHS, VSUB, v_out, v_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_2D( VEHS, VADDC, v_out, v_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_2D( VEHS, VSUBB, v_out, v_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_2D( VEHS, VABSDIFF, v_out, v_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_2D( VEHS, VMUL, v_out, v_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_2D( VEHS, VMULHI, v_out, v_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_2D( VEHS, VMULFXP, v_out, v_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_2D( VEHS, VAND, v_out, v_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_2D( VEHS, VOR, v_out, v_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_2D( VEHS, VXOR, v_out, v_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_2D( VEHS, VSHL, v_out, v_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_2D( VEHS, VSHR, v_out, v_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_2D( VEHS, VROTL, v_out, v_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_2D( VEHS, VROTR, v_out, v_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_2D( VEHS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_2D( VEHS, VCMV_LEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_2D( VEHS, VCMV_GTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_2D( VEHS, VCMV_LTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_2D( VEHS, VCMV_GEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_2D( VEHS, VCMV_Z, v_out, v_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_2D( VEHS, VCMV_NZ, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_2D( VEHS, VCUSTOM0, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_2D( VEHS, VCUSTOM1, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_2D( VEHS, VCUSTOM2, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_2D( VEHS, VCUSTOM3, v_out, v_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_2D_VEHHS( vinstr_t v_op, vbx_half_t *v_out, vbx_half_t *v_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_2D( VEHS, VADD, v_out, v_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_2D( VEHS, VSUB, v_out, v_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_2D( VEHS, VADDC, v_out, v_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_2D( VEHS, VSUBB, v_out, v_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_2D( VEHS, VABSDIFF, v_out, v_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_2D( VEHS, VMUL, v_out, v_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_2D( VEHS, VMULHI, v_out, v_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_2D( VEHS, VMULFXP, v_out, v_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_2D( VEHS, VAND, v_out, v_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_2D( VEHS, VOR, v_out, v_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_2D( VEHS, VXOR, v_out, v_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_2D( VEHS, VSHL, v_out, v_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_2D( VEHS, VSHR, v_out, v_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_2D( VEHS, VROTL, v_out, v_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_2D( VEHS, VROTR, v_out, v_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_2D( VEHS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_2D( VEHS, VCMV_LEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_2D( VEHS, VCMV_GTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_2D( VEHS, VCMV_LTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_2D( VEHS, VCMV_GEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_2D( VEHS, VCMV_Z, v_out, v_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_2D( VEHS, VCMV_NZ, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_2D( VEHS, VCUSTOM0, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_2D( VEHS, VCUSTOM1, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_2D( VEHS, VCUSTOM2, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_2D( VEHS, VCUSTOM3, v_out, v_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_2D_VEHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uhalf_t *v_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
@@ -17612,6 +26312,180 @@ static inline void vbx_2D_VEWW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t *v_
 	}
 }
 
+static inline void vbx_2D_VEWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t *v_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_2D( VEWS, VADD, v_out, v_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_2D( VEWS, VSUB, v_out, v_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_2D( VEWS, VADDC, v_out, v_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_2D( VEWS, VSUBB, v_out, v_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_2D( VEWS, VABSDIFF, v_out, v_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_2D( VEWS, VMUL, v_out, v_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_2D( VEWS, VMULHI, v_out, v_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_2D( VEWS, VMULFXP, v_out, v_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_2D( VEWS, VAND, v_out, v_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_2D( VEWS, VOR, v_out, v_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_2D( VEWS, VXOR, v_out, v_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_2D( VEWS, VSHL, v_out, v_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_2D( VEWS, VSHR, v_out, v_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_2D( VEWS, VROTL, v_out, v_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_2D( VEWS, VROTR, v_out, v_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_2D( VEWS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_2D( VEWS, VCMV_LEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_2D( VEWS, VCMV_GTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_2D( VEWS, VCMV_LTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_2D( VEWS, VCMV_GEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_2D( VEWS, VCMV_Z, v_out, v_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_2D( VEWS, VCMV_NZ, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_2D( VEWS, VCUSTOM0, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_2D( VEWS, VCUSTOM1, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_2D( VEWS, VCUSTOM2, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_2D( VEWS, VCUSTOM3, v_out, v_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_2D_VEWWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t *v_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_2D( VEWS, VADD, v_out, v_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_2D( VEWS, VSUB, v_out, v_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_2D( VEWS, VADDC, v_out, v_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_2D( VEWS, VSUBB, v_out, v_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_2D( VEWS, VABSDIFF, v_out, v_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_2D( VEWS, VMUL, v_out, v_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_2D( VEWS, VMULHI, v_out, v_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_2D( VEWS, VMULFXP, v_out, v_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_2D( VEWS, VAND, v_out, v_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_2D( VEWS, VOR, v_out, v_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_2D( VEWS, VXOR, v_out, v_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_2D( VEWS, VSHL, v_out, v_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_2D( VEWS, VSHR, v_out, v_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_2D( VEWS, VROTL, v_out, v_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_2D( VEWS, VROTR, v_out, v_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_2D( VEWS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_2D( VEWS, VCMV_LEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_2D( VEWS, VCMV_GTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_2D( VEWS, VCMV_LTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_2D( VEWS, VCMV_GEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_2D( VEWS, VCMV_Z, v_out, v_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_2D( VEWS, VCMV_NZ, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_2D( VEWS, VCUSTOM0, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_2D( VEWS, VCUSTOM1, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_2D( VEWS, VCUSTOM2, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_2D( VEWS, VCUSTOM3, v_out, v_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_2D_VEWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t *v_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
@@ -17786,7 +26660,7 @@ static inline void vbx_2D_VEWWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t 
 	}
 }
 
-static inline void vbx_2D_SEB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_2D_SEB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -17873,7 +26747,7 @@ static inline void vbx_2D_SEB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_
 	}
 }
 
-static inline void vbx_2D_SEBB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_2D_SEBB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -17960,7 +26834,181 @@ static inline void vbx_2D_SEBB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx
 	}
 }
 
-static inline void vbx_2D_SEBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_2D_SEBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_2D( SEBS, VADD, v_out, s_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_2D( SEBS, VSUB, v_out, s_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_2D( SEBS, VADDC, v_out, s_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_2D( SEBS, VSUBB, v_out, s_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_2D( SEBS, VABSDIFF, v_out, s_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_2D( SEBS, VMUL, v_out, s_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_2D( SEBS, VMULHI, v_out, s_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_2D( SEBS, VMULFXP, v_out, s_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_2D( SEBS, VAND, v_out, s_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_2D( SEBS, VOR, v_out, s_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_2D( SEBS, VXOR, v_out, s_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_2D( SEBS, VSHL, v_out, s_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_2D( SEBS, VSHR, v_out, s_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_2D( SEBS, VROTL, v_out, s_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_2D( SEBS, VROTR, v_out, s_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_2D( SEBS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_2D( SEBS, VCMV_LEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_2D( SEBS, VCMV_GTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_2D( SEBS, VCMV_LTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_2D( SEBS, VCMV_GEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_2D( SEBS, VCMV_Z, v_out, s_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_2D( SEBS, VCMV_NZ, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_2D( SEBS, VCUSTOM0, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_2D( SEBS, VCUSTOM1, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_2D( SEBS, VCUSTOM2, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_2D( SEBS, VCUSTOM3, v_out, s_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_2D_SEBBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_2D( SEBS, VADD, v_out, s_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_2D( SEBS, VSUB, v_out, s_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_2D( SEBS, VADDC, v_out, s_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_2D( SEBS, VSUBB, v_out, s_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_2D( SEBS, VABSDIFF, v_out, s_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_2D( SEBS, VMUL, v_out, s_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_2D( SEBS, VMULHI, v_out, s_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_2D( SEBS, VMULFXP, v_out, s_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_2D( SEBS, VAND, v_out, s_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_2D( SEBS, VOR, v_out, s_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_2D( SEBS, VXOR, v_out, s_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_2D( SEBS, VSHL, v_out, s_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_2D( SEBS, VSHR, v_out, s_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_2D( SEBS, VROTL, v_out, s_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_2D( SEBS, VROTR, v_out, s_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_2D( SEBS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_2D( SEBS, VCMV_LEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_2D( SEBS, VCMV_GTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_2D( SEBS, VCMV_LTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_2D( SEBS, VCMV_GEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_2D( SEBS, VCMV_Z, v_out, s_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_2D( SEBS, VCMV_NZ, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_2D( SEBS, VCUSTOM0, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_2D( SEBS, VCUSTOM1, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_2D( SEBS, VCUSTOM2, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_2D( SEBS, VCUSTOM3, v_out, s_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_2D_SEBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -18047,7 +27095,7 @@ static inline void vbx_2D_SEBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int 
 	}
 }
 
-static inline void vbx_2D_SEBBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_2D_SEBBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -18134,7 +27182,7 @@ static inline void vbx_2D_SEBBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int
 	}
 }
 
-static inline void vbx_2D_SEH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_2D_SEH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -18221,7 +27269,7 @@ static inline void vbx_2D_SEH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_
 	}
 }
 
-static inline void vbx_2D_SEHH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_2D_SEHH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -18308,7 +27356,181 @@ static inline void vbx_2D_SEHH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx
 	}
 }
 
-static inline void vbx_2D_SEHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_2D_SEHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_2D( SEHS, VADD, v_out, s_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_2D( SEHS, VSUB, v_out, s_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_2D( SEHS, VADDC, v_out, s_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_2D( SEHS, VSUBB, v_out, s_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_2D( SEHS, VABSDIFF, v_out, s_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_2D( SEHS, VMUL, v_out, s_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_2D( SEHS, VMULHI, v_out, s_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_2D( SEHS, VMULFXP, v_out, s_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_2D( SEHS, VAND, v_out, s_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_2D( SEHS, VOR, v_out, s_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_2D( SEHS, VXOR, v_out, s_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_2D( SEHS, VSHL, v_out, s_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_2D( SEHS, VSHR, v_out, s_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_2D( SEHS, VROTL, v_out, s_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_2D( SEHS, VROTR, v_out, s_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_2D( SEHS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_2D( SEHS, VCMV_LEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_2D( SEHS, VCMV_GTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_2D( SEHS, VCMV_LTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_2D( SEHS, VCMV_GEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_2D( SEHS, VCMV_Z, v_out, s_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_2D( SEHS, VCMV_NZ, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_2D( SEHS, VCUSTOM0, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_2D( SEHS, VCUSTOM1, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_2D( SEHS, VCUSTOM2, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_2D( SEHS, VCUSTOM3, v_out, s_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_2D_SEHHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_2D( SEHS, VADD, v_out, s_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_2D( SEHS, VSUB, v_out, s_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_2D( SEHS, VADDC, v_out, s_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_2D( SEHS, VSUBB, v_out, s_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_2D( SEHS, VABSDIFF, v_out, s_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_2D( SEHS, VMUL, v_out, s_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_2D( SEHS, VMULHI, v_out, s_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_2D( SEHS, VMULFXP, v_out, s_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_2D( SEHS, VAND, v_out, s_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_2D( SEHS, VOR, v_out, s_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_2D( SEHS, VXOR, v_out, s_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_2D( SEHS, VSHL, v_out, s_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_2D( SEHS, VSHR, v_out, s_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_2D( SEHS, VROTL, v_out, s_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_2D( SEHS, VROTR, v_out, s_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_2D( SEHS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_2D( SEHS, VCMV_LEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_2D( SEHS, VCMV_GTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_2D( SEHS, VCMV_LTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_2D( SEHS, VCMV_GEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_2D( SEHS, VCMV_Z, v_out, s_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_2D( SEHS, VCMV_NZ, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_2D( SEHS, VCUSTOM0, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_2D( SEHS, VCUSTOM1, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_2D( SEHS, VCUSTOM2, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_2D( SEHS, VCUSTOM3, v_out, s_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_2D_SEHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uword_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -18395,7 +27617,7 @@ static inline void vbx_2D_SEHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int 
 	}
 }
 
-static inline void vbx_2D_SEHHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_2D_SEHHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uword_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -18482,7 +27704,7 @@ static inline void vbx_2D_SEHHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int
 	}
 }
 
-static inline void vbx_2D_SEW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_2D_SEW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -18569,7 +27791,7 @@ static inline void vbx_2D_SEW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_
 	}
 }
 
-static inline void vbx_2D_SEWW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_2D_SEWW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -18656,7 +27878,181 @@ static inline void vbx_2D_SEWW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx
 	}
 }
 
-static inline void vbx_2D_SEWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_2D_SEWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_2D( SEWS, VADD, v_out, s_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_2D( SEWS, VSUB, v_out, s_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_2D( SEWS, VADDC, v_out, s_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_2D( SEWS, VSUBB, v_out, s_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_2D( SEWS, VABSDIFF, v_out, s_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_2D( SEWS, VMUL, v_out, s_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_2D( SEWS, VMULHI, v_out, s_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_2D( SEWS, VMULFXP, v_out, s_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_2D( SEWS, VAND, v_out, s_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_2D( SEWS, VOR, v_out, s_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_2D( SEWS, VXOR, v_out, s_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_2D( SEWS, VSHL, v_out, s_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_2D( SEWS, VSHR, v_out, s_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_2D( SEWS, VROTL, v_out, s_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_2D( SEWS, VROTR, v_out, s_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_2D( SEWS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_2D( SEWS, VCMV_LEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_2D( SEWS, VCMV_GTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_2D( SEWS, VCMV_LTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_2D( SEWS, VCMV_GEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_2D( SEWS, VCMV_Z, v_out, s_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_2D( SEWS, VCMV_NZ, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_2D( SEWS, VCUSTOM0, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_2D( SEWS, VCUSTOM1, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_2D( SEWS, VCUSTOM2, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_2D( SEWS, VCUSTOM3, v_out, s_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_2D_SEWWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_2D( SEWS, VADD, v_out, s_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_2D( SEWS, VSUB, v_out, s_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_2D( SEWS, VADDC, v_out, s_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_2D( SEWS, VSUBB, v_out, s_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_2D( SEWS, VABSDIFF, v_out, s_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_2D( SEWS, VMUL, v_out, s_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_2D( SEWS, VMULHI, v_out, s_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_2D( SEWS, VMULFXP, v_out, s_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_2D( SEWS, VAND, v_out, s_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_2D( SEWS, VOR, v_out, s_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_2D( SEWS, VXOR, v_out, s_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_2D( SEWS, VSHL, v_out, s_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_2D( SEWS, VSHR, v_out, s_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_2D( SEWS, VROTL, v_out, s_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_2D( SEWS, VROTR, v_out, s_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_2D( SEWS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_2D( SEWS, VCMV_LEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_2D( SEWS, VCMV_GTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_2D( SEWS, VCMV_LTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_2D( SEWS, VCMV_GEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_2D( SEWS, VCMV_Z, v_out, s_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_2D( SEWS, VCMV_NZ, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_2D( SEWS, VCUSTOM0, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_2D( SEWS, VCUSTOM1, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_2D( SEWS, VCUSTOM2, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_2D( SEWS, VCUSTOM3, v_out, s_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_2D_SEWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -18743,7 +28139,7 @@ static inline void vbx_2D_SEWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int 
 	}
 }
 
-static inline void vbx_2D_SEWWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_2D_SEWWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -18998,6 +28394,180 @@ static inline void vbx_acc_2D_VVBB( vinstr_t v_op, vbx_byte_t *v_out, vbx_byte_t
 		break;
 	case VCUSTOM3:
 		vbxasm_acc_2D( VVB, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_2D_VVBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_byte_t *v_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_2D( VVBS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_2D( VVBS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_2D( VVBS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_2D( VVBS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_2D( VVBS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_2D( VVBS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_2D( VVBS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_2D( VVBS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_2D( VVBS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_2D( VVBS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_2D( VVBS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_2D( VVBS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_2D( VVBS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_2D( VVBS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_2D( VVBS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_2D( VVBS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_2D( VVBS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_2D( VVBS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_2D( VVBS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_2D( VVBS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_2D( VVBS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_2D( VVBS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_2D( VVBS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_2D( VVBS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_2D( VVBS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_2D( VVBS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_2D_VVBBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_byte_t *v_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_2D( VVBS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_2D( VVBS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_2D( VVBS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_2D( VVBS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_2D( VVBS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_2D( VVBS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_2D( VVBS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_2D( VVBS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_2D( VVBS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_2D( VVBS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_2D( VVBS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_2D( VVBS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_2D( VVBS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_2D( VVBS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_2D( VVBS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_2D( VVBS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_2D( VVBS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_2D( VVBS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_2D( VVBS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_2D( VVBS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_2D( VVBS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_2D( VVBS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_2D( VVBS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_2D( VVBS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_2D( VVBS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_2D( VVBS, VCUSTOM3, v_out, v_in1, v_in2 );
 		break;
 	default:
 		break;
@@ -19265,6 +28835,93 @@ static inline void vbx_acc_2D_VVBH( vinstr_t v_op, vbx_half_t *v_out, vbx_byte_t
 	}
 }
 
+static inline void vbx_acc_2D_VVBHS( vinstr_t v_op, vbx_half_t *v_out, vbx_byte_t *v_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_2D( VVBHS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_2D( VVBHS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_2D( VVBHS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_2D( VVBHS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_2D( VVBHS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_2D( VVBHS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_2D( VVBHS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_2D( VVBHS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_2D( VVBHS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_2D( VVBHS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_2D( VVBHS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_2D( VVBHS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_2D( VVBHS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_2D( VVBHS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_2D( VVBHS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_2D( VVBHS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_2D( VVBHS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_2D( VVBHS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_2D( VVBHS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_2D( VVBHS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_2D( VVBHS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_2D( VVBHS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_2D( VVBHS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_2D( VVBHS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_2D( VVBHS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_2D( VVBHS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_acc_2D_VVBHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_ubyte_t *v_in1, vbx_ubyte_t *v_in2 )
 {
 	switch(v_op)
@@ -19439,6 +29096,93 @@ static inline void vbx_acc_2D_VVBW( vinstr_t v_op, vbx_word_t *v_out, vbx_byte_t
 	}
 }
 
+static inline void vbx_acc_2D_VVBWS( vinstr_t v_op, vbx_word_t *v_out, vbx_byte_t *v_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_2D( VVBWS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_2D( VVBWS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_2D( VVBWS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_2D( VVBWS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_2D( VVBWS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_2D( VVBWS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_2D( VVBWS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_2D( VVBWS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_2D( VVBWS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_2D( VVBWS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_2D( VVBWS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_2D( VVBWS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_2D( VVBWS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_2D( VVBWS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_2D( VVBWS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_2D( VVBWS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_2D( VVBWS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_2D( VVBWS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_2D( VVBWS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_2D( VVBWS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_2D( VVBWS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_2D( VVBWS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_2D( VVBWS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_2D( VVBWS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_2D( VVBWS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_2D( VVBWS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_acc_2D_VVBWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_ubyte_t *v_in1, vbx_ubyte_t *v_in2 )
 {
 	switch(v_op)
@@ -19607,6 +29351,93 @@ static inline void vbx_acc_2D_VVHB( vinstr_t v_op, vbx_byte_t *v_out, vbx_half_t
 		break;
 	case VCUSTOM3:
 		vbxasm_acc_2D( VVHB, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_2D_VVHBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_half_t *v_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_2D( VVHBS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_2D( VVHBS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_2D( VVHBS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_2D( VVHBS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_2D( VVHBS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_2D( VVHBS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_2D( VVHBS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_2D( VVHBS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_2D( VVHBS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_2D( VVHBS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_2D( VVHBS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_2D( VVHBS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_2D( VVHBS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_2D( VVHBS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_2D( VVHBS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_2D( VVHBS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_2D( VVHBS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_2D( VVHBS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_2D( VVHBS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_2D( VVHBS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_2D( VVHBS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_2D( VVHBS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_2D( VVHBS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_2D( VVHBS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_2D( VVHBS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_2D( VVHBS, VCUSTOM3, v_out, v_in1, v_in2 );
 		break;
 	default:
 		break;
@@ -19874,6 +29705,180 @@ static inline void vbx_acc_2D_VVHH( vinstr_t v_op, vbx_half_t *v_out, vbx_half_t
 	}
 }
 
+static inline void vbx_acc_2D_VVHS( vinstr_t v_op, vbx_half_t *v_out, vbx_half_t *v_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_2D( VVHS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_2D( VVHS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_2D( VVHS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_2D( VVHS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_2D( VVHS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_2D( VVHS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_2D( VVHS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_2D( VVHS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_2D( VVHS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_2D( VVHS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_2D( VVHS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_2D( VVHS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_2D( VVHS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_2D( VVHS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_2D( VVHS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_2D( VVHS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_2D( VVHS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_2D( VVHS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_2D( VVHS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_2D( VVHS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_2D( VVHS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_2D( VVHS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_2D( VVHS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_2D( VVHS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_2D( VVHS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_2D( VVHS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_2D_VVHHS( vinstr_t v_op, vbx_half_t *v_out, vbx_half_t *v_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_2D( VVHS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_2D( VVHS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_2D( VVHS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_2D( VVHS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_2D( VVHS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_2D( VVHS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_2D( VVHS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_2D( VVHS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_2D( VVHS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_2D( VVHS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_2D( VVHS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_2D( VVHS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_2D( VVHS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_2D( VVHS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_2D( VVHS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_2D( VVHS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_2D( VVHS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_2D( VVHS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_2D( VVHS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_2D( VVHS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_2D( VVHS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_2D( VVHS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_2D( VVHS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_2D( VVHS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_2D( VVHS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_2D( VVHS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_acc_2D_VVHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uhalf_t *v_in1, vbx_uhalf_t *v_in2 )
 {
 	switch(v_op)
@@ -20135,6 +30140,93 @@ static inline void vbx_acc_2D_VVHW( vinstr_t v_op, vbx_word_t *v_out, vbx_half_t
 	}
 }
 
+static inline void vbx_acc_2D_VVHWS( vinstr_t v_op, vbx_word_t *v_out, vbx_half_t *v_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_2D( VVHWS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_2D( VVHWS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_2D( VVHWS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_2D( VVHWS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_2D( VVHWS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_2D( VVHWS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_2D( VVHWS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_2D( VVHWS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_2D( VVHWS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_2D( VVHWS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_2D( VVHWS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_2D( VVHWS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_2D( VVHWS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_2D( VVHWS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_2D( VVHWS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_2D( VVHWS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_2D( VVHWS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_2D( VVHWS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_2D( VVHWS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_2D( VVHWS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_2D( VVHWS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_2D( VVHWS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_2D( VVHWS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_2D( VVHWS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_2D( VVHWS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_2D( VVHWS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_acc_2D_VVHWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uhalf_t *v_in1, vbx_uhalf_t *v_in2 )
 {
 	switch(v_op)
@@ -20309,6 +30401,93 @@ static inline void vbx_acc_2D_VVWB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t
 	}
 }
 
+static inline void vbx_acc_2D_VVWBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t *v_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_2D( VVWBS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_2D( VVWBS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_2D( VVWBS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_2D( VVWBS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_2D( VVWBS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_2D( VVWBS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_2D( VVWBS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_2D( VVWBS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_2D( VVWBS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_2D( VVWBS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_2D( VVWBS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_2D( VVWBS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_2D( VVWBS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_2D( VVWBS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_2D( VVWBS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_2D( VVWBS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_2D( VVWBS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_2D( VVWBS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_2D( VVWBS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_2D( VVWBS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_2D( VVWBS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_2D( VVWBS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_2D( VVWBS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_2D( VVWBS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_2D( VVWBS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_2D( VVWBS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_acc_2D_VVWBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t *v_in1, vbx_uword_t *v_in2 )
 {
 	switch(v_op)
@@ -20477,6 +30656,93 @@ static inline void vbx_acc_2D_VVWH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t
 		break;
 	case VCUSTOM3:
 		vbxasm_acc_2D( VVWH, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_2D_VVWHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t *v_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_2D( VVWHS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_2D( VVWHS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_2D( VVWHS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_2D( VVWHS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_2D( VVWHS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_2D( VVWHS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_2D( VVWHS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_2D( VVWHS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_2D( VVWHS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_2D( VVWHS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_2D( VVWHS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_2D( VVWHS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_2D( VVWHS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_2D( VVWHS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_2D( VVWHS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_2D( VVWHS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_2D( VVWHS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_2D( VVWHS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_2D( VVWHS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_2D( VVWHS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_2D( VVWHS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_2D( VVWHS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_2D( VVWHS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_2D( VVWHS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_2D( VVWHS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_2D( VVWHS, VCUSTOM3, v_out, v_in1, v_in2 );
 		break;
 	default:
 		break;
@@ -20744,6 +31010,180 @@ static inline void vbx_acc_2D_VVWW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t
 	}
 }
 
+static inline void vbx_acc_2D_VVWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t *v_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_2D( VVWS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_2D( VVWS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_2D( VVWS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_2D( VVWS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_2D( VVWS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_2D( VVWS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_2D( VVWS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_2D( VVWS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_2D( VVWS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_2D( VVWS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_2D( VVWS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_2D( VVWS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_2D( VVWS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_2D( VVWS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_2D( VVWS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_2D( VVWS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_2D( VVWS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_2D( VVWS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_2D( VVWS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_2D( VVWS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_2D( VVWS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_2D( VVWS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_2D( VVWS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_2D( VVWS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_2D( VVWS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_2D( VVWS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_2D_VVWWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t *v_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_2D( VVWS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_2D( VVWS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_2D( VVWS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_2D( VVWS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_2D( VVWS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_2D( VVWS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_2D( VVWS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_2D( VVWS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_2D( VVWS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_2D( VVWS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_2D( VVWS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_2D( VVWS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_2D( VVWS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_2D( VVWS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_2D( VVWS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_2D( VVWS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_2D( VVWS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_2D( VVWS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_2D( VVWS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_2D( VVWS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_2D( VVWS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_2D( VVWS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_2D( VVWS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_2D( VVWS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_2D( VVWS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_2D( VVWS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_acc_2D_VVWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t *v_in1, vbx_uword_t *v_in2 )
 {
 	switch(v_op)
@@ -20918,7 +31358,7 @@ static inline void vbx_acc_2D_VVWWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uwor
 	}
 }
 
-static inline void vbx_acc_2D_SVB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_byte_t *v_in2 )
+static inline void vbx_acc_2D_SVB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -21005,7 +31445,7 @@ static inline void vbx_acc_2D_SVB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, 
 	}
 }
 
-static inline void vbx_acc_2D_SVBB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_byte_t *v_in2 )
+static inline void vbx_acc_2D_SVBB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -21092,7 +31532,181 @@ static inline void vbx_acc_2D_SVBB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1,
 	}
 }
 
-static inline void vbx_acc_2D_SVBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_in1, vbx_ubyte_t *v_in2 )
+static inline void vbx_acc_2D_SVBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_2D( SVBS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_2D( SVBS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_2D( SVBS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_2D( SVBS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_2D( SVBS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_2D( SVBS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_2D( SVBS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_2D( SVBS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_2D( SVBS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_2D( SVBS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_2D( SVBS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_2D( SVBS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_2D( SVBS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_2D( SVBS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_2D( SVBS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_2D( SVBS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_2D( SVBS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_2D( SVBS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_2D( SVBS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_2D( SVBS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_2D( SVBS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_2D( SVBS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_2D( SVBS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_2D( SVBS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_2D( SVBS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_2D( SVBS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_2D_SVBBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_2D( SVBS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_2D( SVBS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_2D( SVBS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_2D( SVBS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_2D( SVBS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_2D( SVBS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_2D( SVBS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_2D( SVBS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_2D( SVBS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_2D( SVBS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_2D( SVBS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_2D( SVBS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_2D( SVBS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_2D( SVBS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_2D( SVBS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_2D( SVBS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_2D( SVBS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_2D( SVBS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_2D( SVBS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_2D( SVBS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_2D( SVBS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_2D( SVBS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_2D( SVBS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_2D( SVBS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_2D( SVBS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_2D( SVBS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_2D_SVBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t s_in1, vbx_ubyte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -21179,7 +31793,7 @@ static inline void vbx_acc_2D_SVBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned 
 	}
 }
 
-static inline void vbx_acc_2D_SVBBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_in1, vbx_ubyte_t *v_in2 )
+static inline void vbx_acc_2D_SVBBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t s_in1, vbx_ubyte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -21266,7 +31880,7 @@ static inline void vbx_acc_2D_SVBBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned
 	}
 }
 
-static inline void vbx_acc_2D_SVBH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_byte_t *v_in2 )
+static inline void vbx_acc_2D_SVBH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -21353,7 +31967,94 @@ static inline void vbx_acc_2D_SVBH( vinstr_t v_op, vbx_half_t *v_out, int s_in1,
 	}
 }
 
-static inline void vbx_acc_2D_SVBHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_in1, vbx_ubyte_t *v_in2 )
+static inline void vbx_acc_2D_SVBHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_2D( SVBHS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_2D( SVBHS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_2D( SVBHS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_2D( SVBHS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_2D( SVBHS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_2D( SVBHS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_2D( SVBHS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_2D( SVBHS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_2D( SVBHS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_2D( SVBHS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_2D( SVBHS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_2D( SVBHS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_2D( SVBHS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_2D( SVBHS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_2D( SVBHS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_2D( SVBHS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_2D( SVBHS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_2D( SVBHS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_2D( SVBHS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_2D( SVBHS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_2D( SVBHS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_2D( SVBHS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_2D( SVBHS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_2D( SVBHS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_2D( SVBHS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_2D( SVBHS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_2D_SVBHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uword_t s_in1, vbx_ubyte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -21440,7 +32141,7 @@ static inline void vbx_acc_2D_SVBHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned
 	}
 }
 
-static inline void vbx_acc_2D_SVBW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_byte_t *v_in2 )
+static inline void vbx_acc_2D_SVBW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -21527,7 +32228,94 @@ static inline void vbx_acc_2D_SVBW( vinstr_t v_op, vbx_word_t *v_out, int s_in1,
 	}
 }
 
-static inline void vbx_acc_2D_SVBWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int s_in1, vbx_ubyte_t *v_in2 )
+static inline void vbx_acc_2D_SVBWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_2D( SVBWS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_2D( SVBWS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_2D( SVBWS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_2D( SVBWS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_2D( SVBWS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_2D( SVBWS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_2D( SVBWS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_2D( SVBWS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_2D( SVBWS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_2D( SVBWS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_2D( SVBWS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_2D( SVBWS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_2D( SVBWS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_2D( SVBWS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_2D( SVBWS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_2D( SVBWS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_2D( SVBWS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_2D( SVBWS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_2D( SVBWS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_2D( SVBWS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_2D( SVBWS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_2D( SVBWS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_2D( SVBWS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_2D( SVBWS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_2D( SVBWS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_2D( SVBWS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_2D_SVBWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t s_in1, vbx_ubyte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -21614,7 +32402,7 @@ static inline void vbx_acc_2D_SVBWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned
 	}
 }
 
-static inline void vbx_acc_2D_SVHB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_half_t *v_in2 )
+static inline void vbx_acc_2D_SVHB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -21701,7 +32489,94 @@ static inline void vbx_acc_2D_SVHB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1,
 	}
 }
 
-static inline void vbx_acc_2D_SVHBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_in1, vbx_uhalf_t *v_in2 )
+static inline void vbx_acc_2D_SVHBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_2D( SVHBS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_2D( SVHBS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_2D( SVHBS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_2D( SVHBS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_2D( SVHBS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_2D( SVHBS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_2D( SVHBS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_2D( SVHBS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_2D( SVHBS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_2D( SVHBS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_2D( SVHBS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_2D( SVHBS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_2D( SVHBS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_2D( SVHBS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_2D( SVHBS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_2D( SVHBS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_2D( SVHBS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_2D( SVHBS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_2D( SVHBS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_2D( SVHBS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_2D( SVHBS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_2D( SVHBS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_2D( SVHBS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_2D( SVHBS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_2D( SVHBS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_2D( SVHBS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_2D_SVHBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t s_in1, vbx_uhalf_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -21788,7 +32663,7 @@ static inline void vbx_acc_2D_SVHBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned
 	}
 }
 
-static inline void vbx_acc_2D_SVH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_half_t *v_in2 )
+static inline void vbx_acc_2D_SVH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -21875,7 +32750,7 @@ static inline void vbx_acc_2D_SVH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, 
 	}
 }
 
-static inline void vbx_acc_2D_SVHH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_half_t *v_in2 )
+static inline void vbx_acc_2D_SVHH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -21962,7 +32837,181 @@ static inline void vbx_acc_2D_SVHH( vinstr_t v_op, vbx_half_t *v_out, int s_in1,
 	}
 }
 
-static inline void vbx_acc_2D_SVHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_in1, vbx_uhalf_t *v_in2 )
+static inline void vbx_acc_2D_SVHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_2D( SVHS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_2D( SVHS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_2D( SVHS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_2D( SVHS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_2D( SVHS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_2D( SVHS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_2D( SVHS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_2D( SVHS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_2D( SVHS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_2D( SVHS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_2D( SVHS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_2D( SVHS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_2D( SVHS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_2D( SVHS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_2D( SVHS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_2D( SVHS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_2D( SVHS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_2D( SVHS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_2D( SVHS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_2D( SVHS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_2D( SVHS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_2D( SVHS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_2D( SVHS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_2D( SVHS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_2D( SVHS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_2D( SVHS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_2D_SVHHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_2D( SVHS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_2D( SVHS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_2D( SVHS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_2D( SVHS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_2D( SVHS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_2D( SVHS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_2D( SVHS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_2D( SVHS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_2D( SVHS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_2D( SVHS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_2D( SVHS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_2D( SVHS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_2D( SVHS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_2D( SVHS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_2D( SVHS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_2D( SVHS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_2D( SVHS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_2D( SVHS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_2D( SVHS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_2D( SVHS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_2D( SVHS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_2D( SVHS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_2D( SVHS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_2D( SVHS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_2D( SVHS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_2D( SVHS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_2D_SVHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uword_t s_in1, vbx_uhalf_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -22049,7 +33098,7 @@ static inline void vbx_acc_2D_SVHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned 
 	}
 }
 
-static inline void vbx_acc_2D_SVHHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_in1, vbx_uhalf_t *v_in2 )
+static inline void vbx_acc_2D_SVHHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uword_t s_in1, vbx_uhalf_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -22136,7 +33185,7 @@ static inline void vbx_acc_2D_SVHHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned
 	}
 }
 
-static inline void vbx_acc_2D_SVHW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_half_t *v_in2 )
+static inline void vbx_acc_2D_SVHW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -22223,7 +33272,94 @@ static inline void vbx_acc_2D_SVHW( vinstr_t v_op, vbx_word_t *v_out, int s_in1,
 	}
 }
 
-static inline void vbx_acc_2D_SVHWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int s_in1, vbx_uhalf_t *v_in2 )
+static inline void vbx_acc_2D_SVHWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_2D( SVHWS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_2D( SVHWS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_2D( SVHWS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_2D( SVHWS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_2D( SVHWS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_2D( SVHWS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_2D( SVHWS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_2D( SVHWS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_2D( SVHWS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_2D( SVHWS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_2D( SVHWS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_2D( SVHWS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_2D( SVHWS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_2D( SVHWS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_2D( SVHWS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_2D( SVHWS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_2D( SVHWS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_2D( SVHWS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_2D( SVHWS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_2D( SVHWS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_2D( SVHWS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_2D( SVHWS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_2D( SVHWS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_2D( SVHWS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_2D( SVHWS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_2D( SVHWS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_2D_SVHWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t s_in1, vbx_uhalf_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -22310,7 +33446,7 @@ static inline void vbx_acc_2D_SVHWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned
 	}
 }
 
-static inline void vbx_acc_2D_SVWB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_word_t *v_in2 )
+static inline void vbx_acc_2D_SVWB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -22397,7 +33533,94 @@ static inline void vbx_acc_2D_SVWB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1,
 	}
 }
 
-static inline void vbx_acc_2D_SVWBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_in1, vbx_uword_t *v_in2 )
+static inline void vbx_acc_2D_SVWBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_2D( SVWBS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_2D( SVWBS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_2D( SVWBS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_2D( SVWBS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_2D( SVWBS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_2D( SVWBS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_2D( SVWBS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_2D( SVWBS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_2D( SVWBS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_2D( SVWBS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_2D( SVWBS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_2D( SVWBS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_2D( SVWBS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_2D( SVWBS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_2D( SVWBS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_2D( SVWBS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_2D( SVWBS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_2D( SVWBS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_2D( SVWBS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_2D( SVWBS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_2D( SVWBS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_2D( SVWBS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_2D( SVWBS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_2D( SVWBS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_2D( SVWBS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_2D( SVWBS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_2D_SVWBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t s_in1, vbx_uword_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -22484,7 +33707,7 @@ static inline void vbx_acc_2D_SVWBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned
 	}
 }
 
-static inline void vbx_acc_2D_SVWH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_word_t *v_in2 )
+static inline void vbx_acc_2D_SVWH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -22571,7 +33794,94 @@ static inline void vbx_acc_2D_SVWH( vinstr_t v_op, vbx_half_t *v_out, int s_in1,
 	}
 }
 
-static inline void vbx_acc_2D_SVWHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_in1, vbx_uword_t *v_in2 )
+static inline void vbx_acc_2D_SVWHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_2D( SVWHS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_2D( SVWHS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_2D( SVWHS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_2D( SVWHS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_2D( SVWHS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_2D( SVWHS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_2D( SVWHS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_2D( SVWHS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_2D( SVWHS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_2D( SVWHS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_2D( SVWHS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_2D( SVWHS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_2D( SVWHS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_2D( SVWHS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_2D( SVWHS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_2D( SVWHS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_2D( SVWHS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_2D( SVWHS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_2D( SVWHS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_2D( SVWHS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_2D( SVWHS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_2D( SVWHS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_2D( SVWHS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_2D( SVWHS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_2D( SVWHS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_2D( SVWHS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_2D_SVWHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uword_t s_in1, vbx_uword_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -22658,7 +33968,7 @@ static inline void vbx_acc_2D_SVWHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned
 	}
 }
 
-static inline void vbx_acc_2D_SVW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_word_t *v_in2 )
+static inline void vbx_acc_2D_SVW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -22745,7 +34055,7 @@ static inline void vbx_acc_2D_SVW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, 
 	}
 }
 
-static inline void vbx_acc_2D_SVWW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_word_t *v_in2 )
+static inline void vbx_acc_2D_SVWW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -22832,7 +34142,181 @@ static inline void vbx_acc_2D_SVWW( vinstr_t v_op, vbx_word_t *v_out, int s_in1,
 	}
 }
 
-static inline void vbx_acc_2D_SVWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int s_in1, vbx_uword_t *v_in2 )
+static inline void vbx_acc_2D_SVWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_2D( SVWS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_2D( SVWS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_2D( SVWS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_2D( SVWS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_2D( SVWS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_2D( SVWS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_2D( SVWS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_2D( SVWS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_2D( SVWS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_2D( SVWS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_2D( SVWS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_2D( SVWS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_2D( SVWS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_2D( SVWS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_2D( SVWS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_2D( SVWS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_2D( SVWS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_2D( SVWS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_2D( SVWS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_2D( SVWS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_2D( SVWS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_2D( SVWS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_2D( SVWS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_2D( SVWS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_2D( SVWS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_2D( SVWS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_2D_SVWWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_2D( SVWS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_2D( SVWS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_2D( SVWS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_2D( SVWS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_2D( SVWS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_2D( SVWS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_2D( SVWS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_2D( SVWS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_2D( SVWS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_2D( SVWS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_2D( SVWS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_2D( SVWS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_2D( SVWS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_2D( SVWS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_2D( SVWS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_2D( SVWS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_2D( SVWS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_2D( SVWS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_2D( SVWS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_2D( SVWS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_2D( SVWS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_2D( SVWS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_2D( SVWS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_2D( SVWS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_2D( SVWS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_2D( SVWS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_2D_SVWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t s_in1, vbx_uword_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -22919,7 +34403,7 @@ static inline void vbx_acc_2D_SVWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned 
 	}
 }
 
-static inline void vbx_acc_2D_SVWWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int s_in1, vbx_uword_t *v_in2 )
+static inline void vbx_acc_2D_SVWWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t s_in1, vbx_uword_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -23174,6 +34658,180 @@ static inline void vbx_acc_2D_VEBB( vinstr_t v_op, vbx_byte_t *v_out, vbx_byte_t
 		break;
 	case VCUSTOM3:
 		vbxasm_acc_2D( VEB, VCUSTOM3, v_out, v_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_2D_VEBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_byte_t *v_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_2D( VEBS, VADD, v_out, v_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_acc_2D( VEBS, VSUB, v_out, v_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_acc_2D( VEBS, VADDC, v_out, v_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_acc_2D( VEBS, VSUBB, v_out, v_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_2D( VEBS, VABSDIFF, v_out, v_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_acc_2D( VEBS, VMUL, v_out, v_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_acc_2D( VEBS, VMULHI, v_out, v_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_2D( VEBS, VMULFXP, v_out, v_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_acc_2D( VEBS, VAND, v_out, v_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_acc_2D( VEBS, VOR, v_out, v_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_acc_2D( VEBS, VXOR, v_out, v_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_acc_2D( VEBS, VSHL, v_out, v_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_acc_2D( VEBS, VSHR, v_out, v_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_acc_2D( VEBS, VROTL, v_out, v_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_acc_2D( VEBS, VROTR, v_out, v_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_acc_2D( VEBS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_2D( VEBS, VCMV_LEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_2D( VEBS, VCMV_GTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_2D( VEBS, VCMV_LTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_2D( VEBS, VCMV_GEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_2D( VEBS, VCMV_Z, v_out, v_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_2D( VEBS, VCMV_NZ, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_2D( VEBS, VCUSTOM0, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_2D( VEBS, VCUSTOM1, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_2D( VEBS, VCUSTOM2, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_2D( VEBS, VCUSTOM3, v_out, v_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_2D_VEBBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_byte_t *v_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_2D( VEBS, VADD, v_out, v_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_acc_2D( VEBS, VSUB, v_out, v_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_acc_2D( VEBS, VADDC, v_out, v_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_acc_2D( VEBS, VSUBB, v_out, v_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_2D( VEBS, VABSDIFF, v_out, v_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_acc_2D( VEBS, VMUL, v_out, v_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_acc_2D( VEBS, VMULHI, v_out, v_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_2D( VEBS, VMULFXP, v_out, v_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_acc_2D( VEBS, VAND, v_out, v_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_acc_2D( VEBS, VOR, v_out, v_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_acc_2D( VEBS, VXOR, v_out, v_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_acc_2D( VEBS, VSHL, v_out, v_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_acc_2D( VEBS, VSHR, v_out, v_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_acc_2D( VEBS, VROTL, v_out, v_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_acc_2D( VEBS, VROTR, v_out, v_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_acc_2D( VEBS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_2D( VEBS, VCMV_LEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_2D( VEBS, VCMV_GTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_2D( VEBS, VCMV_LTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_2D( VEBS, VCMV_GEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_2D( VEBS, VCMV_Z, v_out, v_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_2D( VEBS, VCMV_NZ, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_2D( VEBS, VCUSTOM0, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_2D( VEBS, VCUSTOM1, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_2D( VEBS, VCUSTOM2, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_2D( VEBS, VCUSTOM3, v_out, v_in1, 0 );
 		break;
 	default:
 		break;
@@ -23528,6 +35186,180 @@ static inline void vbx_acc_2D_VEHH( vinstr_t v_op, vbx_half_t *v_out, vbx_half_t
 	}
 }
 
+static inline void vbx_acc_2D_VEHS( vinstr_t v_op, vbx_half_t *v_out, vbx_half_t *v_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_2D( VEHS, VADD, v_out, v_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_acc_2D( VEHS, VSUB, v_out, v_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_acc_2D( VEHS, VADDC, v_out, v_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_acc_2D( VEHS, VSUBB, v_out, v_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_2D( VEHS, VABSDIFF, v_out, v_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_acc_2D( VEHS, VMUL, v_out, v_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_acc_2D( VEHS, VMULHI, v_out, v_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_2D( VEHS, VMULFXP, v_out, v_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_acc_2D( VEHS, VAND, v_out, v_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_acc_2D( VEHS, VOR, v_out, v_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_acc_2D( VEHS, VXOR, v_out, v_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_acc_2D( VEHS, VSHL, v_out, v_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_acc_2D( VEHS, VSHR, v_out, v_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_acc_2D( VEHS, VROTL, v_out, v_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_acc_2D( VEHS, VROTR, v_out, v_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_acc_2D( VEHS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_2D( VEHS, VCMV_LEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_2D( VEHS, VCMV_GTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_2D( VEHS, VCMV_LTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_2D( VEHS, VCMV_GEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_2D( VEHS, VCMV_Z, v_out, v_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_2D( VEHS, VCMV_NZ, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_2D( VEHS, VCUSTOM0, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_2D( VEHS, VCUSTOM1, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_2D( VEHS, VCUSTOM2, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_2D( VEHS, VCUSTOM3, v_out, v_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_2D_VEHHS( vinstr_t v_op, vbx_half_t *v_out, vbx_half_t *v_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_2D( VEHS, VADD, v_out, v_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_acc_2D( VEHS, VSUB, v_out, v_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_acc_2D( VEHS, VADDC, v_out, v_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_acc_2D( VEHS, VSUBB, v_out, v_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_2D( VEHS, VABSDIFF, v_out, v_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_acc_2D( VEHS, VMUL, v_out, v_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_acc_2D( VEHS, VMULHI, v_out, v_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_2D( VEHS, VMULFXP, v_out, v_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_acc_2D( VEHS, VAND, v_out, v_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_acc_2D( VEHS, VOR, v_out, v_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_acc_2D( VEHS, VXOR, v_out, v_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_acc_2D( VEHS, VSHL, v_out, v_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_acc_2D( VEHS, VSHR, v_out, v_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_acc_2D( VEHS, VROTL, v_out, v_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_acc_2D( VEHS, VROTR, v_out, v_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_acc_2D( VEHS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_2D( VEHS, VCMV_LEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_2D( VEHS, VCMV_GTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_2D( VEHS, VCMV_LTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_2D( VEHS, VCMV_GEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_2D( VEHS, VCMV_Z, v_out, v_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_2D( VEHS, VCMV_NZ, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_2D( VEHS, VCUSTOM0, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_2D( VEHS, VCUSTOM1, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_2D( VEHS, VCUSTOM2, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_2D( VEHS, VCUSTOM3, v_out, v_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_acc_2D_VEHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uhalf_t *v_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
@@ -23876,6 +35708,180 @@ static inline void vbx_acc_2D_VEWW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t
 	}
 }
 
+static inline void vbx_acc_2D_VEWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t *v_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_2D( VEWS, VADD, v_out, v_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_acc_2D( VEWS, VSUB, v_out, v_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_acc_2D( VEWS, VADDC, v_out, v_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_acc_2D( VEWS, VSUBB, v_out, v_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_2D( VEWS, VABSDIFF, v_out, v_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_acc_2D( VEWS, VMUL, v_out, v_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_acc_2D( VEWS, VMULHI, v_out, v_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_2D( VEWS, VMULFXP, v_out, v_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_acc_2D( VEWS, VAND, v_out, v_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_acc_2D( VEWS, VOR, v_out, v_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_acc_2D( VEWS, VXOR, v_out, v_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_acc_2D( VEWS, VSHL, v_out, v_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_acc_2D( VEWS, VSHR, v_out, v_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_acc_2D( VEWS, VROTL, v_out, v_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_acc_2D( VEWS, VROTR, v_out, v_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_acc_2D( VEWS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_2D( VEWS, VCMV_LEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_2D( VEWS, VCMV_GTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_2D( VEWS, VCMV_LTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_2D( VEWS, VCMV_GEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_2D( VEWS, VCMV_Z, v_out, v_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_2D( VEWS, VCMV_NZ, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_2D( VEWS, VCUSTOM0, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_2D( VEWS, VCUSTOM1, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_2D( VEWS, VCUSTOM2, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_2D( VEWS, VCUSTOM3, v_out, v_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_2D_VEWWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t *v_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_2D( VEWS, VADD, v_out, v_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_acc_2D( VEWS, VSUB, v_out, v_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_acc_2D( VEWS, VADDC, v_out, v_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_acc_2D( VEWS, VSUBB, v_out, v_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_2D( VEWS, VABSDIFF, v_out, v_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_acc_2D( VEWS, VMUL, v_out, v_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_acc_2D( VEWS, VMULHI, v_out, v_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_2D( VEWS, VMULFXP, v_out, v_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_acc_2D( VEWS, VAND, v_out, v_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_acc_2D( VEWS, VOR, v_out, v_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_acc_2D( VEWS, VXOR, v_out, v_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_acc_2D( VEWS, VSHL, v_out, v_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_acc_2D( VEWS, VSHR, v_out, v_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_acc_2D( VEWS, VROTL, v_out, v_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_acc_2D( VEWS, VROTR, v_out, v_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_acc_2D( VEWS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_2D( VEWS, VCMV_LEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_2D( VEWS, VCMV_GTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_2D( VEWS, VCMV_LTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_2D( VEWS, VCMV_GEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_2D( VEWS, VCMV_Z, v_out, v_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_2D( VEWS, VCMV_NZ, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_2D( VEWS, VCUSTOM0, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_2D( VEWS, VCUSTOM1, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_2D( VEWS, VCUSTOM2, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_2D( VEWS, VCUSTOM3, v_out, v_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_acc_2D_VEWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t *v_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
@@ -24050,7 +36056,7 @@ static inline void vbx_acc_2D_VEWWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uwor
 	}
 }
 
-static inline void vbx_acc_2D_SEB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_acc_2D_SEB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -24137,7 +36143,7 @@ static inline void vbx_acc_2D_SEB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, 
 	}
 }
 
-static inline void vbx_acc_2D_SEBB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_acc_2D_SEBB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -24224,7 +36230,181 @@ static inline void vbx_acc_2D_SEBB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1,
 	}
 }
 
-static inline void vbx_acc_2D_SEBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_acc_2D_SEBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_2D( SEBS, VADD, v_out, s_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_acc_2D( SEBS, VSUB, v_out, s_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_acc_2D( SEBS, VADDC, v_out, s_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_acc_2D( SEBS, VSUBB, v_out, s_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_2D( SEBS, VABSDIFF, v_out, s_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_acc_2D( SEBS, VMUL, v_out, s_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_acc_2D( SEBS, VMULHI, v_out, s_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_2D( SEBS, VMULFXP, v_out, s_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_acc_2D( SEBS, VAND, v_out, s_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_acc_2D( SEBS, VOR, v_out, s_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_acc_2D( SEBS, VXOR, v_out, s_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_acc_2D( SEBS, VSHL, v_out, s_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_acc_2D( SEBS, VSHR, v_out, s_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_acc_2D( SEBS, VROTL, v_out, s_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_acc_2D( SEBS, VROTR, v_out, s_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_acc_2D( SEBS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_2D( SEBS, VCMV_LEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_2D( SEBS, VCMV_GTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_2D( SEBS, VCMV_LTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_2D( SEBS, VCMV_GEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_2D( SEBS, VCMV_Z, v_out, s_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_2D( SEBS, VCMV_NZ, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_2D( SEBS, VCUSTOM0, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_2D( SEBS, VCUSTOM1, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_2D( SEBS, VCUSTOM2, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_2D( SEBS, VCUSTOM3, v_out, s_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_2D_SEBBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_2D( SEBS, VADD, v_out, s_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_acc_2D( SEBS, VSUB, v_out, s_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_acc_2D( SEBS, VADDC, v_out, s_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_acc_2D( SEBS, VSUBB, v_out, s_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_2D( SEBS, VABSDIFF, v_out, s_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_acc_2D( SEBS, VMUL, v_out, s_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_acc_2D( SEBS, VMULHI, v_out, s_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_2D( SEBS, VMULFXP, v_out, s_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_acc_2D( SEBS, VAND, v_out, s_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_acc_2D( SEBS, VOR, v_out, s_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_acc_2D( SEBS, VXOR, v_out, s_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_acc_2D( SEBS, VSHL, v_out, s_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_acc_2D( SEBS, VSHR, v_out, s_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_acc_2D( SEBS, VROTL, v_out, s_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_acc_2D( SEBS, VROTR, v_out, s_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_acc_2D( SEBS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_2D( SEBS, VCMV_LEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_2D( SEBS, VCMV_GTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_2D( SEBS, VCMV_LTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_2D( SEBS, VCMV_GEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_2D( SEBS, VCMV_Z, v_out, s_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_2D( SEBS, VCMV_NZ, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_2D( SEBS, VCUSTOM0, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_2D( SEBS, VCUSTOM1, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_2D( SEBS, VCUSTOM2, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_2D( SEBS, VCUSTOM3, v_out, s_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_2D_SEBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -24311,7 +36491,7 @@ static inline void vbx_acc_2D_SEBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned 
 	}
 }
 
-static inline void vbx_acc_2D_SEBBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_acc_2D_SEBBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -24398,7 +36578,7 @@ static inline void vbx_acc_2D_SEBBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned
 	}
 }
 
-static inline void vbx_acc_2D_SEH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_acc_2D_SEH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -24485,7 +36665,7 @@ static inline void vbx_acc_2D_SEH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, 
 	}
 }
 
-static inline void vbx_acc_2D_SEHH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_acc_2D_SEHH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -24572,7 +36752,181 @@ static inline void vbx_acc_2D_SEHH( vinstr_t v_op, vbx_half_t *v_out, int s_in1,
 	}
 }
 
-static inline void vbx_acc_2D_SEHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_acc_2D_SEHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_2D( SEHS, VADD, v_out, s_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_acc_2D( SEHS, VSUB, v_out, s_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_acc_2D( SEHS, VADDC, v_out, s_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_acc_2D( SEHS, VSUBB, v_out, s_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_2D( SEHS, VABSDIFF, v_out, s_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_acc_2D( SEHS, VMUL, v_out, s_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_acc_2D( SEHS, VMULHI, v_out, s_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_2D( SEHS, VMULFXP, v_out, s_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_acc_2D( SEHS, VAND, v_out, s_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_acc_2D( SEHS, VOR, v_out, s_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_acc_2D( SEHS, VXOR, v_out, s_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_acc_2D( SEHS, VSHL, v_out, s_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_acc_2D( SEHS, VSHR, v_out, s_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_acc_2D( SEHS, VROTL, v_out, s_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_acc_2D( SEHS, VROTR, v_out, s_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_acc_2D( SEHS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_2D( SEHS, VCMV_LEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_2D( SEHS, VCMV_GTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_2D( SEHS, VCMV_LTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_2D( SEHS, VCMV_GEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_2D( SEHS, VCMV_Z, v_out, s_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_2D( SEHS, VCMV_NZ, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_2D( SEHS, VCUSTOM0, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_2D( SEHS, VCUSTOM1, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_2D( SEHS, VCUSTOM2, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_2D( SEHS, VCUSTOM3, v_out, s_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_2D_SEHHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_2D( SEHS, VADD, v_out, s_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_acc_2D( SEHS, VSUB, v_out, s_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_acc_2D( SEHS, VADDC, v_out, s_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_acc_2D( SEHS, VSUBB, v_out, s_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_2D( SEHS, VABSDIFF, v_out, s_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_acc_2D( SEHS, VMUL, v_out, s_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_acc_2D( SEHS, VMULHI, v_out, s_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_2D( SEHS, VMULFXP, v_out, s_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_acc_2D( SEHS, VAND, v_out, s_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_acc_2D( SEHS, VOR, v_out, s_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_acc_2D( SEHS, VXOR, v_out, s_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_acc_2D( SEHS, VSHL, v_out, s_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_acc_2D( SEHS, VSHR, v_out, s_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_acc_2D( SEHS, VROTL, v_out, s_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_acc_2D( SEHS, VROTR, v_out, s_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_acc_2D( SEHS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_2D( SEHS, VCMV_LEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_2D( SEHS, VCMV_GTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_2D( SEHS, VCMV_LTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_2D( SEHS, VCMV_GEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_2D( SEHS, VCMV_Z, v_out, s_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_2D( SEHS, VCMV_NZ, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_2D( SEHS, VCUSTOM0, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_2D( SEHS, VCUSTOM1, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_2D( SEHS, VCUSTOM2, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_2D( SEHS, VCUSTOM3, v_out, s_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_2D_SEHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uword_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -24659,7 +37013,7 @@ static inline void vbx_acc_2D_SEHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned 
 	}
 }
 
-static inline void vbx_acc_2D_SEHHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_acc_2D_SEHHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uword_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -24746,7 +37100,7 @@ static inline void vbx_acc_2D_SEHHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned
 	}
 }
 
-static inline void vbx_acc_2D_SEW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_acc_2D_SEW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -24833,7 +37187,7 @@ static inline void vbx_acc_2D_SEW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, 
 	}
 }
 
-static inline void vbx_acc_2D_SEWW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_acc_2D_SEWW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -24920,7 +37274,181 @@ static inline void vbx_acc_2D_SEWW( vinstr_t v_op, vbx_word_t *v_out, int s_in1,
 	}
 }
 
-static inline void vbx_acc_2D_SEWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_acc_2D_SEWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_2D( SEWS, VADD, v_out, s_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_acc_2D( SEWS, VSUB, v_out, s_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_acc_2D( SEWS, VADDC, v_out, s_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_acc_2D( SEWS, VSUBB, v_out, s_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_2D( SEWS, VABSDIFF, v_out, s_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_acc_2D( SEWS, VMUL, v_out, s_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_acc_2D( SEWS, VMULHI, v_out, s_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_2D( SEWS, VMULFXP, v_out, s_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_acc_2D( SEWS, VAND, v_out, s_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_acc_2D( SEWS, VOR, v_out, s_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_acc_2D( SEWS, VXOR, v_out, s_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_acc_2D( SEWS, VSHL, v_out, s_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_acc_2D( SEWS, VSHR, v_out, s_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_acc_2D( SEWS, VROTL, v_out, s_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_acc_2D( SEWS, VROTR, v_out, s_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_acc_2D( SEWS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_2D( SEWS, VCMV_LEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_2D( SEWS, VCMV_GTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_2D( SEWS, VCMV_LTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_2D( SEWS, VCMV_GEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_2D( SEWS, VCMV_Z, v_out, s_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_2D( SEWS, VCMV_NZ, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_2D( SEWS, VCUSTOM0, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_2D( SEWS, VCUSTOM1, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_2D( SEWS, VCUSTOM2, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_2D( SEWS, VCUSTOM3, v_out, s_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_2D_SEWWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_2D( SEWS, VADD, v_out, s_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_acc_2D( SEWS, VSUB, v_out, s_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_acc_2D( SEWS, VADDC, v_out, s_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_acc_2D( SEWS, VSUBB, v_out, s_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_2D( SEWS, VABSDIFF, v_out, s_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_acc_2D( SEWS, VMUL, v_out, s_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_acc_2D( SEWS, VMULHI, v_out, s_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_2D( SEWS, VMULFXP, v_out, s_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_acc_2D( SEWS, VAND, v_out, s_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_acc_2D( SEWS, VOR, v_out, s_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_acc_2D( SEWS, VXOR, v_out, s_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_acc_2D( SEWS, VSHL, v_out, s_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_acc_2D( SEWS, VSHR, v_out, s_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_acc_2D( SEWS, VROTL, v_out, s_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_acc_2D( SEWS, VROTR, v_out, s_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_acc_2D( SEWS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_2D( SEWS, VCMV_LEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_2D( SEWS, VCMV_GTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_2D( SEWS, VCMV_LTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_2D( SEWS, VCMV_GEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_2D( SEWS, VCMV_Z, v_out, s_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_2D( SEWS, VCMV_NZ, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_2D( SEWS, VCUSTOM0, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_2D( SEWS, VCUSTOM1, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_2D( SEWS, VCUSTOM2, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_2D( SEWS, VCUSTOM3, v_out, s_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_2D_SEWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -25007,7 +37535,7 @@ static inline void vbx_acc_2D_SEWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned 
 	}
 }
 
-static inline void vbx_acc_2D_SEWWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_acc_2D_SEWWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -25262,6 +37790,180 @@ static inline void vbx_3D_VVBB( vinstr_t v_op, vbx_byte_t *v_out, vbx_byte_t *v_
 		break;
 	case VCUSTOM3:
 		vbxasm_3D( VVB, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_3D_VVBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_byte_t *v_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_3D( VVBS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_3D( VVBS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_3D( VVBS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_3D( VVBS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_3D( VVBS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_3D( VVBS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_3D( VVBS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_3D( VVBS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_3D( VVBS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_3D( VVBS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_3D( VVBS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_3D( VVBS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_3D( VVBS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_3D( VVBS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_3D( VVBS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_3D( VVBS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_3D( VVBS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_3D( VVBS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_3D( VVBS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_3D( VVBS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_3D( VVBS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_3D( VVBS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_3D( VVBS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_3D( VVBS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_3D( VVBS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_3D( VVBS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_3D_VVBBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_byte_t *v_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_3D( VVBS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_3D( VVBS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_3D( VVBS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_3D( VVBS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_3D( VVBS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_3D( VVBS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_3D( VVBS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_3D( VVBS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_3D( VVBS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_3D( VVBS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_3D( VVBS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_3D( VVBS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_3D( VVBS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_3D( VVBS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_3D( VVBS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_3D( VVBS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_3D( VVBS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_3D( VVBS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_3D( VVBS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_3D( VVBS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_3D( VVBS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_3D( VVBS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_3D( VVBS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_3D( VVBS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_3D( VVBS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_3D( VVBS, VCUSTOM3, v_out, v_in1, v_in2 );
 		break;
 	default:
 		break;
@@ -25529,6 +38231,93 @@ static inline void vbx_3D_VVBH( vinstr_t v_op, vbx_half_t *v_out, vbx_byte_t *v_
 	}
 }
 
+static inline void vbx_3D_VVBHS( vinstr_t v_op, vbx_half_t *v_out, vbx_byte_t *v_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_3D( VVBHS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_3D( VVBHS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_3D( VVBHS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_3D( VVBHS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_3D( VVBHS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_3D( VVBHS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_3D( VVBHS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_3D( VVBHS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_3D( VVBHS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_3D( VVBHS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_3D( VVBHS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_3D( VVBHS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_3D( VVBHS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_3D( VVBHS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_3D( VVBHS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_3D( VVBHS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_3D( VVBHS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_3D( VVBHS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_3D( VVBHS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_3D( VVBHS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_3D( VVBHS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_3D( VVBHS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_3D( VVBHS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_3D( VVBHS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_3D( VVBHS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_3D( VVBHS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_3D_VVBHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_ubyte_t *v_in1, vbx_ubyte_t *v_in2 )
 {
 	switch(v_op)
@@ -25703,6 +38492,93 @@ static inline void vbx_3D_VVBW( vinstr_t v_op, vbx_word_t *v_out, vbx_byte_t *v_
 	}
 }
 
+static inline void vbx_3D_VVBWS( vinstr_t v_op, vbx_word_t *v_out, vbx_byte_t *v_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_3D( VVBWS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_3D( VVBWS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_3D( VVBWS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_3D( VVBWS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_3D( VVBWS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_3D( VVBWS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_3D( VVBWS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_3D( VVBWS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_3D( VVBWS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_3D( VVBWS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_3D( VVBWS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_3D( VVBWS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_3D( VVBWS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_3D( VVBWS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_3D( VVBWS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_3D( VVBWS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_3D( VVBWS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_3D( VVBWS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_3D( VVBWS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_3D( VVBWS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_3D( VVBWS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_3D( VVBWS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_3D( VVBWS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_3D( VVBWS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_3D( VVBWS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_3D( VVBWS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_3D_VVBWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_ubyte_t *v_in1, vbx_ubyte_t *v_in2 )
 {
 	switch(v_op)
@@ -25871,6 +38747,93 @@ static inline void vbx_3D_VVHB( vinstr_t v_op, vbx_byte_t *v_out, vbx_half_t *v_
 		break;
 	case VCUSTOM3:
 		vbxasm_3D( VVHB, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_3D_VVHBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_half_t *v_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_3D( VVHBS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_3D( VVHBS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_3D( VVHBS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_3D( VVHBS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_3D( VVHBS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_3D( VVHBS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_3D( VVHBS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_3D( VVHBS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_3D( VVHBS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_3D( VVHBS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_3D( VVHBS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_3D( VVHBS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_3D( VVHBS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_3D( VVHBS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_3D( VVHBS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_3D( VVHBS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_3D( VVHBS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_3D( VVHBS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_3D( VVHBS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_3D( VVHBS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_3D( VVHBS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_3D( VVHBS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_3D( VVHBS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_3D( VVHBS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_3D( VVHBS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_3D( VVHBS, VCUSTOM3, v_out, v_in1, v_in2 );
 		break;
 	default:
 		break;
@@ -26138,6 +39101,180 @@ static inline void vbx_3D_VVHH( vinstr_t v_op, vbx_half_t *v_out, vbx_half_t *v_
 	}
 }
 
+static inline void vbx_3D_VVHS( vinstr_t v_op, vbx_half_t *v_out, vbx_half_t *v_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_3D( VVHS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_3D( VVHS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_3D( VVHS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_3D( VVHS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_3D( VVHS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_3D( VVHS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_3D( VVHS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_3D( VVHS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_3D( VVHS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_3D( VVHS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_3D( VVHS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_3D( VVHS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_3D( VVHS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_3D( VVHS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_3D( VVHS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_3D( VVHS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_3D( VVHS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_3D( VVHS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_3D( VVHS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_3D( VVHS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_3D( VVHS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_3D( VVHS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_3D( VVHS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_3D( VVHS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_3D( VVHS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_3D( VVHS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_3D_VVHHS( vinstr_t v_op, vbx_half_t *v_out, vbx_half_t *v_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_3D( VVHS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_3D( VVHS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_3D( VVHS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_3D( VVHS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_3D( VVHS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_3D( VVHS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_3D( VVHS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_3D( VVHS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_3D( VVHS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_3D( VVHS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_3D( VVHS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_3D( VVHS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_3D( VVHS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_3D( VVHS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_3D( VVHS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_3D( VVHS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_3D( VVHS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_3D( VVHS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_3D( VVHS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_3D( VVHS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_3D( VVHS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_3D( VVHS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_3D( VVHS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_3D( VVHS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_3D( VVHS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_3D( VVHS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_3D_VVHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uhalf_t *v_in1, vbx_uhalf_t *v_in2 )
 {
 	switch(v_op)
@@ -26399,6 +39536,93 @@ static inline void vbx_3D_VVHW( vinstr_t v_op, vbx_word_t *v_out, vbx_half_t *v_
 	}
 }
 
+static inline void vbx_3D_VVHWS( vinstr_t v_op, vbx_word_t *v_out, vbx_half_t *v_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_3D( VVHWS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_3D( VVHWS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_3D( VVHWS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_3D( VVHWS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_3D( VVHWS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_3D( VVHWS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_3D( VVHWS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_3D( VVHWS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_3D( VVHWS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_3D( VVHWS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_3D( VVHWS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_3D( VVHWS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_3D( VVHWS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_3D( VVHWS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_3D( VVHWS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_3D( VVHWS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_3D( VVHWS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_3D( VVHWS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_3D( VVHWS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_3D( VVHWS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_3D( VVHWS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_3D( VVHWS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_3D( VVHWS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_3D( VVHWS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_3D( VVHWS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_3D( VVHWS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_3D_VVHWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uhalf_t *v_in1, vbx_uhalf_t *v_in2 )
 {
 	switch(v_op)
@@ -26573,6 +39797,93 @@ static inline void vbx_3D_VVWB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t *v_
 	}
 }
 
+static inline void vbx_3D_VVWBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t *v_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_3D( VVWBS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_3D( VVWBS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_3D( VVWBS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_3D( VVWBS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_3D( VVWBS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_3D( VVWBS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_3D( VVWBS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_3D( VVWBS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_3D( VVWBS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_3D( VVWBS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_3D( VVWBS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_3D( VVWBS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_3D( VVWBS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_3D( VVWBS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_3D( VVWBS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_3D( VVWBS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_3D( VVWBS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_3D( VVWBS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_3D( VVWBS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_3D( VVWBS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_3D( VVWBS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_3D( VVWBS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_3D( VVWBS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_3D( VVWBS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_3D( VVWBS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_3D( VVWBS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_3D_VVWBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t *v_in1, vbx_uword_t *v_in2 )
 {
 	switch(v_op)
@@ -26741,6 +40052,93 @@ static inline void vbx_3D_VVWH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t *v_
 		break;
 	case VCUSTOM3:
 		vbxasm_3D( VVWH, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_3D_VVWHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t *v_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_3D( VVWHS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_3D( VVWHS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_3D( VVWHS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_3D( VVWHS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_3D( VVWHS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_3D( VVWHS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_3D( VVWHS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_3D( VVWHS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_3D( VVWHS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_3D( VVWHS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_3D( VVWHS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_3D( VVWHS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_3D( VVWHS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_3D( VVWHS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_3D( VVWHS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_3D( VVWHS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_3D( VVWHS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_3D( VVWHS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_3D( VVWHS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_3D( VVWHS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_3D( VVWHS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_3D( VVWHS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_3D( VVWHS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_3D( VVWHS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_3D( VVWHS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_3D( VVWHS, VCUSTOM3, v_out, v_in1, v_in2 );
 		break;
 	default:
 		break;
@@ -27008,6 +40406,180 @@ static inline void vbx_3D_VVWW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t *v_
 	}
 }
 
+static inline void vbx_3D_VVWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t *v_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_3D( VVWS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_3D( VVWS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_3D( VVWS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_3D( VVWS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_3D( VVWS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_3D( VVWS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_3D( VVWS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_3D( VVWS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_3D( VVWS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_3D( VVWS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_3D( VVWS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_3D( VVWS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_3D( VVWS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_3D( VVWS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_3D( VVWS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_3D( VVWS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_3D( VVWS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_3D( VVWS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_3D( VVWS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_3D( VVWS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_3D( VVWS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_3D( VVWS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_3D( VVWS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_3D( VVWS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_3D( VVWS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_3D( VVWS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_3D_VVWWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t *v_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_3D( VVWS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_3D( VVWS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_3D( VVWS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_3D( VVWS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_3D( VVWS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_3D( VVWS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_3D( VVWS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_3D( VVWS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_3D( VVWS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_3D( VVWS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_3D( VVWS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_3D( VVWS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_3D( VVWS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_3D( VVWS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_3D( VVWS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_3D( VVWS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_3D( VVWS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_3D( VVWS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_3D( VVWS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_3D( VVWS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_3D( VVWS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_3D( VVWS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_3D( VVWS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_3D( VVWS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_3D( VVWS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_3D( VVWS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_3D_VVWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t *v_in1, vbx_uword_t *v_in2 )
 {
 	switch(v_op)
@@ -27182,7 +40754,7 @@ static inline void vbx_3D_VVWWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t 
 	}
 }
 
-static inline void vbx_3D_SVB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_byte_t *v_in2 )
+static inline void vbx_3D_SVB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -27269,7 +40841,7 @@ static inline void vbx_3D_SVB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_
 	}
 }
 
-static inline void vbx_3D_SVBB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_byte_t *v_in2 )
+static inline void vbx_3D_SVBB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -27356,7 +40928,181 @@ static inline void vbx_3D_SVBB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx
 	}
 }
 
-static inline void vbx_3D_SVBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_in1, vbx_ubyte_t *v_in2 )
+static inline void vbx_3D_SVBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_3D( SVBS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_3D( SVBS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_3D( SVBS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_3D( SVBS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_3D( SVBS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_3D( SVBS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_3D( SVBS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_3D( SVBS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_3D( SVBS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_3D( SVBS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_3D( SVBS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_3D( SVBS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_3D( SVBS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_3D( SVBS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_3D( SVBS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_3D( SVBS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_3D( SVBS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_3D( SVBS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_3D( SVBS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_3D( SVBS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_3D( SVBS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_3D( SVBS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_3D( SVBS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_3D( SVBS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_3D( SVBS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_3D( SVBS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_3D_SVBBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_3D( SVBS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_3D( SVBS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_3D( SVBS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_3D( SVBS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_3D( SVBS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_3D( SVBS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_3D( SVBS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_3D( SVBS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_3D( SVBS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_3D( SVBS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_3D( SVBS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_3D( SVBS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_3D( SVBS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_3D( SVBS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_3D( SVBS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_3D( SVBS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_3D( SVBS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_3D( SVBS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_3D( SVBS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_3D( SVBS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_3D( SVBS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_3D( SVBS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_3D( SVBS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_3D( SVBS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_3D( SVBS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_3D( SVBS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_3D_SVBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t s_in1, vbx_ubyte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -27443,7 +41189,7 @@ static inline void vbx_3D_SVBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int 
 	}
 }
 
-static inline void vbx_3D_SVBBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_in1, vbx_ubyte_t *v_in2 )
+static inline void vbx_3D_SVBBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t s_in1, vbx_ubyte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -27530,7 +41276,7 @@ static inline void vbx_3D_SVBBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int
 	}
 }
 
-static inline void vbx_3D_SVBH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_byte_t *v_in2 )
+static inline void vbx_3D_SVBH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -27617,7 +41363,94 @@ static inline void vbx_3D_SVBH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx
 	}
 }
 
-static inline void vbx_3D_SVBHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_in1, vbx_ubyte_t *v_in2 )
+static inline void vbx_3D_SVBHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_3D( SVBHS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_3D( SVBHS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_3D( SVBHS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_3D( SVBHS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_3D( SVBHS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_3D( SVBHS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_3D( SVBHS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_3D( SVBHS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_3D( SVBHS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_3D( SVBHS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_3D( SVBHS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_3D( SVBHS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_3D( SVBHS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_3D( SVBHS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_3D( SVBHS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_3D( SVBHS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_3D( SVBHS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_3D( SVBHS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_3D( SVBHS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_3D( SVBHS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_3D( SVBHS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_3D( SVBHS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_3D( SVBHS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_3D( SVBHS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_3D( SVBHS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_3D( SVBHS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_3D_SVBHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uword_t s_in1, vbx_ubyte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -27704,7 +41537,7 @@ static inline void vbx_3D_SVBHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int
 	}
 }
 
-static inline void vbx_3D_SVBW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_byte_t *v_in2 )
+static inline void vbx_3D_SVBW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -27791,7 +41624,94 @@ static inline void vbx_3D_SVBW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx
 	}
 }
 
-static inline void vbx_3D_SVBWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int s_in1, vbx_ubyte_t *v_in2 )
+static inline void vbx_3D_SVBWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_3D( SVBWS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_3D( SVBWS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_3D( SVBWS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_3D( SVBWS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_3D( SVBWS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_3D( SVBWS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_3D( SVBWS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_3D( SVBWS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_3D( SVBWS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_3D( SVBWS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_3D( SVBWS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_3D( SVBWS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_3D( SVBWS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_3D( SVBWS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_3D( SVBWS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_3D( SVBWS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_3D( SVBWS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_3D( SVBWS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_3D( SVBWS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_3D( SVBWS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_3D( SVBWS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_3D( SVBWS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_3D( SVBWS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_3D( SVBWS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_3D( SVBWS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_3D( SVBWS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_3D_SVBWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t s_in1, vbx_ubyte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -27878,7 +41798,7 @@ static inline void vbx_3D_SVBWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int
 	}
 }
 
-static inline void vbx_3D_SVHB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_half_t *v_in2 )
+static inline void vbx_3D_SVHB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -27965,7 +41885,94 @@ static inline void vbx_3D_SVHB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx
 	}
 }
 
-static inline void vbx_3D_SVHBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_in1, vbx_uhalf_t *v_in2 )
+static inline void vbx_3D_SVHBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_3D( SVHBS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_3D( SVHBS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_3D( SVHBS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_3D( SVHBS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_3D( SVHBS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_3D( SVHBS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_3D( SVHBS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_3D( SVHBS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_3D( SVHBS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_3D( SVHBS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_3D( SVHBS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_3D( SVHBS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_3D( SVHBS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_3D( SVHBS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_3D( SVHBS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_3D( SVHBS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_3D( SVHBS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_3D( SVHBS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_3D( SVHBS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_3D( SVHBS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_3D( SVHBS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_3D( SVHBS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_3D( SVHBS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_3D( SVHBS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_3D( SVHBS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_3D( SVHBS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_3D_SVHBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t s_in1, vbx_uhalf_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -28052,7 +42059,7 @@ static inline void vbx_3D_SVHBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int
 	}
 }
 
-static inline void vbx_3D_SVH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_half_t *v_in2 )
+static inline void vbx_3D_SVH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -28139,7 +42146,7 @@ static inline void vbx_3D_SVH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_
 	}
 }
 
-static inline void vbx_3D_SVHH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_half_t *v_in2 )
+static inline void vbx_3D_SVHH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -28226,7 +42233,181 @@ static inline void vbx_3D_SVHH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx
 	}
 }
 
-static inline void vbx_3D_SVHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_in1, vbx_uhalf_t *v_in2 )
+static inline void vbx_3D_SVHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_3D( SVHS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_3D( SVHS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_3D( SVHS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_3D( SVHS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_3D( SVHS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_3D( SVHS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_3D( SVHS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_3D( SVHS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_3D( SVHS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_3D( SVHS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_3D( SVHS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_3D( SVHS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_3D( SVHS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_3D( SVHS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_3D( SVHS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_3D( SVHS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_3D( SVHS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_3D( SVHS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_3D( SVHS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_3D( SVHS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_3D( SVHS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_3D( SVHS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_3D( SVHS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_3D( SVHS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_3D( SVHS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_3D( SVHS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_3D_SVHHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_3D( SVHS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_3D( SVHS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_3D( SVHS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_3D( SVHS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_3D( SVHS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_3D( SVHS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_3D( SVHS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_3D( SVHS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_3D( SVHS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_3D( SVHS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_3D( SVHS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_3D( SVHS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_3D( SVHS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_3D( SVHS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_3D( SVHS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_3D( SVHS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_3D( SVHS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_3D( SVHS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_3D( SVHS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_3D( SVHS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_3D( SVHS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_3D( SVHS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_3D( SVHS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_3D( SVHS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_3D( SVHS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_3D( SVHS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_3D_SVHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uword_t s_in1, vbx_uhalf_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -28313,7 +42494,7 @@ static inline void vbx_3D_SVHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int 
 	}
 }
 
-static inline void vbx_3D_SVHHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_in1, vbx_uhalf_t *v_in2 )
+static inline void vbx_3D_SVHHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uword_t s_in1, vbx_uhalf_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -28400,7 +42581,7 @@ static inline void vbx_3D_SVHHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int
 	}
 }
 
-static inline void vbx_3D_SVHW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_half_t *v_in2 )
+static inline void vbx_3D_SVHW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -28487,7 +42668,94 @@ static inline void vbx_3D_SVHW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx
 	}
 }
 
-static inline void vbx_3D_SVHWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int s_in1, vbx_uhalf_t *v_in2 )
+static inline void vbx_3D_SVHWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_3D( SVHWS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_3D( SVHWS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_3D( SVHWS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_3D( SVHWS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_3D( SVHWS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_3D( SVHWS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_3D( SVHWS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_3D( SVHWS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_3D( SVHWS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_3D( SVHWS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_3D( SVHWS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_3D( SVHWS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_3D( SVHWS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_3D( SVHWS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_3D( SVHWS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_3D( SVHWS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_3D( SVHWS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_3D( SVHWS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_3D( SVHWS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_3D( SVHWS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_3D( SVHWS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_3D( SVHWS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_3D( SVHWS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_3D( SVHWS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_3D( SVHWS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_3D( SVHWS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_3D_SVHWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t s_in1, vbx_uhalf_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -28574,7 +42842,7 @@ static inline void vbx_3D_SVHWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int
 	}
 }
 
-static inline void vbx_3D_SVWB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_word_t *v_in2 )
+static inline void vbx_3D_SVWB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -28661,7 +42929,94 @@ static inline void vbx_3D_SVWB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx
 	}
 }
 
-static inline void vbx_3D_SVWBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_in1, vbx_uword_t *v_in2 )
+static inline void vbx_3D_SVWBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_3D( SVWBS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_3D( SVWBS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_3D( SVWBS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_3D( SVWBS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_3D( SVWBS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_3D( SVWBS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_3D( SVWBS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_3D( SVWBS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_3D( SVWBS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_3D( SVWBS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_3D( SVWBS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_3D( SVWBS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_3D( SVWBS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_3D( SVWBS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_3D( SVWBS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_3D( SVWBS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_3D( SVWBS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_3D( SVWBS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_3D( SVWBS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_3D( SVWBS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_3D( SVWBS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_3D( SVWBS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_3D( SVWBS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_3D( SVWBS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_3D( SVWBS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_3D( SVWBS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_3D_SVWBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t s_in1, vbx_uword_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -28748,7 +43103,7 @@ static inline void vbx_3D_SVWBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int
 	}
 }
 
-static inline void vbx_3D_SVWH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_word_t *v_in2 )
+static inline void vbx_3D_SVWH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -28835,7 +43190,94 @@ static inline void vbx_3D_SVWH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx
 	}
 }
 
-static inline void vbx_3D_SVWHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_in1, vbx_uword_t *v_in2 )
+static inline void vbx_3D_SVWHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_3D( SVWHS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_3D( SVWHS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_3D( SVWHS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_3D( SVWHS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_3D( SVWHS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_3D( SVWHS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_3D( SVWHS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_3D( SVWHS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_3D( SVWHS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_3D( SVWHS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_3D( SVWHS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_3D( SVWHS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_3D( SVWHS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_3D( SVWHS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_3D( SVWHS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_3D( SVWHS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_3D( SVWHS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_3D( SVWHS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_3D( SVWHS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_3D( SVWHS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_3D( SVWHS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_3D( SVWHS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_3D( SVWHS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_3D( SVWHS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_3D( SVWHS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_3D( SVWHS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_3D_SVWHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uword_t s_in1, vbx_uword_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -28922,7 +43364,7 @@ static inline void vbx_3D_SVWHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int
 	}
 }
 
-static inline void vbx_3D_SVW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_word_t *v_in2 )
+static inline void vbx_3D_SVW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -29009,7 +43451,7 @@ static inline void vbx_3D_SVW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_
 	}
 }
 
-static inline void vbx_3D_SVWW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_word_t *v_in2 )
+static inline void vbx_3D_SVWW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -29096,7 +43538,181 @@ static inline void vbx_3D_SVWW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx
 	}
 }
 
-static inline void vbx_3D_SVWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int s_in1, vbx_uword_t *v_in2 )
+static inline void vbx_3D_SVWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_3D( SVWS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_3D( SVWS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_3D( SVWS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_3D( SVWS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_3D( SVWS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_3D( SVWS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_3D( SVWS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_3D( SVWS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_3D( SVWS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_3D( SVWS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_3D( SVWS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_3D( SVWS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_3D( SVWS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_3D( SVWS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_3D( SVWS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_3D( SVWS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_3D( SVWS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_3D( SVWS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_3D( SVWS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_3D( SVWS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_3D( SVWS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_3D( SVWS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_3D( SVWS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_3D( SVWS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_3D( SVWS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_3D( SVWS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_3D_SVWWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_3D( SVWS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_3D( SVWS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_3D( SVWS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_3D( SVWS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_3D( SVWS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_3D( SVWS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_3D( SVWS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_3D( SVWS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_3D( SVWS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_3D( SVWS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_3D( SVWS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_3D( SVWS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_3D( SVWS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_3D( SVWS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_3D( SVWS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_3D( SVWS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_3D( SVWS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_3D( SVWS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_3D( SVWS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_3D( SVWS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_3D( SVWS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_3D( SVWS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_3D( SVWS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_3D( SVWS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_3D( SVWS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_3D( SVWS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_3D_SVWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t s_in1, vbx_uword_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -29183,7 +43799,7 @@ static inline void vbx_3D_SVWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int 
 	}
 }
 
-static inline void vbx_3D_SVWWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int s_in1, vbx_uword_t *v_in2 )
+static inline void vbx_3D_SVWWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t s_in1, vbx_uword_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -29438,6 +44054,180 @@ static inline void vbx_3D_VEBB( vinstr_t v_op, vbx_byte_t *v_out, vbx_byte_t *v_
 		break;
 	case VCUSTOM3:
 		vbxasm_3D( VEB, VCUSTOM3, v_out, v_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_3D_VEBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_byte_t *v_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_3D( VEBS, VADD, v_out, v_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_3D( VEBS, VSUB, v_out, v_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_3D( VEBS, VADDC, v_out, v_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_3D( VEBS, VSUBB, v_out, v_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_3D( VEBS, VABSDIFF, v_out, v_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_3D( VEBS, VMUL, v_out, v_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_3D( VEBS, VMULHI, v_out, v_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_3D( VEBS, VMULFXP, v_out, v_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_3D( VEBS, VAND, v_out, v_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_3D( VEBS, VOR, v_out, v_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_3D( VEBS, VXOR, v_out, v_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_3D( VEBS, VSHL, v_out, v_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_3D( VEBS, VSHR, v_out, v_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_3D( VEBS, VROTL, v_out, v_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_3D( VEBS, VROTR, v_out, v_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_3D( VEBS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_3D( VEBS, VCMV_LEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_3D( VEBS, VCMV_GTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_3D( VEBS, VCMV_LTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_3D( VEBS, VCMV_GEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_3D( VEBS, VCMV_Z, v_out, v_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_3D( VEBS, VCMV_NZ, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_3D( VEBS, VCUSTOM0, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_3D( VEBS, VCUSTOM1, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_3D( VEBS, VCUSTOM2, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_3D( VEBS, VCUSTOM3, v_out, v_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_3D_VEBBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_byte_t *v_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_3D( VEBS, VADD, v_out, v_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_3D( VEBS, VSUB, v_out, v_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_3D( VEBS, VADDC, v_out, v_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_3D( VEBS, VSUBB, v_out, v_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_3D( VEBS, VABSDIFF, v_out, v_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_3D( VEBS, VMUL, v_out, v_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_3D( VEBS, VMULHI, v_out, v_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_3D( VEBS, VMULFXP, v_out, v_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_3D( VEBS, VAND, v_out, v_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_3D( VEBS, VOR, v_out, v_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_3D( VEBS, VXOR, v_out, v_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_3D( VEBS, VSHL, v_out, v_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_3D( VEBS, VSHR, v_out, v_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_3D( VEBS, VROTL, v_out, v_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_3D( VEBS, VROTR, v_out, v_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_3D( VEBS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_3D( VEBS, VCMV_LEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_3D( VEBS, VCMV_GTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_3D( VEBS, VCMV_LTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_3D( VEBS, VCMV_GEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_3D( VEBS, VCMV_Z, v_out, v_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_3D( VEBS, VCMV_NZ, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_3D( VEBS, VCUSTOM0, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_3D( VEBS, VCUSTOM1, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_3D( VEBS, VCUSTOM2, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_3D( VEBS, VCUSTOM3, v_out, v_in1, 0 );
 		break;
 	default:
 		break;
@@ -29792,6 +44582,180 @@ static inline void vbx_3D_VEHH( vinstr_t v_op, vbx_half_t *v_out, vbx_half_t *v_
 	}
 }
 
+static inline void vbx_3D_VEHS( vinstr_t v_op, vbx_half_t *v_out, vbx_half_t *v_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_3D( VEHS, VADD, v_out, v_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_3D( VEHS, VSUB, v_out, v_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_3D( VEHS, VADDC, v_out, v_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_3D( VEHS, VSUBB, v_out, v_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_3D( VEHS, VABSDIFF, v_out, v_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_3D( VEHS, VMUL, v_out, v_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_3D( VEHS, VMULHI, v_out, v_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_3D( VEHS, VMULFXP, v_out, v_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_3D( VEHS, VAND, v_out, v_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_3D( VEHS, VOR, v_out, v_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_3D( VEHS, VXOR, v_out, v_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_3D( VEHS, VSHL, v_out, v_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_3D( VEHS, VSHR, v_out, v_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_3D( VEHS, VROTL, v_out, v_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_3D( VEHS, VROTR, v_out, v_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_3D( VEHS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_3D( VEHS, VCMV_LEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_3D( VEHS, VCMV_GTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_3D( VEHS, VCMV_LTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_3D( VEHS, VCMV_GEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_3D( VEHS, VCMV_Z, v_out, v_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_3D( VEHS, VCMV_NZ, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_3D( VEHS, VCUSTOM0, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_3D( VEHS, VCUSTOM1, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_3D( VEHS, VCUSTOM2, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_3D( VEHS, VCUSTOM3, v_out, v_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_3D_VEHHS( vinstr_t v_op, vbx_half_t *v_out, vbx_half_t *v_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_3D( VEHS, VADD, v_out, v_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_3D( VEHS, VSUB, v_out, v_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_3D( VEHS, VADDC, v_out, v_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_3D( VEHS, VSUBB, v_out, v_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_3D( VEHS, VABSDIFF, v_out, v_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_3D( VEHS, VMUL, v_out, v_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_3D( VEHS, VMULHI, v_out, v_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_3D( VEHS, VMULFXP, v_out, v_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_3D( VEHS, VAND, v_out, v_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_3D( VEHS, VOR, v_out, v_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_3D( VEHS, VXOR, v_out, v_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_3D( VEHS, VSHL, v_out, v_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_3D( VEHS, VSHR, v_out, v_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_3D( VEHS, VROTL, v_out, v_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_3D( VEHS, VROTR, v_out, v_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_3D( VEHS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_3D( VEHS, VCMV_LEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_3D( VEHS, VCMV_GTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_3D( VEHS, VCMV_LTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_3D( VEHS, VCMV_GEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_3D( VEHS, VCMV_Z, v_out, v_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_3D( VEHS, VCMV_NZ, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_3D( VEHS, VCUSTOM0, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_3D( VEHS, VCUSTOM1, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_3D( VEHS, VCUSTOM2, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_3D( VEHS, VCUSTOM3, v_out, v_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_3D_VEHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uhalf_t *v_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
@@ -30140,6 +45104,180 @@ static inline void vbx_3D_VEWW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t *v_
 	}
 }
 
+static inline void vbx_3D_VEWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t *v_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_3D( VEWS, VADD, v_out, v_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_3D( VEWS, VSUB, v_out, v_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_3D( VEWS, VADDC, v_out, v_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_3D( VEWS, VSUBB, v_out, v_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_3D( VEWS, VABSDIFF, v_out, v_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_3D( VEWS, VMUL, v_out, v_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_3D( VEWS, VMULHI, v_out, v_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_3D( VEWS, VMULFXP, v_out, v_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_3D( VEWS, VAND, v_out, v_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_3D( VEWS, VOR, v_out, v_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_3D( VEWS, VXOR, v_out, v_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_3D( VEWS, VSHL, v_out, v_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_3D( VEWS, VSHR, v_out, v_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_3D( VEWS, VROTL, v_out, v_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_3D( VEWS, VROTR, v_out, v_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_3D( VEWS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_3D( VEWS, VCMV_LEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_3D( VEWS, VCMV_GTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_3D( VEWS, VCMV_LTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_3D( VEWS, VCMV_GEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_3D( VEWS, VCMV_Z, v_out, v_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_3D( VEWS, VCMV_NZ, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_3D( VEWS, VCUSTOM0, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_3D( VEWS, VCUSTOM1, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_3D( VEWS, VCUSTOM2, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_3D( VEWS, VCUSTOM3, v_out, v_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_3D_VEWWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t *v_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_3D( VEWS, VADD, v_out, v_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_3D( VEWS, VSUB, v_out, v_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_3D( VEWS, VADDC, v_out, v_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_3D( VEWS, VSUBB, v_out, v_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_3D( VEWS, VABSDIFF, v_out, v_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_3D( VEWS, VMUL, v_out, v_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_3D( VEWS, VMULHI, v_out, v_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_3D( VEWS, VMULFXP, v_out, v_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_3D( VEWS, VAND, v_out, v_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_3D( VEWS, VOR, v_out, v_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_3D( VEWS, VXOR, v_out, v_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_3D( VEWS, VSHL, v_out, v_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_3D( VEWS, VSHR, v_out, v_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_3D( VEWS, VROTL, v_out, v_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_3D( VEWS, VROTR, v_out, v_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_3D( VEWS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_3D( VEWS, VCMV_LEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_3D( VEWS, VCMV_GTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_3D( VEWS, VCMV_LTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_3D( VEWS, VCMV_GEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_3D( VEWS, VCMV_Z, v_out, v_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_3D( VEWS, VCMV_NZ, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_3D( VEWS, VCUSTOM0, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_3D( VEWS, VCUSTOM1, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_3D( VEWS, VCUSTOM2, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_3D( VEWS, VCUSTOM3, v_out, v_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_3D_VEWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t *v_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
@@ -30314,7 +45452,7 @@ static inline void vbx_3D_VEWWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t 
 	}
 }
 
-static inline void vbx_3D_SEB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_3D_SEB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -30401,7 +45539,7 @@ static inline void vbx_3D_SEB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_
 	}
 }
 
-static inline void vbx_3D_SEBB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_3D_SEBB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -30488,7 +45626,181 @@ static inline void vbx_3D_SEBB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx
 	}
 }
 
-static inline void vbx_3D_SEBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_3D_SEBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_3D( SEBS, VADD, v_out, s_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_3D( SEBS, VSUB, v_out, s_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_3D( SEBS, VADDC, v_out, s_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_3D( SEBS, VSUBB, v_out, s_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_3D( SEBS, VABSDIFF, v_out, s_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_3D( SEBS, VMUL, v_out, s_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_3D( SEBS, VMULHI, v_out, s_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_3D( SEBS, VMULFXP, v_out, s_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_3D( SEBS, VAND, v_out, s_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_3D( SEBS, VOR, v_out, s_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_3D( SEBS, VXOR, v_out, s_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_3D( SEBS, VSHL, v_out, s_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_3D( SEBS, VSHR, v_out, s_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_3D( SEBS, VROTL, v_out, s_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_3D( SEBS, VROTR, v_out, s_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_3D( SEBS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_3D( SEBS, VCMV_LEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_3D( SEBS, VCMV_GTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_3D( SEBS, VCMV_LTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_3D( SEBS, VCMV_GEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_3D( SEBS, VCMV_Z, v_out, s_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_3D( SEBS, VCMV_NZ, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_3D( SEBS, VCUSTOM0, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_3D( SEBS, VCUSTOM1, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_3D( SEBS, VCUSTOM2, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_3D( SEBS, VCUSTOM3, v_out, s_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_3D_SEBBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_3D( SEBS, VADD, v_out, s_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_3D( SEBS, VSUB, v_out, s_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_3D( SEBS, VADDC, v_out, s_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_3D( SEBS, VSUBB, v_out, s_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_3D( SEBS, VABSDIFF, v_out, s_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_3D( SEBS, VMUL, v_out, s_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_3D( SEBS, VMULHI, v_out, s_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_3D( SEBS, VMULFXP, v_out, s_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_3D( SEBS, VAND, v_out, s_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_3D( SEBS, VOR, v_out, s_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_3D( SEBS, VXOR, v_out, s_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_3D( SEBS, VSHL, v_out, s_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_3D( SEBS, VSHR, v_out, s_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_3D( SEBS, VROTL, v_out, s_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_3D( SEBS, VROTR, v_out, s_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_3D( SEBS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_3D( SEBS, VCMV_LEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_3D( SEBS, VCMV_GTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_3D( SEBS, VCMV_LTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_3D( SEBS, VCMV_GEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_3D( SEBS, VCMV_Z, v_out, s_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_3D( SEBS, VCMV_NZ, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_3D( SEBS, VCUSTOM0, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_3D( SEBS, VCUSTOM1, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_3D( SEBS, VCUSTOM2, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_3D( SEBS, VCUSTOM3, v_out, s_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_3D_SEBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -30575,7 +45887,7 @@ static inline void vbx_3D_SEBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int 
 	}
 }
 
-static inline void vbx_3D_SEBBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_3D_SEBBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -30662,7 +45974,7 @@ static inline void vbx_3D_SEBBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int
 	}
 }
 
-static inline void vbx_3D_SEH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_3D_SEH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -30749,7 +46061,7 @@ static inline void vbx_3D_SEH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_
 	}
 }
 
-static inline void vbx_3D_SEHH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_3D_SEHH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -30836,7 +46148,181 @@ static inline void vbx_3D_SEHH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx
 	}
 }
 
-static inline void vbx_3D_SEHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_3D_SEHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_3D( SEHS, VADD, v_out, s_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_3D( SEHS, VSUB, v_out, s_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_3D( SEHS, VADDC, v_out, s_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_3D( SEHS, VSUBB, v_out, s_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_3D( SEHS, VABSDIFF, v_out, s_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_3D( SEHS, VMUL, v_out, s_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_3D( SEHS, VMULHI, v_out, s_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_3D( SEHS, VMULFXP, v_out, s_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_3D( SEHS, VAND, v_out, s_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_3D( SEHS, VOR, v_out, s_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_3D( SEHS, VXOR, v_out, s_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_3D( SEHS, VSHL, v_out, s_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_3D( SEHS, VSHR, v_out, s_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_3D( SEHS, VROTL, v_out, s_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_3D( SEHS, VROTR, v_out, s_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_3D( SEHS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_3D( SEHS, VCMV_LEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_3D( SEHS, VCMV_GTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_3D( SEHS, VCMV_LTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_3D( SEHS, VCMV_GEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_3D( SEHS, VCMV_Z, v_out, s_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_3D( SEHS, VCMV_NZ, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_3D( SEHS, VCUSTOM0, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_3D( SEHS, VCUSTOM1, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_3D( SEHS, VCUSTOM2, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_3D( SEHS, VCUSTOM3, v_out, s_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_3D_SEHHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_3D( SEHS, VADD, v_out, s_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_3D( SEHS, VSUB, v_out, s_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_3D( SEHS, VADDC, v_out, s_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_3D( SEHS, VSUBB, v_out, s_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_3D( SEHS, VABSDIFF, v_out, s_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_3D( SEHS, VMUL, v_out, s_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_3D( SEHS, VMULHI, v_out, s_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_3D( SEHS, VMULFXP, v_out, s_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_3D( SEHS, VAND, v_out, s_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_3D( SEHS, VOR, v_out, s_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_3D( SEHS, VXOR, v_out, s_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_3D( SEHS, VSHL, v_out, s_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_3D( SEHS, VSHR, v_out, s_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_3D( SEHS, VROTL, v_out, s_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_3D( SEHS, VROTR, v_out, s_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_3D( SEHS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_3D( SEHS, VCMV_LEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_3D( SEHS, VCMV_GTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_3D( SEHS, VCMV_LTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_3D( SEHS, VCMV_GEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_3D( SEHS, VCMV_Z, v_out, s_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_3D( SEHS, VCMV_NZ, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_3D( SEHS, VCUSTOM0, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_3D( SEHS, VCUSTOM1, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_3D( SEHS, VCUSTOM2, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_3D( SEHS, VCUSTOM3, v_out, s_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_3D_SEHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uword_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -30923,7 +46409,7 @@ static inline void vbx_3D_SEHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int 
 	}
 }
 
-static inline void vbx_3D_SEHHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_3D_SEHHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uword_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -31010,7 +46496,7 @@ static inline void vbx_3D_SEHHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int
 	}
 }
 
-static inline void vbx_3D_SEW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_3D_SEW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -31097,7 +46583,7 @@ static inline void vbx_3D_SEW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_
 	}
 }
 
-static inline void vbx_3D_SEWW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_3D_SEWW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -31184,7 +46670,181 @@ static inline void vbx_3D_SEWW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx
 	}
 }
 
-static inline void vbx_3D_SEWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_3D_SEWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_3D( SEWS, VADD, v_out, s_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_3D( SEWS, VSUB, v_out, s_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_3D( SEWS, VADDC, v_out, s_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_3D( SEWS, VSUBB, v_out, s_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_3D( SEWS, VABSDIFF, v_out, s_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_3D( SEWS, VMUL, v_out, s_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_3D( SEWS, VMULHI, v_out, s_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_3D( SEWS, VMULFXP, v_out, s_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_3D( SEWS, VAND, v_out, s_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_3D( SEWS, VOR, v_out, s_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_3D( SEWS, VXOR, v_out, s_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_3D( SEWS, VSHL, v_out, s_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_3D( SEWS, VSHR, v_out, s_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_3D( SEWS, VROTL, v_out, s_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_3D( SEWS, VROTR, v_out, s_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_3D( SEWS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_3D( SEWS, VCMV_LEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_3D( SEWS, VCMV_GTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_3D( SEWS, VCMV_LTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_3D( SEWS, VCMV_GEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_3D( SEWS, VCMV_Z, v_out, s_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_3D( SEWS, VCMV_NZ, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_3D( SEWS, VCUSTOM0, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_3D( SEWS, VCUSTOM1, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_3D( SEWS, VCUSTOM2, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_3D( SEWS, VCUSTOM3, v_out, s_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_3D_SEWWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_3D( SEWS, VADD, v_out, s_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_3D( SEWS, VSUB, v_out, s_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_3D( SEWS, VADDC, v_out, s_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_3D( SEWS, VSUBB, v_out, s_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_3D( SEWS, VABSDIFF, v_out, s_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_3D( SEWS, VMUL, v_out, s_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_3D( SEWS, VMULHI, v_out, s_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_3D( SEWS, VMULFXP, v_out, s_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_3D( SEWS, VAND, v_out, s_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_3D( SEWS, VOR, v_out, s_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_3D( SEWS, VXOR, v_out, s_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_3D( SEWS, VSHL, v_out, s_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_3D( SEWS, VSHR, v_out, s_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_3D( SEWS, VROTL, v_out, s_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_3D( SEWS, VROTR, v_out, s_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_3D( SEWS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_3D( SEWS, VCMV_LEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_3D( SEWS, VCMV_GTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_3D( SEWS, VCMV_LTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_3D( SEWS, VCMV_GEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_3D( SEWS, VCMV_Z, v_out, s_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_3D( SEWS, VCMV_NZ, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_3D( SEWS, VCUSTOM0, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_3D( SEWS, VCUSTOM1, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_3D( SEWS, VCUSTOM2, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_3D( SEWS, VCUSTOM3, v_out, s_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_3D_SEWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -31271,7 +46931,7 @@ static inline void vbx_3D_SEWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int 
 	}
 }
 
-static inline void vbx_3D_SEWWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_3D_SEWWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -31526,6 +47186,180 @@ static inline void vbx_acc_3D_VVBB( vinstr_t v_op, vbx_byte_t *v_out, vbx_byte_t
 		break;
 	case VCUSTOM3:
 		vbxasm_acc_3D( VVB, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_3D_VVBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_byte_t *v_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_3D( VVBS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_3D( VVBS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_3D( VVBS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_3D( VVBS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_3D( VVBS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_3D( VVBS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_3D( VVBS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_3D( VVBS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_3D( VVBS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_3D( VVBS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_3D( VVBS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_3D( VVBS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_3D( VVBS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_3D( VVBS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_3D( VVBS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_3D( VVBS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_3D( VVBS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_3D( VVBS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_3D( VVBS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_3D( VVBS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_3D( VVBS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_3D( VVBS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_3D( VVBS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_3D( VVBS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_3D( VVBS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_3D( VVBS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_3D_VVBBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_byte_t *v_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_3D( VVBS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_3D( VVBS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_3D( VVBS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_3D( VVBS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_3D( VVBS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_3D( VVBS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_3D( VVBS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_3D( VVBS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_3D( VVBS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_3D( VVBS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_3D( VVBS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_3D( VVBS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_3D( VVBS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_3D( VVBS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_3D( VVBS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_3D( VVBS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_3D( VVBS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_3D( VVBS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_3D( VVBS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_3D( VVBS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_3D( VVBS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_3D( VVBS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_3D( VVBS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_3D( VVBS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_3D( VVBS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_3D( VVBS, VCUSTOM3, v_out, v_in1, v_in2 );
 		break;
 	default:
 		break;
@@ -31793,6 +47627,93 @@ static inline void vbx_acc_3D_VVBH( vinstr_t v_op, vbx_half_t *v_out, vbx_byte_t
 	}
 }
 
+static inline void vbx_acc_3D_VVBHS( vinstr_t v_op, vbx_half_t *v_out, vbx_byte_t *v_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_3D( VVBHS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_3D( VVBHS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_3D( VVBHS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_3D( VVBHS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_3D( VVBHS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_3D( VVBHS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_3D( VVBHS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_3D( VVBHS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_3D( VVBHS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_3D( VVBHS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_3D( VVBHS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_3D( VVBHS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_3D( VVBHS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_3D( VVBHS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_3D( VVBHS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_3D( VVBHS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_3D( VVBHS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_3D( VVBHS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_3D( VVBHS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_3D( VVBHS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_3D( VVBHS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_3D( VVBHS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_3D( VVBHS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_3D( VVBHS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_3D( VVBHS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_3D( VVBHS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_acc_3D_VVBHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_ubyte_t *v_in1, vbx_ubyte_t *v_in2 )
 {
 	switch(v_op)
@@ -31967,6 +47888,93 @@ static inline void vbx_acc_3D_VVBW( vinstr_t v_op, vbx_word_t *v_out, vbx_byte_t
 	}
 }
 
+static inline void vbx_acc_3D_VVBWS( vinstr_t v_op, vbx_word_t *v_out, vbx_byte_t *v_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_3D( VVBWS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_3D( VVBWS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_3D( VVBWS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_3D( VVBWS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_3D( VVBWS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_3D( VVBWS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_3D( VVBWS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_3D( VVBWS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_3D( VVBWS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_3D( VVBWS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_3D( VVBWS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_3D( VVBWS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_3D( VVBWS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_3D( VVBWS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_3D( VVBWS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_3D( VVBWS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_3D( VVBWS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_3D( VVBWS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_3D( VVBWS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_3D( VVBWS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_3D( VVBWS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_3D( VVBWS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_3D( VVBWS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_3D( VVBWS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_3D( VVBWS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_3D( VVBWS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_acc_3D_VVBWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_ubyte_t *v_in1, vbx_ubyte_t *v_in2 )
 {
 	switch(v_op)
@@ -32135,6 +48143,93 @@ static inline void vbx_acc_3D_VVHB( vinstr_t v_op, vbx_byte_t *v_out, vbx_half_t
 		break;
 	case VCUSTOM3:
 		vbxasm_acc_3D( VVHB, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_3D_VVHBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_half_t *v_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_3D( VVHBS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_3D( VVHBS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_3D( VVHBS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_3D( VVHBS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_3D( VVHBS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_3D( VVHBS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_3D( VVHBS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_3D( VVHBS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_3D( VVHBS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_3D( VVHBS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_3D( VVHBS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_3D( VVHBS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_3D( VVHBS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_3D( VVHBS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_3D( VVHBS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_3D( VVHBS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_3D( VVHBS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_3D( VVHBS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_3D( VVHBS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_3D( VVHBS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_3D( VVHBS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_3D( VVHBS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_3D( VVHBS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_3D( VVHBS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_3D( VVHBS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_3D( VVHBS, VCUSTOM3, v_out, v_in1, v_in2 );
 		break;
 	default:
 		break;
@@ -32402,6 +48497,180 @@ static inline void vbx_acc_3D_VVHH( vinstr_t v_op, vbx_half_t *v_out, vbx_half_t
 	}
 }
 
+static inline void vbx_acc_3D_VVHS( vinstr_t v_op, vbx_half_t *v_out, vbx_half_t *v_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_3D( VVHS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_3D( VVHS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_3D( VVHS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_3D( VVHS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_3D( VVHS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_3D( VVHS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_3D( VVHS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_3D( VVHS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_3D( VVHS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_3D( VVHS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_3D( VVHS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_3D( VVHS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_3D( VVHS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_3D( VVHS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_3D( VVHS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_3D( VVHS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_3D( VVHS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_3D( VVHS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_3D( VVHS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_3D( VVHS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_3D( VVHS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_3D( VVHS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_3D( VVHS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_3D( VVHS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_3D( VVHS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_3D( VVHS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_3D_VVHHS( vinstr_t v_op, vbx_half_t *v_out, vbx_half_t *v_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_3D( VVHS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_3D( VVHS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_3D( VVHS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_3D( VVHS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_3D( VVHS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_3D( VVHS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_3D( VVHS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_3D( VVHS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_3D( VVHS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_3D( VVHS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_3D( VVHS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_3D( VVHS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_3D( VVHS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_3D( VVHS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_3D( VVHS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_3D( VVHS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_3D( VVHS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_3D( VVHS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_3D( VVHS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_3D( VVHS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_3D( VVHS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_3D( VVHS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_3D( VVHS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_3D( VVHS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_3D( VVHS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_3D( VVHS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_acc_3D_VVHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uhalf_t *v_in1, vbx_uhalf_t *v_in2 )
 {
 	switch(v_op)
@@ -32663,6 +48932,93 @@ static inline void vbx_acc_3D_VVHW( vinstr_t v_op, vbx_word_t *v_out, vbx_half_t
 	}
 }
 
+static inline void vbx_acc_3D_VVHWS( vinstr_t v_op, vbx_word_t *v_out, vbx_half_t *v_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_3D( VVHWS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_3D( VVHWS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_3D( VVHWS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_3D( VVHWS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_3D( VVHWS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_3D( VVHWS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_3D( VVHWS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_3D( VVHWS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_3D( VVHWS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_3D( VVHWS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_3D( VVHWS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_3D( VVHWS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_3D( VVHWS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_3D( VVHWS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_3D( VVHWS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_3D( VVHWS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_3D( VVHWS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_3D( VVHWS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_3D( VVHWS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_3D( VVHWS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_3D( VVHWS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_3D( VVHWS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_3D( VVHWS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_3D( VVHWS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_3D( VVHWS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_3D( VVHWS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_acc_3D_VVHWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uhalf_t *v_in1, vbx_uhalf_t *v_in2 )
 {
 	switch(v_op)
@@ -32837,6 +49193,93 @@ static inline void vbx_acc_3D_VVWB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t
 	}
 }
 
+static inline void vbx_acc_3D_VVWBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t *v_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_3D( VVWBS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_3D( VVWBS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_3D( VVWBS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_3D( VVWBS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_3D( VVWBS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_3D( VVWBS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_3D( VVWBS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_3D( VVWBS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_3D( VVWBS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_3D( VVWBS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_3D( VVWBS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_3D( VVWBS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_3D( VVWBS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_3D( VVWBS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_3D( VVWBS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_3D( VVWBS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_3D( VVWBS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_3D( VVWBS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_3D( VVWBS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_3D( VVWBS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_3D( VVWBS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_3D( VVWBS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_3D( VVWBS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_3D( VVWBS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_3D( VVWBS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_3D( VVWBS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_acc_3D_VVWBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t *v_in1, vbx_uword_t *v_in2 )
 {
 	switch(v_op)
@@ -33005,6 +49448,93 @@ static inline void vbx_acc_3D_VVWH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t
 		break;
 	case VCUSTOM3:
 		vbxasm_acc_3D( VVWH, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_3D_VVWHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t *v_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_3D( VVWHS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_3D( VVWHS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_3D( VVWHS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_3D( VVWHS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_3D( VVWHS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_3D( VVWHS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_3D( VVWHS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_3D( VVWHS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_3D( VVWHS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_3D( VVWHS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_3D( VVWHS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_3D( VVWHS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_3D( VVWHS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_3D( VVWHS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_3D( VVWHS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_3D( VVWHS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_3D( VVWHS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_3D( VVWHS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_3D( VVWHS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_3D( VVWHS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_3D( VVWHS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_3D( VVWHS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_3D( VVWHS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_3D( VVWHS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_3D( VVWHS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_3D( VVWHS, VCUSTOM3, v_out, v_in1, v_in2 );
 		break;
 	default:
 		break;
@@ -33272,6 +49802,180 @@ static inline void vbx_acc_3D_VVWW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t
 	}
 }
 
+static inline void vbx_acc_3D_VVWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t *v_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_3D( VVWS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_3D( VVWS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_3D( VVWS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_3D( VVWS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_3D( VVWS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_3D( VVWS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_3D( VVWS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_3D( VVWS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_3D( VVWS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_3D( VVWS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_3D( VVWS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_3D( VVWS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_3D( VVWS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_3D( VVWS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_3D( VVWS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_3D( VVWS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_3D( VVWS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_3D( VVWS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_3D( VVWS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_3D( VVWS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_3D( VVWS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_3D( VVWS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_3D( VVWS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_3D( VVWS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_3D( VVWS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_3D( VVWS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_3D_VVWWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t *v_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_3D( VVWS, VADD, v_out, v_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_3D( VVWS, VSUB, v_out, v_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_3D( VVWS, VADDC, v_out, v_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_3D( VVWS, VSUBB, v_out, v_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_3D( VVWS, VABSDIFF, v_out, v_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_3D( VVWS, VMUL, v_out, v_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_3D( VVWS, VMULHI, v_out, v_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_3D( VVWS, VMULFXP, v_out, v_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_3D( VVWS, VAND, v_out, v_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_3D( VVWS, VOR, v_out, v_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_3D( VVWS, VXOR, v_out, v_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_3D( VVWS, VSHL, v_out, v_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_3D( VVWS, VSHR, v_out, v_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_3D( VVWS, VROTL, v_out, v_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_3D( VVWS, VROTR, v_out, v_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_3D( VVWS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_3D( VVWS, VCMV_LEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_3D( VVWS, VCMV_GTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_3D( VVWS, VCMV_LTZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_3D( VVWS, VCMV_GEZ, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_3D( VVWS, VCMV_Z, v_out, v_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_3D( VVWS, VCMV_NZ, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_3D( VVWS, VCUSTOM0, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_3D( VVWS, VCUSTOM1, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_3D( VVWS, VCUSTOM2, v_out, v_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_3D( VVWS, VCUSTOM3, v_out, v_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_acc_3D_VVWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t *v_in1, vbx_uword_t *v_in2 )
 {
 	switch(v_op)
@@ -33446,7 +50150,7 @@ static inline void vbx_acc_3D_VVWWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uwor
 	}
 }
 
-static inline void vbx_acc_3D_SVB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_byte_t *v_in2 )
+static inline void vbx_acc_3D_SVB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -33533,7 +50237,7 @@ static inline void vbx_acc_3D_SVB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, 
 	}
 }
 
-static inline void vbx_acc_3D_SVBB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_byte_t *v_in2 )
+static inline void vbx_acc_3D_SVBB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -33620,7 +50324,181 @@ static inline void vbx_acc_3D_SVBB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1,
 	}
 }
 
-static inline void vbx_acc_3D_SVBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_in1, vbx_ubyte_t *v_in2 )
+static inline void vbx_acc_3D_SVBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_3D( SVBS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_3D( SVBS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_3D( SVBS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_3D( SVBS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_3D( SVBS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_3D( SVBS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_3D( SVBS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_3D( SVBS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_3D( SVBS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_3D( SVBS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_3D( SVBS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_3D( SVBS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_3D( SVBS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_3D( SVBS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_3D( SVBS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_3D( SVBS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_3D( SVBS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_3D( SVBS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_3D( SVBS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_3D( SVBS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_3D( SVBS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_3D( SVBS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_3D( SVBS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_3D( SVBS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_3D( SVBS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_3D( SVBS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_3D_SVBBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_3D( SVBS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_3D( SVBS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_3D( SVBS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_3D( SVBS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_3D( SVBS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_3D( SVBS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_3D( SVBS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_3D( SVBS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_3D( SVBS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_3D( SVBS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_3D( SVBS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_3D( SVBS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_3D( SVBS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_3D( SVBS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_3D( SVBS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_3D( SVBS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_3D( SVBS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_3D( SVBS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_3D( SVBS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_3D( SVBS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_3D( SVBS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_3D( SVBS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_3D( SVBS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_3D( SVBS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_3D( SVBS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_3D( SVBS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_3D_SVBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t s_in1, vbx_ubyte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -33707,7 +50585,7 @@ static inline void vbx_acc_3D_SVBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned 
 	}
 }
 
-static inline void vbx_acc_3D_SVBBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_in1, vbx_ubyte_t *v_in2 )
+static inline void vbx_acc_3D_SVBBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t s_in1, vbx_ubyte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -33794,7 +50672,7 @@ static inline void vbx_acc_3D_SVBBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned
 	}
 }
 
-static inline void vbx_acc_3D_SVBH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_byte_t *v_in2 )
+static inline void vbx_acc_3D_SVBH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -33881,7 +50759,94 @@ static inline void vbx_acc_3D_SVBH( vinstr_t v_op, vbx_half_t *v_out, int s_in1,
 	}
 }
 
-static inline void vbx_acc_3D_SVBHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_in1, vbx_ubyte_t *v_in2 )
+static inline void vbx_acc_3D_SVBHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_3D( SVBHS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_3D( SVBHS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_3D( SVBHS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_3D( SVBHS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_3D( SVBHS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_3D( SVBHS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_3D( SVBHS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_3D( SVBHS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_3D( SVBHS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_3D( SVBHS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_3D( SVBHS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_3D( SVBHS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_3D( SVBHS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_3D( SVBHS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_3D( SVBHS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_3D( SVBHS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_3D( SVBHS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_3D( SVBHS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_3D( SVBHS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_3D( SVBHS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_3D( SVBHS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_3D( SVBHS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_3D( SVBHS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_3D( SVBHS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_3D( SVBHS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_3D( SVBHS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_3D_SVBHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uword_t s_in1, vbx_ubyte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -33968,7 +50933,7 @@ static inline void vbx_acc_3D_SVBHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned
 	}
 }
 
-static inline void vbx_acc_3D_SVBW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_byte_t *v_in2 )
+static inline void vbx_acc_3D_SVBW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -34055,7 +51020,94 @@ static inline void vbx_acc_3D_SVBW( vinstr_t v_op, vbx_word_t *v_out, int s_in1,
 	}
 }
 
-static inline void vbx_acc_3D_SVBWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int s_in1, vbx_ubyte_t *v_in2 )
+static inline void vbx_acc_3D_SVBWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_byte_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_3D( SVBWS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_3D( SVBWS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_3D( SVBWS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_3D( SVBWS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_3D( SVBWS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_3D( SVBWS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_3D( SVBWS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_3D( SVBWS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_3D( SVBWS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_3D( SVBWS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_3D( SVBWS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_3D( SVBWS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_3D( SVBWS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_3D( SVBWS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_3D( SVBWS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_3D( SVBWS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_3D( SVBWS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_3D( SVBWS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_3D( SVBWS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_3D( SVBWS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_3D( SVBWS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_3D( SVBWS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_3D( SVBWS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_3D( SVBWS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_3D( SVBWS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_3D( SVBWS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_3D_SVBWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t s_in1, vbx_ubyte_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -34142,7 +51194,7 @@ static inline void vbx_acc_3D_SVBWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned
 	}
 }
 
-static inline void vbx_acc_3D_SVHB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_half_t *v_in2 )
+static inline void vbx_acc_3D_SVHB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -34229,7 +51281,94 @@ static inline void vbx_acc_3D_SVHB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1,
 	}
 }
 
-static inline void vbx_acc_3D_SVHBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_in1, vbx_uhalf_t *v_in2 )
+static inline void vbx_acc_3D_SVHBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_3D( SVHBS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_3D( SVHBS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_3D( SVHBS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_3D( SVHBS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_3D( SVHBS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_3D( SVHBS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_3D( SVHBS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_3D( SVHBS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_3D( SVHBS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_3D( SVHBS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_3D( SVHBS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_3D( SVHBS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_3D( SVHBS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_3D( SVHBS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_3D( SVHBS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_3D( SVHBS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_3D( SVHBS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_3D( SVHBS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_3D( SVHBS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_3D( SVHBS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_3D( SVHBS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_3D( SVHBS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_3D( SVHBS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_3D( SVHBS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_3D( SVHBS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_3D( SVHBS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_3D_SVHBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t s_in1, vbx_uhalf_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -34316,7 +51455,7 @@ static inline void vbx_acc_3D_SVHBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned
 	}
 }
 
-static inline void vbx_acc_3D_SVH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_half_t *v_in2 )
+static inline void vbx_acc_3D_SVH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -34403,7 +51542,7 @@ static inline void vbx_acc_3D_SVH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, 
 	}
 }
 
-static inline void vbx_acc_3D_SVHH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_half_t *v_in2 )
+static inline void vbx_acc_3D_SVHH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -34490,7 +51629,181 @@ static inline void vbx_acc_3D_SVHH( vinstr_t v_op, vbx_half_t *v_out, int s_in1,
 	}
 }
 
-static inline void vbx_acc_3D_SVHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_in1, vbx_uhalf_t *v_in2 )
+static inline void vbx_acc_3D_SVHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_3D( SVHS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_3D( SVHS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_3D( SVHS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_3D( SVHS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_3D( SVHS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_3D( SVHS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_3D( SVHS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_3D( SVHS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_3D( SVHS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_3D( SVHS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_3D( SVHS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_3D( SVHS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_3D( SVHS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_3D( SVHS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_3D( SVHS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_3D( SVHS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_3D( SVHS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_3D( SVHS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_3D( SVHS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_3D( SVHS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_3D( SVHS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_3D( SVHS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_3D( SVHS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_3D( SVHS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_3D( SVHS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_3D( SVHS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_3D_SVHHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_3D( SVHS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_3D( SVHS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_3D( SVHS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_3D( SVHS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_3D( SVHS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_3D( SVHS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_3D( SVHS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_3D( SVHS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_3D( SVHS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_3D( SVHS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_3D( SVHS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_3D( SVHS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_3D( SVHS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_3D( SVHS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_3D( SVHS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_3D( SVHS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_3D( SVHS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_3D( SVHS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_3D( SVHS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_3D( SVHS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_3D( SVHS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_3D( SVHS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_3D( SVHS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_3D( SVHS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_3D( SVHS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_3D( SVHS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_3D_SVHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uword_t s_in1, vbx_uhalf_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -34577,7 +51890,7 @@ static inline void vbx_acc_3D_SVHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned 
 	}
 }
 
-static inline void vbx_acc_3D_SVHHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_in1, vbx_uhalf_t *v_in2 )
+static inline void vbx_acc_3D_SVHHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uword_t s_in1, vbx_uhalf_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -34664,7 +51977,7 @@ static inline void vbx_acc_3D_SVHHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned
 	}
 }
 
-static inline void vbx_acc_3D_SVHW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_half_t *v_in2 )
+static inline void vbx_acc_3D_SVHW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -34751,7 +52064,94 @@ static inline void vbx_acc_3D_SVHW( vinstr_t v_op, vbx_word_t *v_out, int s_in1,
 	}
 }
 
-static inline void vbx_acc_3D_SVHWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int s_in1, vbx_uhalf_t *v_in2 )
+static inline void vbx_acc_3D_SVHWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_half_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_3D( SVHWS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_3D( SVHWS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_3D( SVHWS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_3D( SVHWS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_3D( SVHWS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_3D( SVHWS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_3D( SVHWS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_3D( SVHWS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_3D( SVHWS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_3D( SVHWS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_3D( SVHWS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_3D( SVHWS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_3D( SVHWS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_3D( SVHWS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_3D( SVHWS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_3D( SVHWS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_3D( SVHWS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_3D( SVHWS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_3D( SVHWS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_3D( SVHWS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_3D( SVHWS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_3D( SVHWS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_3D( SVHWS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_3D( SVHWS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_3D( SVHWS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_3D( SVHWS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_3D_SVHWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t s_in1, vbx_uhalf_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -34838,7 +52238,7 @@ static inline void vbx_acc_3D_SVHWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned
 	}
 }
 
-static inline void vbx_acc_3D_SVWB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_word_t *v_in2 )
+static inline void vbx_acc_3D_SVWB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -34925,7 +52325,94 @@ static inline void vbx_acc_3D_SVWB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1,
 	}
 }
 
-static inline void vbx_acc_3D_SVWBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_in1, vbx_uword_t *v_in2 )
+static inline void vbx_acc_3D_SVWBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_3D( SVWBS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_3D( SVWBS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_3D( SVWBS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_3D( SVWBS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_3D( SVWBS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_3D( SVWBS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_3D( SVWBS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_3D( SVWBS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_3D( SVWBS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_3D( SVWBS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_3D( SVWBS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_3D( SVWBS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_3D( SVWBS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_3D( SVWBS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_3D( SVWBS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_3D( SVWBS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_3D( SVWBS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_3D( SVWBS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_3D( SVWBS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_3D( SVWBS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_3D( SVWBS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_3D( SVWBS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_3D( SVWBS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_3D( SVWBS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_3D( SVWBS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_3D( SVWBS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_3D_SVWBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t s_in1, vbx_uword_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -35012,7 +52499,7 @@ static inline void vbx_acc_3D_SVWBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned
 	}
 }
 
-static inline void vbx_acc_3D_SVWH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_word_t *v_in2 )
+static inline void vbx_acc_3D_SVWH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -35099,7 +52586,94 @@ static inline void vbx_acc_3D_SVWH( vinstr_t v_op, vbx_half_t *v_out, int s_in1,
 	}
 }
 
-static inline void vbx_acc_3D_SVWHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_in1, vbx_uword_t *v_in2 )
+static inline void vbx_acc_3D_SVWHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_3D( SVWHS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_3D( SVWHS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_3D( SVWHS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_3D( SVWHS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_3D( SVWHS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_3D( SVWHS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_3D( SVWHS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_3D( SVWHS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_3D( SVWHS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_3D( SVWHS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_3D( SVWHS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_3D( SVWHS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_3D( SVWHS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_3D( SVWHS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_3D( SVWHS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_3D( SVWHS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_3D( SVWHS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_3D( SVWHS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_3D( SVWHS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_3D( SVWHS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_3D( SVWHS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_3D( SVWHS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_3D( SVWHS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_3D( SVWHS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_3D( SVWHS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_3D( SVWHS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_3D_SVWHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uword_t s_in1, vbx_uword_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -35186,7 +52760,7 @@ static inline void vbx_acc_3D_SVWHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned
 	}
 }
 
-static inline void vbx_acc_3D_SVW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_word_t *v_in2 )
+static inline void vbx_acc_3D_SVW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -35273,7 +52847,7 @@ static inline void vbx_acc_3D_SVW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, 
 	}
 }
 
-static inline void vbx_acc_3D_SVWW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_word_t *v_in2 )
+static inline void vbx_acc_3D_SVWW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -35360,7 +52934,181 @@ static inline void vbx_acc_3D_SVWW( vinstr_t v_op, vbx_word_t *v_out, int s_in1,
 	}
 }
 
-static inline void vbx_acc_3D_SVWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int s_in1, vbx_uword_t *v_in2 )
+static inline void vbx_acc_3D_SVWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_3D( SVWS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_3D( SVWS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_3D( SVWS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_3D( SVWS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_3D( SVWS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_3D( SVWS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_3D( SVWS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_3D( SVWS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_3D( SVWS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_3D( SVWS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_3D( SVWS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_3D( SVWS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_3D( SVWS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_3D( SVWS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_3D( SVWS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_3D( SVWS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_3D( SVWS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_3D( SVWS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_3D( SVWS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_3D( SVWS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_3D( SVWS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_3D( SVWS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_3D( SVWS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_3D( SVWS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_3D( SVWS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_3D( SVWS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_3D_SVWWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_word_t *v_in2 )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_3D( SVWS, VADD, v_out, s_in1, v_in2 );
+		break;
+	case VSUB:
+		vbxasm_acc_3D( SVWS, VSUB, v_out, s_in1, v_in2 );
+		break;
+	case VADDC:
+		vbxasm_acc_3D( SVWS, VADDC, v_out, s_in1, v_in2 );
+		break;
+	case VSUBB:
+		vbxasm_acc_3D( SVWS, VSUBB, v_out, s_in1, v_in2 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_3D( SVWS, VABSDIFF, v_out, s_in1, v_in2 );
+		break;
+	case VMUL:
+		vbxasm_acc_3D( SVWS, VMUL, v_out, s_in1, v_in2 );
+		break;
+	case VMULHI:
+		vbxasm_acc_3D( SVWS, VMULHI, v_out, s_in1, v_in2 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_3D( SVWS, VMULFXP, v_out, s_in1, v_in2 );
+		break;
+	case VAND:
+		vbxasm_acc_3D( SVWS, VAND, v_out, s_in1, v_in2 );
+		break;
+	case VOR:
+		vbxasm_acc_3D( SVWS, VOR, v_out, s_in1, v_in2 );
+		break;
+	case VXOR:
+		vbxasm_acc_3D( SVWS, VXOR, v_out, s_in1, v_in2 );
+		break;
+	case VSHL:
+		vbxasm_acc_3D( SVWS, VSHL, v_out, s_in1, v_in2 );
+		break;
+	case VSHR:
+		vbxasm_acc_3D( SVWS, VSHR, v_out, s_in1, v_in2 );
+		break;
+	case VROTL:
+		vbxasm_acc_3D( SVWS, VROTL, v_out, s_in1, v_in2 );
+		break;
+	case VROTR:
+		vbxasm_acc_3D( SVWS, VROTR, v_out, s_in1, v_in2 );
+		break;
+	case VMOV:
+		vbxasm_acc_3D( SVWS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_3D( SVWS, VCMV_LEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_3D( SVWS, VCMV_GTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_3D( SVWS, VCMV_LTZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_3D( SVWS, VCMV_GEZ, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_3D( SVWS, VCMV_Z, v_out, s_in1, v_in2 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_3D( SVWS, VCMV_NZ, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_3D( SVWS, VCUSTOM0, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_3D( SVWS, VCUSTOM1, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_3D( SVWS, VCUSTOM2, v_out, s_in1, v_in2 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_3D( SVWS, VCUSTOM3, v_out, s_in1, v_in2 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_3D_SVWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t s_in1, vbx_uword_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -35447,7 +53195,7 @@ static inline void vbx_acc_3D_SVWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned 
 	}
 }
 
-static inline void vbx_acc_3D_SVWWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int s_in1, vbx_uword_t *v_in2 )
+static inline void vbx_acc_3D_SVWWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t s_in1, vbx_uword_t *v_in2 )
 {
 	switch(v_op)
 	{
@@ -35702,6 +53450,180 @@ static inline void vbx_acc_3D_VEBB( vinstr_t v_op, vbx_byte_t *v_out, vbx_byte_t
 		break;
 	case VCUSTOM3:
 		vbxasm_acc_3D( VEB, VCUSTOM3, v_out, v_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_3D_VEBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_byte_t *v_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_3D( VEBS, VADD, v_out, v_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_acc_3D( VEBS, VSUB, v_out, v_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_acc_3D( VEBS, VADDC, v_out, v_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_acc_3D( VEBS, VSUBB, v_out, v_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_3D( VEBS, VABSDIFF, v_out, v_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_acc_3D( VEBS, VMUL, v_out, v_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_acc_3D( VEBS, VMULHI, v_out, v_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_3D( VEBS, VMULFXP, v_out, v_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_acc_3D( VEBS, VAND, v_out, v_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_acc_3D( VEBS, VOR, v_out, v_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_acc_3D( VEBS, VXOR, v_out, v_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_acc_3D( VEBS, VSHL, v_out, v_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_acc_3D( VEBS, VSHR, v_out, v_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_acc_3D( VEBS, VROTL, v_out, v_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_acc_3D( VEBS, VROTR, v_out, v_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_acc_3D( VEBS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_3D( VEBS, VCMV_LEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_3D( VEBS, VCMV_GTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_3D( VEBS, VCMV_LTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_3D( VEBS, VCMV_GEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_3D( VEBS, VCMV_Z, v_out, v_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_3D( VEBS, VCMV_NZ, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_3D( VEBS, VCUSTOM0, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_3D( VEBS, VCUSTOM1, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_3D( VEBS, VCUSTOM2, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_3D( VEBS, VCUSTOM3, v_out, v_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_3D_VEBBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_byte_t *v_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_3D( VEBS, VADD, v_out, v_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_acc_3D( VEBS, VSUB, v_out, v_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_acc_3D( VEBS, VADDC, v_out, v_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_acc_3D( VEBS, VSUBB, v_out, v_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_3D( VEBS, VABSDIFF, v_out, v_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_acc_3D( VEBS, VMUL, v_out, v_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_acc_3D( VEBS, VMULHI, v_out, v_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_3D( VEBS, VMULFXP, v_out, v_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_acc_3D( VEBS, VAND, v_out, v_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_acc_3D( VEBS, VOR, v_out, v_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_acc_3D( VEBS, VXOR, v_out, v_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_acc_3D( VEBS, VSHL, v_out, v_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_acc_3D( VEBS, VSHR, v_out, v_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_acc_3D( VEBS, VROTL, v_out, v_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_acc_3D( VEBS, VROTR, v_out, v_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_acc_3D( VEBS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_3D( VEBS, VCMV_LEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_3D( VEBS, VCMV_GTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_3D( VEBS, VCMV_LTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_3D( VEBS, VCMV_GEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_3D( VEBS, VCMV_Z, v_out, v_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_3D( VEBS, VCMV_NZ, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_3D( VEBS, VCUSTOM0, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_3D( VEBS, VCUSTOM1, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_3D( VEBS, VCUSTOM2, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_3D( VEBS, VCUSTOM3, v_out, v_in1, 0 );
 		break;
 	default:
 		break;
@@ -36056,6 +53978,180 @@ static inline void vbx_acc_3D_VEHH( vinstr_t v_op, vbx_half_t *v_out, vbx_half_t
 	}
 }
 
+static inline void vbx_acc_3D_VEHS( vinstr_t v_op, vbx_half_t *v_out, vbx_half_t *v_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_3D( VEHS, VADD, v_out, v_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_acc_3D( VEHS, VSUB, v_out, v_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_acc_3D( VEHS, VADDC, v_out, v_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_acc_3D( VEHS, VSUBB, v_out, v_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_3D( VEHS, VABSDIFF, v_out, v_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_acc_3D( VEHS, VMUL, v_out, v_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_acc_3D( VEHS, VMULHI, v_out, v_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_3D( VEHS, VMULFXP, v_out, v_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_acc_3D( VEHS, VAND, v_out, v_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_acc_3D( VEHS, VOR, v_out, v_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_acc_3D( VEHS, VXOR, v_out, v_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_acc_3D( VEHS, VSHL, v_out, v_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_acc_3D( VEHS, VSHR, v_out, v_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_acc_3D( VEHS, VROTL, v_out, v_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_acc_3D( VEHS, VROTR, v_out, v_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_acc_3D( VEHS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_3D( VEHS, VCMV_LEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_3D( VEHS, VCMV_GTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_3D( VEHS, VCMV_LTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_3D( VEHS, VCMV_GEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_3D( VEHS, VCMV_Z, v_out, v_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_3D( VEHS, VCMV_NZ, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_3D( VEHS, VCUSTOM0, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_3D( VEHS, VCUSTOM1, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_3D( VEHS, VCUSTOM2, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_3D( VEHS, VCUSTOM3, v_out, v_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_3D_VEHHS( vinstr_t v_op, vbx_half_t *v_out, vbx_half_t *v_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_3D( VEHS, VADD, v_out, v_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_acc_3D( VEHS, VSUB, v_out, v_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_acc_3D( VEHS, VADDC, v_out, v_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_acc_3D( VEHS, VSUBB, v_out, v_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_3D( VEHS, VABSDIFF, v_out, v_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_acc_3D( VEHS, VMUL, v_out, v_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_acc_3D( VEHS, VMULHI, v_out, v_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_3D( VEHS, VMULFXP, v_out, v_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_acc_3D( VEHS, VAND, v_out, v_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_acc_3D( VEHS, VOR, v_out, v_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_acc_3D( VEHS, VXOR, v_out, v_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_acc_3D( VEHS, VSHL, v_out, v_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_acc_3D( VEHS, VSHR, v_out, v_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_acc_3D( VEHS, VROTL, v_out, v_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_acc_3D( VEHS, VROTR, v_out, v_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_acc_3D( VEHS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_3D( VEHS, VCMV_LEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_3D( VEHS, VCMV_GTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_3D( VEHS, VCMV_LTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_3D( VEHS, VCMV_GEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_3D( VEHS, VCMV_Z, v_out, v_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_3D( VEHS, VCMV_NZ, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_3D( VEHS, VCUSTOM0, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_3D( VEHS, VCUSTOM1, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_3D( VEHS, VCUSTOM2, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_3D( VEHS, VCUSTOM3, v_out, v_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_acc_3D_VEHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uhalf_t *v_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
@@ -36404,6 +54500,180 @@ static inline void vbx_acc_3D_VEWW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t
 	}
 }
 
+static inline void vbx_acc_3D_VEWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t *v_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_3D( VEWS, VADD, v_out, v_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_acc_3D( VEWS, VSUB, v_out, v_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_acc_3D( VEWS, VADDC, v_out, v_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_acc_3D( VEWS, VSUBB, v_out, v_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_3D( VEWS, VABSDIFF, v_out, v_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_acc_3D( VEWS, VMUL, v_out, v_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_acc_3D( VEWS, VMULHI, v_out, v_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_3D( VEWS, VMULFXP, v_out, v_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_acc_3D( VEWS, VAND, v_out, v_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_acc_3D( VEWS, VOR, v_out, v_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_acc_3D( VEWS, VXOR, v_out, v_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_acc_3D( VEWS, VSHL, v_out, v_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_acc_3D( VEWS, VSHR, v_out, v_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_acc_3D( VEWS, VROTL, v_out, v_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_acc_3D( VEWS, VROTR, v_out, v_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_acc_3D( VEWS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_3D( VEWS, VCMV_LEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_3D( VEWS, VCMV_GTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_3D( VEWS, VCMV_LTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_3D( VEWS, VCMV_GEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_3D( VEWS, VCMV_Z, v_out, v_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_3D( VEWS, VCMV_NZ, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_3D( VEWS, VCUSTOM0, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_3D( VEWS, VCUSTOM1, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_3D( VEWS, VCUSTOM2, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_3D( VEWS, VCUSTOM3, v_out, v_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_3D_VEWWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t *v_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_3D( VEWS, VADD, v_out, v_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_acc_3D( VEWS, VSUB, v_out, v_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_acc_3D( VEWS, VADDC, v_out, v_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_acc_3D( VEWS, VSUBB, v_out, v_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_3D( VEWS, VABSDIFF, v_out, v_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_acc_3D( VEWS, VMUL, v_out, v_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_acc_3D( VEWS, VMULHI, v_out, v_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_3D( VEWS, VMULFXP, v_out, v_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_acc_3D( VEWS, VAND, v_out, v_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_acc_3D( VEWS, VOR, v_out, v_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_acc_3D( VEWS, VXOR, v_out, v_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_acc_3D( VEWS, VSHL, v_out, v_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_acc_3D( VEWS, VSHR, v_out, v_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_acc_3D( VEWS, VROTL, v_out, v_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_acc_3D( VEWS, VROTR, v_out, v_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_acc_3D( VEWS, VMOV, v_out, v_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_3D( VEWS, VCMV_LEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_3D( VEWS, VCMV_GTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_3D( VEWS, VCMV_LTZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_3D( VEWS, VCMV_GEZ, v_out, v_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_3D( VEWS, VCMV_Z, v_out, v_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_3D( VEWS, VCMV_NZ, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_3D( VEWS, VCUSTOM0, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_3D( VEWS, VCUSTOM1, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_3D( VEWS, VCUSTOM2, v_out, v_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_3D( VEWS, VCUSTOM3, v_out, v_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
 static inline void vbx_acc_3D_VEWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t *v_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
@@ -36578,7 +54848,7 @@ static inline void vbx_acc_3D_VEWWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uwor
 	}
 }
 
-static inline void vbx_acc_3D_SEB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_acc_3D_SEB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -36665,7 +54935,7 @@ static inline void vbx_acc_3D_SEB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, 
 	}
 }
 
-static inline void vbx_acc_3D_SEBB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_acc_3D_SEBB( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -36752,7 +55022,181 @@ static inline void vbx_acc_3D_SEBB( vinstr_t v_op, vbx_byte_t *v_out, int s_in1,
 	}
 }
 
-static inline void vbx_acc_3D_SEBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_acc_3D_SEBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_3D( SEBS, VADD, v_out, s_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_acc_3D( SEBS, VSUB, v_out, s_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_acc_3D( SEBS, VADDC, v_out, s_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_acc_3D( SEBS, VSUBB, v_out, s_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_3D( SEBS, VABSDIFF, v_out, s_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_acc_3D( SEBS, VMUL, v_out, s_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_acc_3D( SEBS, VMULHI, v_out, s_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_3D( SEBS, VMULFXP, v_out, s_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_acc_3D( SEBS, VAND, v_out, s_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_acc_3D( SEBS, VOR, v_out, s_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_acc_3D( SEBS, VXOR, v_out, s_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_acc_3D( SEBS, VSHL, v_out, s_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_acc_3D( SEBS, VSHR, v_out, s_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_acc_3D( SEBS, VROTL, v_out, s_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_acc_3D( SEBS, VROTR, v_out, s_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_acc_3D( SEBS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_3D( SEBS, VCMV_LEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_3D( SEBS, VCMV_GTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_3D( SEBS, VCMV_LTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_3D( SEBS, VCMV_GEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_3D( SEBS, VCMV_Z, v_out, s_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_3D( SEBS, VCMV_NZ, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_3D( SEBS, VCUSTOM0, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_3D( SEBS, VCUSTOM1, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_3D( SEBS, VCUSTOM2, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_3D( SEBS, VCUSTOM3, v_out, s_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_3D_SEBBS( vinstr_t v_op, vbx_byte_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_3D( SEBS, VADD, v_out, s_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_acc_3D( SEBS, VSUB, v_out, s_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_acc_3D( SEBS, VADDC, v_out, s_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_acc_3D( SEBS, VSUBB, v_out, s_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_3D( SEBS, VABSDIFF, v_out, s_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_acc_3D( SEBS, VMUL, v_out, s_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_acc_3D( SEBS, VMULHI, v_out, s_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_3D( SEBS, VMULFXP, v_out, s_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_acc_3D( SEBS, VAND, v_out, s_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_acc_3D( SEBS, VOR, v_out, s_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_acc_3D( SEBS, VXOR, v_out, s_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_acc_3D( SEBS, VSHL, v_out, s_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_acc_3D( SEBS, VSHR, v_out, s_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_acc_3D( SEBS, VROTL, v_out, s_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_acc_3D( SEBS, VROTR, v_out, s_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_acc_3D( SEBS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_3D( SEBS, VCMV_LEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_3D( SEBS, VCMV_GTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_3D( SEBS, VCMV_LTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_3D( SEBS, VCMV_GEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_3D( SEBS, VCMV_Z, v_out, s_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_3D( SEBS, VCMV_NZ, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_3D( SEBS, VCUSTOM0, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_3D( SEBS, VCUSTOM1, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_3D( SEBS, VCUSTOM2, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_3D( SEBS, VCUSTOM3, v_out, s_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_3D_SEBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -36839,7 +55283,7 @@ static inline void vbx_acc_3D_SEBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned 
 	}
 }
 
-static inline void vbx_acc_3D_SEBBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_acc_3D_SEBBU( vinstr_t v_op, vbx_ubyte_t *v_out, vbx_uword_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -36926,7 +55370,7 @@ static inline void vbx_acc_3D_SEBBU( vinstr_t v_op, vbx_ubyte_t *v_out, unsigned
 	}
 }
 
-static inline void vbx_acc_3D_SEH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_acc_3D_SEH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -37013,7 +55457,7 @@ static inline void vbx_acc_3D_SEH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, 
 	}
 }
 
-static inline void vbx_acc_3D_SEHH( vinstr_t v_op, vbx_half_t *v_out, int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_acc_3D_SEHH( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -37100,7 +55544,181 @@ static inline void vbx_acc_3D_SEHH( vinstr_t v_op, vbx_half_t *v_out, int s_in1,
 	}
 }
 
-static inline void vbx_acc_3D_SEHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_acc_3D_SEHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_3D( SEHS, VADD, v_out, s_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_acc_3D( SEHS, VSUB, v_out, s_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_acc_3D( SEHS, VADDC, v_out, s_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_acc_3D( SEHS, VSUBB, v_out, s_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_3D( SEHS, VABSDIFF, v_out, s_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_acc_3D( SEHS, VMUL, v_out, s_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_acc_3D( SEHS, VMULHI, v_out, s_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_3D( SEHS, VMULFXP, v_out, s_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_acc_3D( SEHS, VAND, v_out, s_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_acc_3D( SEHS, VOR, v_out, s_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_acc_3D( SEHS, VXOR, v_out, s_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_acc_3D( SEHS, VSHL, v_out, s_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_acc_3D( SEHS, VSHR, v_out, s_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_acc_3D( SEHS, VROTL, v_out, s_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_acc_3D( SEHS, VROTR, v_out, s_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_acc_3D( SEHS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_3D( SEHS, VCMV_LEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_3D( SEHS, VCMV_GTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_3D( SEHS, VCMV_LTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_3D( SEHS, VCMV_GEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_3D( SEHS, VCMV_Z, v_out, s_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_3D( SEHS, VCMV_NZ, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_3D( SEHS, VCUSTOM0, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_3D( SEHS, VCUSTOM1, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_3D( SEHS, VCUSTOM2, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_3D( SEHS, VCUSTOM3, v_out, s_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_3D_SEHHS( vinstr_t v_op, vbx_half_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_3D( SEHS, VADD, v_out, s_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_acc_3D( SEHS, VSUB, v_out, s_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_acc_3D( SEHS, VADDC, v_out, s_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_acc_3D( SEHS, VSUBB, v_out, s_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_3D( SEHS, VABSDIFF, v_out, s_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_acc_3D( SEHS, VMUL, v_out, s_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_acc_3D( SEHS, VMULHI, v_out, s_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_3D( SEHS, VMULFXP, v_out, s_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_acc_3D( SEHS, VAND, v_out, s_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_acc_3D( SEHS, VOR, v_out, s_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_acc_3D( SEHS, VXOR, v_out, s_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_acc_3D( SEHS, VSHL, v_out, s_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_acc_3D( SEHS, VSHR, v_out, s_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_acc_3D( SEHS, VROTL, v_out, s_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_acc_3D( SEHS, VROTR, v_out, s_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_acc_3D( SEHS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_3D( SEHS, VCMV_LEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_3D( SEHS, VCMV_GTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_3D( SEHS, VCMV_LTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_3D( SEHS, VCMV_GEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_3D( SEHS, VCMV_Z, v_out, s_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_3D( SEHS, VCMV_NZ, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_3D( SEHS, VCUSTOM0, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_3D( SEHS, VCUSTOM1, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_3D( SEHS, VCUSTOM2, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_3D( SEHS, VCUSTOM3, v_out, s_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_3D_SEHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uword_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -37187,7 +55805,7 @@ static inline void vbx_acc_3D_SEHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned 
 	}
 }
 
-static inline void vbx_acc_3D_SEHHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_acc_3D_SEHHU( vinstr_t v_op, vbx_uhalf_t *v_out, vbx_uword_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -37274,7 +55892,7 @@ static inline void vbx_acc_3D_SEHHU( vinstr_t v_op, vbx_uhalf_t *v_out, unsigned
 	}
 }
 
-static inline void vbx_acc_3D_SEW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_acc_3D_SEW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -37361,7 +55979,7 @@ static inline void vbx_acc_3D_SEW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, 
 	}
 }
 
-static inline void vbx_acc_3D_SEWW( vinstr_t v_op, vbx_word_t *v_out, int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_acc_3D_SEWW( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -37448,7 +56066,181 @@ static inline void vbx_acc_3D_SEWW( vinstr_t v_op, vbx_word_t *v_out, int s_in1,
 	}
 }
 
-static inline void vbx_acc_3D_SEWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_acc_3D_SEWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_3D( SEWS, VADD, v_out, s_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_acc_3D( SEWS, VSUB, v_out, s_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_acc_3D( SEWS, VADDC, v_out, s_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_acc_3D( SEWS, VSUBB, v_out, s_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_3D( SEWS, VABSDIFF, v_out, s_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_acc_3D( SEWS, VMUL, v_out, s_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_acc_3D( SEWS, VMULHI, v_out, s_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_3D( SEWS, VMULFXP, v_out, s_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_acc_3D( SEWS, VAND, v_out, s_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_acc_3D( SEWS, VOR, v_out, s_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_acc_3D( SEWS, VXOR, v_out, s_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_acc_3D( SEWS, VSHL, v_out, s_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_acc_3D( SEWS, VSHR, v_out, s_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_acc_3D( SEWS, VROTL, v_out, s_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_acc_3D( SEWS, VROTR, v_out, s_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_acc_3D( SEWS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_3D( SEWS, VCMV_LEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_3D( SEWS, VCMV_GTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_3D( SEWS, VCMV_LTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_3D( SEWS, VCMV_GEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_3D( SEWS, VCMV_Z, v_out, s_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_3D( SEWS, VCMV_NZ, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_3D( SEWS, VCUSTOM0, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_3D( SEWS, VCUSTOM1, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_3D( SEWS, VCUSTOM2, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_3D( SEWS, VCUSTOM3, v_out, s_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_3D_SEWWS( vinstr_t v_op, vbx_word_t *v_out, vbx_word_t s_in1, vbx_enum_t *v_enum )
+{
+	switch(v_op)
+	{
+	case VADD:
+		vbxasm_acc_3D( SEWS, VADD, v_out, s_in1, 0 );
+		break;
+	case VSUB:
+		vbxasm_acc_3D( SEWS, VSUB, v_out, s_in1, 0 );
+		break;
+	case VADDC:
+		vbxasm_acc_3D( SEWS, VADDC, v_out, s_in1, 0 );
+		break;
+	case VSUBB:
+		vbxasm_acc_3D( SEWS, VSUBB, v_out, s_in1, 0 );
+		break;
+	case VABSDIFF:
+		vbxasm_acc_3D( SEWS, VABSDIFF, v_out, s_in1, 0 );
+		break;
+	case VMUL:
+		vbxasm_acc_3D( SEWS, VMUL, v_out, s_in1, 0 );
+		break;
+	case VMULHI:
+		vbxasm_acc_3D( SEWS, VMULHI, v_out, s_in1, 0 );
+		break;
+	case VMULFXP:
+		vbxasm_acc_3D( SEWS, VMULFXP, v_out, s_in1, 0 );
+		break;
+	case VAND:
+		vbxasm_acc_3D( SEWS, VAND, v_out, s_in1, 0 );
+		break;
+	case VOR:
+		vbxasm_acc_3D( SEWS, VOR, v_out, s_in1, 0 );
+		break;
+	case VXOR:
+		vbxasm_acc_3D( SEWS, VXOR, v_out, s_in1, 0 );
+		break;
+	case VSHL:
+		vbxasm_acc_3D( SEWS, VSHL, v_out, s_in1, 0 );
+		break;
+	case VSHR:
+		vbxasm_acc_3D( SEWS, VSHR, v_out, s_in1, 0 );
+		break;
+	case VROTL:
+		vbxasm_acc_3D( SEWS, VROTL, v_out, s_in1, 0 );
+		break;
+	case VROTR:
+		vbxasm_acc_3D( SEWS, VROTR, v_out, s_in1, 0 );
+		break;
+	case VMOV:
+		vbxasm_acc_3D( SEWS, VMOV, v_out, s_in1, 0 );
+		break;
+	case VCMV_LEZ:
+		vbxasm_acc_3D( SEWS, VCMV_LEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GTZ:
+		vbxasm_acc_3D( SEWS, VCMV_GTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_LTZ:
+		vbxasm_acc_3D( SEWS, VCMV_LTZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_GEZ:
+		vbxasm_acc_3D( SEWS, VCMV_GEZ, v_out, s_in1, 0 );
+		break;
+	case VCMV_Z:
+		vbxasm_acc_3D( SEWS, VCMV_Z, v_out, s_in1, 0 );
+		break;
+	case VCMV_NZ:
+		vbxasm_acc_3D( SEWS, VCMV_NZ, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM0:
+		vbxasm_acc_3D( SEWS, VCUSTOM0, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM1:
+		vbxasm_acc_3D( SEWS, VCUSTOM1, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM2:
+		vbxasm_acc_3D( SEWS, VCUSTOM2, v_out, s_in1, 0 );
+		break;
+	case VCUSTOM3:
+		vbxasm_acc_3D( SEWS, VCUSTOM3, v_out, s_in1, 0 );
+		break;
+	default:
+		break;
+	}
+}
+
+static inline void vbx_acc_3D_SEWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{
@@ -37535,7 +56327,7 @@ static inline void vbx_acc_3D_SEWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned 
 	}
 }
 
-static inline void vbx_acc_3D_SEWWU( vinstr_t v_op, vbx_uword_t *v_out, unsigned int s_in1, vbx_enum_t *v_enum )
+static inline void vbx_acc_3D_SEWWU( vinstr_t v_op, vbx_uword_t *v_out, vbx_uword_t s_in1, vbx_enum_t *v_enum )
 {
 	switch(v_op)
 	{

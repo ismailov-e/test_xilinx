@@ -43,5 +43,6 @@ FMC_IMAGEON_Tutorial/repository/ProcessorIPLib/sw_services/fmc_imageon_sw_v1_07_
 For the same reasons, the contents of
 FMC_IMAGEON_Tutorial/repository/ProcessorIPLib/sw_services/fmc_iic_sw_v2_03_a/ and
 FMC_IMAGEON_Tutorial/repository/ProcessorIPLib/sw_services/fmc_imageon_sw_v1_07_a/
-are not included in the BSPs of the pre-built systems.
+are not included in the BSPs of the pre-built systems, but the BSP library is already
+compiled and you will probably not need to recompile it.
 

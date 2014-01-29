@@ -1,6 +1,6 @@
 /* VECTORBLOX MXP SOFTWARE DEVELOPMENT KIT
  *
- * Copyright (C) 2012-2013 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
+ * Copyright (C) 2012-2014 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -330,7 +330,7 @@ void test_init_matrix_half( int16_t *d, int height, int width, int seed)
 
 	for(j=0; j<height; j++) {
 		for(i=0; i<width; i++) {
-			d[j*width+i] = lfsr & 0xFF;
+			d[j*width+i] = lfsr & 0xFFFF;
 			lfsr = lfsr_32(lfsr);
 		}
 	}
@@ -438,7 +438,7 @@ void test_init_matrix_word( int32_t *d, int height, int width, int seed)
 
 	for(j=0; j<height; j++) {
 		for(i=0; i<width; i++) {
-			d[j*width+i] = lfsr & 0xFF;
+			d[j*width+i] = lfsr & 0xFFFFFF;
 			lfsr = lfsr_32(lfsr);
 		}
 	}
@@ -654,7 +654,7 @@ void test_init_matrix_uhalf( uint16_t *d, int height, int width, int seed)
 
 	for(j=0; j<height; j++) {
 		for(i=0; i<width; i++) {
-			d[j*width+i] = lfsr & 0xFF;
+			d[j*width+i] = lfsr & 0xFFFF;
 			lfsr = lfsr_32(lfsr);
 		}
 	}
@@ -762,7 +762,7 @@ void test_init_matrix_uword( uint32_t *d, int height, int width, int seed)
 
 	for(j=0; j<height; j++) {
 		for(i=0; i<width; i++) {
-			d[j*width+i] = lfsr & 0xFF;
+			d[j*width+i] = lfsr & 0xFFFFFF;
 			lfsr = lfsr_32(lfsr);
 		}
 	}
@@ -913,11 +913,11 @@ int vbx_zynq_remap_ddr_uncached()
 	// 512MB in range 0x8000_0000 to 0x9fff_ffff.
 	for (addr = 0x80000000; addr < 0xa0000000; addr += 0x100000) {
 		// Index into translation table
-        section = addr / 0x100000;
-        ptr = &MMUTable + section;
-        // Map to physical addresses in range 0x0 to 0x1fff_ffff,
-        // i.e. clear bit 31.
-        *ptr = (addr & 0x7FF00000) | attrib;
+		section = addr / 0x100000;
+		ptr = &MMUTable + section;
+		// Map to physical addresses in range 0x0 to 0x1fff_ffff,
+		// i.e. clear bit 31.
+		*ptr = (addr & 0x7FF00000) | attrib;
 	}
 	dsb();
 
@@ -926,9 +926,9 @@ int vbx_zynq_remap_ddr_uncached()
 	mtcp(XREG_CP15_INVAL_BRANCH_ARRAY, 0);
 
 	dsb(); /* ensure completion of the BP and TLB invalidation */
-    isb(); /* synchronize context on this processor */
+	isb(); /* synchronize context on this processor */
 
-    return XST_SUCCESS;
+	return XST_SUCCESS;
 }
 
 ///////////////////////////////////////////////////////////////////////////
@@ -1008,7 +1008,7 @@ int vbx_test_init()
 #else
 	status = XTmrCtr_Initialize(&vbx_test_tmr_inst, tmrctr_dev_id);
 	if (status != XST_SUCCESS) {
-		VBX_PRINTF("ERROR: XtmrCtr_Initialize failed.\n");
+		VBX_PRINTF("ERROR: XTmrCtr_Initialize failed.\n");
 		VBX_FATAL(__LINE__, __FILE__, -1);
 		// return XST_FAILURE;
 	}

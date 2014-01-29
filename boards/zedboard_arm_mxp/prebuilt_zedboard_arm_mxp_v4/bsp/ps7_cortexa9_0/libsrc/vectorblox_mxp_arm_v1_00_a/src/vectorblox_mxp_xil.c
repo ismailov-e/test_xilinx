@@ -1,6 +1,6 @@
 /* VECTORBLOX MXP SOFTWARE DEVELOPMENT KIT
  *
- * Copyright (C) 2012-2013 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
+ * Copyright (C) 2012-2014 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -80,6 +80,7 @@ int VectorBlox_MXP_Initialize(vbx_mxp_t* mxp, u16 device_id) {
 	mxp->scratchpad_size = (int) (cfg->scratchpad_kb * 1024);
 	mxp->dma_alignment_bytes = (short) (cfg->memory_width_bits / 8);
 	mxp->vector_lanes = (short) (cfg->vector_lanes);
+	mxp->vci_lanes = (short) (cfg->vci_lanes);
 	mxp->fxp_word_frac_bits = (char) (cfg->fxp_word_frac_bits);
 	mxp->fxp_half_frac_bits = (char) (cfg->fxp_half_frac_bits);
 	mxp->fxp_byte_frac_bits = (char) (cfg->fxp_byte_frac_bits);

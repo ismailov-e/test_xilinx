@@ -1,6 +1,6 @@
 /* VECTORBLOX MXP SOFTWARE DEVELOPMENT KIT
  *
- * Copyright (C) 2012-2013 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
+ * Copyright (C) 2012-2014 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -60,18 +60,18 @@ void vector_particle_vci_init()
 	int vci_lanes = this_mxp->vci_lanes;
 	int word_frac_bits = this_mxp->fxp_word_frac_bits;
 
-	g_custom_divide_offs = (32+1+word_frac_bits)*vci_lanes;
-
-	g_custom_sqrt_offs = 16*vci_lanes;
-
-#if DSPBA_FLOATING
-		g_full_ci_offs = (70+word_frac_bits)/2;
-#else
 #if __NIOS2__
-		g_full_ci_offs = (62+word_frac_bits)/2;
+#if DSPBA_FLOATING
+	g_full_ci_offs = (70+word_frac_bits)/2;
 #else
-		g_full_ci_offs = (94)/2;
+	g_full_ci_offs = (62+word_frac_bits)/2;
 #endif
+	g_custom_divide_offs = (32+1+word_frac_bits)*vci_lanes;
+	g_custom_sqrt_offs = 16*vci_lanes;
+#else //!__NIOS2__
+	g_full_ci_offs = (94)/2;
+	g_custom_divide_offs = (32+1+4+word_frac_bits)*vci_lanes; //TODO check offset works correctly
+	g_custom_sqrt_offs = (16+word_frac_bits/2+1)*vci_lanes; //TODO check offset works correctly
 #endif
 	vci_init_done = 1;
 }

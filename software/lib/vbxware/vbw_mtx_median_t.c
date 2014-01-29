@@ -1,6 +1,6 @@
 /* VECTORBLOX MXP SOFTWARE DEVELOPMENT KIT
  *
- * Copyright (C) 2012-2013 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
+ * Copyright (C) 2012-2014 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -64,13 +64,14 @@
  * @param[in] input.
  * @param[out] output.
  */
-void VBX_T(vbw_mtx_median)(vbx_mm_t *output, vbx_mm_t *input, const int filter_size, const int filter_height, const int filter_width, const int image_height, const int image_width)
+void VBX_T(vbw_mtx_median)(vbx_mm_t *output, vbx_mm_t *input, const short filter_height, const short filter_width, const short image_height, const short image_width, const short image_pitch)
 {
 	int l,k;
-	int filter_mid;
+	int filter_mid, filter_size;
 	int rows_per_l,vl,temp_vl;
 	int j,i;
 
+	filter_size = filter_height*filter_width;
 	filter_mid = filter_size/2;
 
 	vbx_mxp_t *this_mxp = VBX_GET_THIS_MXP();
@@ -107,13 +108,23 @@ void VBX_T(vbw_mtx_median)(vbx_mm_t *output, vbx_mm_t *input, const int filter_s
 			}
 
 			for(j = 0; j < filter_height; j++){
-				vbx_dma_to_vector(v_input+temp_vl*j,input+(l+j)*image_width+k,temp_vl*sizeof(vbx_mm_t));
+				/* vbx_dma_to_vector(v_input+temp_vl*j, */
+								  /* input+(l+j)*image_pitch+k, */
+								  /* temp_vl*sizeof(vbx_mm_t)); */
+				vbx_dma_to_vector_2D(v_input+temp_vl*j,
+									 input+(l+j)*image_pitch+k,
+									 temp_vl/rows_per_l*sizeof(vbx_mm_t),
+									 rows_per_l,
+									 image_width*sizeof(vbx_mm_t),
+									 image_pitch*sizeof(vbx_mm_t));
 			}
 			vbx_set_vl(temp_vl);
 
 			for(j = 1; j < filter_height; j++){
 				for(i = 0; i < filter_width; i++){
-					vbx(VV(T),VOR,v_input+(j*filter_height+i)*temp_vl,v_input+i*temp_vl+j,v_input+i*temp_vl+j);
+					vbx(VV(T),VMOV,v_input+(j*filter_height+i)*temp_vl,
+								  v_input+i*temp_vl+j,
+								  0);
 				}
 			}
 
@@ -124,7 +135,7 @@ void VBX_T(vbw_mtx_median)(vbx_mm_t *output, vbx_mm_t *input, const int filter_s
 				for(i = j+1; i < filter_size; i++){
 					v_max = v_input+i*temp_vl;
 
-					vbx(VV(T),VOR,v_temp,v_min,v_min);
+					vbx(VV(T),VMOV,v_temp,v_min,0);
 					vbx(VV(T),VSUB,v_sub,v_max,v_min);
 					vbx(VV(T),VCMV_LTZ,v_min,v_max,v_sub);
 					vbx(VV(T),VCMV_LTZ,v_max,v_temp,v_sub);
@@ -139,7 +150,15 @@ void VBX_T(vbw_mtx_median)(vbx_mm_t *output, vbx_mm_t *input, const int filter_s
 			}
 
 
-			vbx_dma_to_host(output+(l*image_width)+k,v_input+temp_vl*filter_mid,temp_vl*sizeof(vbx_mm_t));
+			/* vbx_dma_to_host(output+(l*image_pitch)+k, */
+							/* v_input+temp_vl*filter_mid, */
+							/* temp_vl*sizeof(vbx_mm_t)); */
+			vbx_dma_to_host_2D(output+(l*image_pitch)+k,
+							   v_input+temp_vl*filter_mid,
+							   temp_vl/rows_per_l*sizeof(vbx_mm_t),
+							   rows_per_l,
+							   image_pitch*sizeof(vbx_mm_t),
+							   image_width*sizeof(vbx_mm_t));
 		}
 	}
 

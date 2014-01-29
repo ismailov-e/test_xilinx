@@ -61,7 +61,7 @@ print_vars:
 $(OBJ_DIR)/%.o: %.c
 	@echo Building file: $<
 	@echo Invoking: gcc compiler
-	@mkdir -p $(@D)
+	@$(MKDIR) -p $(@D)
 	$(CC) $(CC_FLAGS) $(OPT_FLAGS) $(INC_DIR_FLAGS) $(CPU_FLAGS) \
 	    -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o"$@" "$<"
 	@echo Finished building: $<
@@ -90,11 +90,11 @@ $(ELFCHECK): $(ELF)
 .PHONY: pgm
 ifeq ($(CPU_TARGET),XIL_ARM)
 pgm:
-	cd $(PROJ_ROOT) ; xmd -tcl xmd_init.tcl
+	cd $(PROJ_ROOT) && xmd -tcl xmd_init.tcl
 else
 # cd $(PROJ_ROOT) ; $(MAKE) -f system.make download
 pgm:
-	cd $(PROJ_ROOT) ; impact -batch etc/download.cmd
+	cd $(PROJ_ROOT) && impact -batch etc/download.cmd
 endif
 
 # Don't know of a good way to pass PROJ_ROOT to xmd tcl script,
@@ -102,7 +102,7 @@ endif
 .PHONY: run
 ifeq ($(CPU_TARGET),XIL_ARM)
 run:
-	cd $(PROJ_ROOT) ; xmd -tcl xmd_reinit.tcl
+	cd $(PROJ_ROOT) && xmd -tcl xmd_reinit.tcl
 	xmd -tcl $(MAKEFILE_DIR)/xmd_arm.tcl
 else
 run:
@@ -150,3 +150,8 @@ $(LIB_CLEAN_TARGETS): %-recurs-make-clean-lib:
 endif
 
 ###########################################################################
+.PHONY : clean_all
+clean_all : clean clean_libs
+
+###########################################################################
+

@@ -1,6 +1,6 @@
 /* VECTORBLOX MXP SOFTWARE DEVELOPMENT KIT
  *
- * Copyright (C) 2012-2013 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
+ * Copyright (C) 2012-2014 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -55,14 +55,14 @@ static inline void vbw_sobel_3x3_row(vbx_uhalf_t *lpf, vbx_uhalf_t *raw, const s
 
 /** Luma Edge Detection.
  *
- * @usage 3x3 Sobel edge detection with 16-bit luma image
+ * @brief 3x3 Sobel edge detection with 16-bit luma image
  *
  * @param[in] input        16-bit luma input
  * @param[out] output       32-bit aRGB edge-intensity output
  * @param[in] image_width  input/output image width
  * @param[in] image_height input/output image height
  * @param[in] image_pitch  input/output image pitch
- *
+ * @param[in] renorm       amount to shift final gradient by
  * @retval 0 if successful; -1 if out of scratchpad memory
  */
 int vbw_sobel_luma16_3x3(unsigned *output, unsigned short *input, const short image_width, const short image_height, const short image_pitch, const short renorm)
@@ -94,21 +94,21 @@ int vbw_sobel_luma16_3x3(unsigned *output, unsigned short *input, const short im
 	}
 
 	// Transfer the first 3 input rows and interleave first 2 sobel row calculations
-	vbx_dma_to_vector_aligned(v_luma_top, input,                 image_width*sizeof(vbx_uhalf_t));
-	vbx_dma_to_vector_aligned(v_luma_mid, input +   image_pitch, image_width*sizeof(vbx_uhalf_t));
+	vbx_dma_to_vector(v_luma_top, input,                 image_width*sizeof(vbx_uhalf_t));
+	vbx_dma_to_vector(v_luma_mid, input +   image_pitch, image_width*sizeof(vbx_uhalf_t));
 	vbw_sobel_3x3_row(v_sobel_row_top, v_luma_top, image_width);
-	vbx_dma_to_vector_aligned(v_luma_bot, input + 2*image_pitch, image_width*sizeof(vbx_uhalf_t));
+	vbx_dma_to_vector(v_luma_bot, input + 2*image_pitch, image_width*sizeof(vbx_uhalf_t));
 	vbw_sobel_3x3_row(v_sobel_row_mid, v_luma_mid, image_width);
 
 	// Set top output row to 0
 	vbx_set_vl(image_width);
 	vbx(SVWU, VMOV, v_row_out, 0, 0);
-	vbx_dma_to_host_aligned(output, v_row_out, image_width*sizeof(vbx_uword_t));
+	vbx_dma_to_host(output, v_row_out, image_width*sizeof(vbx_uword_t));
 
 	// Calculate edges
 	for (y = 0; y < image_height-(FILTER_HEIGHT-1); y++) {
 		// Transfer the next input row while processing
-		vbx_dma_to_vector_aligned(v_luma_nxt, input + (y+FILTER_HEIGHT)*image_pitch, image_width*sizeof(vbx_uhalf_t));
+		vbx_dma_to_vector(v_luma_nxt, input + (y+FILTER_HEIGHT)*image_pitch, image_width*sizeof(vbx_uhalf_t));
 
 		// Start calculating gradient_x
 		vbx_set_vl(image_width);
@@ -147,7 +147,7 @@ int vbw_sobel_luma16_3x3(unsigned *output, unsigned short *input, const short im
 		vbx(SVHWU, VMULLO, v_row_out+1, 0x00010101, v_tmp);
 
 		// DMA the result to the output
-		vbx_dma_to_host_aligned(output+(y+1)*image_pitch, v_row_out, image_width*sizeof(vbx_uword_t));
+		vbx_dma_to_host(output+(y+1)*image_pitch, v_row_out, image_width*sizeof(vbx_uword_t));
 
 		// Rotate input row buffers
 		tmp_ptr      = (void *)v_luma_top;
@@ -166,7 +166,7 @@ int vbw_sobel_luma16_3x3(unsigned *output, unsigned short *input, const short im
 	// Set bottom row to 0
 	vbx_set_vl(image_width);
 	vbx(SVWU, VMOV, v_row_out, 0, 0);
-	vbx_dma_to_host_aligned(output+(image_height-1)*image_pitch, v_row_out, image_width*sizeof(vbx_uword_t));
+	vbx_dma_to_host(output+(image_height-1)*image_pitch, v_row_out, image_width*sizeof(vbx_uword_t));
 
 	vbx_sync();
 	vbx_sp_free();

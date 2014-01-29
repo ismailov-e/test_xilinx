@@ -1,6 +1,6 @@
 /* VECTORBLOX MXP SOFTWARE DEVELOPMENT KIT
  *
- * Copyright (C) 2012-2013 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
+ * Copyright (C) 2012-2014 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -36,13 +36,13 @@
  */
 
 /**
- * @defgroup Template
+ * @defgroup Template Template
  * @brief Template system for C
  * @ingroup VBXware 
  */
 /**
  * @file
- * @defgroup Template_header
+ * @defgroup Template_header Template header
  * @brief Template header
  * @ingroup Template 
  */

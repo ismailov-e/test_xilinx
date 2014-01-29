@@ -1,6 +1,6 @@
 /* VECTORBLOX MXP SOFTWARE DEVELOPMENT KIT
  *
- * Copyright (C) 2012-2013 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
+ * Copyright (C) 2012-2014 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -137,9 +137,6 @@ void draw_vblogo(pixel *bg, int vector);
 void display_logo(demo_t *pDemo, int uses_video_in, int vector_overlay);
 float time_to_ms(vbx_timestamp_t time);
 
-//In altera_demo.c
-void frame_writer_isr(void *isr_context);
-
 //In scalar_functions.c
 void scalar_draw_char(unsigned char char_to_draw, int startx, int starty, pixel *buffer);
 int scalar_overlay_printf(char *print_string, int startx, int starty, int max_length, pixel *buffer);
@@ -170,10 +167,11 @@ void init_hough(void);
 int scalar_hough(pixel *edge_buffer, pixel *output_buffer);
 
 //In motest.c
-void init_scalar_motest(pixel *input_buffer, int x, int y, const int image_width);
-int scalar_motest(pixel *input_buffer, const int image_width, const int image_height, const int image_pitch);
-void init_vector_motest(pixel *input_buffer, int x, int y, const int image_width);
-int vector_motest(pixel *input_buffer, const int image_width, const int image_height, const int image_pitch);
+typedef unsigned short luma_type;
+void init_scalar_motest(pixel *input_buffer, luma_type **last_luma, int *motest_x, int *motest_y, int x, int y, const int image_width);
+int scalar_motest(pixel *input_buffer, luma_type **last_luma, int *motest_x, int *motest_y, int start_x, int start_y, int reset, const int image_width, const int image_height, const int image_pitch);
+void init_vector_motest(pixel *input_buffer, luma_type **last_luma, int *motest_x, int *motest_y, int x, int y, const int image_width);
+int vector_motest(pixel *input_buffer, luma_type **last_luma, int *motest_x, int *motest_y, int start_x, int start_y, int reset, const int image_width, const int image_height, const int image_pitch);
 
 //In vector_haar_detect.c and scalar_haar_detect.c
 int scalar_face_detect_luma(unsigned short *input, pixel *output, const int image_width, const int image_height, const int image_pitch);

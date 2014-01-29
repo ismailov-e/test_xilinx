@@ -1,6 +1,6 @@
 /* VECTORBLOX MXP SOFTWARE DEVELOPMENT KIT
  *
- * Copyright (C) 2012-2013 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
+ * Copyright (C) 2012-2014 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -43,6 +43,8 @@ VBXCOPYRIGHT( demo )
 #include "repulse.h"
 #include "vbw_mtx_sobel.h"
 #include "scalar_mtx_sobel.h"
+#include "vbw_mtx_median_argb32.h"
+#include "scalar_mtx_median_argb32.h"
 
 void demo_title(char *board, const int image_width, const int image_height)
 {
@@ -112,7 +114,7 @@ void display_logo(demo_t *pDemo, int uses_video_in, int vector_overlay)
 
 int show_fps(int mode)
 {
-	if(mode == MODE_SCALAR_FACE_DETECT || mode == MODE_VECTOR_FACE_DETECT || 
+	if(mode == MODE_SCALAR_FACE_DETECT || mode == MODE_VECTOR_FACE_DETECT ||
 	   mode == MODE_SCALAR_EDGE_DETECT || mode == MODE_VECTOR_EDGE_DETECT ){
 		return 1;
 	}
@@ -120,7 +122,7 @@ int show_fps(int mode)
 	return 0;
 }
 
-int display_ms(demo_t *pDemo, char *strbuff_title, char *strbuff, int local_mode, float time, int x_string_loc, int uses_video_in, int vector_overlay, const int image_height) 
+int display_ms(demo_t *pDemo, char *strbuff_title, char *strbuff, int local_mode, float time, int x_string_loc, int uses_video_in, int vector_overlay, const int image_height)
 {
 	pixel *overlay_buffer = (uses_video_in) ?
 		(pixel *)pDemo->buffer[BUFFER_PROCESSING] :
@@ -265,21 +267,34 @@ void application_title(char *scalar_cpu, char *strbuff_title, int vector_lanes, 
 void application_init(demo_t *pDemo, int mode, int *switch_buffers_enable, int *uses_vector)
 {
 
-    if(mode == MODE_SCALAR_MANDEL || mode == MODE_VECTOR_MANDEL){
-        *switch_buffers_enable = 0;
-    }else{
-        *switch_buffers_enable = 1;
-    }
-    if(mode%2){
-        *uses_vector = 1;
-    }else{
-        *uses_vector = 0;
-    }
-    
+	if(mode == MODE_SCALAR_MANDEL || mode == MODE_VECTOR_MANDEL){
+		*switch_buffers_enable = 0;
+	}else{
+		*switch_buffers_enable = 1;
+	}
+	if(mode%2){
+		*uses_vector = 1;
+	}else{
+		*uses_vector = 0;
+	}
+
 }
 
 int application_run(demo_t *pDemo, int local_mode, int cycles, int *pgravity_x, int *pgravity_y, vbx_timestamp_t* frame_time, const int image_width, const int image_height)
 {
+	static int motest_count = 0;
+	static int mo_x1;
+	static int mo_y1;
+	static luma_type *last_luma1 = NULL;
+	static int mo_x2;
+	static int mo_y2;
+	static luma_type *last_luma2 = NULL;
+
+	int reset = 0;
+	if(!(motest_count%400)){
+		reset = 1;
+	}
+
 	int frame_status = 0;
 	vbx_timestamp_t time_start, time_stop;
 
@@ -289,14 +304,14 @@ int application_run(demo_t *pDemo, int local_mode, int cycles, int *pgravity_x, 
 	switch(local_mode){
 
 		case MODE_SCALAR_SPLIT:
-            //full screen
+			//full screen
 			if (!(cycles%LISSAJOUS_UPDATE_CYCLES)){
 				lissajous( pgravity_x, pgravity_y, cycles);
 			}
 			scalar_repulsion_demo((pixel *)pDemo->buffer[BUFFER_PROCESSING], *pgravity_x, *pgravity_y, image_width, image_height);
 			vector_draw_screen((pixel *)pDemo->buffer[BUFFER_PROCESSING], NUM_PARTICLES, 0, 0, 1, image_width, image_height, image_width);
 
-            //right
+			//right
 			scalar_rgb2luma( pDemo->short_buffer, (pixel *)pDemo->buffer[BUFFER_PROCESSING]+image_width/2, image_width/2, image_height, image_width);
 			scalar_sobel_argb32_3x3((pixel *)pDemo->buffer[BUFFER_PROCESSING]+image_width/2, pDemo->short_buffer, image_width/2, image_height, image_width, 0);
 
@@ -304,15 +319,15 @@ int application_run(demo_t *pDemo, int local_mode, int cycles, int *pgravity_x, 
 			frame_status = 0;
 			break;
 
-        case MODE_VECTOR_SPLIT:
-            //full-screen
+		case MODE_VECTOR_SPLIT:
+			//full-screen
 			if (!(cycles%LISSAJOUS_UPDATE_CYCLES)){
 				lissajous( pgravity_x, pgravity_y, cycles);
 			}
 			vector_repulsion_demo((pixel *)pDemo->buffer[BUFFER_PROCESSING], *pgravity_x, *pgravity_y, image_width, image_height);
 			vector_draw_screen((pixel *)pDemo->buffer[BUFFER_PROCESSING], NUM_PARTICLES, 0, 0, 1, image_width, image_height, image_width);
 
-            //right
+			//right
 			vbw_sobel_argb32_3x3((unsigned *)pDemo->buffer[BUFFER_PROCESSING]+image_width/2, (unsigned *)pDemo->buffer[BUFFER_PROCESSING]+image_width/2, image_width/2, image_height, image_width, 0);
 
 			time_stop = vbx_timestamp();
@@ -320,46 +335,56 @@ int application_run(demo_t *pDemo, int local_mode, int cycles, int *pgravity_x, 
 			break;
 
 		case MODE_SCALAR_MULTI:
-            //full screen
+			//full screen
 			if (!(cycles%LISSAJOUS_UPDATE_CYCLES)){
 				lissajous( pgravity_x, pgravity_y, cycles);
 			}
 			scalar_repulsion_demo((pixel *)pDemo->buffer[BUFFER_PROCESSING], *pgravity_x, *pgravity_y, image_width, image_height);
 			vector_draw_screen((pixel *)pDemo->buffer[BUFFER_PROCESSING], NUM_PARTICLES, 0, 0, 0, image_width, image_height, image_width);
 
-            //top-left
+			//top-left
 			scalar_rgb2luma( pDemo->short_buffer, (pixel *)pDemo->buffer[BUFFER_PROCESSING], image_width/2, image_height/2, image_width);
 			scalar_sobel_argb32_3x3((pixel *)pDemo->buffer[BUFFER_PROCESSING], pDemo->short_buffer, image_width/2, image_height/2, image_width, 0);
 
-            //top-right
-			scalar_motest((pixel *)pDemo->buffer[BUFFER_PROCESSING]+image_width/2, image_width/2, image_height/2, image_width);
+			//top-right
+			scalar_motest((pixel *)pDemo->buffer[BUFFER_PROCESSING]+image_width/2, &last_luma1, &mo_x1, &mo_y1, image_width/8*1, image_height/4, reset, image_width/2, image_height/2, image_width);
+			scalar_motest((pixel *)pDemo->buffer[BUFFER_PROCESSING]+image_width/2, &last_luma2, &mo_x2, &mo_y2, image_width/8*3, image_height/4, reset, image_width/2, image_height/2, image_width);
 
-            //bottom-right
-            scalar_invert_image((pixel *)pDemo->buffer[BUFFER_PROCESSING]+image_width*image_height/2+image_width/2, image_width/2, image_height/2, image_width);
+			//bottom-left
+			//scalar_mtx_median_argb32((pixel *)pDemo->buffer[BUFFER_PROCESSING]+image_width*image_height/2+image_width/4, 5, 5, image_height/2, image_width/4, image_width);
+
+			//bottom-right
+			scalar_invert_image((pixel *)pDemo->buffer[BUFFER_PROCESSING]+image_width*image_height/2+image_width/2, image_width/2, image_height/2, image_width);
 
 			time_stop = vbx_timestamp();
 			frame_status = 0;
+			motest_count++;
 			break;
 
-        case MODE_VECTOR_MULTI:
-            //full-screen
+		case MODE_VECTOR_MULTI:
+			//full-screen
 			if (!(cycles%LISSAJOUS_UPDATE_CYCLES)){
 				lissajous( pgravity_x, pgravity_y, cycles);
 			}
 			vector_repulsion_demo((pixel *)pDemo->buffer[BUFFER_PROCESSING], *pgravity_x, *pgravity_y, image_width, image_height);
 			vector_draw_screen((pixel *)pDemo->buffer[BUFFER_PROCESSING], NUM_PARTICLES, 0, 0, 0, image_width, image_height, image_width);
 
-            //top-left
+			//top-left
 			vbw_sobel_argb32_3x3((unsigned *)pDemo->buffer[BUFFER_PROCESSING], (unsigned *)pDemo->buffer[BUFFER_PROCESSING], image_width/2, image_height/2, image_width, 0);
 
-            //top-right
-			vector_motest((pixel *)pDemo->buffer[BUFFER_PROCESSING]+image_width/2, image_width/2, image_height/2, image_width);
+			//top-right
+			vector_motest((pixel *)pDemo->buffer[BUFFER_PROCESSING]+image_width/2, &last_luma1, &mo_x1, &mo_y1, image_width/8*1, image_height/4, reset, image_width/2, image_height/2, image_width);
+			vector_motest((pixel *)pDemo->buffer[BUFFER_PROCESSING]+image_width/2, &last_luma2, &mo_x2, &mo_y2, image_width/8*3, image_height/4, reset, image_width/2, image_height/2, image_width);
 
-            //bottom-right
-            vector_invert_image((pixel *)pDemo->buffer[BUFFER_PROCESSING]+image_width*image_height/2+image_width/2, image_width/2, image_height/2, image_width);
+			//bottom-left
+			//vbw_mtx_median_argb32((unsigned *)pDemo->buffer[BUFFER_PROCESSING]+image_width*image_height/2+image_width/4, 5, 5, image_height/2, image_width/4, image_width);
+
+			//bottom-right
+			vector_invert_image((pixel *)pDemo->buffer[BUFFER_PROCESSING]+image_width*image_height/2+image_width/2, image_width/2, image_height/2, image_width);
 
 			time_stop = vbx_timestamp();
 			frame_status = 0;
+			motest_count++;
 			break;
 
 		case MODE_SCALAR_EDGE_DETECT:
@@ -375,13 +400,21 @@ int application_run(demo_t *pDemo, int local_mode, int cycles, int *pgravity_x, 
 			break;
 
 		case MODE_SCALAR_MOTEST:
-			frame_status = scalar_motest((pixel *)pDemo->buffer[BUFFER_PROCESSING], image_width, image_height, image_width);
+			//frame_status = scalar_motest((pixel *)pDemo->buffer[BUFFER_PROCESSING], image_width, image_height, image_width);
+			scalar_motest((pixel *)pDemo->buffer[BUFFER_PROCESSING], &last_luma1, &mo_x1, &mo_y1, image_width/4*1, image_height/2, reset, image_width, image_height, image_width);
+			scalar_motest((pixel *)pDemo->buffer[BUFFER_PROCESSING], &last_luma2, &mo_x2, &mo_y2, image_width/4*3, image_height/2, reset, image_width, image_height, image_width);
+			frame_status = 0;
 			time_stop = vbx_timestamp();
+			motest_count++;
 			break;
 
 		case MODE_VECTOR_MOTEST:
-			frame_status = vector_motest((pixel *)pDemo->buffer[BUFFER_PROCESSING], image_width, image_height, image_width);
+			//frame_status = vector_motest((pixel *)pDemo->buffer[BUFFER_PROCESSING], image_width, image_height, image_width);
+			vector_motest((pixel *)pDemo->buffer[BUFFER_PROCESSING], &last_luma1, &mo_x1, &mo_y1, image_width/4*1, image_height/2, reset, image_width, image_height, image_width);
+			vector_motest((pixel *)pDemo->buffer[BUFFER_PROCESSING], &last_luma2, &mo_x2, &mo_y2, image_width/4*3, image_height/2, reset, image_width, image_height, image_width);
+			frame_status = 0;
 			time_stop = vbx_timestamp();
+			motest_count++;
 			break;
 
 		case MODE_SCALAR_MANDEL:
@@ -443,7 +476,7 @@ void loop_demo(demo_t *pDemo)
 	char strbuff_title[MAX_STRING_LENGTH];
 	//x-offset used when writing components of overlay
 	int x_string_loc = 0;
-	
+
 	int current_mode, next_mode;
 	int cycles = 0;
 
@@ -496,11 +529,11 @@ void loop_demo(demo_t *pDemo)
 
 			update_time(&processing_ms, total_ms, current_mode, cycles, frame_time, wait_time);
 
-			x_string_loc = display_ms(pDemo, strbuff_title, strbuff, current_mode, total_ms[current_mode],  x_string_loc, uses_video_in, vector_overlay, image_height); 
-			console_ms(strbuff_title, current_mode, cycles, total_ms[current_mode]); 
+			x_string_loc = display_ms(pDemo, strbuff_title, strbuff, current_mode, total_ms[current_mode],  x_string_loc, uses_video_in, vector_overlay, image_height);
+			console_ms(strbuff_title, current_mode, cycles, total_ms[current_mode]);
 
 			display_speedup(pDemo, strbuff, x_string_loc, total_ms[current_mode], total_ms[current_mode-1], uses_video_in, uses_vector, vector_overlay, image_height);
-            console_speedup(current_mode, total_ms[current_mode], total_ms[current_mode-1], uses_vector, cycles);
+			console_speedup(current_mode, total_ms[current_mode], total_ms[current_mode-1], uses_vector, cycles);
 		}
 
 		// flush data cache, swap frame buffers, and check for new mode

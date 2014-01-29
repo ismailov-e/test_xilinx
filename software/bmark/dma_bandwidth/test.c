@@ -1,6 +1,6 @@
 /* VECTORBLOX MXP SOFTWARE DEVELOPMENT KIT
  *
- * Copyright (C) 2012-2013 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
+ * Copyright (C) 2012-2014 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -46,9 +46,6 @@ VBXCOPYRIGHT( test_dma_bandwidth )
 #include "vbx.h"
 #include "vbx_common.h"
 #include "vbx_test.h"
-
-///////////////////////////////////////////////////////////////////////////
-#define ALIGNED 1
 
 ///////////////////////////////////////////////////////////////////////////
 void print_dma_bandwidth(vbx_timestamp_t time_start,
@@ -121,22 +118,14 @@ int dma_bandwidth_test()
 			if (to_host) {
 				time_start = vbx_timestamp();
 				for (i = 0; i < num_iter; i++) {
-#if ALIGNED
-					vbx_dma_to_host_aligned(buf, v_buf, len);
-#else
 					vbx_dma_to_host(buf, v_buf, len);
-#endif
 				}
 				vbx_sync();
 				time_stop = vbx_timestamp();
 			} else {
 				time_start = vbx_timestamp();
 				for (i = 0; i < num_iter; i++) {
-#if ALIGNED
-					vbx_dma_to_vector_aligned(v_buf, buf, len);
-#else
 					vbx_dma_to_vector(v_buf, buf, len);
-#endif
 				}
 				vbx_sync();
 				time_stop = vbx_timestamp();

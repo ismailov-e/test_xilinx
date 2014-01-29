@@ -1,6 +1,6 @@
 /* VECTORBLOX MXP SOFTWARE DEVELOPMENT KIT
  *
- * Copyright (C) 2012-2013 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
+ * Copyright (C) 2012-2014 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -37,9 +37,9 @@
 
 /**
  * @file
- * @defgroup Vector_Reverse
+ * @defgroup Vector_Reverse Vector Reverse
  * @brief Reverses a vector *in the scratchpad*
- * @ingroup VBXware 
+ * @ingroup VBXware
  */
 /**@{*/
 
@@ -52,13 +52,13 @@
 // Macros for simple cases: all pointers and lengths are aligned
 
 /** Reverses a vector of source-aligned words allocated *in the scratchpad*.
- *  - SRC word-aligned 
+ *  - SRC word-aligned
  *  - any N
  *
  *  @param[out] DST *in scratch*.
  *  @param[in] SRC *in scratch*.
  *  @param[in] N is number of words to reverse.
- */ 
+ */
 #define vbw_vec_reverse_word_fast(DST,SRC,N) \
 VBX_S{ \
   int __i = (int)(N); \
@@ -72,14 +72,14 @@ VBX_S{ \
   vbx_set_vl( __vl ); \
 }VBX_E
 
-/** Reverses a vector of source-aligned words *in the scratchpad*. 
+/** Reverses a vector of source-aligned words *in the scratchpad*.
  *  - SRC word-aligned, any N
  *  - Same as @ref vbw_vec_reverse_word_fast, but *without* saving/restoring VL
  *
  *  @param[out] DST *in scratch*.
  *  @param[in] SRC *in scratch*.
  *  @param[in] N is number of words to reverse.
- */ 
+ */
 #define vbw_vec_reverse_word_fast_help(DST,SRC,N) \
 VBX_S{ \
   int __i = (int)(N); \
@@ -91,14 +91,14 @@ VBX_S{ \
   vbx_set_2D( __nrows, __id, __ia, __ib ); \
 }VBX_E
 
-/** Reverses a vector of source-aligned halfs *in the scratchpad*. 
- *  - SRC word-aligned 
+/** Reverses a vector of source-aligned halfs *in the scratchpad*.
+ *  - SRC word-aligned
  *  - N = multiple of 2
- *  
+ *
  *  @param[out] DST *in scratch*.
  *  @param[in] SRC *in scratch*.
  *  @param[in] N is number of halfs to reverse.
- */ 
+ */
 #define vbw_vec_reverse_half_fast(DST,SRC,N) \
 VBX_S{ \
   int __k = (int)(N); \
@@ -118,7 +118,7 @@ VBX_S{ \
  *  @param[out] DST *in scratch*.
  *  @param[in] SRC *in scratch*.
  *  @param[in] N is number of bytes to reverse.
- */ 
+ */
 #define vbw_vec_reverse_byte_fast(DST,SRC,N) \
 VBX_S{ \
   int __j = (int)(N); \
@@ -144,7 +144,7 @@ VBX_S{ \
  *  @param[out] DST *in scratch*.
  *  @param[in] SRC *in scratch*.
  *  @param[in] N is number of words to reverse.
- */ 
+ */
 #define vbw_vec_reverse_word_safe(DST,SRC,N) \
 VBX_S{ \
   int __m = (int)(N); \
@@ -158,12 +158,12 @@ VBX_S{ \
 /** Calls either fast reverse or complex reverse on a vector of halfs *in the scratchpad*.
  *  Calls fast reverse if:
  *  - SRC word-aligned
- *  - N = multiple of 2 
+ *  - N = multiple of 2
  *
  *  @param[out] DST *in scratch*.
  *  @param[in] SRC *in scratch*.
  *  @param[in] N is number of halfs to reverse.
- */ 
+ */
 #define vbw_vec_reverse_half_safe(DST,SRC,N) \
 VBX_S{  \
   int __n == (int)(N); \
@@ -182,7 +182,7 @@ VBX_S{  \
  *  @param[out] DST *in scratch*.
  *  @param[in] SRC *in scratch*.
  *  @param[in] N is number of bytes to reverse.
- */ 
+ */
 #define vbw_vec_reverse_byte_safe(DST,SRC,N) \
 VBX_S{  \
   int __o == (int)(N); \

@@ -1,6 +1,6 @@
 /* VECTORBLOX MXP SOFTWARE DEVELOPMENT KIT
  *
- * Copyright (C) 2012-2013 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
+ * Copyright (C) 2012-2014 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -104,12 +104,6 @@ int vbx_timestamp_start()
 	return 0;
 }
 
-int vbx_timestamp_stop()
-{
-	// Do nothing.
-	return 0;
-}
-
 vbx_timestamp_t vbx_timestamp()
 {
 	XTime v;
@@ -138,15 +132,6 @@ int vbx_timestamp_start()
 		return -1;
 	}
 	XTmrCtr_Start(vbx_timestamp_tmrctr, 0);
-	return 0;
-}
-
-int vbx_timestamp_stop()
-{
-	if (!vbx_timestamp_tmrctr) {
-		return -1;
-	}
-	XTmrCtr_Stop(vbx_timestamp_tmrctr, 0);
 	return 0;
 }
 

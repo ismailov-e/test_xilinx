@@ -1,7 +1,21 @@
 MAKEFILE_DIR := $(dir $(lastword $(MAKEFILE_LIST)))
 
 PROJ_NAME :=
+
+# $realpath is broken on Windows in Make 3.81; see
+# http://lists.gnu.org/archive/html/make-w32/2008-02/msg00004.html
+# Doesn't work properly when arg begins with drive letter; get current
+# working directory concatenated with absolute path of argument.
+# On Windows, use the work-around from the above link.
+myrealpath = $(join \
+             $(filter %:,$(subst :,: ,$(1))),\
+             $(realpath $(filter-out %:,$(subst :,: ,$(1)))))
+
+ifdef ComSpec
+PROJ_ROOT := $(call myrealpath,$(MAKEFILE_DIR)/../../boards/zedboard_imageon_arm_mxp/prebuilt_zedboard_imageon_arm_mxp_v16)
+else
 PROJ_ROOT := $(realpath $(MAKEFILE_DIR)/../../boards/zedboard_imageon_arm_mxp/prebuilt_zedboard_imageon_arm_mxp_v16)
+endif
 SDK_EXPORT_ROOT := $(PROJ_ROOT)/SDK/SDK_Export
 
 # HW_PLATFORM_XML
@@ -44,6 +58,14 @@ ifeq ($(CPU_TARGET), MB)
 LIBS += -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
 else
 LIBS += -Wl,--start-group,-lxil,-lgcc,-lc,-lm,--end-group
+endif
+
+# On Windows, want to use gnuwin32 mkdir and not built-in cmd.exe mkdir
+# Could also use ifeq (${OS}, Windows_NT)
+ifdef ComSpec
+MKDIR := $(XILINX_EDK)/gnuwin/bin/mkdir.exe
+else
+MKDIR := mkdir
 endif
 
 RM := rm -rf

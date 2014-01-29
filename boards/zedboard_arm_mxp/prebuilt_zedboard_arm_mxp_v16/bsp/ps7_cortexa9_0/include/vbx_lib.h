@@ -1,6 +1,6 @@
 /* VECTORBLOX MXP SOFTWARE DEVELOPMENT KIT
  *
- * Copyright (C) 2012-2013 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
+ * Copyright (C) 2012-2014 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -37,7 +37,7 @@
 
 /**
  * @file
- * @defgroup VBX_lib
+ * @defgroup VBX_lib VBX library
  * @brief VBX library
  *
  * @ingroup VBXapi
@@ -166,8 +166,8 @@ void vbx_dma_to_host_2D  ( void *dst, vbx_void_t *v_src, uint32_t xlen, uint32_t
 
 /** 2D DMA transfer from host to scratchpad
  *
- * @param[out] v_src -- destination address in scratchpad memory
- * @param[in] dst -- source address in external memory
+ * @param[out] v_dst -- destination address in scratchpad memory
+ * @param[in] src -- source address in external memory
  * @param[in] xlen -- number of bytes to transfer
  * @param[in] ylen -- number of rows to transfer
  * @param[in] dst_stride -- stride of dst in bytes

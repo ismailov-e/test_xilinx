@@ -1,6 +1,6 @@
 /* VECTORBLOX MXP SOFTWARE DEVELOPMENT KIT
  *
- * Copyright (C) 2012-2013 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
+ * Copyright (C) 2012-2014 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -211,18 +211,6 @@ int test_tile()
 	                                        (double) (NUM_BLOCKS),
 	                                        "block");
 
-#if 0
-	cycles = time_stop - time_start;
-	nios_time = (double) cycles;
-	nios_time /= (double) vbx_timestamp_freq();
-	nios_time *= 1000.0;		//ms
-	vbx_timestamp_t mxp_cycles = vbx_mxp_cycles(cycles);
-	printf("%dx%d Block Size\n", BLOCK_SIZE, BLOCK_SIZE);
-	printf("Finished, NIOS took %0.3f ms \n", nios_time);
-	printf(" CPU Cycles: %d\n", (int) mxp_cycles);
-	printf(" CPU Cycles per block: %f\n", mxp_cycles / ((double) (NUM_BLOCKS)));
-#endif
-
 #ifdef DEBUG  
 	printf("output matrix is:\n");
 	for (i = 0; i < IMAGE_HEIGHT; i++) {
@@ -272,19 +260,6 @@ int test_tile()
 	                                     (double) (NUM_BLOCKS),
 	                                     "block",
 	                                     scalar_time);
-
-#if 0
-	cycles = time_stop - time_start;
-	vbx_time = (double) cycles;
-	vbx_time /= (double) vbx_timestamp_freq();
-	vbx_time *= 1000.0;			//ms
-	mxp_cycles = vbx_mxp_cycles(cycles);
-
-	printf("Finished, MXP took %0.3f ms \n", vbx_time);
-	printf(" CPU Cycles: %d\n", (int) mxp_cycles);
-	printf(" CPU Cycles per block: %f\n", mxp_cycles / ((double) (NUM_BLOCKS)));
-	printf(" Speedup: %f\n", nios_time / vbx_time);
-#endif
 
 	vbx_mxp_t *this_mxp = VBX_GET_THIS_MXP();
 	double vbx_mbps = (double) (NUM_BLOCKS) / vbx_time;	// blocks per second
@@ -351,142 +326,6 @@ int test_tile()
 
 	return total_errors;
 }
-
-// "outdated - do not run this case"
-#if 0
-int main_tile()
-{
-	int i, j, k, l, base, block_num;
-	int x, y;
-
-	int time_start, time_stop;
-	unsigned int cycles;
-	double vbx_time, nios_time;
-	int wrong;
-
-	int total_errors = 0;
-
-	//all of the initialization can be hard coded without any computation
-	init_fdct_tile();
-	vbx_timestamp_start();
-
-	printf("\nGenerating initial data...\n");
-
-	dt *image  = (dt *) malloc( IMAGE_WIDTH * IMAGE_HEIGHT * sizeof(dt) );
-	GenerateRandomImage( image, IMAGE_WIDTH, IMAGE_HEIGHT, 0/*seed*/ );
-
-	// Allocate memory to store results.
-	// Results are computed BIGTILE_SIZE halfwords at a time.
-	const int BIGTILE_SIZE = NUM_TILE_X * NUM_TILE_Y * DCT_SIZE;
-	dt *block_s =                   malloc( BIGTILE_SIZE * sizeof(dt) );
-	dt *block_v = (dt *) vbx_shared_malloc( BIGTILE_SIZE * sizeof(dt) );
-	dt *coeff_v = (dt *) vbx_shared_malloc( BIGTILE_SIZE * sizeof(dt) );
-
-	//Make an uncached 1D version of the coeff matrix
-	for (i = 0; i < NUM_TILE_Y; i++) {             // row
-		for (j = 0; j < BLOCK_SIZE; j++) {         // row
-			for (k = 0; k < NUM_TILE_X; k++) {     // col
-				for (l = 0; l < BLOCK_SIZE; l++) { // col
-					coeff_v[i*NUM_TILE_X*DCT_SIZE + j*DCT_SIZE + k*BLOCK_SIZE + l] = cs[j][l];
-				}
-			}
-		}
-	}
-
-#ifdef DEBUG
-	printf("input matrix is:\n");
-	for (i = 0; i < BLOCK_SIZE; i++) {
-		base = i * BLOCK_SIZE;
-		for (j = 0; j < BLOCK_SIZE; j++) {
-			printf("%d ", (int) block_s[base + j]);
-		}
-		printf("\n");
-	}
-#endif
-
-	printf("\nRunning DCT...\n");
-
-	time_start = vbx_timestamp();
-	for( y = 0; y < IMG_DOWN; y++ ) {
-		for( x = 0; x < IMG_ACROSS; x++ ) {
-			fdct_scalar_tile( block_s, (dt*)cs, image, x/*start_x*/, y/*start_y*/, NUM_TILE_X, NUM_TILE_Y );
-		}
-	}
-	time_stop = vbx_timestamp();
-
-	cycles = time_stop - time_start;
-	nios_time = (double) cycles;
-	nios_time /= (double) vbx_timestamp_freq();
-	nios_time *= 1000.0;		//ms
-	vbx_timestamp_t mxp_cycles = vbx_mxp_cycles(cycles);
-
-	printf("%dx%d Block Size\n", BLOCK_SIZE, BLOCK_SIZE);
-	printf("Finished, NIOS took %0.3f ms \n", nios_time);
-	printf(" CPU Cycles: %d\n", (int) mxp_cycles);
-	printf(" CPU Cycles per block: %f\n", mxp_cycles / ((double) (NUM_BLOCKS)));
-
-	vbx_mtx_fdct_tile_setup( coeff_v, image );
-	vbx_sync(); // wait for image to be prefetched
-
-	time_start = vbx_timestamp();
-	for( y = 0; y < IMG_DOWN; y++ ) {
-		for( x = 0; x < IMG_ACROSS; x++ ) {
-			vbx_mtx_fdct_tile( block_v, image, x/*start_x*/, y/*start_y*/, IMG_ACROSS-1,IMG_DOWN-1,NUM_TILE_X, NUM_TILE_Y );
-		}
-	}
-	time_stop = vbx_timestamp();
-
-	cycles = time_stop - time_start;
-	vbx_time = (double) cycles;
-	vbx_time /= (double) vbx_timestamp_freq();
-	vbx_time *= 1000.0;			//ms
-	mxp_cycles = vbx_mxp_cycles(cycles);
-
-	printf("Finished, MXP took %0.3f ms \n", vbx_time);
-	printf(" CPU Cycles: %d\n", (int) mxp_cycles);
-	printf(" CPU Cycles per block: %f\n", mxp_cycles / ((double) (NUM_BLOCKS)));
-	printf(" Speedup: %f\n", nios_time / vbx_time);
-
-	vbx_mxp_t *this_mxp = VBX_GET_THIS_MXP();
-	double vbx_mbps = (double) (NUM_BLOCKS) * 1000 / vbx_time;	// blocks per second
-	printf("V%d@%dMHz: %dx%d tile, %dx%d blocks, %f blocks/s, %f megapixel/s\n",
-	       this_mxp->vector_lanes, this_mxp->core_freq / 1000000, 
-	       NUM_TILE_Y, NUM_TILE_X, 
-	       BLOCK_SIZE, BLOCK_SIZE,
-	       vbx_mbps, (vbx_mbps * DCT_SIZE) / 1000000);
-
-	printf("\nChecking results...\n");
-
-	wrong = 0;
-	for (block_num = 0; block_num < NUM_BLOCKS; block_num++) {
-		for (i = 0; i < BLOCK_SIZE; i++) {
-			base = i * BLOCK_SIZE;
-			for (j = 0; j < BLOCK_SIZE; j++) {
-				if (block_s[block_num * DCT_SIZE + base + j] != block_v[block_num * DCT_SIZE + base + j]) {
-					if (wrong < 5) {
-						printf("\nError at %d [%d,%d], result is %d, should be %d\n",
-							   block_num, i, j, (int) block_v[block_num * DCT_SIZE + base + j],
-							   (int) block_s[block_num * DCT_SIZE + base + j]);
-					}
-					wrong++;
-				}
-			}
-		}
-	}
-
-	printf("wrong is %d\n\n", wrong);
-	total_errors += wrong;
-
-	free( (void*)block_s );
-	vbx_shared_free( (void*)block_v );
-	vbx_shared_free( (void*)coeff_v );
-
-	VBX_TEST_END(total_errors);
-
-	return (0);
-}
-#endif
-
 
 static void init_fdct_tile()
 {

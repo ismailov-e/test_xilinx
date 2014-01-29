@@ -1,6 +1,6 @@
 /* VECTORBLOX MXP SOFTWARE DEVELOPMENT KIT
  *
- * Copyright (C) 2012-2013 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
+ * Copyright (C) 2012-2014 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -44,7 +44,7 @@
 #include "vbx_types.h"
 
 // An array of these structs is statically initialized with instance-specific
-// values (#defines) in the generated file vbx_mxp_g.c.
+// values (#defines) in the generated file vectorblox_mxp_g.c.
 // The field values are passed in from the hardware specification.
 // The fields of a vbx_mxp_t instance struct are derived from these values.
 typedef struct {
@@ -61,6 +61,7 @@ typedef struct {
 #if __ARM_ARCH_7A__
 	u32  instr_port_addr;
 #endif
+	u32  vci_lanes;
 } VectorBlox_MXP_Config;
 
 XStatus VectorBlox_MXP_SelfTest();

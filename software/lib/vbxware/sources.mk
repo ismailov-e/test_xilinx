@@ -5,6 +5,7 @@ C_SRCS += vbw_sobel_luma16_3x3.c
 C_SRCS += vbw_sobel_luma8_3x3.c
 C_SRCS += vbw_mtx_motest.c
 C_SRCS += vbw_vec_rev.c
+C_SRCS += vbw_mtx_median_argb32.c
 
 #templated functions
 C_SRCS += vbw_mtx_fir_all.c

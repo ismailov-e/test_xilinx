@@ -1,6 +1,6 @@
 /* VECTORBLOX MXP SOFTWARE DEVELOPMENT KIT
  *
- * Copyright (C) 2012-2013 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
+ * Copyright (C) 2012-2014 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -37,7 +37,7 @@
 
 /**
  * @file
- * @defgroup VBX_port
+ * @defgroup VBX_port VBX portability Library
  * @brief VBX port
  *
  * @ingroup VBXapi 
@@ -82,9 +82,6 @@ extern "C" {
 
 /** Start the timestamp timer for subsequent @ref vbx_timestamp calls */
 #define vbx_timestamp_start()	        alt_timestamp_start()
-
-/** Stop the timestamp timer */
-#define vbx_timestamp_stop()	        alt_timestamp_stop()
 
 /** Get the timestamp frequency
  *
@@ -181,7 +178,6 @@ typedef u32 vbx_timestamp_t;
 
 void vbx_timestamp_init(XTmrCtr *inst_ptr, u32 freq);
 int vbx_timestamp_start();
-int vbx_timestamp_stop();
 u32 vbx_timestamp_freq();
 u32 vbx_timestamp();
 
@@ -237,7 +233,6 @@ void vbx_timestamp_init(XTmrCtr *inst_ptr, u32 freq);
 #endif
 
 int vbx_timestamp_start();
-int vbx_timestamp_stop();
 u32 vbx_timestamp_freq();
 vbx_timestamp_t vbx_timestamp();
 

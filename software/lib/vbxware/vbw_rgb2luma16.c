@@ -1,6 +1,6 @@
 /* VECTORBLOX MXP SOFTWARE DEVELOPMENT KIT
  *
- * Copyright (C) 2012-2013 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
+ * Copyright (C) 2012-2014 VectorBlox Computing Inc., Vancouver, British Columbia, Canada.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -42,7 +42,7 @@ VBXCOPYRIGHT(vbw_rgb2luma16)
 #include "vbx.h"
 
 /**Convert RGB frame to 16-bit luma
- * @usage Convert RGB frame to 16-bit luma using Bt.601 coefficients.
+ * @brief Convert RGB frame to 16-bit luma using Bt.601 coefficients.
  *
  * @param[in] rgb          32-bit aRGB pixel input
  * @param[out] luma         16-bit luma pixel output
@@ -72,13 +72,13 @@ int vbw_rgb2luma16(unsigned short *luma, unsigned *rgb, const short image_width,
 	}
 
 	// Transfer the first input row to scratchpad
-	vbx_dma_to_vector_aligned(v_row_in, rgb, image_width*sizeof(vbx_uword_t));
+	vbx_dma_to_vector(v_row_in, rgb, image_width*sizeof(vbx_uword_t));
 
 	// Convert rows of RGB to luma
 	for (i = 0; i < image_height; i++) {
 		// Transfer the next input row to scratchpad while processing
 		if ((i+1) < image_height)
-			vbx_dma_to_vector_aligned(v_row_in_next, rgb + (i+1)*image_pitch, image_width*sizeof(vbx_uword_t));
+			vbx_dma_to_vector(v_row_in_next, rgb + (i+1)*image_pitch, image_width*sizeof(vbx_uword_t));
 
 		// Move weighted B into v_luma
 		vbx(SVWHU, VAND, v_temp,   0xFF, v_row_in);
@@ -99,7 +99,7 @@ int vbw_rgb2luma16(unsigned short *luma, unsigned *rgb, const short image_width,
 		vbx(SVHU,  VSHR, v_row_out, 8, v_luma);
 
 		// Transfer from scratchpad memory to output
-		vbx_dma_to_host_aligned(luma + i*image_pitch, v_row_out, image_width*sizeof(vbx_uhalf_t));
+		vbx_dma_to_host(luma + i*image_pitch, v_row_out, image_width*sizeof(vbx_uhalf_t));
 
 		// Swap scratchpad input buffer pointers
 		tmp_ptr       = v_row_in;

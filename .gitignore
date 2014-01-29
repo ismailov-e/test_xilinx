@@ -7,3 +7,7 @@
 # Library files
 *.a    
 !libvbxlib.a 
+!libvbxlib_arm.a
+!libvbxlib_mb.a
+!libxil.a
+!demo.elf

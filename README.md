@@ -1,5 +1,5 @@
-VectorBlox MXP Preview
-======================
+VectorBlox MXP Preview for Xilinx
+==================================
 
 The VectorBlox MXP Matrix Processor is an FPGA-based soft processor
 capable of highly parallel execution. Programmed entirely in C/C++,
@@ -10,27 +10,35 @@ parallel ALUs. Key features of the MXP include a parallel-access
 scratchpad memory to hold vector data and a high-throughput DMA
 engine.
 
-Our preview release consists of: 
+VectorBlox Computing licenses the MXP processor as a synthesizable IP
+core for use in FPGA designs.
 
-- Prebuilt bitstreams to evaluate the MXP processor on several popular
-  FPGA development boards
-- Software Development Kit 
+This preview release is for evaluation only, and consists of:
+
+- Pre-built bitstreams to evaluate the MXP processor on several popular
+  Xilinx FPGA development boards
+- The MXP Software Development Kit (SDK)
 - Example programs
 - Documentation
 
 To get started immediately:
 
 - Ensure you have one of the [supported development
-  boards](http://vectorblox.github.io/test_xilinx/mxp_xilinx_boards.html).
-- Clone this repository or use the Download ZIP button.
-- Follow the [Xilinx Quickstart](http://vectorblox.github.io/test_xilinx/mxp_xilinx_preview.html).
+  boards](http://vectorblox.github.io/test_xilinx/mxp_boards_xilinx.html).
+- Download the [latest release zip
+  file](https://github.com/VectorBlox/test_xilinx/releases).
+- Follow the [MXP Preview Quickstart for
+  Xilinx](http://vectorblox.github.io/test_xilinx/mxp_preview_quickstart_xilinx.html).
 
-For further VectorBlox hardware/software documentation, refer to:
+For further VectorBlox MXP documentation, refer to the following:
 
+- [VectorBlox MXP Programming Guide for
+  Xilinx](http://vectorblox.github.io/test_xilinx/mxp_guide_xilinx.html)
 - [VectorBlox MXP Programming
-  Guide](http://vectorblox.github.io/test_xilinx/mxp_xilinx_programming_guide.html)
-- [VectorBlox MXP Programming
-  Reference](http://vectorblox.github.io/test_xilinx/mxp_programming_reference.html)
+  Reference](http://vectorblox.github.io/test_xilinx/mxp_reference.html)
+- [VectorBlox MXP Hardware & Software Quickstart for
+  Xilinx](http://vectorblox.github.io/test_xilinx/mxp_quickstart_xilinx.html)
+  (The hardware sections are only applicable to MXP licensees.)
 
 For further information please email us at
 [info@vectorblox.com](mailto:info@vectorblox.com) or visit

@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title></title>
+  <title>VectorBlox MXP Programming Reference</title>
   <style type="text/css">code{white-space: pre;}</style>
   <style type="text/css">
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
@@ -55,6 +55,9 @@ p {
 <div id="toc"></div>
 </div>
 <div class="span9">
+<div id="header">
+<h1 class="title">VectorBlox MXP Programming Reference</h1>
+</div>
 <h1 id="mxp_processor"><span class="header-section-number">1</span> MXP Processor</h1>
 <h2 id="mxp_processor_architecture"><span class="header-section-number">1.1</span> MXP Processor Architecture</h2>
 <p>The VectorBlox MXP Matrix Processor is an accelerator for data-parallel operations. It excels at applications like image processing where every pixel in a large set of data is subjected to the same sequence of calculations. With just a single instruction, the MXP can apply an operation to a vector, matrix, submatrix, volume, or sub-volume of data.</p>
@@ -681,7 +684,7 @@ vbx_sp_push();
 
 vbx_sp_pop();
 
-vbx_sp_get( &amp;sp );
+vbx_sp_get();
 
 vbx_sp_set( newSP );</code></pre>
 <p>The scratchpad is used like a stack, similar to a subroutine allocating and de-allocating memory from the scratchpad as needed. These functions are used to manage allocation and deallocation from the scratchpad. The functions are intended to execute quickly, hence the stack-like model (to avoid garbage collection and fragmentation issues).</p>

@@ -152,7 +152,7 @@ int display_speedup(demo_t *pDemo, char *strbuff, int x_string_loc, float vector
 	pixel *overlay_buffer = (uses_video_in) ?
 		(pixel *)pDemo->buffer[BUFFER_PROCESSING] :
 		(pixel *)pDemo->buffer[BUFFER_READING];
-	// compare MXP vs NIOS processing
+	// compare MXP vs scalar CPU processing
 	if ( uses_vector && (scalar_time != 0.0) ) {
 		snprintf(strbuff, MAX_STRING_LENGTH, "%.1fx", scalar_time/vector_time);
 		x_string_loc = overlay_printf(strbuff, x_string_loc,
@@ -191,14 +191,14 @@ void console_ms(char *strbuff_title, int local_mode, int cycles, float time)
 
 void console_speedup(int local_mode, float vector_time, float scalar_time, int uses_vector, int cycles)
 {
-	// compare MXP vs NIOS processing
+	// compare MXP vs Scalar CPU processing
 	if ( uses_vector && (scalar_time != 0.0) && (local_mode == MODE_VECTOR_MANDEL || (cycles % 32 == 0))) {
 		printf(" %.1fx", scalar_time/vector_time);
 		printf("\n");
 	}
 }
 
-void application_title(char *scalar_cpu, char *strbuff_title, int vector_lanes, int mode)
+void application_title(char *scalar_cpu, char *strbuff_title, int vector_lanes, int vci_lanes, int mode)
 {
 	switch (mode) {
 
@@ -251,7 +251,11 @@ void application_title(char *scalar_cpu, char *strbuff_title, int vector_lanes, 
 			break;
 
 		case MODE_VECTOR_REPULSION:
-			snprintf(strbuff_title, MAX_STRING_LENGTH, "MXP V%d Particles:", vector_lanes);
+			if (vci_lanes > 0) {
+				snprintf(strbuff_title, MAX_STRING_LENGTH, "MXP V%d C%d Particles:", vector_lanes, vci_lanes);
+			} else {
+				snprintf(strbuff_title, MAX_STRING_LENGTH, "MXP V%d Particles:", vector_lanes);
+			}
 			break;
 
 		case MODE_SCALAR_REPULSION:
@@ -496,6 +500,7 @@ void loop_demo(demo_t *pDemo)
 
 	vbx_mxp_t *this_mxp = VBX_GET_THIS_MXP();
 	const int vector_lanes = this_mxp->vector_lanes;
+	const int vci_lanes = this_mxp->vci_lanes;
 	const int image_width = IMAGE_WIDTH;
 	const int image_height = IMAGE_HEIGHT;
 
@@ -514,7 +519,7 @@ void loop_demo(demo_t *pDemo)
 			current_mode = next_mode;
 
 			application_init(pDemo, current_mode, &uses_video_in, &uses_vector);
-			application_title(SCALAR_CPU, strbuff_title, vector_lanes, current_mode);
+			application_title(SCALAR_CPU, strbuff_title, vector_lanes, vci_lanes, current_mode);
 			display_title(pDemo, strbuff_title, current_mode, uses_video_in, vector_overlay, image_height);
 			console_title(strbuff_title, current_mode);
 		}

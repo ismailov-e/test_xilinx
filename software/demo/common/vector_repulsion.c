@@ -70,8 +70,12 @@ void vector_particle_vci_init()
 	g_custom_sqrt_offs = 16*vci_lanes;
 #else //!__NIOS2__
 	g_full_ci_offs = (94)/2;
-	g_custom_divide_offs = (32+1+4+word_frac_bits)*vci_lanes; //TODO check offset works correctly
-	g_custom_sqrt_offs = (16+word_frac_bits/2+1)*vci_lanes; //TODO check offset works correctly
+	// Divide and sqrt custom instrs assumed not present.
+	g_custom_divide_offs = 0;
+	g_custom_sqrt_offs = 0;
+	// TODO check offset works correctly
+	// g_custom_divide_offs = (32+1+4+word_frac_bits)*vci_lanes;
+	// g_custom_sqrt_offs = (16+word_frac_bits/2+1)*vci_lanes;
 #endif
 	vci_init_done = 1;
 }
@@ -467,7 +471,7 @@ int vector_repulsion_demo(pixel *buffer, int gravity_x, int gravity_y, const int
 				vector_particle_load(&particles, num_particles, i);
 			}
 			//vector_update(hw_full, hw_div, hw_sqrt, num_particles, i,  block_max);
-			vector_update(g_custom_divide_offs, g_custom_sqrt_offs, g_full_ci_offs, num_particles, i,  block_max);
+			vector_update(g_full_ci_offs, g_custom_divide_offs, g_custom_sqrt_offs, num_particles, i,  block_max);
 		}
 
 		if(USE_BLOCK){

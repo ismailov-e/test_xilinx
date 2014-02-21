@@ -852,6 +852,13 @@ int vbx_test_init()
 {
 	return 0;
 }
+#elif VBX_SIMULATOR==1
+int vbx_test_init()
+{
+	//initialize with 4 lanes, and 64kb of sp memory
+	vbxsim_init(4,64);
+	return 0;
+}
 ///////////////////////////////////////////////////////////////////////////
 #elif __MICROBLAZE__ || __ARM_ARCH_7A__
 

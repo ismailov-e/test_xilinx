@@ -208,7 +208,7 @@ void vector_row_haar_2D( vptr_word v_int, vptr_word v_tmp, int win, int width, i
 #endif
 
 	vbx_sync();
-#if defined(SYSTEM_ZEDBOARD)
+#if defined(SYSTEM_ZEDBOARD) || defined(SYSTEM_ZEDBOARD_IMAGEON)
 	// On Zynq, can't cache scratchpad accesses without modifying the default
 	// MMU translation table; also can't support bursts with AXI4-Lite
 	// interface.
@@ -232,7 +232,7 @@ void vector_row_haar_2D( vptr_word v_int, vptr_word v_tmp, int win, int width, i
 #endif
 		}
 	}
-#if !defined(SYSTEM_ZEDBOARD)
+#if !(defined(SYSTEM_ZEDBOARD) || defined(SYSTEM_ZEDBOARD_IMAGEON))
 	vbx_dcache_flush((void *)v_tmp_cached, width*vector_2D*sizeof(vbx_word_t));
 	vbx_dcache_flush((void *)v_var_cached, width*vector_2D*sizeof(vbx_word_t));
 #endif

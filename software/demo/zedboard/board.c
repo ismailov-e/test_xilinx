@@ -45,28 +45,12 @@ VBXCOPYRIGHT( board_zedboard )
 // map switch value to mode number.
 int slide_switches(XGpio *slide_switches)
 {
-	u32 r = XGpio_DiscreteRead(slide_switches, 1);
+	u32 r = XGpio_DiscreteRead(slide_switches, 1) & 0x7;
 	switch (r) {
 	case SWITCH_VECTOR_SPLIT:
 		return MODE_VECTOR_SPLIT;
 	case SWITCH_SCALAR_SPLIT:
 		return MODE_SCALAR_SPLIT;
-	case SWITCH_VECTOR_MULTI:
-		return MODE_VECTOR_MULTI;
-	case SWITCH_SCALAR_MULTI:
-		return MODE_SCALAR_MULTI;
-	case SWITCH_VECTOR_FACE_DETECT:
-		return MODE_VECTOR_FACE_DETECT;
-	case SWITCH_SCALAR_FACE_DETECT:
-		return MODE_SCALAR_FACE_DETECT;
-	case SWITCH_VECTOR_EDGE_DETECT:
-		return MODE_VECTOR_EDGE_DETECT;
-	case SWITCH_SCALAR_EDGE_DETECT:
-		return MODE_SCALAR_EDGE_DETECT;
-	case SWITCH_VECTOR_MOTEST:
-		return MODE_VECTOR_MOTEST;
-	case SWITCH_SCALAR_MOTEST:
-		return MODE_SCALAR_MOTEST;
 	case SWITCH_VECTOR_MANDEL:
 		return MODE_VECTOR_MANDEL;
 	case SWITCH_SCALAR_MANDEL:
@@ -75,8 +59,12 @@ int slide_switches(XGpio *slide_switches)
 		return MODE_VECTOR_REPULSION;
 	case SWITCH_SCALAR_REPULSION:
 		return MODE_SCALAR_REPULSION;
+	case SWITCH_VECTOR_MANDEL2:
+		return MODE_VECTOR_MANDEL;
+	case SWITCH_SCALAR_MANDEL2:
+		return MODE_SCALAR_MANDEL;
 	default:
-		return MODE_PASSTHRU;
+		return MODE_VECTOR_MANDEL;
 	}
 }
 

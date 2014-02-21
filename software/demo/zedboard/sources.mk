@@ -1,16 +1,11 @@
 ELF := demo.elf
 
 C_SRCS += zedboard_demo.c
-C_SRCS += platform.c
-C_SRCS += sleep_mb.c
-C_SRCS += ps7_uart.c
 C_SRCS += board.c
-C_SRCS += vfb_for_demo.c
-
-C_SRCS += video_detector.c
-C_SRCS += video_frame_buffer.c
-C_SRCS += video_generator.c
-C_SRCS += video_resolution.c
+C_SRCS += platform.c
+C_SRCS += cf_hdmi.c
+C_SRCS += transmitter.c
+C_SRCS += ../zedboard_imageon/ps7_uart.c
 
 C_SRCS += ../common/main.c
 C_SRCS += ../common/demo.c

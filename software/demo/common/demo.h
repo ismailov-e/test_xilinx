@@ -58,6 +58,9 @@
 #elif SYSTEM_ZEDBOARD
 #include "../zedboard/demo_t.h"
 #include "../zedboard/board.h"
+#elif SYSTEM_ZEDBOARD_IMAGEON
+#include "../zedboard_imageon/demo_t.h"
+#include "../zedboard_imageon/board.h"
 #endif
 
 demo_t demo;
@@ -224,4 +227,4 @@ void cleanup_demo();
 #define X_MARGIN 8
 #define Y_MARGIN 8
 
-#endif //n__DEMO_H
+#endif //__DEMO_H

@@ -1,8 +1,6 @@
-# BSP is expected to include the fmc_imageon_sw and fmc_iic_sw sw_services
-# libraries; one way to do this is to build the BSP in the XPS project dir
-# with "make bsp ADD_IMAGEON_LIBS=true".
+# BSP is expected to include the adv7511_lib library.
 
-CPU_TARGET := XIL_ARM
+CPU_TARGET := XIL
 
 include ../../common/xil_app_vars.mk
 include sources.mk

@@ -48,28 +48,25 @@
 
 // board specific includes/defines
 #define BOARD "zedboard"
+#if __MICROBLAZE__
+#define SCALAR_CPU "MicroBlaze"
+#else
 #define SCALAR_CPU "ARM Cortex-A9"
+#endif
 
 #define TOUCHSCREEN 0
 #define IMAGE_WIDTH  1920
 #define IMAGE_HEIGHT 1080
 
-// SW[3] selects between scalar and vector modes.
-#define SWITCH_PASSTHRU           0
+// SW[2] selects between scalar and vector modes.
+#define SWITCH_VECTOR_MANDEL      0
+#define SWITCH_SCALAR_MANDEL      (0x4 | SWITCH_VECTOR_MANDEL)
 #define SWITCH_VECTOR_REPULSION   1
-#define SWITCH_SCALAR_REPULSION   (0x8 | SWITCH_VECTOR_REPULSION)
-#define SWITCH_VECTOR_EDGE_DETECT 2
-#define SWITCH_SCALAR_EDGE_DETECT (0x8 | SWITCH_VECTOR_EDGE_DETECT)
-#define SWITCH_VECTOR_MOTEST      3
-#define SWITCH_SCALAR_MOTEST      (0x8 | SWITCH_VECTOR_MOTEST)
-#define SWITCH_VECTOR_MANDEL      4
-#define SWITCH_SCALAR_MANDEL      (0x8 | SWITCH_VECTOR_MANDEL)
-#define SWITCH_VECTOR_FACE_DETECT 5
-#define SWITCH_SCALAR_FACE_DETECT (0x8 | SWITCH_VECTOR_FACE_DETECT)
-#define SWITCH_VECTOR_SPLIT       6
-#define SWITCH_SCALAR_SPLIT       (0x8 | SWITCH_VECTOR_SPLIT)
-#define SWITCH_VECTOR_MULTI       7
-#define SWITCH_SCALAR_MULTI       (0x8 | SWITCH_VECTOR_MULTI)
+#define SWITCH_SCALAR_REPULSION   (0x4 | SWITCH_VECTOR_REPULSION)
+#define SWITCH_VECTOR_MANDEL2     2
+#define SWITCH_SCALAR_MANDEL2     (0x4 | SWITCH_VECTOR_MANDEL2)
+#define SWITCH_VECTOR_SPLIT       3
+#define SWITCH_SCALAR_SPLIT       (0x4 | SWITCH_VECTOR_SPLIT)
 
 // map switch value to mode number.
 int slide_switches(XGpio *slide_switches);

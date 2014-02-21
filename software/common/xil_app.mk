@@ -52,11 +52,16 @@ print_vars:
 	@echo "C_DEPS=$(C_DEPS)"
 	@echo "MAKEFILE_DIR=$(MAKEFILE_DIR)"
 	@echo "HW_PLATFORM_XML=$(HW_PLATFORM_XML)"
+	@echo "PROCESSOR_TYPE=$(PROCESSOR_TYPE)"
+	@echo "PROCESSOR_INSTANCE=$(PROCESSOR_INSTANCE)"
+	@echo "CPU_FLAGS=$(CPU_FLAGS)"
 
 # ALT_LIBRARY_DIRS = ../../lib/vbxint ../../lib/vbxtest
 # ALT_LIBRARY_NAMES = vbxint vbxtest
 # ALT_LDDEPS = ../../lib/vbxint/libvbxint.a ../../lib/vbxtest/libvbxtest.a
 # MAKEABLE_LIBRARY_ROOT_DIRS = ../../lib/vbxint ../../lib/vbxtest
+
+vpath %.c $(sort $(dir $(C_SRCS)))
 
 $(OBJ_DIR)/%.o: %.c
 	@echo Building file: $<
@@ -88,25 +93,26 @@ $(ELFCHECK): $(ELF)
 
 # Load FPGA bitstream
 .PHONY: pgm
-ifeq ($(CPU_TARGET),XIL_ARM)
+ifeq ($(PROCESSOR_TYPE), microblaze)
+# cd $(PROJ_ROOT) && $(MAKE) -f system.make download
+# cd $(PROJ_ROOT) && impact -batch etc/download.cmd
 pgm:
 	cd $(PROJ_ROOT) && xmd -tcl xmd_init.tcl
 else
-# cd $(PROJ_ROOT) ; $(MAKE) -f system.make download
 pgm:
-	cd $(PROJ_ROOT) && impact -batch etc/download.cmd
+	cd $(PROJ_ROOT) && xmd -tcl xmd_init.tcl
 endif
 
 # Don't know of a good way to pass PROJ_ROOT to xmd tcl script,
 # so using make target to cd to PROJ_ROOT.
 .PHONY: run
-ifeq ($(CPU_TARGET),XIL_ARM)
+ifeq ($(PROCESSOR_TYPE), microblaze)
+run:
+	xmd -tcl $(MAKEFILE_DIR)/xmd_mb.tcl
+else
 run:
 	cd $(PROJ_ROOT) && xmd -tcl xmd_reinit.tcl
 	xmd -tcl $(MAKEFILE_DIR)/xmd_arm.tcl
-else
-run:
-	xmd -tcl $(MAKEFILE_DIR)/xmd_mb.tcl
 endif
 
 # Other Targets
@@ -129,7 +135,7 @@ libs : $(LIB_TARGETS)
 ifneq ($(strip $(LIB_TARGETS)),)
 $(LIB_TARGETS): %-recurs-make-lib:
 	@echo Info: Building $*
-	$(MAKE) --no-print-directory -C $* CPU_TARGET=$(CPU_TARGET)
+	$(MAKE) --no-print-directory -C $* CPU_TARGET=XIL
 endif
 
 ifneq ($(strip $(APP_LDDEPS)),)
@@ -146,7 +152,7 @@ clean_libs : $(LIB_CLEAN_TARGETS)
 ifneq ($(strip $(LIB_CLEAN_TARGETS)),)
 $(LIB_CLEAN_TARGETS): %-recurs-make-clean-lib:
 	@echo Info: Cleaning $*
-	$(MAKE) --no-print-directory -C $* CPU_TARGET=$(CPU_TARGET) clean
+	$(MAKE) --no-print-directory -C $* CPU_TARGET=XIL clean
 endif
 
 ###########################################################################

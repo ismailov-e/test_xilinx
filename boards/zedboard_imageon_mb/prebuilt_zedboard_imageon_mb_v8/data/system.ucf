@@ -1,0 +1,91 @@
+#
+# ZedBoard I/O constraints
+#
+
+# Switches
+NET "SWs_8Bits_TRI_IO[0]" LOC = F22  | IOSTANDARD=LVCMOS25;  # "SW0"
+NET "SWs_8Bits_TRI_IO[1]" LOC = G22  | IOSTANDARD=LVCMOS25;  # "SW1"
+NET "SWs_8Bits_TRI_IO[2]" LOC = H22  | IOSTANDARD=LVCMOS25;  # "SW2"
+NET "SWs_8Bits_TRI_IO[3]" LOC = F21  | IOSTANDARD=LVCMOS25;  # "SW3"
+NET "SWs_8Bits_TRI_IO[4]" LOC = H19  | IOSTANDARD=LVCMOS25;  # "SW4"
+NET "SWs_8Bits_TRI_IO[5]" LOC = H18  | IOSTANDARD=LVCMOS25;  # "SW5"
+NET "SWs_8Bits_TRI_IO[6]" LOC = H17  | IOSTANDARD=LVCMOS25;  # "SW6"
+NET "SWs_8Bits_TRI_IO[7]" LOC = M15  | IOSTANDARD=LVCMOS25;  # "SW7"
+
+# LEDs
+NET "LEDs_8Bits_TRI_IO[0]" LOC = T22  | IOSTANDARD=LVCMOS33;  # "LD0"
+NET "LEDs_8Bits_TRI_IO[1]" LOC = T21  | IOSTANDARD=LVCMOS33;  # "LD1"
+NET "LEDs_8Bits_TRI_IO[2]" LOC = U22  | IOSTANDARD=LVCMOS33;  # "LD2"
+NET "LEDs_8Bits_TRI_IO[3]" LOC = U21  | IOSTANDARD=LVCMOS33;  # "LD3"
+NET "LEDs_8Bits_TRI_IO[4]" LOC = V22  | IOSTANDARD=LVCMOS33;  # "LD4"
+NET "LEDs_8Bits_TRI_IO[5]" LOC = W22  | IOSTANDARD=LVCMOS33;  # "LD5"
+NET "LEDs_8Bits_TRI_IO[6]" LOC = U19  | IOSTANDARD=LVCMOS33;  # "LD6"
+NET "LEDs_8Bits_TRI_IO[7]" LOC = U14  | IOSTANDARD=LVCMOS33;  # "LD7"
+
+# Buttons
+NET "BTNs_5Bits_TRI_IO[0]" LOC = P16  | IOSTANDARD=LVCMOS25;  # "BTNC"
+NET "BTNs_5Bits_TRI_IO[1]" LOC = R16  | IOSTANDARD=LVCMOS25;  # "BTND"
+NET "BTNs_5Bits_TRI_IO[2]" LOC = N15  | IOSTANDARD=LVCMOS25;  # "BTNL"
+NET "BTNs_5Bits_TRI_IO[3]" LOC = R18  | IOSTANDARD=LVCMOS25;  # "BTNR"
+NET "BTNs_5Bits_TRI_IO[4]" LOC = T18  | IOSTANDARD=LVCMOS25;  # "BTNU"
+
+#
+# FMC-IMAGEON I/O constraints - FMC Slot 1
+#
+
+# Peripheral I2C chain
+NET "fmc_imageon_iic_0_Reset_pin" LOC = "N20";  # I2C_MUX_RST# - FMC1-D9  (LA01_n_CC)
+NET "fmc_imageon_iic_0_Sda_pin"   LOC = "K21";  # I2C_MUX_SDA  - FMC1-G19 (LA16_n)
+NET "fmc_imageon_iic_0_Scl_pin"   LOC = "J20";  # I2C_MUX_SCL  - FMC1-G18 (LA16_p)
+
+# Video Clock Synthesizer
+NET "fmc_imageon_video_clk1_pin" LOC = "L18"; # VCLK_1 - FMC2-H4  (CLK0_M2C_P)
+NET fmc_imageon_video_clk1_pin TNM_NET = vout_clk;
+TIMESPEC TS_vout_clk = PERIOD vout_clk 148500 kHz;
+
+# HDMI input
+NET "fmc_imageon_hdmi_in_0_io_hdmii_spdif_pin"     LOC = "A19"; # HDMII_SPDIF - FMC1-H29 (LA24_n)
+NET "fmc_imageon_hdmi_in_0_io_hdmii_video_pin[0]"  LOC = "A22"; # HDMII_CBCR0 - FMC1-H38 (LA32_n)
+NET "fmc_imageon_hdmi_in_0_io_hdmii_video_pin[1]"  LOC = "A21"; # HDMII_CBCR1 - FMC1-H37 (LA32_p)
+NET "fmc_imageon_hdmi_in_0_io_hdmii_video_pin[2]"  LOC = "B22"; # HDMII_CBCR2 - FMC1-G37 (LA33_n)
+NET "fmc_imageon_hdmi_in_0_io_hdmii_video_pin[3]"  LOC = "B21"; # HDMII_CBCR3 - FMC1-G36 (LA33_p)
+NET "fmc_imageon_hdmi_in_0_io_hdmii_video_pin[4]"  LOC = "B15"; # HDMII_CBCR4 - FMC1-H35 (LA30_n)
+NET "fmc_imageon_hdmi_in_0_io_hdmii_video_pin[5]"  LOC = "C15"; # HDMII_CBCR5 - FMC1-H34 (LA30_p)
+NET "fmc_imageon_hdmi_in_0_io_hdmii_video_pin[6]"  LOC = "B17"; # HDMII_CBCR6 - FMC1-G34 (LA31_n)
+NET "fmc_imageon_hdmi_in_0_io_hdmii_video_pin[7]"  LOC = "B16"; # HDMII_CBCR7 - FMC1-G33 (LA31_p)
+NET "fmc_imageon_hdmi_in_0_io_hdmii_video_pin[8]"  LOC = "A17"; # HDMII_Y0    - FMC1-H32 (LA28_n)
+NET "fmc_imageon_hdmi_in_0_io_hdmii_video_pin[9]"  LOC = "A16"; # HDMII_Y1    - FMC1-H31 (LA28_p)
+NET "fmc_imageon_hdmi_in_0_io_hdmii_video_pin[10]" LOC = "C18"; # HDMII_Y2    - FMC1-G31 (LA29_n)
+NET "fmc_imageon_hdmi_in_0_io_hdmii_video_pin[11]" LOC = "D21"; # HDMII_Y3    - FMC1-C27 (LA27_n)
+NET "fmc_imageon_hdmi_in_0_io_hdmii_video_pin[12]" LOC = "E18"; # HDMII_Y4    - FMC1-D27 (LA26_n)
+NET "fmc_imageon_hdmi_in_0_io_hdmii_video_pin[13]" LOC = "C17"; # HDMII_Y5    - FMC1-G30 (LA29_p)
+NET "fmc_imageon_hdmi_in_0_io_hdmii_video_pin[14]" LOC = "E21"; # HDMII_Y6    - FMC1-C26 (LA27_p)
+NET "fmc_imageon_hdmi_in_0_io_hdmii_video_pin[15]" LOC = "F18"; # HDMII_Y7    - FMC1-D26 (LA26_p)
+NET "fmc_imageon_hdmi_in_0_clk_pin"                LOC = "D18"; # HDMII_LLC   - FMC1-G2  (CLK1_M2C_p)
+
+NET fmc_imageon_hdmi_in_0_clk_pin TNM_NET = hdmii_clk;
+TIMESPEC TS_hdmii_clk = PERIOD hdmii_clk 148500 kHz;
+
+# HDMI output
+NET "fmc_imageon_hdmi_out_0_io_hdmio_spdif_pin"     LOC = "A18"; # HDMIO_SPDIF - FMC1-H28 (LA24_p)
+NET "fmc_imageon_hdmi_out_0_io_hdmio_video_pin[0]"  LOC = "G19"; # HDMIO_CBCR0 - FMC1-G24 (LA22_p)
+NET "fmc_imageon_hdmi_out_0_io_hdmio_video_pin[1]"  LOC = "G16"; # HDMIO_CBCR1 - FMC1-H23 (LA19_n)
+NET "fmc_imageon_hdmi_out_0_io_hdmio_video_pin[2]"  LOC = "D20"; # HDMIO_CBCR2 - FMC1-C22 (LA18_p_CC)
+NET "fmc_imageon_hdmi_out_0_io_hdmio_video_pin[3]"  LOC = "B20"; # HDMIO_CBCR3 - FMC1-D21 (LA17_n_CC)
+NET "fmc_imageon_hdmi_out_0_io_hdmio_video_pin[4]"  LOC = "G15"; # HDMIO_CBCR4 - FMC1-H22 (LA19_p)
+NET "fmc_imageon_hdmi_out_0_io_hdmio_video_pin[5]"  LOC = "G21"; # HDMIO_CBCR5 - FMC1-G22 (LA20_n)
+NET "fmc_imageon_hdmi_out_0_io_hdmio_video_pin[6]"  LOC = "B19"; # HDMIO_CBCR6 - FMC1-D20 (LA17_p_CC)
+NET "fmc_imageon_hdmi_out_0_io_hdmio_video_pin[7]"  LOC = "G20"; # HDMIO_CBCR7 - FMC1-G21 (LA20_p)
+NET "fmc_imageon_hdmi_out_0_io_hdmio_video_pin[8]"  LOC = "C22"; # HDMIO_Y0    - FMC1-G28 (LA25_n)
+NET "fmc_imageon_hdmi_out_0_io_hdmio_video_pin[9]"  LOC = "D22"; # HDMIO_Y1    - FMC1-G27 (LA25_p)
+NET "fmc_imageon_hdmi_out_0_io_hdmio_video_pin[10]" LOC = "E20"; # HDMIO_Y2    - FMC1-H26 (LA21_n)
+NET "fmc_imageon_hdmi_out_0_io_hdmio_video_pin[11]" LOC = "D15"; # HDMIO_Y3    - FMC1-D24 (LA23_n)
+NET "fmc_imageon_hdmi_out_0_io_hdmio_video_pin[12]" LOC = "E19"; # HDMIO_Y4    - FMC1-H25 (LA21_p)
+NET "fmc_imageon_hdmi_out_0_io_hdmio_video_pin[13]" LOC = "F19"; # HDMIO_Y5    - FMC1-G25 (LA22_n)
+NET "fmc_imageon_hdmi_out_0_io_hdmio_video_pin[14]" LOC = "C20"; # HDMIO_Y6    - FMC1-C23 (LA18_n_CC)
+NET "fmc_imageon_hdmi_out_0_io_hdmio_video_pin[15]" LOC = "E15"; # HDMIO_Y7    - FMC1-D23 (LA23_p)
+NET "fmc_imageon_hdmi_out_0_io_hdmio_clk_pin"       LOC = "C19"; # HDMIO_CLK   - FMC1-G3  (CLK1_M2C_n)
+
+NET "fmc_imageon_*_pin" IOSTANDARD=LVCMOS25; 
+NET "fmc_imageon_hdmi_in_0_io_hdmii_video_pin[*]" IOSTANDARD=LVCMOS25;
+NET "fmc_imageon_hdmi_out_0_io_hdmio_video_pin[*]" IOSTANDARD=LVCMOS25;

@@ -1,0 +1,70 @@
+#
+# ZedBoard I/O constraints
+#
+
+############################################################################
+# Connections to on-board ADV7511 HDMI transmitter.
+# From zedboard_master_UCF_RevC_v3.ucf
+# See also Analog Devices ref design cf_adv7511_zed from
+# https://github.com/analogdevicesinc/fpgahdl_xilinx/tree/edk_14_4_2013_08_02/cf_adv7511_zed
+
+# Bank 33, Vcco = 3.3V
+
+NET hdmi_clk        LOC = W18  | IOSTANDARD = LVCMOS33;
+NET hdmi_vsync      LOC = W17  | IOSTANDARD = LVCMOS33;
+NET hdmi_hsync      LOC = V17  | IOSTANDARD = LVCMOS33;
+NET hdmi_data_e     LOC = U16  | IOSTANDARD = LVCMOS33;
+NET hdmi_data[0]    LOC = Y13  | IOSTANDARD = LVCMOS33;
+NET hdmi_data[1]    LOC = AA13 | IOSTANDARD = LVCMOS33;
+NET hdmi_data[2]    LOC = AA14 | IOSTANDARD = LVCMOS33;
+NET hdmi_data[3]    LOC = Y14  | IOSTANDARD = LVCMOS33;
+NET hdmi_data[4]    LOC = AB15 | IOSTANDARD = LVCMOS33;
+NET hdmi_data[5]    LOC = AB16 | IOSTANDARD = LVCMOS33;
+NET hdmi_data[6]    LOC = AA16 | IOSTANDARD = LVCMOS33;
+NET hdmi_data[7]    LOC = AB17 | IOSTANDARD = LVCMOS33;
+NET hdmi_data[8]    LOC = AA17 | IOSTANDARD = LVCMOS33;
+NET hdmi_data[9]    LOC = Y15  | IOSTANDARD = LVCMOS33;
+NET hdmi_data[10]   LOC = W13  | IOSTANDARD = LVCMOS33;
+NET hdmi_data[11]   LOC = W15  | IOSTANDARD = LVCMOS33;
+NET hdmi_data[12]   LOC = V15  | IOSTANDARD = LVCMOS33;
+NET hdmi_data[13]   LOC = U17  | IOSTANDARD = LVCMOS33;
+NET hdmi_data[14]   LOC = V14  | IOSTANDARD = LVCMOS33;
+NET hdmi_data[15]   LOC = V13  | IOSTANDARD = LVCMOS33;
+# NET hdmi_spdif      LOC = U15  | IOSTANDARD = LVCMOS33;
+NET hdmi_int        LOC = W16  | IOSTANDARD = LVCMOS33;
+
+NET util_i2c_mixer_0_downstream_scl_pin[0] LOC = AA18 | IOSTANDARD="LVCMOS33"; # HD-SCL
+NET util_i2c_mixer_0_downstream_sda_pin[0] LOC = Y16  | IOSTANDARD="LVCMOS33"; # HD-SDA
+NET util_i2c_mixer_0_downstream_scl_pin[1] LOC = AB4 | IOSTANDARD = "LVCMOS33"; # AC-SCK
+NET util_i2c_mixer_0_downstream_sda_pin[1] LOC = AB5 | IOSTANDARD = "LVCMOS33"; # AC-SDA
+
+###########################################################################
+
+# Switches
+NET "SWs_8Bits_TRI_IO[0]" LOC = F22  | IOSTANDARD=LVCMOS25;  # "SW0"
+NET "SWs_8Bits_TRI_IO[1]" LOC = G22  | IOSTANDARD=LVCMOS25;  # "SW1"
+NET "SWs_8Bits_TRI_IO[2]" LOC = H22  | IOSTANDARD=LVCMOS25;  # "SW2"
+NET "SWs_8Bits_TRI_IO[3]" LOC = F21  | IOSTANDARD=LVCMOS25;  # "SW3"
+NET "SWs_8Bits_TRI_IO[4]" LOC = H19  | IOSTANDARD=LVCMOS25;  # "SW4"
+NET "SWs_8Bits_TRI_IO[5]" LOC = H18  | IOSTANDARD=LVCMOS25;  # "SW5"
+NET "SWs_8Bits_TRI_IO[6]" LOC = H17  | IOSTANDARD=LVCMOS25;  # "SW6"
+NET "SWs_8Bits_TRI_IO[7]" LOC = M15  | IOSTANDARD=LVCMOS25;  # "SW7"
+
+# LEDs
+NET "LEDs_8Bits_TRI_IO[0]" LOC = T22  | IOSTANDARD=LVCMOS33;  # "LD0"
+NET "LEDs_8Bits_TRI_IO[1]" LOC = T21  | IOSTANDARD=LVCMOS33;  # "LD1"
+NET "LEDs_8Bits_TRI_IO[2]" LOC = U22  | IOSTANDARD=LVCMOS33;  # "LD2"
+NET "LEDs_8Bits_TRI_IO[3]" LOC = U21  | IOSTANDARD=LVCMOS33;  # "LD3"
+NET "LEDs_8Bits_TRI_IO[4]" LOC = V22  | IOSTANDARD=LVCMOS33;  # "LD4"
+NET "LEDs_8Bits_TRI_IO[5]" LOC = W22  | IOSTANDARD=LVCMOS33;  # "LD5"
+NET "LEDs_8Bits_TRI_IO[6]" LOC = U19  | IOSTANDARD=LVCMOS33;  # "LD6"
+NET "LEDs_8Bits_TRI_IO[7]" LOC = U14  | IOSTANDARD=LVCMOS33;  # "LD7"
+
+# Buttons
+NET "BTNs_5Bits_TRI_IO[0]" LOC = P16  | IOSTANDARD=LVCMOS25;  # "BTNC"
+NET "BTNs_5Bits_TRI_IO[1]" LOC = R16  | IOSTANDARD=LVCMOS25;  # "BTND"
+NET "BTNs_5Bits_TRI_IO[2]" LOC = N15  | IOSTANDARD=LVCMOS25;  # "BTNL"
+NET "BTNs_5Bits_TRI_IO[3]" LOC = R18  | IOSTANDARD=LVCMOS25;  # "BTNR"
+NET "BTNs_5Bits_TRI_IO[4]" LOC = T18  | IOSTANDARD=LVCMOS25;  # "BTNU"
+
+###########################################################################

@@ -66,10 +66,10 @@ VBXCOPYRIGHT( mandel )
  * SW8=1 user INTERACTIVE mode
  * SW8=0 play AUTOMATIC sequence of predefined coordinates
  *
- * SW9=1 use VENICE for next frame
+ * SW9=1 use MXP for next frame
  * SW9=0 use Nios for next frame
  *
- * you need to compute the same frame with both VENICE and Nios to display speedup on the 7seg.
+ * you need to compute the same frame with both MXP and Nios to display speedup on the 7seg.
  * if the 7seg shows 1126, the speedup is 112.6 times.
  *
  * during INTERACTIVE mode:
@@ -110,7 +110,7 @@ typedef unsigned short pixel;
 int key   = 0;
 int sw    = 0x2ff;
 int *pKEY  = &key;
-#if defined(SYSTEM_DE4) || defined(SYSTEM_ZEDBOARD)
+#if defined(SYSTEM_DE4) || defined(SYSTEM_ZEDBOARD) || defined(SYSTEM_ZEDBOARD_IMAGEON)
 int *pSWITCH = &sw;
 #else
 volatile unsigned int *pSWITCH = (unsigned int *)((int)SWITCH_PIO_BASE|0x80000000);
@@ -139,7 +139,7 @@ int  vbx_timestamp()       { return 1; }
 #include "system.h"
 #include "io.h"
 
-#endif 
+#endif
 
 
 
@@ -155,10 +155,12 @@ static int max_iterations = 255;
 #if defined(DEMO) && defined(VBX1_MULFXP_WORD_FRACTION_BITS)
 // NOTE: Only works if MXP instance is named vbx1.
 static int FSHIFT = VBX1_MULFXP_WORD_FRACTION_BITS;
-#elif defined(SYSTEM_ZEDBOARD) && defined(XPAR_VECTORBLOX_MXP_ARM_0_MULFXP_WORD_FRACTION_BITS)
+#elif defined(SYSTEM_ZEDBOARD) || defined(SYSTEM_ZEDBOARD_IMAGEON)
+#if defined(XPAR_VECTORBLOX_MXP_ARM_0_MULFXP_WORD_FRACTION_BITS)
 static int FSHIFT = XPAR_VECTORBLOX_MXP_ARM_0_MULFXP_WORD_FRACTION_BITS;
-#elif defined(SYSTEM_ZEDBOARD) && defined(XPAR_VECTORBLOX_MXP_0_MULFXP_WORD_FRACTION_BITS)
+#elif defined(XPAR_VECTORBLOX_MXP_0_MULFXP_WORD_FRACTION_BITS)
 static int FSHIFT = XPAR_VECTORBLOX_MXP_0_MULFXP_WORD_FRACTION_BITS;
+#endif
 #else
 static int FSHIFT = 25; // do NOT change
 #endif
@@ -173,11 +175,11 @@ static const int grid_height = MAX_Y_PIXELS; //240;
 
 
 #ifdef DEMO
-pixel FRAME_VECT[1];
-pixel FRAME_NIOS[1];
+pixel FRAME_VECTOR[1];
+pixel FRAME_SCALAR[1];
 #else
-pixel FRAME_VECT[ MAX_Y_PIXELS*MAX_X_PIXELS ];
-pixel FRAME_NIOS[ MAX_Y_PIXELS*MAX_X_PIXELS ];
+pixel FRAME_VECTOR[ MAX_Y_PIXELS*MAX_X_PIXELS ];
+pixel FRAME_SCALAR[ MAX_Y_PIXELS*MAX_X_PIXELS ];
 #endif
 
 
@@ -410,7 +412,7 @@ inline pixel *getPixelAddr( int x, int y, int isVec )
 
 #ifdef BENCHMARK
 
-	pixel *p = ( isVec ? FRAME_VECT : FRAME_NIOS );
+	pixel *p = ( isVec ? FRAME_VECTOR : FRAME_SCALAR );
 	p += y * MAX_X_PIXELS + x;
 	//*pFrameStart = colour;
 
@@ -425,7 +427,7 @@ inline pixel *getPixelAddr( int x, int y, int isVec )
 	//*pVGA = colour;
 
 #if CHECK_RESULT
-	pixel *p2 = ( isVec ? FRAME_VECT : FRAME_NIOS );
+	pixel *p2 = ( isVec ? FRAME_VECTOR : FRAME_SCALAR );
 	p2 += y * MAX_X_PIXELS + x;
 	*p2 = colour;
 #endif //CHECK_RESULT
@@ -485,7 +487,7 @@ vbx_uword_t *v_escap;
 vbx_uword_t *v_iters;
 volatile vbx_uword_t *v_ndone;
 
-int vector_calculate_nrows( int x, int y, int vlen, int nrows, 
+int vector_calculate_nrows( int x, int y, int vlen, int nrows,
 				int x_start, int y_start, int x_delta, int y_delta )
 {
 	int i, limit;
@@ -622,13 +624,17 @@ unsigned int vector_mandelbrot_nosplitrow( int vlen )
 	int x_delta = (x_end - x_start) / ( grid_width/8); // 100
 	int y_delta = (y_end - y_start) / (grid_height/8); //  75
 
+	const int xfer_len = vlen * sizeof(pixel);
+	const int num_rows = 2 * max(1, (grid_width / vlen ));
+	const int dst_stride = vlen * sizeof(pixel);
+
 	int logo=0;
 	for(y = 0; y < grid_height; y+=nrows) {
 		start = vbx_timestamp();
 
 		tvlen = vlen;
 		for( x=0; x < grid_width; x += vlen/nrows ) {
-			int saved = vector_calculate_nrows(x, y, tvlen, nrows, 
+			int saved = vector_calculate_nrows(x, y, tvlen, nrows,
 							 x_start, y_start, x_delta, y_delta );
 			total_saved += saved;
 		}
@@ -640,9 +646,6 @@ unsigned int vector_mandelbrot_nosplitrow( int vlen )
 			vbx_word_t *v_temp1 = v_newZr;  // temp space
 			vbx( SVW, VMOV, v_temp1, (63<<2)<<8, 0 );
 #if 1
-			const int xfer_len = vlen * sizeof(pixel);
-			const int num_rows = 2 * max(1, (grid_width / vlen ));
-			const int dst_stride = vlen * sizeof(pixel);
 			pixel *pNextFrameLine = pFrameTPad + (y+nrows)*grid_width;
 			vbx_dma_to_host_2D( pNextFrameLine, v_temp1, xfer_len, num_rows, dst_stride, 0/*src_stride*/ );
 #else
@@ -797,7 +800,7 @@ int compute_vlen( int num_vectors )
 	int vmem = scratchpad_size;
 	int vlen = scratchpad_size/4;
 	do {
-		// find 
+		// find
 		do {
 			vlen = scratchpad_size/4 / ++k;
 		} while( 1*4 + num_vectors*4*VBX_PAD_UP(vlen,align) > vmem );
@@ -907,28 +910,28 @@ int Destruct()
 void check_result()
 {
 	int i, j, wrong;
-	pixel vect_result, nios_result;
-	int vect_int, nios_int;
+	pixel vector_result, scalar_result;
+	int vector_int, scalar_int;
 	int max_error = 0;
 	wrong = 0;
     for(i = 0; i < grid_height; i++){
         for(j=0; j<grid_width; j++)
         {
             int pos = i * MAX_X_PIXELS + j;
-            vect_result = FRAME_VECT[pos];
-            nios_result = FRAME_NIOS[pos];
+            vector_result = FRAME_VECTOR[pos];
+            scalar_result = FRAME_SCALAR[pos];
 #ifdef DEMO
-            vect_int = *((int*)(&vect_result));
-            nios_int = *((int*)(&nios_result));
+            vector_int = *((int*)(&vector_result));
+            scalar_int = *((int*)(&scalar_result));
 #else
-            vect_int = (int)vect_result;
-            nios_int = (int)nios_result;
+            vector_int = (int)vector_result;
+            scalar_int = (int)scalar_result;
 #endif
-            if( vect_int != nios_int ){
-                max_error = max(abs(vect_int-nios_int), max_error);
+            if( vector_int != scalar_int ){
+                max_error = max(abs(vector_int-scalar_int), max_error);
                 wrong++;
                 if(wrong < 12)
-                    printf("error at [%d,%d]: scalar - %d, vector - %d\n", i, j, nios_int, vect_int);
+                    printf("error at [%d,%d]: scalar - %d, vector - %d\n", i, j, scalar_int, vector_int);
             }
         }
     }

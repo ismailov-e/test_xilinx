@@ -10,4 +10,8 @@
 !libvbxlib_arm.a
 !libvbxlib_mb.a
 !libxil.a
+!libm.a
+!libc.a
+!libHDMI_ZedBoardLib.a
+!libHDMI_ZedBoardLib_MB.a
 !demo.elf

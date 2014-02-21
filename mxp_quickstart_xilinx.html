@@ -285,32 +285,26 @@ INFO:iMPACT:501 - &#39;1&#39;: Added Device xc7z020 successfully.</code></pre></
 <p>In Windows, select <strong>Start Menu</strong> <span class="math"> → </span> <strong>All Programs</strong> <span class="math"> → </span> <strong>Xilinx Design Tools</strong> <span class="math"> → </span> <strong>ISE Design Suite</strong> <span class="math"> → </span> <strong>Accessories</strong> <span class="math"> → </span> <strong>ISE Design Suite 32/64 Bit Command Prompt</strong>.</p>
 <p>In Linux, open a terminal and run the appropriate <code>settings{32,64}.{sh,csh}</code> script in the root of your Xilinx ISE_DS installation. (Select 32 or 64 depending on whether you want to use the 32-bit or 64-bit versions of the tools, and select sh or csh depending on whether you are using a Bourne-style shell, such as sh or bash, or a C Shell, such as csh or tcsh.) This sets up the proper environment variables for using the Xilinx development tools.</p></li>
 <li><p>Navigate to one of the prebuilt VectorBlox MXP systems for your development board, located in <code>TOPDIR/boards/&lt;board_name&gt;/prebuilt_*</code>.</p>
-<p>For example, for the ZedBoard, change directory to <code>TOPDIR/boards/zedboard_arm_mxp/prebuilt_zedboard_arm_mxp_v16</code> for a 16-lane MXP system.</p></li>
+<p>For example, for the ZedBoard, change directory to <code>TOPDIR/boards/zedboard_arm/prebuilt_zedboard_arm_v16</code> for a 16-lane MXP system.</p></li>
 <li><p>Store the path to the directory in a shell variable. In Linux, assuming you are using a Bourne-style shell such as <code>sh</code> or <code>bash</code>, use</p>
 <pre><code>PROJ_ROOT=`pwd`</code></pre>
 <p>If using <code>csh</code> or <code>tcsh</code>, use</p>
 <pre><code>set PROJ_ROOT=`pwd`</code></pre>
 <p>In Windows, use</p>
 <pre><code>set PROJ_ROOT=%cd%</code></pre></li>
-<li><p>Store the CPU type being targeted in a shell variable. Use <code>MB</code> for MicroBlaze or <code>XIL_ARM</code> for ARM Cortex-A9. In Linux, assuming <code>sh</code> or <code>bash</code>, use the syntax</p>
-<pre><code>CPU_TARGET=XIL_ARM</code></pre>
-<p>For <code>csh</code> or <code>tcsh</code>, use the syntax</p>
-<pre><code>set CPU_TARGET=XIL_ARM</code></pre>
-<p>In Windows, use the syntax</p>
-<pre><code>set CPU_TARGET=XIL_ARM</code></pre></li>
 <li><p>Navigate to a test application such as <code>vbw_vec_add_t</code>, located in <code>TOPDIR/software/bmark/vbw_vec_add_t</code>.</p></li>
 <li><p><strong>Make the executable.</strong></p>
-<p>To compile the program for the FPGA bitstream you previously selected, you need to pass the location of the BSP to <code>make</code>. Assuming the <code>PROJ_ROOT</code> and <code>CPU_TARGET</code> shell variables have been set appropriately, on Linux, run</p>
-<pre><code>make clean_all all CPU_TARGET=$CPU_TARGET PROJ_ROOT=$PROJ_ROOT</code></pre>
+<p>To compile the program for the FPGA bitstream you previously selected, you need to pass the location of the BSP to <code>make</code>. Assuming the <code>PROJ_ROOT</code> shell variable has been set appropriately, on Linux, run</p>
+<pre><code>make clean_all all PROJ_ROOT=$PROJ_ROOT</code></pre>
 <p>On Windows, run</p>
-<pre><code>make clean_all all CPU_TARGET=%CPU_TARGET% PROJ_ROOT=%PROJ_ROOT%</code></pre>
+<pre><code>make clean_all all PROJ_ROOT=%PROJ_ROOT%</code></pre>
 <p>After a long list of messages and a few seconds, the file <strong>test.elf</strong> should have been created.</p>
 <p>Note that we used the <code>clean_all</code> target first to ensure that any libraries that might have been compiled against a different BSP in the past were cleaned and re-compiled. If you know that the libraries were already compiled for the selected BSP, you can omit the <code>clean_all</code> target.</p></li>
 <li><p><strong>Program the FPGA.</strong></p>
 <p>We provide a make target to program the FPGA with XMD or iMPACT. In Linux, use</p>
-<pre><code>make pgm CPU_TARGET=$CPU_TARGET PROJ_ROOT=$PROJ_ROOT</code></pre>
+<pre><code>make pgm PROJ_ROOT=$PROJ_ROOT</code></pre>
 <p>In Windows, use</p>
-<pre><code>make pgm CPU_TARGET=%CPU_TARGET% PROJ_ROOT=%PROJ_ROOT%</code></pre></li>
+<pre><code>make pgm PROJ_ROOT=%PROJ_ROOT%</code></pre></li>
 </ol>
 <!---
     `impact -batch etc/download.cmd`
@@ -330,9 +324,9 @@ or
 <li><p>Open a serial port terminal emulator to prepare to view the output from the board’s USB-UART. On Linux, you can, for example, open a new terminal and run <code>picocom -b 38400 /dev/ttyUSB0</code> for the Atlys or <code>picocom -b 115200 /dev/ttyACM0</code> for the ZedBoard. On Windows, use a program such as PuTTY to connect to the USB serial port.</p></li>
 <li><p><strong>Download the executable.</strong></p>
 <p>We provide a make target to download the ELF with XMD. In Linux, use</p>
-<pre><code>make run CPU_TARGET=$CPU_TARGET PROJ_ROOT=$PROJ_ROOT</code></pre>
+<pre><code>make run PROJ_ROOT=$PROJ_ROOT</code></pre>
 <p>In Windows, use</p>
-<pre><code>make run CPU_TARGET=%CPU_TARGET% PROJ_ROOT=%PROJ_ROOT%</code></pre></li>
+<pre><code>make run PROJ_ROOT=%PROJ_ROOT%</code></pre></li>
 </ol>
 <!---
     `xmd -tcl xmd_mb.tcl`
@@ -360,11 +354,54 @@ or
 <li><p>Face Detection on the video input using Haar-like features. A green box is drawn around each detected face.</p></li>
 <li><p>Multi-algorithm mode with the particle simulation overlaid on top of the video input, with edge detection also running in the top left quadrant, motion estimation in the top right quadrant, and video inversion in the bottom right quadrant.</p></li>
 </ul>
-<h2 id="zedboard-with-fmc-imageon-hdmi-daughter-card-demo"><span class="header-section-number">4.1</span> ZedBoard with FMC-IMAGEON HDMI Daughter Card Demo</h2>
+<h2 id="zedboard-hdmi-output-demo"><span class="header-section-number">4.1</span> ZedBoard HDMI Output Demo</h2>
+<p>The demo for the ZedBoard outputs 1920x1080p 60Hz on the HDMI port. Connect a 1080p monitor to the on-board HDMI port to see video output.</p>
+<p>We have provided pre-compiled ELF files for your convenience, but you can also compile the demo yourself by following the instructions in the <a href="#compile_zedboard_hdmi_demo">section below</a>.</p>
+<p>To run the demo, first open up an ISE Command Prompt, then go to the directory containing the pre-built bitstream you wish to use. e.g. for the ARM-based V16 system:</p>
+<pre><code>cd boards/zedboard_hdmi_arm/prebuilt_zedboard_hdmi_arm_v16</code></pre>
+<p>For the MicroBlaze-based V16 system, use</p>
+<pre><code>cd boards/zedboard_hdmi_mb/prebuilt_zedboard_hdmi_mb_v16</code></pre>
+<p>Connect to the ZedBoard's USB-UART with a terminal emulator program to prepare to view the serial console output. Use 115200 bps, 8 bits per character, no parity.</p>
+<p>Program the FPGA and download the ELF with the provided XMD Tcl script:</p>
+<pre><code>xmd -tcl xmd_demo.tcl</code></pre>
+<p>The DIP switches near the OLED are used to select the mode of operation.</p>
+<p><strong>SW0</strong> Toggles between the Mandelbrot and Particle Repulsion algorithms.</p>
+<p><strong>SW1</strong> When running Particle Repulsion, toggles Edge Detection on the left half of the screen.</p>
+<p><strong>SW2</strong> Toggles between the ARM-only (or MicroBlaze-only) implementation of the algorithm (scalar mode) and the vectorized MXP implementation of the algorithm (vector mode).</p>
+<h3 id="compile_zedboard_hdmi_demo"><span class="header-section-number">4.1.1</span> Recompiling the ZedBoard HDMI Output Demo</h3>
+<p>From an ISE Command Prompt, go to the directory containing the pre-built bitstream you wish to use. e.g. for the ARM-based V16 system:</p>
+<pre><code>cd boards/zedboard_hdmi_arm/prebuilt_zedboard_hdmi_arm_v16</code></pre>
+<p>For the MicroBlaze-based V16 system, use</p>
+<pre><code>cd boards/zedboard_hdmi_mb/prebuilt_zedboard_hdmi_mb_v16</code></pre>
+<p>Store the path to the directory in a shell variable. In Linux use</p>
+<pre><code>PROJ_ROOT=`pwd`</code></pre>
+<p>in <code>sh</code> or <code>bash</code>, or</p>
+<pre><code>set PROJ_ROOT=`pwd`</code></pre>
+<p>in <code>csh</code> or <code>tcsh</code>.</p>
+<p>In Windows, use</p>
+<pre><code>set PROJ_ROOT=%cd%</code></pre>
+<p>Go to the demo directory:</p>
+<pre><code>cd ../../../software/demo/zedboard</code></pre>
+<p>Compile the demo. In Linux, use</p>
+<pre><code>make clean_all all PROJ_ROOT=$PROJ_ROOT</code></pre>
+<p>In Windows, use</p>
+<pre><code>make clean_all all PROJ_ROOT=%PROJ_ROOT%</code></pre>
+<p>Program the FPGA. We provide a make target to do this with XMD. In Linux, use</p>
+<pre><code>make pgm PROJ_ROOT=$PROJ_ROOT</code></pre>
+<p>In Windows, use</p>
+<pre><code>make pgm PROJ_ROOT=%PROJ_ROOT%</code></pre>
+<p>Connect to the ZedBoard's USB-UART with a terminal emulator program to prepare to view the serial console output. Use 115200 bps, 8 bits per character, no parity.</p>
+<p>Download the ELF to the board. Again, we provide a make target to do this with XMD. In Linux, use</p>
+<pre><code>make run PROJ_ROOT=$PROJ_ROOT</code></pre>
+<p>In Windows, use</p>
+<pre><code>make run PROJ_ROOT=%PROJ_ROOT%</code></pre>
+<h2 id="zedboard-with-fmc-imageon-hdmi-daughter-card-demo"><span class="header-section-number">4.2</span> ZedBoard with FMC-IMAGEON HDMI Daughter Card Demo</h2>
 <p>The zedboard demo uses Avnet's FMC-IMAGEON daughter card for video input and output. A 1920x1080p 60Hz video source should be connected to the HDMI IN port, and a 1080p monitor should be connected to the HDMI OUT port.</p>
-<p>We have provided pre-compiled ELF files for the demo because it uses some Avnet reference code which we do not have permission to redistribute. Please see the <a href="#compile_zedboard_demo">section below</a> if you wish to compile the demo yourself.</p>
-<p>To run the demo, first open up an ISE Command Prompt, then go to the directory containing the pre-built bitstream you wish to use. e.g. for the V16 system:</p>
-<pre><code>cd boards/zedboard_imageon_arm_mxp/prebuilt_zedboard_imageon_arm_mxp_v16</code></pre>
+<p>We have provided pre-compiled ELF files for the demo because it uses some Avnet reference code which we do not have permission to redistribute. Please see the <a href="#compile_zedboard_imageon_demo">section below</a> if you wish to compile the demo yourself.</p>
+<p>To run the demo, first open up an ISE Command Prompt, then go to the directory containing the pre-built bitstream you wish to use. e.g. for the ARM-based V16 system:</p>
+<pre><code>cd boards/zedboard_imageon_arm/prebuilt_zedboard_imageon_arm_v16</code></pre>
+<p>For the MicroBlaze-based V16 system, use</p>
+<pre><code>cd boards/zedboard_imageon_mb/prebuilt_zedboard_imageon_mb_v16</code></pre>
 <p>Connect to the ZedBoard's USB-UART with a terminal emulator program to prepare to view the serial console output. Use 115200 bps, 8 bits per character, no parity.</p>
 <p>Program the FPGA and download the ELF with the provided XMD Tcl script:</p>
 <pre><code>xmd -tcl xmd_demo.tcl</code></pre>
@@ -381,14 +418,16 @@ or
 <li>110 - Split Mode (Particle Repulsion with Edge Detection running on the right half of the screen)</li>
 <li>111 - Multi Mode (Particle Repulsion overlaid on the input video with Edge Detection, Motion Estimation, Inversion running in different quadrants)</li>
 </ul>
-<p><strong>SW3</strong> toggles between the ARM-only implementation of the algorithm (scalar mode) and the vectorized MXP implementation of the algorithm (vector mode).</p>
+<p><strong>SW3</strong> toggles between the ARM-only (or MicroBlaze-only) implementation of the algorithm (scalar mode) and the vectorized MXP implementation of the algorithm (vector mode).</p>
 <p><strong>NOTE:</strong> The pre-built bitstreams use a time-limited evaluation version of Xilinx's Chroma Resampler IP core (v_cresample) for conversion between YCbCr 4:2:2 and YCbCr 4:4:4 formats, so the video pipelines will stop working (the output will go blank) after about an hour. You will need to power cycle the board before reloading the bitstream.</p>
-<h3 id="compile_zedboard_demo"><span class="header-section-number">4.1.1</span> Recompiling the ZedBoard Demo</h3>
+<h3 id="compile_zedboard_imageon_demo"><span class="header-section-number">4.2.1</span> Recompiling the ZedBoard + FMC-IMAGEON Demo</h3>
 <p>We have provided pre-compiled ELFs for the demo because it uses some Avnet reference code which cannot be redistributed by others.</p>
 <p>Read this section if you wish to compile the demo yourself.</p>
-<p>See the file <code>00-README.txt</code> in <code>software/demo/zedboard</code> and follow the instructions for downloading the Avnet reference code that we do not have permission to redistribute. Make sure the necessary files are copied to <code>software/demo/zedboard</code>.</p>
-<p>From an ISE Command Prompt, go to the directory containing the pre-built bitstream you wish to use. e.g. for the V16 system:</p>
-<pre><code>cd boards/zedboard_imageon_arm_mxp/prebuilt_zedboard_imageon_arm_mxp_v16</code></pre>
+<p>See the file <code>00-README.txt</code> in <code>software/demo/zedboard_imageon</code> and follow the instructions for downloading the Avnet reference code that we do not have permission to redistribute. Make sure the necessary files are copied to <code>software/demo/zedboard_imageon</code>.</p>
+<p>From an ISE Command Prompt, go to the directory containing the pre-built bitstream you wish to use. e.g. for the ARM-based V16 system:</p>
+<pre><code>cd boards/zedboard_imageon_arm/prebuilt_zedboard_imageon_arm_v16</code></pre>
+<p>For the MicroBlaze-based V16 system, use</p>
+<pre><code>cd boards/zedboard_imageon_mb/prebuilt_zedboard_imageon_mb_v16</code></pre>
 <p>Store the path to the directory in a shell variable. In Linux use</p>
 <pre><code>PROJ_ROOT=`pwd`</code></pre>
 <p>in <code>sh</code> or <code>bash</code>, or</p>
@@ -397,7 +436,7 @@ or
 <p>In Windows, use</p>
 <pre><code>set PROJ_ROOT=%cd%</code></pre>
 <p>Go to the demo directory:</p>
-<pre><code>cd ../../../software/demo/zedboard</code></pre>
+<pre><code>cd ../../../software/demo/zedboard_imageon</code></pre>
 <p>Compile the demo. In Linux, use</p>
 <pre><code>make clean_all all PROJ_ROOT=$PROJ_ROOT</code></pre>
 <p>In Windows, use</p>
@@ -458,9 +497,13 @@ END</code></pre></li>
 END</code></pre>
 <p>However, <strong>do not</strong> add these lines if you wish to compile and run the VectorBlox-supplied test programs because the Makefiles for these programs compile the VBXWare library separately from the BSP.</p></li>
 <li><p>Extract the CPU-specific compilation flags from the generated Makefile:</p>
-<pre><code>grep ^CC_FLAGS bsp/Makefile &gt; bsp/cpu_flags.mk
-sed -i &#39;s/^CC_FLAGS/CPU_FLAGS/&#39; bsp/cpu_flags.mk</code></pre>
+<pre><code>grep ^CC_FLAGS bsp/Makefile &gt; bsp/bsp_vars.mk
+sed -i &#39;s/^CC_FLAGS/CPU_FLAGS/&#39; bsp/bsp_vars.mk</code></pre>
 <p>The <code>CPU_FLAGS</code> variable is used by the Makefiles for the VectorBlox-supplied programs in <code>TOPDIR/software/bmark</code>.</p></li>
+<li><p>Define the <code>PROCESSOR_TYPE</code> and <code>PROCESSOR_INSTANCE</code> variables in <code>bsp_vars.mk</code>. E.g.</p>
+<pre><code>echo &quot;PROCESSOR_TYPE := microblaze&quot; &gt;&gt; bsp/bsp_vars.mk
+echo &quot;PROCESSOR_INSTANCE := microblaze_0&quot; &gt;&gt; bsp/bsp_vars.mk</code></pre>
+<p><strong>Note:</strong> If targeting the ARM Cortex-A9 CPU in a Zynq FPGA, use <code>cortexa9</code> as the processor type and e.g. <code>ps7_cortexa9_0</code> as the processor instance.</p></li>
 <li><p>Remove unneeded files:</p>
 <pre><code>rm -f bsp/README.txt bsp/Makefile</code></pre></li>
 <li><p>Generate the BSP from the MSS file:</p>
@@ -478,11 +521,12 @@ sed -i &#39;s/^CC_FLAGS/CPU_FLAGS/&#39; bsp/cpu_flags.mk</code></pre>
 <li><p>Change the <code>BSP_ROOT_DIR</code> variable to point to the root of BSP directory. Ensure that <code>BSP_INC_DIR</code> and <code>BSP_LIB_DIR</code> point to the correct <code>include</code> and <code>lib</code> subdirectories.</p></li>
 <li><p>Change the <code>LD_SCRIPT</code> variable to point to the linker script you wish to use. In your linker script, use a stack size of 8 MB and a heap size of 64 MB if you want to be able to run all of the test programs.</p></li>
 </ul></li>
-<li><p>Create a file called <strong>cpu_flags.mk</strong> in <code>$(BSP_ROOT_DIR)</code> that defines a variable called <code>CPU_FLAGS</code> containing the compiler flags specific to the CPU configuration for your system. For example, on a MicroBlaze-based system, this might look like:</p>
+<li><p>Create a file called <strong>bsp_vars.mk</strong> in <code>$(BSP_ROOT_DIR)</code> that defines the variables <code>CPU_FLAGS</code>, <code>PROCESSOR_TYPE</code>, and <code>PROCESSOR_INSTANCE</code>. <code>CPU_FLAGS</code> contains the compiler flags specific to the CPU configuration for your system. For example, on a MicroBlaze-based system, this might look like:</p>
 <pre><code>CPU_FLAGS := -mlittle-endian -mxl-barrel-shift \\
   -mxl-pattern-compare -mcpu=v8.40.b -mno-xl-soft-mul</code></pre>
 <p>On an ARM-based system this would typically be empty, i.e.</p>
-<pre><code>CPU_FLAGS :=</code></pre></li>
+<pre><code>CPU_FLAGS :=</code></pre>
+<p><code>PROCESSOR_TYPE</code> should be set to either <code>microblaze</code> or <code>cortexa9</code>; it determines which compiler and linker to use. <code>PROCESSOR_INSTANCE</code> should be the name of the CPU instance, usually <code>microblaze_0</code> or <code>ps7_cortexa9_0</code>. It is used to construct the <code>BSP_INC_DIR</code> and <code>BSP_LIB_DIR</code> variables (the paths to the BSP <code>include</code> and <code>lib</code> subdirectories).</p></li>
 </ul>
 </div>
 </div>

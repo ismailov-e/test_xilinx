@@ -355,12 +355,13 @@ or
 <li><p>Multi-algorithm mode with the particle simulation overlaid on top of the video input, with edge detection also running in the top left quadrant, motion estimation in the top right quadrant, and video inversion in the bottom right quadrant.</p></li>
 </ul>
 <h2 id="zedboard-hdmi-output-demo"><span class="header-section-number">4.1</span> ZedBoard HDMI Output Demo</h2>
-<p>The demo for the ZedBoard outputs 1920x1080p 60Hz on the HDMI port. Connect a 1080p monitor to the on-board HDMI port to see video output.</p>
+<p>This ZedBoard demo displays 1920x1080p 60Hz on the HDMI port. Connect a 1080p monitor to the on-board HDMI port to see video output.</p>
 <p>We have provided pre-compiled ELF files for your convenience, but you can also compile the demo yourself by following the instructions in the <a href="#compile_zedboard_hdmi_demo">section below</a>.</p>
 <p>To run the demo, first open up an ISE Command Prompt, then go to the directory containing the pre-built bitstream you wish to use. e.g. for the ARM-based V16 system:</p>
 <pre><code>cd boards/zedboard_hdmi_arm/prebuilt_zedboard_hdmi_arm_v16</code></pre>
 <p>For the MicroBlaze-based V16 system, use</p>
 <pre><code>cd boards/zedboard_hdmi_mb/prebuilt_zedboard_hdmi_mb_v16</code></pre>
+<p><strong>We recommend you power-cycle the ZedBoard before loading the bitstream.</strong></p>
 <p>Connect to the ZedBoard's USB-UART with a terminal emulator program to prepare to view the serial console output. Use 115200 bps, 8 bits per character, no parity.</p>
 <p>Program the FPGA and download the ELF with the provided XMD Tcl script:</p>
 <pre><code>xmd -tcl xmd_demo.tcl</code></pre>
@@ -396,12 +397,13 @@ or
 <p>In Windows, use</p>
 <pre><code>make run PROJ_ROOT=%PROJ_ROOT%</code></pre>
 <h2 id="zedboard-with-fmc-imageon-hdmi-daughter-card-demo"><span class="header-section-number">4.2</span> ZedBoard with FMC-IMAGEON HDMI Daughter Card Demo</h2>
-<p>The zedboard demo uses Avnet's FMC-IMAGEON daughter card for video input and output. A 1920x1080p 60Hz video source should be connected to the HDMI IN port, and a 1080p monitor should be connected to the HDMI OUT port.</p>
+<p>The <code>zedboard_imageon</code> demo uses Avnet's FMC-IMAGEON daughter card for video input and output. A 1920x1080p 60Hz video source should be connected to the HDMI IN port, and a 1080p monitor should be connected to the HDMI OUT port.</p>
 <p>We have provided pre-compiled ELF files for the demo because it uses some Avnet reference code which we do not have permission to redistribute. Please see the <a href="#compile_zedboard_imageon_demo">section below</a> if you wish to compile the demo yourself.</p>
 <p>To run the demo, first open up an ISE Command Prompt, then go to the directory containing the pre-built bitstream you wish to use. e.g. for the ARM-based V16 system:</p>
 <pre><code>cd boards/zedboard_imageon_arm/prebuilt_zedboard_imageon_arm_v16</code></pre>
 <p>For the MicroBlaze-based V16 system, use</p>
 <pre><code>cd boards/zedboard_imageon_mb/prebuilt_zedboard_imageon_mb_v16</code></pre>
+<p><strong>We recommend you power-cycle the ZedBoard before loading the bitstream.</strong></p>
 <p>Connect to the ZedBoard's USB-UART with a terminal emulator program to prepare to view the serial console output. Use 115200 bps, 8 bits per character, no parity.</p>
 <p>Program the FPGA and download the ELF with the provided XMD Tcl script:</p>
 <pre><code>xmd -tcl xmd_demo.tcl</code></pre>

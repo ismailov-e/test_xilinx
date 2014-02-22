@@ -1,7 +1,7 @@
 
-<EDKSYSTEM EDKVERSION="14.7" EDWVERSION="1.2" TIMESTAMP="Thu Feb 20 20:13:34 2014">
+<EDKSYSTEM EDKVERSION="14.7" EDWVERSION="1.2" TIMESTAMP="Fri Feb 21 18:30:53 2014">
 
-  <SYSTEMINFO ARCH="zynq" DEVICE="xc7z020" PACKAGE="clg484" PART="xc7z020clg484-1" SOURCE="/nfs/home/bach/working/vblox_xil_ci/github_builds/20140220_182356_a3c9ef0ad1ac9e6e88b74e626adfe2f4bfdbe45f/zedboard_hdmi_mb_particle_v16_w2_k64_b16_s1_mbyte_c2/system.xmp" SPEEDGRADE="-1"/>
+  <SYSTEMINFO ARCH="zynq" DEVICE="xc7z020" PACKAGE="clg484" PART="xc7z020clg484-1" SOURCE="/nfs/home/bach/working/vblox_xil_ci/github_builds/20140221_165702_fdbc3da5567c84bc7d0daff717c4767b172cf29c/zedboard_hdmi_mb_particle_v16_w2_k64_b16_s1_mbyte_c4/system.xmp" SPEEDGRADE="-1"/>
 
   <EXTERNALPORTS>
     <PORT DIR="IO" ENDIAN="LITTLE" LEFT="7" LSB="0" MHS_INDEX="0" MSB="7" NAME="SWs_8Bits_TRI_IO" RIGHT="0" SIGNAME="SWs_8Bits_TRI_IO">
@@ -167,7 +167,7 @@
         <PARAMETER ASSIGNMENT="UPDATE" MPD_INDEX="12" NAME="MULFXP_BYTE_FORMAT" TYPE="STRING" VALUE="Q4.4">
           <DESCRIPTION>8-bit fixed-point format</DESCRIPTION>
         </PARAMETER>
-        <PARAMETER ASSIGNMENT="OPTIONAL" CHANGEDBY="USER" IS_INSTANTIATED="TRUE" MHS_INDEX="3" MPD_INDEX="13" NAME="VCI_LANES" TYPE="INTEGER" VALUE="2">
+        <PARAMETER ASSIGNMENT="OPTIONAL" CHANGEDBY="USER" IS_INSTANTIATED="TRUE" MHS_INDEX="3" MPD_INDEX="13" NAME="VCI_LANES" TYPE="INTEGER" VALUE="4">
           <DESCRIPTION>Number of Custom Instruction Lanes</DESCRIPTION>
         </PARAMETER>
         <PARAMETER ASSIGNMENT="OPTIONAL" MPD_INDEX="14" NAME="VCI_FLUSH" TYPE="INTEGER" VALUE="0">
@@ -539,42 +539,42 @@
             <CONNECTION BUSINTERFACE="[S_VCI]" INSTANCE="vci_particle_full_0" PORT="vci_vector_start"/>
           </CONNECTIONS>
         </PORT>
-        <PORT BUS="M_VCI" DEF_SIGNAME="vectorblox_mxp_0_M_VCI_VCI_BYTE_VALID" DIR="O" ENDIAN="LITTLE" LEFT="7" LSB="0" MPD_INDEX="63" MSB="7" NAME="vci_byte_valid" RIGHT="0" SIGNAME="vectorblox_mxp_0_M_VCI_VCI_BYTE_VALID" VECFORMULA="[(VCI_LANES*4-1):0]">
+        <PORT BUS="M_VCI" DEF_SIGNAME="vectorblox_mxp_0_M_VCI_VCI_BYTE_VALID" DIR="O" ENDIAN="LITTLE" LEFT="15" LSB="0" MPD_INDEX="63" MSB="15" NAME="vci_byte_valid" RIGHT="0" SIGNAME="vectorblox_mxp_0_M_VCI_VCI_BYTE_VALID" VECFORMULA="[(VCI_LANES*4-1):0]">
           <CONNECTIONS>
             <CONNECTION BUSINTERFACE="[S_VCI]" INSTANCE="vci_particle_full_0" PORT="vci_byte_valid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT BUS="M_VCI" DEF_SIGNAME="vectorblox_mxp_0_M_VCI_VCI_DATA_A" DIR="O" ENDIAN="LITTLE" LEFT="63" LSB="0" MPD_INDEX="64" MSB="63" NAME="vci_data_a" RIGHT="0" SIGNAME="vectorblox_mxp_0_M_VCI_VCI_DATA_A" VECFORMULA="[(VCI_LANES*32-1):0]">
+        <PORT BUS="M_VCI" DEF_SIGNAME="vectorblox_mxp_0_M_VCI_VCI_DATA_A" DIR="O" ENDIAN="LITTLE" LEFT="127" LSB="0" MPD_INDEX="64" MSB="127" NAME="vci_data_a" RIGHT="0" SIGNAME="vectorblox_mxp_0_M_VCI_VCI_DATA_A" VECFORMULA="[(VCI_LANES*32-1):0]">
           <CONNECTIONS>
             <CONNECTION BUSINTERFACE="[S_VCI]" INSTANCE="vci_particle_full_0" PORT="vci_data_a"/>
           </CONNECTIONS>
         </PORT>
-        <PORT BUS="M_VCI" DEF_SIGNAME="vectorblox_mxp_0_M_VCI_VCI_FLAG_A" DIR="O" ENDIAN="LITTLE" LEFT="7" LSB="0" MPD_INDEX="65" MSB="7" NAME="vci_flag_a" RIGHT="0" SIGNAME="vectorblox_mxp_0_M_VCI_VCI_FLAG_A" VECFORMULA="[(VCI_LANES*4-1):0]">
+        <PORT BUS="M_VCI" DEF_SIGNAME="vectorblox_mxp_0_M_VCI_VCI_FLAG_A" DIR="O" ENDIAN="LITTLE" LEFT="15" LSB="0" MPD_INDEX="65" MSB="15" NAME="vci_flag_a" RIGHT="0" SIGNAME="vectorblox_mxp_0_M_VCI_VCI_FLAG_A" VECFORMULA="[(VCI_LANES*4-1):0]">
           <CONNECTIONS>
             <CONNECTION BUSINTERFACE="[S_VCI]" INSTANCE="vci_particle_full_0" PORT="vci_flag_a"/>
           </CONNECTIONS>
         </PORT>
-        <PORT BUS="M_VCI" DEF_SIGNAME="vectorblox_mxp_0_M_VCI_VCI_DATA_B" DIR="O" ENDIAN="LITTLE" LEFT="63" LSB="0" MPD_INDEX="66" MSB="63" NAME="vci_data_b" RIGHT="0" SIGNAME="vectorblox_mxp_0_M_VCI_VCI_DATA_B" VECFORMULA="[(VCI_LANES*32-1):0]">
+        <PORT BUS="M_VCI" DEF_SIGNAME="vectorblox_mxp_0_M_VCI_VCI_DATA_B" DIR="O" ENDIAN="LITTLE" LEFT="127" LSB="0" MPD_INDEX="66" MSB="127" NAME="vci_data_b" RIGHT="0" SIGNAME="vectorblox_mxp_0_M_VCI_VCI_DATA_B" VECFORMULA="[(VCI_LANES*32-1):0]">
           <CONNECTIONS>
             <CONNECTION BUSINTERFACE="[S_VCI]" INSTANCE="vci_particle_full_0" PORT="vci_data_b"/>
           </CONNECTIONS>
         </PORT>
-        <PORT BUS="M_VCI" DEF_SIGNAME="vectorblox_mxp_0_M_VCI_VCI_FLAG_B" DIR="O" ENDIAN="LITTLE" LEFT="7" LSB="0" MPD_INDEX="67" MSB="7" NAME="vci_flag_b" RIGHT="0" SIGNAME="vectorblox_mxp_0_M_VCI_VCI_FLAG_B" VECFORMULA="[(VCI_LANES*4-1):0]">
+        <PORT BUS="M_VCI" DEF_SIGNAME="vectorblox_mxp_0_M_VCI_VCI_FLAG_B" DIR="O" ENDIAN="LITTLE" LEFT="15" LSB="0" MPD_INDEX="67" MSB="15" NAME="vci_flag_b" RIGHT="0" SIGNAME="vectorblox_mxp_0_M_VCI_VCI_FLAG_B" VECFORMULA="[(VCI_LANES*4-1):0]">
           <CONNECTIONS>
             <CONNECTION BUSINTERFACE="[S_VCI]" INSTANCE="vci_particle_full_0" PORT="vci_flag_b"/>
           </CONNECTIONS>
         </PORT>
-        <PORT BUS="M_VCI" DEF_SIGNAME="vectorblox_mxp_0_M_VCI_VCI_DATA_OUT" DIR="I" ENDIAN="LITTLE" LEFT="63" LSB="0" MPD_INDEX="68" MSB="63" NAME="vci_data_out" RIGHT="0" SIGNAME="vectorblox_mxp_0_M_VCI_VCI_DATA_OUT" VECFORMULA="[(VCI_LANES*32-1):0]">
+        <PORT BUS="M_VCI" DEF_SIGNAME="vectorblox_mxp_0_M_VCI_VCI_DATA_OUT" DIR="I" ENDIAN="LITTLE" LEFT="127" LSB="0" MPD_INDEX="68" MSB="127" NAME="vci_data_out" RIGHT="0" SIGNAME="vectorblox_mxp_0_M_VCI_VCI_DATA_OUT" VECFORMULA="[(VCI_LANES*32-1):0]">
           <CONNECTIONS>
             <CONNECTION BUSINTERFACE="[S_VCI]" INSTANCE="vci_particle_full_0" PORT="vci_data_out"/>
           </CONNECTIONS>
         </PORT>
-        <PORT BUS="M_VCI" DEF_SIGNAME="vectorblox_mxp_0_M_VCI_VCI_FLAG_OUT" DIR="I" ENDIAN="LITTLE" LEFT="7" LSB="0" MPD_INDEX="69" MSB="7" NAME="vci_flag_out" RIGHT="0" SIGNAME="vectorblox_mxp_0_M_VCI_VCI_FLAG_OUT" VECFORMULA="[(VCI_LANES*4-1):0]">
+        <PORT BUS="M_VCI" DEF_SIGNAME="vectorblox_mxp_0_M_VCI_VCI_FLAG_OUT" DIR="I" ENDIAN="LITTLE" LEFT="15" LSB="0" MPD_INDEX="69" MSB="15" NAME="vci_flag_out" RIGHT="0" SIGNAME="vectorblox_mxp_0_M_VCI_VCI_FLAG_OUT" VECFORMULA="[(VCI_LANES*4-1):0]">
           <CONNECTIONS>
             <CONNECTION BUSINTERFACE="[S_VCI]" INSTANCE="vci_particle_full_0" PORT="vci_flag_out"/>
           </CONNECTIONS>
         </PORT>
-        <PORT BUS="M_VCI" DEF_SIGNAME="vectorblox_mxp_0_M_VCI_VCI_BYTEENABLE" DIR="I" ENDIAN="LITTLE" LEFT="7" LSB="0" MPD_INDEX="70" MSB="7" NAME="vci_byteenable" RIGHT="0" SIGNAME="vectorblox_mxp_0_M_VCI_VCI_BYTEENABLE" VECFORMULA="[(VCI_LANES*4-1):0]">
+        <PORT BUS="M_VCI" DEF_SIGNAME="vectorblox_mxp_0_M_VCI_VCI_BYTEENABLE" DIR="I" ENDIAN="LITTLE" LEFT="15" LSB="0" MPD_INDEX="70" MSB="15" NAME="vci_byteenable" RIGHT="0" SIGNAME="vectorblox_mxp_0_M_VCI_VCI_BYTEENABLE" VECFORMULA="[(VCI_LANES*4-1):0]">
           <CONNECTIONS>
             <CONNECTION BUSINTERFACE="[S_VCI]" INSTANCE="vci_particle_full_0" PORT="vci_byteenable"/>
           </CONNECTIONS>
@@ -13497,7 +13497,7 @@
       <DESCRIPTION TYPE="LONG">VectorBlox Custom Instruction: Particle Repulsion</DESCRIPTION>
       <LICENSEINFO ICON_NAME="ps_core_local"/>
       <PARAMETERS>
-        <PARAMETER ASSIGNMENT="OPTIONAL" IS_INSTANTIATED="TRUE" MHS_INDEX="2" MPD_INDEX="0" NAME="VCI_LANES" TYPE="INTEGER" VALUE="2"/>
+        <PARAMETER ASSIGNMENT="OPTIONAL" CHANGEDBY="USER" IS_INSTANTIATED="TRUE" MHS_INDEX="2" MPD_INDEX="0" NAME="VCI_LANES" TYPE="INTEGER" VALUE="4"/>
         <PARAMETER ASSIGNMENT="CONSTANT" MPD_INDEX="1" NAME="FXP_BITS" TYPE="INTEGER" VALUE="16"/>
         <PARAMETER ASSIGNMENT="CONSTANT" MPD_INDEX="2" NAME="OCT_DIST_APPROX" TYPE="INTEGER" VALUE="0"/>
         <PARAMETER ASSIGNMENT="CONSTANT" MPD_INDEX="3" NAME="DSPBA_FLOATING" TYPE="INTEGER" VALUE="0"/>
@@ -13539,42 +13539,42 @@
             <CONNECTION BUSINTERFACE="[M_VCI]" INSTANCE="vectorblox_mxp_0" PORT="vci_vector_start"/>
           </CONNECTIONS>
         </PORT>
-        <PORT BUS="S_VCI" DEF_SIGNAME="vectorblox_mxp_0_M_VCI_VCI_BYTE_VALID" DIR="I" ENDIAN="LITTLE" LEFT="7" LSB="0" MPD_INDEX="7" MSB="7" NAME="vci_byte_valid" RIGHT="0" SIGNAME="vectorblox_mxp_0_M_VCI_VCI_BYTE_VALID" VECFORMULA="[(VCI_LANES*4-1):0]">
+        <PORT BUS="S_VCI" DEF_SIGNAME="vectorblox_mxp_0_M_VCI_VCI_BYTE_VALID" DIR="I" ENDIAN="LITTLE" LEFT="15" LSB="0" MPD_INDEX="7" MSB="15" NAME="vci_byte_valid" RIGHT="0" SIGNAME="vectorblox_mxp_0_M_VCI_VCI_BYTE_VALID" VECFORMULA="[(VCI_LANES*4-1):0]">
           <CONNECTIONS>
             <CONNECTION BUSINTERFACE="[M_VCI]" INSTANCE="vectorblox_mxp_0" PORT="vci_byte_valid"/>
           </CONNECTIONS>
         </PORT>
-        <PORT BUS="S_VCI" DEF_SIGNAME="vectorblox_mxp_0_M_VCI_VCI_DATA_A" DIR="I" ENDIAN="LITTLE" LEFT="63" LSB="0" MPD_INDEX="8" MSB="63" NAME="vci_data_a" RIGHT="0" SIGNAME="vectorblox_mxp_0_M_VCI_VCI_DATA_A" VECFORMULA="[(VCI_LANES*32-1):0]">
+        <PORT BUS="S_VCI" DEF_SIGNAME="vectorblox_mxp_0_M_VCI_VCI_DATA_A" DIR="I" ENDIAN="LITTLE" LEFT="127" LSB="0" MPD_INDEX="8" MSB="127" NAME="vci_data_a" RIGHT="0" SIGNAME="vectorblox_mxp_0_M_VCI_VCI_DATA_A" VECFORMULA="[(VCI_LANES*32-1):0]">
           <CONNECTIONS>
             <CONNECTION BUSINTERFACE="[M_VCI]" INSTANCE="vectorblox_mxp_0" PORT="vci_data_a"/>
           </CONNECTIONS>
         </PORT>
-        <PORT BUS="S_VCI" DEF_SIGNAME="vectorblox_mxp_0_M_VCI_VCI_FLAG_A" DIR="I" ENDIAN="LITTLE" LEFT="7" LSB="0" MPD_INDEX="9" MSB="7" NAME="vci_flag_a" RIGHT="0" SIGNAME="vectorblox_mxp_0_M_VCI_VCI_FLAG_A" VECFORMULA="[(VCI_LANES*4-1):0]">
+        <PORT BUS="S_VCI" DEF_SIGNAME="vectorblox_mxp_0_M_VCI_VCI_FLAG_A" DIR="I" ENDIAN="LITTLE" LEFT="15" LSB="0" MPD_INDEX="9" MSB="15" NAME="vci_flag_a" RIGHT="0" SIGNAME="vectorblox_mxp_0_M_VCI_VCI_FLAG_A" VECFORMULA="[(VCI_LANES*4-1):0]">
           <CONNECTIONS>
             <CONNECTION BUSINTERFACE="[M_VCI]" INSTANCE="vectorblox_mxp_0" PORT="vci_flag_a"/>
           </CONNECTIONS>
         </PORT>
-        <PORT BUS="S_VCI" DEF_SIGNAME="vectorblox_mxp_0_M_VCI_VCI_DATA_B" DIR="I" ENDIAN="LITTLE" LEFT="63" LSB="0" MPD_INDEX="10" MSB="63" NAME="vci_data_b" RIGHT="0" SIGNAME="vectorblox_mxp_0_M_VCI_VCI_DATA_B" VECFORMULA="[(VCI_LANES*32-1):0]">
+        <PORT BUS="S_VCI" DEF_SIGNAME="vectorblox_mxp_0_M_VCI_VCI_DATA_B" DIR="I" ENDIAN="LITTLE" LEFT="127" LSB="0" MPD_INDEX="10" MSB="127" NAME="vci_data_b" RIGHT="0" SIGNAME="vectorblox_mxp_0_M_VCI_VCI_DATA_B" VECFORMULA="[(VCI_LANES*32-1):0]">
           <CONNECTIONS>
             <CONNECTION BUSINTERFACE="[M_VCI]" INSTANCE="vectorblox_mxp_0" PORT="vci_data_b"/>
           </CONNECTIONS>
         </PORT>
-        <PORT BUS="S_VCI" DEF_SIGNAME="vectorblox_mxp_0_M_VCI_VCI_FLAG_B" DIR="I" ENDIAN="LITTLE" LEFT="7" LSB="0" MPD_INDEX="11" MSB="7" NAME="vci_flag_b" RIGHT="0" SIGNAME="vectorblox_mxp_0_M_VCI_VCI_FLAG_B" VECFORMULA="[(VCI_LANES*4-1):0]">
+        <PORT BUS="S_VCI" DEF_SIGNAME="vectorblox_mxp_0_M_VCI_VCI_FLAG_B" DIR="I" ENDIAN="LITTLE" LEFT="15" LSB="0" MPD_INDEX="11" MSB="15" NAME="vci_flag_b" RIGHT="0" SIGNAME="vectorblox_mxp_0_M_VCI_VCI_FLAG_B" VECFORMULA="[(VCI_LANES*4-1):0]">
           <CONNECTIONS>
             <CONNECTION BUSINTERFACE="[M_VCI]" INSTANCE="vectorblox_mxp_0" PORT="vci_flag_b"/>
           </CONNECTIONS>
         </PORT>
-        <PORT BUS="S_VCI" DEF_SIGNAME="vectorblox_mxp_0_M_VCI_VCI_DATA_OUT" DIR="O" ENDIAN="LITTLE" LEFT="63" LSB="0" MPD_INDEX="12" MSB="63" NAME="vci_data_out" RIGHT="0" SIGNAME="vectorblox_mxp_0_M_VCI_VCI_DATA_OUT" VECFORMULA="[(VCI_LANES*32-1):0]">
+        <PORT BUS="S_VCI" DEF_SIGNAME="vectorblox_mxp_0_M_VCI_VCI_DATA_OUT" DIR="O" ENDIAN="LITTLE" LEFT="127" LSB="0" MPD_INDEX="12" MSB="127" NAME="vci_data_out" RIGHT="0" SIGNAME="vectorblox_mxp_0_M_VCI_VCI_DATA_OUT" VECFORMULA="[(VCI_LANES*32-1):0]">
           <CONNECTIONS>
             <CONNECTION BUSINTERFACE="[M_VCI]" INSTANCE="vectorblox_mxp_0" PORT="vci_data_out"/>
           </CONNECTIONS>
         </PORT>
-        <PORT BUS="S_VCI" DEF_SIGNAME="vectorblox_mxp_0_M_VCI_VCI_FLAG_OUT" DIR="O" ENDIAN="LITTLE" LEFT="7" LSB="0" MPD_INDEX="13" MSB="7" NAME="vci_flag_out" RIGHT="0" SIGNAME="vectorblox_mxp_0_M_VCI_VCI_FLAG_OUT" VECFORMULA="[(VCI_LANES*4-1):0]">
+        <PORT BUS="S_VCI" DEF_SIGNAME="vectorblox_mxp_0_M_VCI_VCI_FLAG_OUT" DIR="O" ENDIAN="LITTLE" LEFT="15" LSB="0" MPD_INDEX="13" MSB="15" NAME="vci_flag_out" RIGHT="0" SIGNAME="vectorblox_mxp_0_M_VCI_VCI_FLAG_OUT" VECFORMULA="[(VCI_LANES*4-1):0]">
           <CONNECTIONS>
             <CONNECTION BUSINTERFACE="[M_VCI]" INSTANCE="vectorblox_mxp_0" PORT="vci_flag_out"/>
           </CONNECTIONS>
         </PORT>
-        <PORT BUS="S_VCI" DEF_SIGNAME="vectorblox_mxp_0_M_VCI_VCI_BYTEENABLE" DIR="O" ENDIAN="LITTLE" LEFT="7" LSB="0" MPD_INDEX="14" MSB="7" NAME="vci_byteenable" RIGHT="0" SIGNAME="vectorblox_mxp_0_M_VCI_VCI_BYTEENABLE" VECFORMULA="[(VCI_LANES*4-1):0]">
+        <PORT BUS="S_VCI" DEF_SIGNAME="vectorblox_mxp_0_M_VCI_VCI_BYTEENABLE" DIR="O" ENDIAN="LITTLE" LEFT="15" LSB="0" MPD_INDEX="14" MSB="15" NAME="vci_byteenable" RIGHT="0" SIGNAME="vectorblox_mxp_0_M_VCI_VCI_BYTEENABLE" VECFORMULA="[(VCI_LANES*4-1):0]">
           <CONNECTIONS>
             <CONNECTION BUSINTERFACE="[M_VCI]" INSTANCE="vectorblox_mxp_0" PORT="vci_byteenable"/>
           </CONNECTIONS>

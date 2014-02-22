@@ -276,6 +276,16 @@ vbx_set_3D( numMats, incDest3, incSrcA3, incSrcB3 );</code></pre>
 <tbody>
 <tr class="odd">
 <td align="left">Unsigned</td>
+<td align="left">any <em>accumulate</em></td>
+<td align="left"><span class="math"><em>V</em></span> (subject to change)</td>
+</tr>
+<tr class="even">
+<td align="left">Signed</td>
+<td align="left">any <em>accumulate</em></td>
+<td align="left"><span class="math"><em>V</em> † </span> (subject to change)</td>
+</tr>
+<tr class="odd">
+<td align="left">Unsigned</td>
 <td align="left"><code>VADD</code></td>
 <td align="left"><span class="math"><em>C</em></span></td>
 </tr>
@@ -385,40 +395,31 @@ vbx_set_3D( numMats, incDest3, incSrcA3, incSrcB3 );</code></pre>
 <td align="left"><span class="math"><em>F</em><sub><em>A</em></sub></span> <span class="math">∣</span> <span class="math"><em>F</em><sub><em>B</em></sub></span></td>
 </tr>
 <tr class="odd">
-<td align="left">Unsigned</td>
-<td align="left">any <em>accumulate</em></td>
-<td align="left"><span class="math"><em>V</em></span> (subject to change)</td>
+<td align="left">Either</td>
+<td align="left"><code>VABSDIFF</code></td>
+<td align="left"><span class="math">0</span> (subject to change)</td>
 </tr>
 <tr class="even">
-<td align="left">Signed</td>
-<td align="left">any <em>accumulate</em></td>
-<td align="left"><span class="math"><em>V</em> † </span> (subject to change)</td>
-</tr>
-<tr class="odd">
 <td align="left">Either</td>
 <td align="left">any <code>srcA</code> scalar</td>
 <td align="left"><span class="math">0</span></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Either</td>
 <td align="left">any <code>srcB</code> enumerated</td>
 <td align="left"><span class="math">0</span></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">Either</td>
 <td align="left">any <code>vbx_dma_to_vector()</code></td>
 <td align="left"><span class="math">0</span></td>
-</tr>
-<tr class="even">
-<td align="left">Either</td>
-<td align="left"><code>VABSDIFF</code></td>
-<td align="left"><span class="math">0</span> (subject to change)</td>
 </tr>
 </tbody>
 </table>
 <blockquote>
 <p>Key:<br /><span class="math"><em>C</em></span> carry-out<br /><span class="math"><em>B</em></span> borrow<br /><span class="math"><em>R</em></span> rounding bit is located one rank position lower than the LSB of the final result<br /><span class="math"><em>V</em></span> overflow; for left-shift and multiply-low, set if any bits of significance are lost<br /><span class="math"> † </span> sign preserving; sets the MSB to the sign of the internal full precision result<br /><span class="math"><em>F</em><sub><em>A</em></sub></span> flag of source operand A<br /><span class="math"><em>F</em><sub><em>B</em></sub></span> flag of source operand B</p>
 </blockquote>
+<p>Any operation which includes an <strong>accumulate</strong> will have its flag set to the accumulation overflow value. Accumulation, regardless of operand sizes, happens internally with 40 bits of precision. The overflow flag is set to 1 if the final 40-bit internal accumulator value has any bits of significance that do not fit in the 32-bit instruction result. Additionally, signed accumulates are sign preserving: the MSB of the result is set to the MSB of the 40-bit internal accumulator. Because the 40-bit internal accumulator itself can overflow, when checking for accumulation overflow on 32-bit inputs it is recommended to break the accumulation in to chunks of size 256 or less (as 256 32-bit inputs cannot overflow a 40-bit accumulator) and check for overflow on each chunk.</p>
 <p>Overflow under a left shift operation requires some explanation. An unsigned <code>VSHL</code> produces an overflow if any of the bits shifted out are set. Likewise, a signed <code>VSHL</code> produces an overflow if an originally positive value shifts out any set bits, or if an originally negative value shifts out any cleared bits.</p>
 <p>Operations which include a datasize conversion operate as follows. In an up-conversion (expansion), the two source operands are first extended to the wider size before applying the operator. In a down-conversion (truncation), the operation is done on the wider datasize and the final result is truncated. In both cases, the flag is derived from the wide result according to the operation performed.</p>
 <h3 id="operations-using-flag-state"><span class="header-section-number">2.4.2</span> Operations using Flag State</h3>

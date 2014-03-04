@@ -125,6 +125,7 @@ INFO:iMPACT:1777 -
 INFO:iMPACT - Using CseAdapterBSDevice
 INFO:iMPACT:501 - &#39;1&#39;: Added Device xc7z020 successfully.</code></pre></li>
 </ol></li>
+<li><p>For the ZedBoard, enable JTAG boot mode (as opposed to SD card or Quad-SPI boot mode) by connecting the jumpers for MIO[6:2] to ground.</p></li>
 <li><p>For the Atlys, you might need to install a driver for the EXAR XR21V1410 USB UART. Linux and Windows drivers can be downloaded from <a href="http://www.exar.com/connectivity/uart-and-bridging-solutions/usb-uarts/xr21v1410">http://www.exar.com/connectivity/uart-and-bridging-solutions/usb-uarts/xr21v1410</a>. (Windows 7 should automatically find and install the driver.)</p></li>
 <li><p>For the ZedBoard, you might need to install a driver for the Cypress CY7C64225 USB UART. Instructions for installing the Windows driver are available on [zedboard.org] under Support <span class="math"> → </span> Documentation <span class="math"> → </span> Cypress USB-to-UART Setup Guide, but most versions of Windows should automatically find and install the driver. Popular Linux distributions should already include support for the Cypress USB UART with the USB cdc_acm kernel module (the device should appear as /dev/ttyACM*).</p></li>
 <li><p>Install a serial port terminal emulation program (e.g. PuTTY on Windows, picocom on Linux) to display output from the board’s USB UART.</p></li>
@@ -278,6 +279,7 @@ INFO:iMPACT:501 - &#39;1&#39;: Added Device xc7z020 successfully.</code></pre></
 <li><p>Installed and tested the Digilent USB-JTAG drivers.</p></li>
 <li><p>A supported development board/kit. See the contents of <code>TOPDIR/boards/</code></p></li>
 <li><p>Connected your development board to your computer via USB cable and turned the board on.</p></li>
+<li><p>Configured your development board so that FPGA bitstreams and software ELF files can be downloaded via JTAG. For example, on the ZedBoard, the jumpers for MIO[6:2] should all be tied low.</p></li>
 </ul>
 <h2 id="compiling-and-running-a-test-program"><span class="header-section-number">3.2</span> Compiling and Running a Test Program</h2>
 <ol style="list-style-type: decimal">

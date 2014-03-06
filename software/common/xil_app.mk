@@ -103,15 +103,13 @@ pgm:
 	cd $(PROJ_ROOT) && xmd -tcl xmd_init.tcl
 endif
 
-# Don't know of a good way to pass PROJ_ROOT to xmd tcl script,
-# so using make target to cd to PROJ_ROOT.
+# Download ELF and execute
 .PHONY: run
 ifeq ($(PROCESSOR_TYPE), microblaze)
 run:
 	xmd -tcl $(MAKEFILE_DIR)/xmd_mb.tcl
 else
 run:
-	cd $(PROJ_ROOT) && xmd -tcl xmd_reinit.tcl
 	xmd -tcl $(MAKEFILE_DIR)/xmd_arm.tcl
 endif
 

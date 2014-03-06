@@ -98,7 +98,7 @@ void vbx_mxp_print_params()
 	printf("vector_lanes = %d\n", this_mxp->vector_lanes);
 	printf("core_freq = %s\n", vbx_eng((double) this_mxp->core_freq, 4));
 	printf("scratchpad_size = %d\n", this_mxp->scratchpad_size);
-	printf("dma_alignment_bytes = %d\n", this_mxp->dma_alignment_bytes);
+	printf("dma data width in bytes = %d\n", this_mxp->dma_alignment_bytes);
 	printf("fxp_word_frac_bits = %d\n", this_mxp->fxp_word_frac_bits);
 	printf("fxp_half_frac_bits = %d\n", this_mxp->fxp_half_frac_bits);
 	printf("fxp_byte_frac_bits = %d\n", this_mxp->fxp_byte_frac_bits);
@@ -856,7 +856,8 @@ int vbx_test_init()
 int vbx_test_init()
 {
 	//initialize with 4 lanes, and 64kb of sp memory
-	vbxsim_init(4,64);
+	//word,half,byte fraction bits 25,15,4 respectively
+	vbxsim_init(4,64,16,15,4);
 	return 0;
 }
 ///////////////////////////////////////////////////////////////////////////

@@ -107,6 +107,7 @@ void        vbx_shared_free( void *shared_ptr );
 // MXP device APIs
 vbx_mxp_t  *vbx_open( const char* name );
 
+
 #ifdef __cplusplus
 }
 #endif

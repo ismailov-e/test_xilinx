@@ -350,5 +350,225 @@ void vbx_shared_free(void *shared_ptr)
 		vbx_uncached_free(alloced_ptr);
 	}
 }
-//used by simulator to suppress warnings
-int Wbad_sp_ptr_flag=1; //declared in vbxapi.c
+
+int RUNTIME_CHECK_FAILED=0;
+int runtime_check_suppress=~0;
+
+#define RTC_printf(chk,...) if(runtime_check_suppress&chk)printf(__VA_ARGS__)
+
+void print_sp_range(int enable){
+	vbx_mxp_t *this_mxp = VBX_GET_THIS_MXP();
+	RTC_printf(enable,"note: scratchpad range is [0x%08X - 0x%08X]\n",
+		       (unsigned)this_mxp->scratchpad_addr,
+		       (unsigned)this_mxp->scratchpad_end);
+}
+void vbx_generic_check(int dest_len, void* dest, int srcA_len,
+	                  void* srcA, int srcB_len,void* srcB, vinstr_t v_op)
+{
+	vbx_mxp_t *this_mxp = VBX_GET_THIS_MXP();
+	unsigned base = (unsigned) this_mxp->scratchpad_addr;
+	unsigned end = (unsigned) this_mxp->scratchpad_end;
+	if((unsigned)dest < base ||
+	   (unsigned)dest + dest_len >end){
+		RTC_printf(RT_CHECK_SP_BOUND,
+		           "warning: Destination range [0x%08X - 0x%08X ] is not contained in scratchpad\n\t",
+			       (unsigned)dest,(unsigned)dest +dest_len);
+		print_sp_range(RT_CHECK_SP_BOUND);
+		RUNTIME_CHECK_FAILED=1;
+	}else if((unsigned)srcA < base ||
+	         (unsigned)srcA + srcA_len >end){
+		RTC_printf(RT_CHECK_SP_BOUND,
+		           "warning: Source A range [0x%08X - 0x%08X ] is not contained in scratchpad\n\t",
+			       (unsigned)srcA,(unsigned)srcA +srcA_len);
+		print_sp_range(RT_CHECK_SP_BOUND);
+		RUNTIME_CHECK_FAILED=1;
+	}else if(((unsigned)srcA < base ||
+	          (unsigned)srcA + srcB_len >end)&& v_op != VMOV){
+		RTC_printf(RT_CHECK_SP_BOUND,
+		           "warning: Source B range [0x%08X - 0x%08X ] is not contained in scratchpad\n\t",
+			       (unsigned)srcB,(unsigned)srcA +srcB_len);
+		print_sp_range(RT_CHECK_SP_BOUND);
+		RUNTIME_CHECK_FAILED=1;
+	}
+}
+void vbx_check(size_t dest_size, void* dest, size_t srcA_size,
+	               void* srcA, size_t srcB_size,void* srcB, vinstr_t v_op)
+{
+	int vl ;
+	vbx_get_vl(&vl);
+	vbx_generic_check(vl*dest_size,dest,vl*srcA_size,srcA,vl*srcB_size,srcB,v_op);
+}
+void vbx_2D_check(size_t dest_size, void* dest, size_t srcA_size,
+	                  void* srcA, size_t srcB_size,void* srcB, vinstr_t v_op)
+{
+	int vl ;
+	vbx_get_vl(&vl);
+
+	int nrows, dinc2,ainc2,binc2;
+	vbx_get_2D(&nrows,&dinc2,&ainc2,&binc2);
+	 //decrement because if nrows is 2 then we increment 1 time
+	nrows-=1;
+	int d_len=vl*dest_size+nrows*dinc2;
+	int a_len=vl*srcA_size+nrows*ainc2;
+	int b_len=vl*srcB_size+nrows*binc2;
+	vbx_generic_check(d_len,dest,a_len,srcA,b_len,srcB,v_op);
+}
+void vbx_3D_check(size_t dest_size, void* dest, size_t srcA_size,
+	                  void* srcA, size_t srcB_size,void* srcB, vinstr_t v_op)
+{
+	int vl ;
+	vbx_get_vl(&vl);
+	int nrows, dinc2,ainc2,binc2;
+	vbx_get_2D(&nrows,&dinc2,&ainc2,&binc2);
+	int nmats, dinc3,ainc3,binc3;
+	vbx_get_3D(&nmats,&dinc3,&ainc3,&binc3);
+	 //decrement because if nrows is 2 then we increment 1 time
+	nrows-=1;
+	nmats-=1;
+	int d_len=vl*dest_size+nrows*dinc2+nmats*dinc3;
+	int a_len=vl*srcA_size+nrows*ainc2+nmats*ainc3;
+	int b_len=vl*srcB_size+nrows*binc2+nmats*binc3;
+	vbx_generic_check(d_len,dest,a_len,srcA,b_len,srcB,v_op);
+
+}
+void vbx_acc_check(size_t dest_size, void* dest, size_t srcA_size,
+	                   void* srcA, size_t srcB_size,void* srcB, vinstr_t v_op)
+{
+	int vl ;vbx_get_vl(&vl);
+	vbx_generic_check(dest_size,dest,vl,srcA,vl,srcB,v_op);
+}
+void vbx_acc_2D_check(size_t dest_size, void* dest, size_t srcA_size,
+	                      void* srcA, size_t srcB_size,void* srcB, vinstr_t v_op)
+{
+	int vl ;
+	vbx_get_vl(&vl);
+	int nrows, dinc2,ainc2,binc2;
+	vbx_get_2D(&nrows,&dinc2,&ainc2,&binc2);
+	nrows-=1;
+	int d_len=dest_size+nrows*dinc2;
+	int a_len=vl*srcA_size+nrows*ainc2;
+	int b_len=vl*srcB_size+nrows*binc2;
+	vbx_generic_check(d_len,dest,a_len,srcA,b_len,srcB,v_op);
+
+}
+void vbx_acc_3D_check(size_t dest_size, void* dest, size_t srcA_size,
+	                      void* srcA, size_t srcB_size,void* srcB, vinstr_t v_op)
+{
+	int vl ;
+	vbx_get_vl(&vl);
+	int nrows, dinc2,ainc2,binc2;
+	vbx_get_2D(&nrows,&dinc2,&ainc2,&binc2);
+	int nmats, dinc3,ainc3,binc3;
+	nrows-=1;
+	nmats-=1;
+	vbx_get_3D(&nmats,&dinc3,&ainc3,&binc3);
+	unsigned d_len=dest_size+nrows*dinc2+nmats*dinc3;
+	unsigned a_len=vl*srcA_size+nrows*ainc2+nmats*ainc3;
+	unsigned b_len=vl*srcB_size+nrows*binc2+nmats*binc3;
+	vbx_generic_check(d_len,dest,a_len,srcA,b_len,srcB,v_op);
+}
+
+int addr_in_sp(void* addr)
+{
+
+	vbx_mxp_t *this_mxp = VBX_GET_THIS_MXP();
+	unsigned base = (unsigned) this_mxp->scratchpad_addr;
+	unsigned end = (unsigned) this_mxp->scratchpad_end;
+	return ((unsigned)addr>=base && (unsigned)addr <= end);
+}
+void dma_check(void* external, void* internal,int len){
+	if ( addr_in_sp(external) || addr_in_sp(external+len)){
+		RTC_printf(RT_CHECK_DMA,"warning: host buffer range [0x%08X - 0x%08X ] overlaps scratchpad\n",
+		           (unsigned)external,(unsigned)external +len);
+		print_sp_range(RT_CHECK_DMA);
+		RUNTIME_CHECK_FAILED=1;
+ 	}
+	if( !addr_in_sp(internal) || !addr_in_sp(internal+len)){
+		RTC_printf(RT_CHECK_DMA,
+		           "DMA Warning: MXP buffer [0x%08X - 0x%08X ] is not contained in scratchpad\n",
+		       (unsigned)internal, (unsigned)internal+len);
+		print_sp_range(RT_CHECK_DMA);
+		RUNTIME_CHECK_FAILED=1;
+	}
+}
+void vbx_dma_to_host_debug(void* external,void* internal, int len)
+{
+	dma_check(external,internal,len);
+	vbx_dma_to_host_nodebug(external,internal,len);
+}
+void vbx_dma_to_vector_debug(void* internal,void* external, int len)
+{
+	dma_check(external,internal,len);
+	vbx_dma_to_vector_nodebug(internal,external,len);
+}
+
+void vbx_set_vl_debug(int len)
+{
+
+	if ((unsigned)len >(unsigned)( VBX_GET_THIS_MXP()->scratchpad_size)){
+		RTC_printf(RT_CHECK_VEC_LEN,
+		           "vbx_set_vl warning: setting vector length =%d greater than scratchpad size=%d\n",
+		           len,VBX_GET_THIS_MXP()->scratchpad_size);
+		RUNTIME_CHECK_FAILED=1;
+	}
+	vbx_set_vl_nodebug(len);
+}
+void vbx_set_2D_debug(int nrows,int incd, int inca,int incb)
+{
+	int size= VBX_GET_THIS_MXP()->scratchpad_size;
+	nrows--;	 //decrement because if nrows is 2 then we increment 1 time
+	if (abs((unsigned)nrows*incd) >size){
+		RTC_printf(RT_CHECK_VEC_LEN,"vbx_set_2D warning: abx(nrows * dest_inc) > scratchpad_size (%d>%d)\n",
+		           abs((unsigned)nrows*incd),size);
+		RUNTIME_CHECK_FAILED=1;
+	}if (abs((unsigned)nrows*inca) >size){
+		RTC_printf(RT_CHECK_VEC_LEN,"vbx_set_2D warning: abx(nrows * srcA_inc) > scratchpad_size (%d>%d)\n",
+		           abs((unsigned)nrows*inca),size);
+		RUNTIME_CHECK_FAILED=1;
+	}if (abs((unsigned)nrows*incb) >size){
+		RTC_printf(RT_CHECK_VEC_LEN,"vbx_set_2D warning: abx(nrows * srcB_inc) > scratchpad_size (%d>%d)\n",
+		           abs((unsigned)nrows*incb),size);
+		RUNTIME_CHECK_FAILED=1;
+	}
+	vbx_set_2D_nodebug(nrows+1,incd,inca,incb);
+}
+
+void vbx_set_3D_debug(int nmats,int incd, int inca,int incb)
+{
+	int size= VBX_GET_THIS_MXP()->scratchpad_size;
+	nmats--;	 //decrement because if nrows is 2 then we increment 1 time
+	if (abs(nmats*incd) >size){
+		RTC_printf(RT_CHECK_VEC_LEN,"vbx_set_3D warning: abs(nmats * dest_inc) > scratchpad_size (%d>%d)\n",
+		           abs(nmats*incd),size);
+		RUNTIME_CHECK_FAILED=1;
+	}if (abs(nmats*inca) >size){
+		RTC_printf(RT_CHECK_VEC_LEN,"vbx_set_3D warning: abs(nmats * srcA_inc) > scratchpad_size (%d>%d)\n",
+		           abs(nmats*inca),size);
+		RUNTIME_CHECK_FAILED=1;
+	}if (abs(nmats*incb) >size){
+		RTC_printf(RT_CHECK_VEC_LEN,"vbx_set_3D warning: abs(nmats * srcB_inc) > scratchpad_size (%d>%d)\n",
+		           abs(nmats*incb),size);
+	 RUNTIME_CHECK_FAILED=1;
+	}
+	vbx_set_3D_nodebug(nmats+1,incd,inca,incb);
+}
+
+//TODO:make this have finer grain warnings
+void vbx_check_1D_cop_fwd(size_t dest_size, void* dest, size_t srcA_size,
+                          void* srcA, size_t srcB_size,void* srcB, vinstr_t v_op)
+{
+	if ( dest>srcA  || (v_op!=VMOV && dest>srcB) ){
+		RTC_printf(RT_CHECK_COP_FWD,"warning: possible copy forward hazard risk\n");
+		RUNTIME_CHECK_FAILED=1;
+	}
+}
+void vbx_check_2D_cop_fwd(size_t dest_size, void* dest, size_t srcA_size,
+                          void* srcA, size_t srcB_size,void* srcB, vinstr_t v_op)
+{
+	vbx_check_1D_cop_fwd(dest_size,dest,srcA_size,srcA,srcB_size,srcB,v_op);
+}
+void vbx_check_3D_cop_fwd(size_t dest_size, void* dest, size_t srcA_size,
+                          void* srcA, size_t srcB_size,void* srcB, vinstr_t v_op)
+{
+	vbx_check_1D_cop_fwd(dest_size,dest,srcA_size,srcA,srcB_size,srcB,v_op);
+}

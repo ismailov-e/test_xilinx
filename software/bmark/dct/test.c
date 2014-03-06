@@ -51,7 +51,6 @@ int main( int argc, char *argv[] )
 
 	vbx_test_init();
 
-	vbxsim_init( 8, 64 );
 
 	vbx_mxp_print_params();
 

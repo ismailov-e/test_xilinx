@@ -54,10 +54,11 @@ extern "C" {
 void vbx_sync();
 
 /** Set the 1D length of vector to operate on.
- *
+ *  NOTE: don't call this directly, call through vbx_set_vl macro.
  * @param[in] LENGTH -- number of units to operate on
  */
-void vbx_set_vl( int  LENGTH );
+void vbx_set_vl_nodebug( int  LENGTH );
+void vbx_set_vl_debug( int  LENGTH );
 
 /** Gets the value of length of vector to operate on, saves value to LENGTH.
  *
@@ -82,26 +83,28 @@ void vbx_get_reg( int REGADDR, int *VALUE );
 /** Set the 2D vector to operate on.
  * Increments applied after every row of 1D vector operation
  * 1D operation of length set @ref vbx_set_vl, repeated @a ROWS times
- *
+ * NOTE: don't call this directly, call through vbx_set_2D macro
  *
  * @param[in] ROWS -- number of rows to repeat 1D vector op
  * @param[in] ID -- 2D increment of DEST
  * @param[in] IA -- 2D increment of SRCA
  * @param[in] IB -- 2D increment of SRCB
  */
-void vbx_set_2D( int  ROWS, int  ID,   int  IA,   int  IB   );
-
+void vbx_set_2D_nodebug( int  ROWS, int  ID,   int  IA,   int  IB   );
+void vbx_set_2D_debug( int  ROWS, int  ID,   int  IA,   int  IB   );
 /** Set the 3D vector to operate on.
  * 3D increments applied after every row of 2D vector operation
  * 1D operation of length set @ref vbx_set_vl, repeated @a ROWS times
  * 2D operation of length set @ref vbx_set_2D, repeated @a MATS times
+ * NOTE: don't call this directly, call through vbx_set_3D macro
  *
  * @param[in] MATS -- number of times to repeat 2D vector op
  * @param[in] ID3D -- 3D increment of DEST
  * @param[in] IA3D -- 3D increment of SRCA
  * @param[in] IB3D -- 3D increment of SRCB
  */
-void vbx_set_3D( int  MATS, int  ID3D, int  IA3D, int  IB3D );
+void vbx_set_3D_nodebug( int  MATS, int  ID3D, int  IA3D, int  IB3D );
+void vbx_set_3D_debug( int  MATS, int  ID3D, int  IA3D, int  IB3D );
 
 /** Get the 2D vector parameters.
  *
@@ -122,29 +125,35 @@ void vbx_get_2D( int *ROWS, int *ID,   int *IA,   int *IB   );
 void vbx_get_3D( int *MATS, int *ID3D, int *IA3D, int *IB3D );
 
 /** Use DMA engine to transfer values in scratchpad to host
+ * Use vbx_dma_to_host() macro wrapper to call it, and then
+ * the runtime checks compiler defines will determine whether
+ * the checks are done.
  *
  * @param[out] EXT -- host destination address
  * @param[in] INT -- scratchpad sourc address
  * @param[in] LENGTH -- number of **bytes** to transfer
  */
-void vbx_dma_to_host(           void       *EXT, vbx_void_t *INT, int LENGTH );
-
+void vbx_dma_to_host_nodebug(void *EXT, vbx_void_t *INT, int LENGTH );
+void vbx_dma_to_host_debug(void *EXT, vbx_void_t *INT, int LENGTH );
 /** Use DMA engine to transfer values in scratchpad to host -- aligned
  *
  * @param[out] EXT -- host destination address
  * @param[in] INT -- scratchpad sourc address
  * @param[in] LENGTH -- number of **bytes** to transfer
  */
-void vbx_dma_to_host_aligned(   void       *EXT, vbx_void_t *INT, int LENGTH );
+void vbx_dma_to_host_aligned(void *EXT, vbx_void_t *INT, int LENGTH );
 
 /** Use DMA engine to transfer values from host to scratchpad
+ * Use vbx_dma_to_host() macro wrapper to call it, and then
+ * the runtime checks compiler defines will determine whether
+ * the checks are done.
  *
  * @param[out] INT -- host destination address
  * @param[in] EXT -- scratchpad sourc address
  * @param[in] LENGTH -- number of **bytes** to transfer
  */
-void vbx_dma_to_vector(         vbx_void_t *INT, void       *EXT, int LENGTH );
-
+void vbx_dma_to_vector_nodebug(vbx_void_t *INT, void *EXT, int LENGTH );
+void vbx_dma_to_vector_debug(vbx_void_t *INT, void *EXT, int LENGTH );
 /** Use DMA engine to transfer values from host to scratchpad -- aligned
  *
  * @param[out] INT -- host destination address
@@ -186,10 +195,19 @@ void        vbx_sp_free_extra( vbx_void_t *old_sp );
 #if __NIOS2__
 // Dummy calls (only used for the simulator)
 // first, force these function prototypes to inline, even if the gcc optimizer is off
-inline void vbxsim_init( int num_lanes, int scratchpad_capacity_kb ) __attribute__((always_inline));
+inline void vbxsim_init( int num_lanes,
+                  int scratchpad_capacity_kb ,
+                  int fxp_word_frac_bits,
+                  int fxp_half_frac_bits,
+                  int fxp_byte_frac_bits)__attribute__((always_inline));
+
 inline void vbxsim_destroy() __attribute__((always_inline));
 // second, define the inline functions; 'extern' ensures there no addressable/linkable function body is created
-extern inline void vbxsim_init( int num_lanes, int scratchpad_capacity_kb )
+extern inline void vbxsim_init( int num_lanes,
+                  int scratchpad_capacity_kb ,
+                  int fxp_word_frac_bits,
+                  int fxp_half_frac_bits,
+                  int fxp_byte_frac_bits)
 { }
 extern inline void vbxsim_destroy()
 { }
@@ -208,7 +226,11 @@ extern inline void vbxsim_destroy()
 
 #if VBX_SIMULATOR
 // Stubs for the simulator
-void vbxsim_init( int num_lanes, int scratchpad_capacity_kb );
+void vbxsim_init( int num_lanes,
+                  int scratchpad_capacity_kb ,
+                  int fxp_word_frac_bits,
+                  int fxp_half_frac_bits,
+                  int fxp_byte_frac_bits);
 void vbxsim_destroy();
 #endif
 

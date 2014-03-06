@@ -176,7 +176,7 @@ extern "C" {
 #define VBX_EXIT(ERR)  \
 	VBX_FATAL(__LINE__,__FILE__,ERR)
 
-
+#define debug(var) printf("%s:%d  %s = %08X \n",__FILE__,__LINE__,#var,(unsigned)(var))
 #ifdef __cplusplus
 }
 #endif

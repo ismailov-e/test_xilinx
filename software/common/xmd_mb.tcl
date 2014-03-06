@@ -1,4 +1,4 @@
 connect mb mdm
-stop
+rst -processor
 dow [lindex [glob *.elf] 0]
 con

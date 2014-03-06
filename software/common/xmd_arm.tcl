@@ -1,4 +1,4 @@
 connect arm hw
-stop
+rst -processor
 dow [lindex [glob *.elf] 0]
 con

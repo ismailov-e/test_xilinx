@@ -126,7 +126,7 @@ or
 <p>We have written a demonstration program that runs on supported boards with video output capability. It provides a visual demonstration of the acceleration capabilities of the MXP processor by allowing the user to see the performance difference between algorithms running on the scalar host CPU alone and vectorized MXP implementations of the same algorithms.</p>
 <p>On systems with video output, the algorithms demonstrated are</p>
 <ul>
-<li><p>A two-dimensional n-body particle repulsion simulation with 512 particles and an external force that varies according to a Lissajous pattern. Q16.16 fixed-point arithmetic is used. The MXP implementation of the algorithm uses a custom instruction pipeline that computes the sum of the forces from all other particles on a given particle. The pipeline is described in the following conference paper: A. Severance, J. Edwards, H. Omidian, G. Lemieux, &quot;Soft Vector Processors with Streaming Pipelines,&quot; to appear at <em>International Symposium on Field-Programmable Gate Arrays (FPGA)</em>, February, 2014 (<a href="http://www.ece.ubc.ca/~lemieux/publications/bytopic.html">http://www.ece.ubc.ca/~lemieux/publications/bytopic.html</a>). The MXP implementation also makes use of a custom instruction for fixed-point division, if available.</p></li>
+<li><p>A two-dimensional n-body particle repulsion simulation with 512 particles and an external force that varies according to a Lissajous pattern. Q16.16 fixed-point arithmetic is used. The MXP implementation of the algorithm uses a custom instruction pipeline that computes the sum of the forces from all other particles on a given particle. The pipeline is described in the following conference paper: A. Severance, J. Edwards, H. Omidian, G. Lemieux, &quot;Soft Vector Processors with Streaming Pipelines,&quot; <em>International Symposium on Field-Programmable Gate Arrays (FPGA)</em>, February, 2014 (<a href="http://www.ece.ubc.ca/~lemieux/publications/severance-fpga2014.pdf">http://www.ece.ubc.ca/~lemieux/publications/severance-fpga2014.pdf</a>). The MXP implementation also makes use of a custom instruction for fixed-point division, if available.</p></li>
 <li><p>Mandelbrot set calculation at different zoom levels.</p></li>
 <li><p>Sobel edge detection run on half of the screen after each frame of the n-body particle simulation.</p></li>
 </ul>
@@ -137,6 +137,22 @@ or
 <li><p>Face Detection on the video input using Haar-like features. A green box is drawn around each detected face.</p></li>
 <li><p>Multi-algorithm mode with the particle simulation overlaid on top of the video input, with edge detection also running in the top left quadrant, motion estimation in the top right quadrant, and video inversion in the bottom right quadrant.</p></li>
 </ul>
+<p>Below are screen captures of some of the algorithms in action:</p>
+<div class="figure">
+<img src="../images/demo_particle.png" alt="Particle Repulsion Simulation" /><p class="caption">Particle Repulsion Simulation</p>
+</div>
+<div class="figure">
+<img src="../images/demo_mandel.png" alt="Mandelbrot Set" /><p class="caption">Mandelbrot Set</p>
+</div>
+<div class="figure">
+<img src="../images/demo_sobel.png" alt="Sobel Edge Detection" /><p class="caption">Sobel Edge Detection</p>
+</div>
+<div class="figure">
+<img src="../images/demo_haar.png" alt="Haar Face Detection" /><p class="caption">Haar Face Detection</p>
+</div>
+<div class="figure">
+<img src="../images/demo_multi2.png" alt="Multi-Algorithm Mode" /><p class="caption">Multi-Algorithm Mode</p>
+</div>
 <h2 id="zedboard-hdmi-output-demo"><span class="header-section-number">2.1</span> ZedBoard HDMI Output Demo</h2>
 <p>This ZedBoard demo displays 1920x1080p 60Hz on the HDMI port. Connect a 1080p monitor to the on-board HDMI port to see video output.</p>
 <p>We have provided pre-compiled ELF files for your convenience, but you can also compile the demo yourself by following the instructions in the <a href="#compile_zedboard_hdmi_demo">section below</a>.</p>

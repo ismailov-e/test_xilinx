@@ -311,10 +311,10 @@ void VBX_T(vbw_mtx_xp_MN_ext)(vbx_mm_t *out, vbx_mm_t *in, const int INROWS, con
 	for( tile_y = 0; tile_y < INROWS; tile_y += tile_height ) {
 		for( tile_x = 0; tile_x < INCOLS; tile_x += tile_width ) {
 			// transpose current tile
-			_read_and_xp_tile( v_out, v_in, tile_y, tile_x, tile_height, tile_width, INROWS );
+			_read_and_xp_tile( v_out, v_in, tile_y, tile_x, tile_height, tile_width, INCOLS );
 			// write out current tile
-			_write_tile( v_out, tile_y, tile_x, tile_height, tile_width, INCOLS );
-			//_print_tile( v_out, tile_y, tile_x, tile_height, tile_width, INCOLS );
+			_write_tile( v_out, tile_y, tile_x, tile_height, tile_width, INROWS );
+			//_print_tile( v_out, tile_y, tile_x, tile_height, tile_width, INROWS );
 		}
 	}
 

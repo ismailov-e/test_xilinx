@@ -35,6 +35,16 @@
  *
  */
 
+/**
+ * @file
+ * @defgroup Fix16 Fix16
+ * @brief Fix16
+ * @ingroup VBXware
+ */
+///@{
+
+#ifndef __VBW_FIX16_H
+#define __VBW_FIX16_H
 
 /** Initial functions:
  * vbw_fix16_abs
@@ -583,3 +593,6 @@ static inline void vbw_fix16_clamp(vbx_word_t* v_out, vbx_word_t* v_x, fix16_t l
   vbw_fix16_sub_s(v_tmp, hi, v_x);
   vbx(SVW, VCMV_LTZ, v_out, hi, v_tmp); //cap @ 10
 }
+
+#endif // __VBW_FIX16_H
+///@}

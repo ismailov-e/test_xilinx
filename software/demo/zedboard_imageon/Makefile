@@ -7,6 +7,8 @@ CPU_TARGET := XIL
 include ../../common/xil_app_vars.mk
 include sources.mk
 
+# Add -DSYSTEM_ZC706 for systems/zc706_imageon_(arm|mb)_xps
+# EXTRA_CC_FLAGS := -DDEMO -DSYSTEM_ZEDBOARD_IMAGEON -DSYSTEM_ZC706
 EXTRA_CC_FLAGS := -DDEMO -DSYSTEM_ZEDBOARD_IMAGEON
 
 APP_INCLUDE_DIRS := ../common

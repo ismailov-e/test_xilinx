@@ -81,16 +81,14 @@ int VectorBlox_MXP_Initialize(vbx_mxp_t* mxp, u16 device_id) {
 	mxp->dma_alignment_bytes = (short) (cfg->memory_width_bits / 8);
 	mxp->scratchpad_alignment_bytes = (short) (cfg->vector_lanes * 4);
 	mxp->vector_lanes = (short) (cfg->vector_lanes);
+	mxp->vci_enabled = (char) (cfg->vci_enabled);
 	mxp->vci_lanes = (short) (cfg->vci_lanes);
 	mxp->fxp_word_frac_bits = (char) (cfg->fxp_word_frac_bits);
 	mxp->fxp_half_frac_bits = (char) (cfg->fxp_half_frac_bits);
 	mxp->fxp_byte_frac_bits = (char) (cfg->fxp_byte_frac_bits);
 	mxp->core_freq = (int) (cfg->core_freq);
-#if __ARM_ARCH_7A__
 	mxp->instr_port_addr = (vbx_void_t *) (cfg->instr_port_addr);
-	mxp->instr_offs = 0;
 	mxp->instr_p = (uint32_t *) (cfg->instr_port_addr);
-#endif
 
 	mxp->init = (char) 0;
 	// Assuming scratchpad is in a non-cacheable region of the MicroBlaze's
@@ -126,11 +124,7 @@ VectorBlox_MXP_Config *VectorBlox_MXP_LookupConfig(u16 device_id) {
 	int i;
 	int num_instances;
 
-#if __MICROBLAZE__
 	num_instances = XPAR_VECTORBLOX_MXP_NUM_INSTANCES;
-#elif __ARM_ARCH_7A__
-	num_instances = XPAR_VECTORBLOX_MXP_ARM_NUM_INSTANCES;
-#endif
 	for (i = 0; i < num_instances; i++) {
 		if (VectorBlox_MXP_ConfigTable[i].device_id == device_id) {
 			cfg = &VectorBlox_MXP_ConfigTable[i];

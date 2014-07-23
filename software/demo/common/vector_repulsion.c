@@ -60,23 +60,29 @@ void vector_particle_vci_init()
 	int vci_lanes = this_mxp->vci_lanes;
 	int word_frac_bits = this_mxp->fxp_word_frac_bits;
 
+	if (this_mxp->vci_enabled) {
 #if __NIOS2__
 #if DSPBA_FLOATING
-	g_full_ci_offs = (70+word_frac_bits)/2;
+		g_full_ci_offs = (70+word_frac_bits)/2;
 #else
-	g_full_ci_offs = (62+word_frac_bits)/2;
+		g_full_ci_offs = (62+word_frac_bits)/2;
 #endif
-	g_custom_divide_offs = (32+1+word_frac_bits)*vci_lanes;
-	g_custom_sqrt_offs = 16*vci_lanes;
+		g_custom_divide_offs = (32+1+word_frac_bits)*vci_lanes;
+		g_custom_sqrt_offs = 16*vci_lanes;
 #else //!__NIOS2__
-	g_full_ci_offs = (94)/2;
-	// Divide and sqrt custom instrs assumed not present.
-	g_custom_divide_offs = 0;
-	g_custom_sqrt_offs = 0;
-	// TODO check offset works correctly
-	// g_custom_divide_offs = (32+1+4+word_frac_bits)*vci_lanes;
-	// g_custom_sqrt_offs = (16+word_frac_bits/2+1)*vci_lanes;
+		g_full_ci_offs = (94)/2;
+		// Divide and sqrt custom instrs assumed not present.
+		g_custom_divide_offs = 0;
+		g_custom_sqrt_offs = 0;
+		// TODO check offset works correctly
+		// g_custom_divide_offs = (32+1+4+word_frac_bits)*vci_lanes;
+		// g_custom_sqrt_offs = (16+word_frac_bits/2+1)*vci_lanes;
 #endif
+	} else {
+		g_full_ci_offs = 0;
+		g_custom_divide_offs = 0;
+		g_custom_sqrt_offs = 0;
+	}
 	vci_init_done = 1;
 }
 

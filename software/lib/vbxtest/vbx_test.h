@@ -38,13 +38,14 @@
 
 #ifndef __VBX_TEST_H
 #define __VBX_TEST_H
-
+#include "vbx.h"
+#include "vbx_port.h"
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-#include "vbx.h"
-#include "vbx_port.h"
+
+
 
 #define MAX_PRINT_LENGTH 16
 

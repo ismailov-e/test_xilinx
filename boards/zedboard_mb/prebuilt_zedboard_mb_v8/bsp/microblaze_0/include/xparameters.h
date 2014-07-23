@@ -215,7 +215,9 @@
 #define XPAR_VBX_MXP_0_MULFXP_WORD_FRACTION_BITS 16
 #define XPAR_VBX_MXP_0_MULFXP_HALF_FRACTION_BITS 15
 #define XPAR_VBX_MXP_0_MULFXP_BYTE_FRACTION_BITS 4
-#define XPAR_VBX_MXP_0_VCI_LANES 0
+#define XPAR_VBX_MXP_0_S_AXI_INSTR_BASEADDR 0xFFFFFFFF
+#define XPAR_VBX_MXP_0_ENABLE_VCI 0
+#define XPAR_VBX_MXP_0_VCI_LANES 1
 
 
 /******************************************************************/
@@ -230,18 +232,15 @@
 #define XPAR_VECTORBLOX_MXP_0_MULFXP_WORD_FRACTION_BITS 16
 #define XPAR_VECTORBLOX_MXP_0_MULFXP_HALF_FRACTION_BITS 15
 #define XPAR_VECTORBLOX_MXP_0_MULFXP_BYTE_FRACTION_BITS 4
-#define XPAR_VECTORBLOX_MXP_0_VCI_LANES 0
+#define XPAR_VECTORBLOX_MXP_0_S_AXI_INSTR_BASEADDR 0xFFFFFFFF
+#define XPAR_VECTORBLOX_MXP_0_ENABLE_VCI 0
+#define XPAR_VECTORBLOX_MXP_0_VCI_LANES 1
 
 
 /******************************************************************/
 
 /* Clock frequency for vectorblox_mxp instances */
 #define XPAR_VBX_MXP_0_CLOCK_FREQ_HZ 100000000
-
-/**************************************************************/
-
-#define XPAR_FSL_VBX_MXP_0_OUTPUT_SLOT_ID 0
-#define XPAR_FSL_VBX_MXP_0_INPUT_SLOT_ID 0
 
 /**************************************************************/
 

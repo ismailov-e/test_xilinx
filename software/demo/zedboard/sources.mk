@@ -29,3 +29,7 @@ C_SRCS += ../common/vector_repulsion.c
 C_SRCS += ../common/scalar_repulsion.c
 C_SRCS += ../common/gravity.c
 
+ifdef USE_MANDEL_CPP_JIT
+CXX_SRCS += mandelcpp.cpp
+CXX_SRCS += function_builder.cpp
+endif

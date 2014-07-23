@@ -14,19 +14,25 @@ RELEASEDIR=../../../lib
 INCLUDEDIR=../../../include
 INCLUDES=-I./. -I${INCLUDEDIR}
 
-INCLUDEFILES=*.h
+INCLUDEFILES=*.h *.hpp
 LIBSOURCES=*.c
 OUTS = *.o
 
 USE_VBXLIB_SRC := false
 
+ifeq ($(COMPILER), mb-gcc)
+VBXLIB_A := libvbxlib_mb.a
+else
+VBXLIB_A := libvbxlib_arm.a
+endif
+
 libs:
 	echo "Compiling vectorblox_mxp"
 	$(COMPILER) $(COMPILER_FLAGS) $(EXTRA_COMPILER_FLAGS) $(INCLUDES) $(LIBSOURCES)
 ifeq ($(USE_VBXLIB_SRC), false)
-	# echo "Extracting libvbxlib_mb.a members for insertion into $(LIB)"
-	# mkdir vbxlib && cd vbxlib && $(ARCHIVER) xv ../libvbxlib_mb.a
-	mkdir vbxlib && cd vbxlib && $(ARCHIVER) x ../libvbxlib_mb.a
+	# echo "Extracting $(VBXLIB_A) members for insertion into $(LIB)"
+	# mkdir vbxlib && cd vbxlib && $(ARCHIVER) xv ../$(VBXLIB_A)
+	mkdir vbxlib && cd vbxlib && $(ARCHIVER) x ../$(VBXLIB_A)
 	$(ARCHIVER) -r ${RELEASEDIR}/${LIB} vbxlib/*.o
 endif
 	$(ARCHIVER) -r ${RELEASEDIR}/${LIB} ${OUTS}

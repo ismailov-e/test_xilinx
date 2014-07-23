@@ -970,11 +970,7 @@ int vbx_test_init()
 {
 	int status;
 
-#if __MICROBLAZE__
 	u16 mxp_dev_id     = XPAR_VECTORBLOX_MXP_0_DEVICE_ID;
-#else
-	u16 mxp_dev_id     = XPAR_VECTORBLOX_MXP_ARM_0_DEVICE_ID;
-#endif
 
 #if (__ARM_ARCH_7A__ && VBX_USE_A9_PMU_TIMER)
 	u32 tmrctr_freq_hz = XPAR_CPU_CORTEXA9_0_CPU_CLK_FREQ_HZ/2;

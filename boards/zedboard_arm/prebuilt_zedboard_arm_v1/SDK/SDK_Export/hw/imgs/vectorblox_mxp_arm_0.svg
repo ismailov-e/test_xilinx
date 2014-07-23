@@ -71,7 +71,7 @@
     </g>
   </defs>
   <use xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" xlink:href="#IPD_StandardBody"/>
-  <text x="138" y="80" fill="#AA0017" stroke="none" font-size="8pt" font-style="italic" font-weight="bold" text-anchor="middle" font-family="Verdana Arial Helvetica san-serif">vectorblox_mxp_arm</text>
+  <text x="138" y="80" fill="#AA0017" stroke="none" font-size="8pt" font-style="italic" font-weight="bold" text-anchor="middle" font-family="Verdana Arial Helvetica san-serif">vectorblox_mxp</text>
   <text x="138" y="92" fill="#000000" stroke="none" font-size="8pt" font-style="italic" font-weight="bold" text-anchor="middle" font-family="Courier Arial Helvetica san-serif">vectorblox_mxp_arm_0</text>
   <use xmlns:xlink="http://www.w3.org/1999/xlink" x="40" y="24" xlink:href="#IPD_SPort"/>
   <use xmlns:xlink="http://www.w3.org/1999/xlink" x="48" y="22" xlink:href="#IPD_PortClk"/>

@@ -58,10 +58,9 @@ typedef struct {
 	u8   fxp_half_frac_bits;
 	u8   fxp_byte_frac_bits;
 	u32  core_freq;
-#if __ARM_ARCH_7A__
 	u32  instr_port_addr;
-#endif
-	u32  vci_lanes;
+	u8   vci_enabled;
+	u16  vci_lanes;
 } VectorBlox_MXP_Config;
 
 XStatus VectorBlox_MXP_SelfTest();

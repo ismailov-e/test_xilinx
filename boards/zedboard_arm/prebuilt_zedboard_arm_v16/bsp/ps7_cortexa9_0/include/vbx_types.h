@@ -130,17 +130,15 @@ typedef struct {
 	/* Fixed MXP CPU characteristics */
 	vbx_void_t  *scratchpad_addr; ///< Start address of the scratchpad memory
 	vbx_void_t  *scratchpad_end; ///< End address of the scratchpad memory
-#if __ARM_ARCH_7A__
 	vbx_void_t  *instr_port_addr;
 	uint32_t    *instr_p;
-	uint8_t     instr_offs;
-#endif
 	int         scratchpad_size; ///< Size of the scratchpad memory
 	int         core_freq; ///< MXP processor frequency
 	short       dma_alignment_bytes;
 	short       scratchpad_alignment_bytes;
 	short       vector_lanes; ///< Num of 32-bit vector lanes
 	short       vci_lanes; ///<Num of custom instruction lanes
+	char        vci_enabled;
 	char        fxp_word_frac_bits; ///< Num of fractional bit used with @ref vbx_word_t or @ref vbx_uword_t data types
 	char        fxp_half_frac_bits; ///< Num of fractional bit used with @ref vbx_half_t or @ref vbx_uhalf_t data types
 	char        fxp_byte_frac_bits; ///< Num of fractional bit used with vbx_byte_t or f vbx_ubyte_t data types
@@ -191,7 +189,8 @@ enum {
 	VCUSTOM=VCUSTOM0, ///<
 	VCUSTOM1, ///<
 	VCUSTOM2, ///<
-	VCUSTOM3 ///<
+	VCUSTOM3, ///<
+	MAX_INSTR_VAL=VCUSTOM3
 } vinstr_t;
 
 

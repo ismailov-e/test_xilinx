@@ -457,13 +457,17 @@ void buttons_init(XGpio *buttons) {
 
 	int status;
 
+#if SYSTEM_ZC706
+	status = XGpio_Initialize(buttons, XPAR_GPIO_SWS_DEVICE_ID);
+#else
 	status = XGpio_Initialize(buttons, XPAR_BTNS_5BITS_DEVICE_ID);
+#endif
 	if (XST_SUCCESS != status) {
 		xil_printf("button_init failed!\n\r");
 		return;
 	}
 
-	// Set the five Channel 1 bits to be inputs (1)
+	// Set the three/five Channel 1 bits to be inputs (1)
 	XGpio_SetDataDirection(buttons, 1, 0x1f);
 }
 
@@ -472,13 +476,17 @@ void slide_switches_init(XGpio *slide_switches) {
 
 	int status;
 
+#if SYSTEM_ZC706
+	status = XGpio_Initialize(slide_switches, XPAR_DIP_SWITCHES_4BITS_DEVICE_ID);
+#else
 	status = XGpio_Initialize(slide_switches, XPAR_SWS_8BITS_DEVICE_ID);
+#endif
 	if (XST_SUCCESS != status) {
 		xil_printf("slide_switches_init failed!\n\r");
 		return;
 	}
 
-	// Set the eight Channel 1 bits to be inputs (1)
+	// Set the four/eight Channel 1 bits to be inputs (1)
 	XGpio_SetDataDirection(slide_switches, 1, 0xff);
 }
 

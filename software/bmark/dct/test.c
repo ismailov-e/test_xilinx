@@ -65,7 +65,5 @@ int main( int argc, char *argv[] )
 	printf("\n==========================================================\n");
     VBX_TEST_END(errors);
 
-	vbxsim_destroy();
-
 	return 0;
 }

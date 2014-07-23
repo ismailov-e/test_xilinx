@@ -183,8 +183,8 @@ pixel FRAME_SCALAR[ MAX_Y_PIXELS*MAX_X_PIXELS ];
 #endif
 
 
-static int x_start, x_end;
-static int y_start, y_end;
+int x_start, x_end;
+int y_start, y_end;
 
 static int x_aspect, y_aspect;
 
@@ -1066,7 +1066,12 @@ int main(void)
 				scalar_time += scalar_mandelbrot();
 #else
 			if( vector_mode ) {
+#if USE_MANDEL_CPP_JIT
+				unsigned int vector_mandelbrot_nosplitrow_cpp(int vlen);
+				vector_time = vector_mandelbrot_nosplitrow_cpp( vlen );
+#else
 				vector_time = vector_mandelbrot_nosplitrow( vlen );
+#endif
 				if( vector_time == -1 ){
 					global_k--;
 				}

@@ -42,19 +42,23 @@ OPT_FLAGS := -O3
 # Debug opt flags:
 # OPT_FLAGS := -O0 -g3 -Wl,--no-relax
 CC_FLAGS := -Wall -c -fmessage-length=0 $(CMACRO_DEFS) $(EXTRA_CC_FLAGS)
+CXX_FLAGS := -fno-rtti -fno-exceptions $(CC_FLAGS)
 
 BSP_INC_DIR  := $(BSP_ROOT_DIR)/$(PROCESSOR_INSTANCE)/include
 BSP_LIB_DIR  := $(BSP_ROOT_DIR)/$(PROCESSOR_INSTANCE)/lib
 
 ifeq ($(PROCESSOR_TYPE), microblaze)
-CC := mb-gcc
-AR := mb-ar
-SZ := mb-size
+CROSS_COMPILER=mb
 else
-CC := arm-xilinx-eabi-gcc
-AR := arm-xilinx-eabi-ar
-SZ := arm-xilinx-eabi-size
+CROSS_COMPILER=arm-xilinx-eabi
 endif
+
+CC := $(CROSS_COMPILER)-gcc
+CXX := $(CROSS_COMPILER)-gcc -xc++
+LD := $(CROSS_COMPILER)-g++
+AR := $(CROSS_COMPILER)-ar
+SZ := $(CROSS_COMPILER)-size
+
 
 # LD_SCRIPT := lscript.ld
 LD_SCRIPT := $(PROJ_ROOT)/etc/lscript.ld
@@ -87,6 +91,6 @@ OBJ_DIR := $(OBJ_ROOT_DIR)/arm
 endif
 
 OBJS := $(addprefix $(OBJ_DIR)/,$(notdir $(patsubst %.c,%.o,$(filter %.c,$(C_SRCS)))))
-
+OBJS += $(addprefix $(OBJ_DIR)/,$(notdir $(patsubst %.cpp,%.o,$(filter %.cpp,$(CXX_SRCS)))))
 C_DEPS := $(OBJS:.o=.d)
 

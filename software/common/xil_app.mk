@@ -62,6 +62,7 @@ print_vars:
 # MAKEABLE_LIBRARY_ROOT_DIRS = ../../lib/vbxint ../../lib/vbxtest
 
 vpath %.c $(sort $(dir $(C_SRCS)))
+vpath %,cpp $(sort $(dir $(CXX_SRCS)))
 
 $(OBJ_DIR)/%.o: %.c
 	@echo Building file: $<
@@ -71,11 +72,19 @@ $(OBJ_DIR)/%.o: %.c
 	    -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o"$@" "$<"
 	@echo Finished building: $<
 	@echo ' '
+$(OBJ_DIR)/%.o: %.cpp
+	@echo Building file: $<
+	@echo Invoking: gcc compiler
+	@$(MKDIR) -p $(@D)
+	$(CXX) $(CXX_FLAGS) $(OPT_FLAGS) $(INC_DIR_FLAGS) $(CPU_FLAGS) \
+	    -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o"$@" "$<"
+	@echo Finished building: $<
+	@echo ' '
 
 $(ELF): $(OBJS) $(LD_SCRIPT) $(APP_LDDEPS)
 	@echo Building target: $@
 	@echo Invoking: gcc linker
-	$(CC) $(LD_FLAGS) $(LIB_DIR_FLAGS) $(CPU_FLAGS) -o"$@" $(OBJS) $(LIBS)
+	$(LD) $(LD_FLAGS) $(LIB_DIR_FLAGS) $(CPU_FLAGS) -o"$@" $(OBJS) $(LIBS)
 	@echo Finished building target: $@
 	@echo ' '
 
@@ -158,4 +167,3 @@ endif
 clean_all : clean clean_libs
 
 ###########################################################################
-

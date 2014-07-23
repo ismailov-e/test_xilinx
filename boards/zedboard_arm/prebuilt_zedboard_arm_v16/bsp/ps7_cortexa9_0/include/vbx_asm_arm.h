@@ -156,7 +156,7 @@ extern "C" {
 #define VBX_INSTR_QUAD(W0, W1, W2, W3) \
 	VBX_S{ \
 		uint32x4_t __v__; \
-		volatile uint32_t *__p__ = (vbx_mxp_ptr->instr_p); \
+		volatile uint32_t *__p__ = (volatile uint32_t *) (vbx_mxp_ptr->instr_p); \
 		__v__ = vdupq_n_u32(0); \
 		__v__ = vsetq_lane_u32((uint32_t) (W0), __v__, 0); \
 		__v__ = vsetq_lane_u32((uint32_t) (W1), __v__, 1); \
@@ -169,7 +169,7 @@ extern "C" {
 #define VBX_INSTR_DOUBLE(W0, W1) \
 	VBX_S{ \
 		uint32x2_t __v__; \
-		volatile uint32_t *__p__ = (vbx_mxp_ptr->instr_p); \
+		volatile uint32_t *__p__ = (volatile uint32_t *) (vbx_mxp_ptr->instr_p); \
 		__v__ = vdup_n_u32(0); \
 		__v__ = vset_lane_u32((uint32_t) (W0), __v__, 0); \
 		__v__ = vset_lane_u32((uint32_t) (W1), __v__, 1); \
@@ -181,7 +181,7 @@ extern "C" {
 
 #define VBX_INSTR_QUAD(W0, W1, W2, W3) \
 	VBX_S{ \
-		volatile uint32_t *__p__ = (vbx_mxp_ptr->instr_p); \
+		volatile uint32_t *__p__ = (volatile uint32_t *) (vbx_mxp_ptr->instr_p); \
 		*__p__++ = (uint32_t) (W0); \
 		*__p__++ = (uint32_t) (W1); \
 		*__p__++ = (uint32_t) (W2); \
@@ -191,7 +191,7 @@ extern "C" {
 
 #define VBX_INSTR_DOUBLE(W0, W1) \
 	VBX_S{ \
-		volatile uint32_t *__p__ = (vbx_mxp_ptr->instr_p); \
+		volatile uint32_t *__p__ = (volatile uint32_t *) (vbx_mxp_ptr->instr_p); \
 		*__p__++ = (uint32_t) (W0); \
 		*__p__++ = (uint32_t) (W1); \
 		__p__ += 2; \
@@ -202,7 +202,7 @@ extern "C" {
 
 #define VBX_INSTR_SINGLE(W0, RETURN_VAR) \
 	VBX_S{ \
-		volatile uint32_t *__p__ = (vbx_mxp_ptr->instr_p); \
+		volatile uint32_t *__p__ = (volatile uint32_t *) (vbx_mxp_ptr->instr_p); \
 		*__p__++ = (uint32_t) (W0); \
 		(RETURN_VAR) = *__p__++; \
 		__p__ += 2; \
@@ -222,7 +222,7 @@ extern "C" {
 #define VBX_INSTR_QUAD(W0, W1, W2, W3) \
 	VBX_S{ \
 		uint32x4_t __v__; \
-		volatile uint32_t *__p__ = (VBX_INSTR_PORT_ADDR); \
+		volatile uint32_t *__p__ = (volatile uint32_t *) (VBX_INSTR_PORT_ADDR); \
 		__v__ = vdupq_n_u32(0); \
 		__v__ = vsetq_lane_u32((uint32_t) (W0), __v__, 0); \
 		__v__ = vsetq_lane_u32((uint32_t) (W1), __v__, 1); \
@@ -234,7 +234,7 @@ extern "C" {
 #define VBX_INSTR_DOUBLE(W0, W1) \
 	VBX_S{ \
 		uint32x2_t __v__; \
-		volatile uint32_t *__p__ = (VBX_INSTR_PORT_ADDR); \
+		volatile uint32_t *__p__ = (volatile uint32_t *) (VBX_INSTR_PORT_ADDR); \
 		__v__ = vdup_n_u32(0); \
 		__v__ = vset_lane_u32((uint32_t) (W0), __v__, 0); \
 		__v__ = vset_lane_u32((uint32_t) (W1), __v__, 1); \

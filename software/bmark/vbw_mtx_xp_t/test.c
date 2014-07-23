@@ -182,6 +182,7 @@ int main(void)
 	vbx_dma_to_vector( v_in, vector_in, M*N*sizeof(vbx_sp_t) );
 	vector_time = test_vector_xp( v_out, v_in, M, N, scalar_time );
 	vbx_dma_to_host( vector_out, v_out, M*N*sizeof(vbx_sp_t) );
+	vbx_sync();
 	VBX_T(test_print_matrix)( vector_out, PRINT_COLS, PRINT_ROWS, M );
 
 	errors += VBX_T(test_verify_array)( scalar_out, vector_out, M*N );
@@ -190,6 +191,7 @@ int main(void)
 	vbx_dma_to_vector( v_in, vector_in, M*N*sizeof(vbx_sp_t) );
 	vector_time = test_vector_xp_square( v_out, v_in, M, scalar_time );
 	vbx_dma_to_host( vector_out, v_out, M*N*sizeof(vbx_sp_t) );
+	vbx_sync();
 	VBX_T(test_print_matrix)( vector_out, PRINT_COLS, PRINT_ROWS, M );
 
 	errors += VBX_T(test_verify_array)( scalar_out, vector_out, M*N );

@@ -500,7 +500,7 @@ void loop_demo(demo_t *pDemo)
 
 	vbx_mxp_t *this_mxp = VBX_GET_THIS_MXP();
 	const int vector_lanes = this_mxp->vector_lanes;
-	const int vci_lanes = this_mxp->vci_lanes;
+	const int vci_lanes = (this_mxp->vci_enabled) ? this_mxp->vci_lanes : 0;
 	const int image_width = IMAGE_WIDTH;
 	const int image_height = IMAGE_HEIGHT;
 

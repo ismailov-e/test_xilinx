@@ -192,36 +192,13 @@ vbx_void_t *vbx_sp_malloc_extra( size_t num_bytes);
 void        vbx_sp_free_extra( vbx_void_t *old_sp );
 
 #if VBX_ASSEMBLER
-#if __NIOS2__
 // Dummy calls (only used for the simulator)
-// first, force these function prototypes to inline, even if the gcc optimizer is off
-inline void vbxsim_init( int num_lanes,
-                  int scratchpad_capacity_kb ,
-                  int fxp_word_frac_bits,
-                  int fxp_half_frac_bits,
-                  int fxp_byte_frac_bits)__attribute__((always_inline));
-
-inline void vbxsim_destroy() __attribute__((always_inline));
-// second, define the inline functions; 'extern' ensures there no addressable/linkable function body is created
-extern inline void vbxsim_init( int num_lanes,
-                  int scratchpad_capacity_kb ,
-                  int fxp_word_frac_bits,
-                  int fxp_half_frac_bits,
-                  int fxp_byte_frac_bits)
-{ }
-extern inline void vbxsim_destroy()
-{ }
-#else // __MICROBLAZE__ or ARM on Zynq
-
-#include "vbx_extern.h"
-
-// XXX The inline function declarations cause problems with mb-gcc when
-// vbx_api.c and vbx_lib.c are compiled into the same library, possibly
-// because both files include this header file.
-// For now, replacing the functions with empty macros.
-#define vbxsim_init(num_lanes, scratchpad_capacity_kb) do{}while(0)
+#define vbxsim_init(num_lanes, \
+                    scratchpad_capacity_kb,	\
+                    fxp_word_frac_bits,	\
+                    fxp_half_frac_bits,	\
+                    fxp_byte_frac_bits) do{}while(0)
 #define vbxsim_destroy() do{}while(0)
-#endif
 #endif // VBX_ASSEMBLER
 
 #if VBX_SIMULATOR

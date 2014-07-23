@@ -601,7 +601,7 @@ vbx_get_3D( &amp;numMats, &amp;incDest3, &amp;incSrcA3, &amp;incSrcB3 );</code><
 <li><p>For normal vector (i.e., 1D) operations, the <em>unsigned</em> <code>vl</code> parameter to the <code>vbx_set_vl()</code> function specifies the length of a vector in units of elements.</p></li>
 <li><p>For 2D and 3D operations, the <em>signed</em> parameters <code>incDest2</code>, <code>incDest3</code>, <code>incSrcA2</code>, <code>incSrcA3</code>, <code>incSrcB2</code>, and <code>incSrcB3</code> are specified in units of bytes, not elements. These represent the stride, or distance in bytes, between one row to the next row (2D), or between one matrix to the next matrix (3D).</p></li>
 </ul>
-<p>The 2D matrix operations are performed on rows of vectors, where each vector represents one row. The <em>unsigned</em> <code>numRows</code> parameter specifies the number of rows for which the vector operation should be repeated. While a 2D instruction is being executed, the destination initially specified by <code>dest</code> will be incremented by the amount <code>incDest1</code> after each row is completed. Hence, the <code>incDest2</code> value indicates the number of bytes per row in the destination matrix. It is quite common for the vector length (which is specified in units of elements, not bytes), to match the increment amount (after correcting for data size). However, it is also perfectly valid to use a longer or shorter vector length than the increment amount. For example, this behaviour can be used to implement a sliding-window effect, or to operate on a sub-matrix.</p>
+<p>The 2D matrix operations are performed on rows of vectors, where each vector represents one row. The <em>unsigned</em> <code>numRows</code> parameter specifies the number of rows for which the vector operation should be repeated. While a 2D instruction is being executed, the destination initially specified by <code>dest</code> will be incremented by the amount <code>incDest2</code> after each row is completed. Hence, the <code>incDest2</code> value indicates the number of bytes per row in the destination matrix. It is quite common for the vector length (which is specified in units of elements, not bytes), to match the increment amount (after correcting for data size). However, it is also perfectly valid to use a longer or shorter vector length than the increment amount. For example, this behaviour can be used to implement a sliding-window effect, or to operate on a sub-matrix.</p>
 <p>Likewise, after each row, the <code>srcA</code> operand will be internally incremented by the amount <code>incSrcA2</code>, and the <code>srcB</code> will be internally incremented by the amount <code>incSrcB2</code>.</p>
 <p>Note that after the 2D instruction has finished executing, its actual operands, namely <code>dest</code>, <code>srcA</code> and <code>srcB</code>, are left unmodified.</p>
 <p>For example, the following 2D program fragment adds two matrices: An equivalent C program would be:</p>
@@ -656,10 +656,10 @@ vbx_3D( VVH, VADD, vdest, vsrc1, vsrc2 );</code></pre>
 
 vbx_dma_to_vector( scratchPtr, hostPtr, numBytes );
 
-vbx_dma_to_host_2D( hostPtr, scratchPtr, rowLengthBytes, numRows, 
+vbx_dma_to_host_2D( hostPtr, scratchPtr, rowLengthBytes, numRows,
                     hostInc, scratchInc );
 
-vbx_dma_to_vector_2D( scratchPtr, hostPtr, rowLengthBytes, numRows, 
+vbx_dma_to_vector_2D( scratchPtr, hostPtr, rowLengthBytes, numRows,
                       scratchInc, hostInc );
 
 vbx_sync();</code></pre>
@@ -808,9 +808,25 @@ vbx_dma_to_vector( v_a0, a, M*<span class="kw">sizeof</span>(vbx_word_t) );
 <div class="figure">
 <img src="images/double_buffer.png" alt="Communication and computation over time with no overlap" /><p class="caption">Communication and computation over time with no overlap</p>
 </div>
-<h1 id="vbx_port_lib"><span class="header-section-number">5</span> VBX Portability Library</h1>
+<h1 id="vbx_rtc"><span class="header-section-number">5</span> Runtime Checks</h1>
+<p>The VBX API supports checking parameters given to the api calls. The checks are enabled at compile time, using the following defines:</p>
+<pre class="sourceCode c"><code class="sourceCode c">VBX_RTC_ALL
+VBX_RTC_NONE
+VBX_RTC_SP_BOUNDS
+VBX_RTC_COP_FWD
+VBX_RTC_DMA
+VBX_RTC_VEC_LEN</code></pre>
+<p>The first macros , when defined, overide the other four, but cannot be both defined.</p>
+<ul>
+<li><p><code>VBX_RTC_SP_BOUNDS</code> when calling vbx*() warn if vectors extend outside of scratchpad</p></li>
+<li><p><code>VBX_RTC_COP_FWD</code> when calling vbx*() warn if there exists a copy forward hazard</p></li>
+<li><p><code>VBX_RTC_DMA</code> when calling vbx_dma*() warn if host buffer overlaps without the scratchpad or the vector buffer extends outside of the scratchpad</p></li>
+<li><p><code>VBX_RTC_VEC_LEN</code> When calling <code>vbx_set_vl()</code>, <code>vbx_set_2D()</code>, or <code>vbx_set_3D()</code> make sure the sizes don't exceed the size of the scratchpad</p></li>
+</ul>
+<p>If it is your intent to violate one of these warnings, and you want to suppress them for brief periods, you can suppress/express them at runtime. Using <code>SUPPRESS_RT_CHECK( check )</code> or <code>EXPRESS_RT_CHECK( check )</code> respectively, where <code>check</code> is one of <code>RT_CHECK_SP_BOUND</code> , <code>RT_CHECK_COP_FWD</code>, <code>RT_CHECK_DMA</code>, <code>RT_CHECK_VEC_LEN</code>, or <code>RT_CHECK_ALL</code>.</p>
+<h1 id="vbx_port_lib"><span class="header-section-number">6</span> VBX Portability Library</h1>
 <p>Vectorblox provides a selection of functions defined in vbx_port.h to provide portability between the ARM cortex-A9, Nios II and Microblaze processors. The functions provided fall into two categories; <a href="#port_timing">Timing</a> and <a href="#port_cache">Cache Management</a></p>
-<h2 id="port_timing"><span class="header-section-number">5.1</span> Timing</h2>
+<h2 id="port_timing"><span class="header-section-number">6.1</span> Timing</h2>
 <p>The Timing functions are as follows:</p>
 <pre class="sourceCode c"><code class="sourceCode c"><span class="dt">int</span> vbx_timestamp_start();
 
@@ -821,7 +837,7 @@ vbx_timestamp_t vbx_timestamp();</code></pre>
 <p><code>vbx_timestamp_start()</code> Resets the counter to zero and starts the timer running.</p>
 <p><code>vbx_timestamp_freq()</code> Returns the frequency of the timer tick in Hz</p>
 <p><code>vbx_timestamp()</code> Returns the current value of timer.</p>
-<h3 id="timestamp-example"><span class="header-section-number">5.1.1</span> Timestamp Example</h3>
+<h3 id="timestamp-example"><span class="header-section-number">6.1.1</span> Timestamp Example</h3>
 <pre class="sourceCode c"><code class="sourceCode c">
 <span class="ot">#include &lt;stdio.h&gt;</span>
 <span class="ot">#include &quot;vbx_port.h&quot;</span>
@@ -851,7 +867,7 @@ vbx_timestamp_t vbx_timestamp();</code></pre>
     printf(<span class="st">&quot;Took %u timer ticks -&gt; %f ms</span><span class="ch">\n</span><span class="st">&quot;</span> , end-start, milliseconds);
     <span class="kw">return</span> <span class="dv">0</span>;
 }</code></pre>
-<h2 id="port_cache"><span class="header-section-number">5.2</span> Cache Management</h2>
+<h2 id="port_cache"><span class="header-section-number">6.2</span> Cache Management</h2>
 <p>The cache management functions are as follows:</p>
 <pre class="sourceCode c"><code class="sourceCode c">
 <span class="dt">volatile</span> <span class="dt">void</span>* vbx_uncached_malloc(<span class="dt">unsigned</span> size);
@@ -873,9 +889,9 @@ vbx_timestamp_t vbx_timestamp();</code></pre>
 <span class="dt">volatile</span> <span class="dt">void</span>* vbx_remap_uncached_flush(<span class="dt">void</span>* ptr,<span class="dt">unsigned</span> len);</code></pre>
 <p>The MXP cannot directly read the CPU cache, so it must read and write to main memory instead. This means that the programmer must used uncached memory, or flush the data from the cache before doing DMA or reading from the scratchpad. Use <code>vbx_uncached_malloc()</code> or <code>vbx_uncached_alloca()</code> in place of <code>malloc()</code> and <code>alloca</code> respectively to get pointers to uncached buffers. Use the <code>vbx_flush_*()</code> to flush the cache. <code>vbx_remap_cached(ptr)</code> returns an uncached pointer to the same data as <code>ptr</code>. To get an uncached pointer and flush the cache at the same time, use `vbx_uncached_flush();</p>
 <p>Note That in order to use either the timestamp functions or the cache management functions, you have to include <code>vbx_port.h</code></p>
-<h1 id="vbxware"><span class="header-section-number">6</span> VBXware Library</h1>
+<h1 id="vbxware"><span class="header-section-number">7</span> VBXware Library</h1>
 <p>The VBXware library is an example library showing advanced use of the VBX API .The VBXware library can be used for illustrative purposes, or used directly in user applications.</p>
-<h2 id="vbxware_functionality"><span class="header-section-number">6.1</span> VBXware Functionality</h2>
+<h2 id="vbxware_functionality"><span class="header-section-number">7.1</span> VBXware Functionality</h2>
 <p>The VBXware library provides the following functionality:</p>
 <ul>
 <li><p>Fixed Point Math</p></li>
@@ -892,9 +908,9 @@ vbx_timestamp_t vbx_timestamp();</code></pre>
 <li><p>Vector Reversal</p></li>
 </ul>
 <p>For further information on this the VBXware library, see the documentation.</p>
-<h2 id="vbx_templates"><span class="header-section-number">6.2</span> VBXware Templates</h2>
+<h2 id="vbx_templates"><span class="header-section-number">7.2</span> VBXware Templates</h2>
 <p>Many of the functions in the VBXware libraries use the template engine. The VBX temperate engine makes it easy to create functions for all six vector types: word, half, byte, uword, uhalf and ubyte.</p>
-<h3 id="summary"><span class="header-section-number">6.2.1</span> Summary</h3>
+<h3 id="summary"><span class="header-section-number">7.2.1</span> Summary</h3>
 <p>In a nutshell the templating engine does the following:</p>
 <pre class="sourceCode c"><code class="sourceCode c">VBX_T(vbw_vec_add)(); -&gt; vbx_vec_add_word();
                       -&gt; vbx_vec_add_half();
@@ -916,7 +932,7 @@ vbx_timestamp_t vbx_timestamp();</code></pre>
       -&gt; SVBU</code></pre>
 <p>And so on...</p>
 <p>After including the relevant files all of the vbx_vec_add_*() functions are defined, and can therefore be called.</p>
-<h3 id="explanation"><span class="header-section-number">6.2.2</span> Explanation</h3>
+<h3 id="explanation"><span class="header-section-number">7.2.2</span> Explanation</h3>
 <p>The mechanics of how to set up your code to use this is somewhat complicated. To explain further how this works, let us look for a moment at the addition example located in the VBXware directory in the files vbw_add_t.* and vbw_add_all.*</p>
 <p>vbw_vec_add_all.c:</p>
 <pre class="sourceCode c"><code class="sourceCode c">    <span class="ot">#define VBX_TEMPLATE_T VBX_BYTESIZE_DEF</span>

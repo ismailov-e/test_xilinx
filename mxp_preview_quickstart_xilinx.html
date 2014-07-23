@@ -56,8 +56,8 @@ p {
 <h2 id="prerequisites"><span class="header-section-number">1.1</span> Prerequisites</h2>
 <p>Before you begin, make sure you have:</p>
 <ul>
-<li><p>Installed Xilinx ISE 14.7 or later.</p></li>
-<li><p>Installed and tested the Digilent USB-JTAG drivers.</p></li>
+<li><p>Installed Xilinx ISE 14.7 or Vivado 2013.4.</p></li>
+<li><p>Installed and tested the Digilent USB-JTAG drivers (if using ISE).</p></li>
 <li><p>A supported development board/kit. See the contents of <code>TOPDIR/boards/</code></p></li>
 <li><p>Connected your development board to your computer via USB cable and turned the board on.</p></li>
 <li><p>Configured your development board so that FPGA bitstreams and software ELF files can be downloaded via JTAG. For example, on the ZedBoard, the jumpers for MIO[6:2] should all be tied low.</p></li>
@@ -65,8 +65,9 @@ p {
 <h2 id="compiling-and-running-a-test-program"><span class="header-section-number">1.2</span> Compiling and Running a Test Program</h2>
 <ol style="list-style-type: decimal">
 <li><p><strong>Start a Command Shell.</strong></p>
-<p>In Windows, select <strong>Start Menu</strong> <span class="math"> → </span> <strong>All Programs</strong> <span class="math"> → </span> <strong>Xilinx Design Tools</strong> <span class="math"> → </span> <strong>ISE Design Suite</strong> <span class="math"> → </span> <strong>Accessories</strong> <span class="math"> → </span> <strong>ISE Design Suite 32/64 Bit Command Prompt</strong>.</p>
-<p>In Linux, open a terminal and run the appropriate <code>settings{32,64}.{sh,csh}</code> script in the root of your Xilinx ISE_DS installation. (Select 32 or 64 depending on whether you want to use the 32-bit or 64-bit versions of the tools, and select sh or csh depending on whether you are using a Bourne-style shell, such as sh or bash, or a C Shell, such as csh or tcsh.) This sets up the proper environment variables for using the Xilinx development tools.</p></li>
+<p>If using Windows and ISE, select <strong>Start Menu</strong> <span class="math"> → </span> <strong>All Programs</strong> <span class="math"> → </span> <strong>Xilinx Design Tools</strong> <span class="math"> → </span> <strong>ISE Design Suite</strong> <span class="math"> → </span> <strong>Accessories</strong> <span class="math"> → </span> <strong>ISE Design Suite 32/64 Bit Command Prompt</strong>.</p>
+<p>If using Windows and Vivado, open a Command Prompt (e.g. go to the <strong>Start Menu</strong>, then type <code>cmd.exe</code> in the &quot;Search program and files&quot; box), change to the Vivado installation directory (e.g. <code>C:\Xilinx\Vivado\2013.4</code>), then run either <code>settings32.bat</code> or <code>settings64.bat</code> depending on whether you are using a 32-bit or 64-bit version of Windows.</p>
+<p>In Linux, open a terminal and run the appropriate <code>settings{32,64}.{sh,csh}</code> script in the root of your Xilinx ISE_DS or Vivado installation. (Select 32 or 64 depending on whether you want to use the 32-bit or 64-bit versions of the tools, and select sh or csh depending on whether you are using a Bourne-style shell, such as sh or bash, or a C Shell, such as csh or tcsh.) This sets up the proper environment variables for using the Xilinx development tools.</p></li>
 <li><p>Navigate to one of the prebuilt VectorBlox MXP systems for your development board, located in <code>TOPDIR/boards/&lt;board_name&gt;/prebuilt_*</code>.</p>
 <p>For example, for the ZedBoard, change directory to <code>TOPDIR/boards/zedboard_arm/prebuilt_zedboard_arm_v16</code> for a 16-lane MXP system.</p></li>
 <li><p>Store the path to the directory in a shell variable. In Linux, assuming you are using a Bourne-style shell such as <code>sh</code> or <code>bash</code>, use</p>
@@ -84,7 +85,7 @@ p {
 <p>After a long list of messages and a few seconds, the file <strong>test.elf</strong> should have been created.</p>
 <p>Note that we used the <code>clean_all</code> target first to ensure that any libraries that might have been compiled against a different BSP in the past were cleaned and re-compiled. If you know that the libraries were already compiled for the selected BSP, you can omit the <code>clean_all</code> target.</p></li>
 <li><p><strong>Program the FPGA.</strong></p>
-<p>We provide a make target to program the FPGA with XMD or iMPACT. In Linux, use</p>
+<p>We provide a make target to program the FPGA with XMD. In Linux, use</p>
 <pre><code>make pgm PROJ_ROOT=$PROJ_ROOT</code></pre>
 <p>In Windows, use</p>
 <pre><code>make pgm PROJ_ROOT=%PROJ_ROOT%</code></pre></li>
